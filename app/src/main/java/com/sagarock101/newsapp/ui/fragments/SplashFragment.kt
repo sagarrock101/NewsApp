@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavGraph
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomnavigation.BottomNavigationMenu
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sagarock101.newsapp.R
 import com.sagarock101.newsapp.databinding.FragmentSplashBinding
 import java.lang.Exception
@@ -24,7 +26,9 @@ class SplashFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentSplashBinding.inflate(inflater)
+        (activity)?.findViewById<BottomNavigationView>(R.id.btm_nav)?.visibility = View.GONE
         Handler(Looper.getMainLooper()).postDelayed(Runnable {
+            (activity)?.findViewById<BottomNavigationView>(R.id.btm_nav)?.visibility = View.VISIBLE
             navigateToNewsHeadlines()
         }, 1000)
         return binding.root

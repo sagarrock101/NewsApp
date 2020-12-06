@@ -10,7 +10,9 @@
         android:label="SplashFragment">
         <action
             android:id="@+id/action_splashFragment_to_newsHeadlinesFragment3"
-            app:destination="@id/navigation_news_headlines" />
+            app:destination="@id/navigation_news_headlines"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <include
