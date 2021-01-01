@@ -4,6 +4,13 @@ plugins {
     id 'kotlin-kapt'
 }
 
+apply plugin : 'kotlin-kapt'
+
+def apikeyPropertiesFile = rootProject.file("local.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
@@ -13,9 +20,11 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        buildConfigField("String", "NEWS_API_KEY", apikeyProperties["NEWS_API_KEY"])
     }
 
     buildTypes {
@@ -36,6 +45,7 @@ android {
     }
     buildFeatures {
         dataBinding true
+
     }
 }
 
@@ -54,9 +64,21 @@ dependencies {
     api "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
     api "com.google.dagger:dagger:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+    api "com.google.dagger:dagger-android:$dagger_version"
+    api "com.google.dagger:dagger-android-support:$dagger_version"
     api 'com.squareup.okhttp3:okhttp:4.7.2'
     api "com.squareup.retrofit2:retrofit:$retrofit_version"
     api "com.squareup.retrofit2:retrofit: $retrofit_version"
     api 'com.google.code.gson:gson:2.8.6'
     api "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    api "com.facebook.stetho:stetho:$stetho_version"
+    api "com.facebook.stetho:stetho-okhttp3:$stetho_version"
+    api "androidx.multidex:multidex:$multidex_version"
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+    api "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
+    api "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
+    api 'com.jakewharton.timber:timber:4.7.1'
+    api "androidx.multidex:multidex:$multidex_version"
+
 }

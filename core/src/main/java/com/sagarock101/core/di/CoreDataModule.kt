@@ -1,7 +1,10 @@
 package com.sagarock101.core.di
 
+import com.facebook.stetho.Stetho
+import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.Gson
 import com.sagarock101.common.BuildConfig
+import com.sagarock101.core.utils.InterceptorWithApiKey
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -31,5 +34,17 @@ class CoreDataModule {
         .client(okhttpClient)
         .addConverterFactory(converterFactory)
         .build()
+
+
+    @Provides
+    fun provideApiInterceptor(): InterceptorWithApiKey {
+        return InterceptorWithApiKey(BuildConfig.NEWS_API_KEY)
+    }
+
+    @Provides
+    fun provideOkhttpClient(interceptorWithApiKey: InterceptorWithApiKey): OkHttpClient {
+        return OkHttpClient().newBuilder().addInterceptor(interceptorWithApiKey).addNetworkInterceptor(StethoInterceptor()).build()
+    }
+
 }
 
