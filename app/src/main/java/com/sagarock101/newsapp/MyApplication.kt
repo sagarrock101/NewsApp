@@ -4,15 +4,19 @@ import android.content.Context
 import androidx.multidex.MultiDex
 import com.facebook.stetho.Stetho
 import com.sagarock101.newsapp.di.AppInjector
+import com.sagarock101.newsapp.di.DaggerApplicationComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasAndroidInjector
+import javax.inject.Inject
 
-class MyApplication: DaggerApplication() {
+class MyApplication: DaggerApplication(), HasAndroidInjector {
 
-//    @Inject
-//    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
 //
-//    override fun androidInjector() = dispatchingAndroidInjector
+    override fun androidInjector() = dispatchingAndroidInjector
 
 
     override fun onCreate() {
@@ -22,7 +26,7 @@ class MyApplication: DaggerApplication() {
     }
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication>? {
-        return null
+        return DaggerApplicationComponent.builder().application(this).build()
     }
 
 
@@ -30,6 +34,7 @@ class MyApplication: DaggerApplication() {
         super.attachBaseContext(base)
         MultiDex.install(this)
     }
+
 
 
 }

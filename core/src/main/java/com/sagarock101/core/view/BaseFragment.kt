@@ -11,11 +11,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.sagarock101.core.view.BaseActivity
+import dagger.android.support.DaggerFragment
 
 /**
  * Created by Anil Gudigar on 25,September,2020
  */
-abstract class BaseFragment : Fragment() {
+abstract class BaseFragment : DaggerFragment() {
 
     companion object {
         var TAG = "BaseFragment"

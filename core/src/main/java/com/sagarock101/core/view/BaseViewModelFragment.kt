@@ -1,8 +1,3 @@
-/*
- *  Copyright (c) 2020. Embibe.  All rights reserved
- *
- */
-
 package com.embibe.core.view
 
 import android.app.Activity
@@ -14,11 +9,12 @@ import android.view.inputmethod.InputMethodManager
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.sagarock101.core.viewmodel.BaseViewModel
+import com.sagarock101.core.viewmodel.CoroutineViewModel
 
 /**
  * Created by Anil Gudigar on 25,September,2020
  */
-abstract class BaseViewModelFragment<B : ViewDataBinding, VM : BaseViewModel> : BaseFragment() {
+abstract class BaseViewModelFragment<B : ViewDataBinding, VM : CoroutineViewModel> : BaseFragment() {
 
     protected lateinit var binding: B
     protected lateinit var viewModel: VM

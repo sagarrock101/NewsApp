@@ -12,13 +12,23 @@ import androidx.navigation.NavGraph
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationMenu
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.sagarock101.core.di.ViewModelFactory
+import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.newsapp.R
 import com.sagarock101.newsapp.databinding.FragmentSplashBinding
+import com.sagarock101.newsheadlines.viewmodel.NewsHeadlinesViewModel
+import dagger.android.support.DaggerFragment
 import java.lang.Exception
+import javax.inject.Inject
 
-class SplashFragment : Fragment() {
+class SplashFragment : DaggerFragment() {
 
     lateinit var binding: FragmentSplashBinding
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+
+    lateinit var viewModel: NewsHeadlinesViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,6 +36,7 @@ class SplashFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentSplashBinding.inflate(inflater)
+        viewModel = injectViewModel(viewModelFactory)
         (activity)?.findViewById<BottomNavigationView>(R.id.btm_nav)?.visibility = View.GONE
         Handler(Looper.getMainLooper()).postDelayed(Runnable {
             (activity)?.findViewById<BottomNavigationView>(R.id.btm_nav)?.visibility = View.VISIBLE

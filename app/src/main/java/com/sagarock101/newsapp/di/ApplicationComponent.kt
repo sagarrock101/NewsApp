@@ -3,21 +3,26 @@ package com.sagarock101.newsapp.di
 import android.app.Application
 import com.sagarock101.core.di.CoreDataModule
 import com.sagarock101.newsapp.MyApplication
+import com.sagarock101.newsapp.ui.activities.MainActivity
+import com.sagarock101.newsheadlines.di.FragmentBuildersModule
 import com.sagarock101.newsheadlines.di.NewsHeadlinesModule
-import dagger.Binds
+import com.sagarock101.newsheadlines.di.NewsViewModelModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
+import dagger.android.HasAndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
 @Singleton
 @Component(
     modules = [
-    AndroidSupportInjectionModule::class,
-    CoreDataModule::class,
-    NewsHeadlinesModule::class,
-    ActivityBuildersModule::class
+        AndroidSupportInjectionModule::class,
+        ActivityBuildersModule::class,
+        NewsHeadlinesModule::class,
+        CoreDataModule::class,
+        ViewModelModule::class,
+        NewsViewModelModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<MyApplication> {
@@ -31,4 +36,5 @@ interface ApplicationComponent : AndroidInjector<MyApplication> {
     }
 
     override fun inject(application: MyApplication)
+
 }

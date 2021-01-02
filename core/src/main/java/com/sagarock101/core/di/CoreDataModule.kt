@@ -15,17 +15,17 @@ import javax.inject.Singleton
 @Module
 class CoreDataModule {
 
-    @Provides
     @Singleton
+    @Provides
     fun provideGson(): Gson = Gson()
 
-    @Provides
     @Singleton
+    @Provides
     fun provideGsonConverterFactory(gson: Gson): GsonConverterFactory =
         GsonConverterFactory.create(gson)
 
-    @Provides
     @Singleton
+    @Provides
     fun provideRetrofit(
         okhttpClient: OkHttpClient,
         converterFactory: GsonConverterFactory
