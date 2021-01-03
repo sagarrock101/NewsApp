@@ -7,6 +7,7 @@ import com.sagarock101.core.view.BaseViewModelFragment
 import com.sagarock101.core.data.DataWrapper
 import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.core.interfaces.Injectable
+import com.sagarock101.core.utilities.SnapHelper
 import com.sagarock101.core.utilities.Utils
 import com.sagarock101.newsheadlines.R
 import com.sagarock101.newsheadlines.data.NewsHeadlinesRepo
@@ -43,9 +44,11 @@ class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding
 
                 }
                 DataWrapper.Status.SUCCESS -> {
+                    val snapHelper = SnapHelper()
                     binding.rvNews.adapter = TopHeadlinesAdapter().apply {
                         setItems(it.data?.articles as MutableList<Articles>)
                     }
+                    snapHelper.attachToRecyclerView(binding.rvNews)
                 }
                 DataWrapper.Status.ERROR -> {
                     it.message?.let { it1 -> Utils.showToast(requireContext(), it1) }
