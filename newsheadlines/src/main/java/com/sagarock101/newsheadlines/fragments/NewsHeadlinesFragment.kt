@@ -12,27 +12,18 @@ import com.sagarock101.core.utilities.Utils
 import com.sagarock101.newsheadlines.R
 import com.sagarock101.newsheadlines.data.NewsHeadlinesRepo
 import com.sagarock101.newsheadlines.databinding.FragmentNewsHeadlinesBinding
+import com.sagarock101.newsheadlines.interfaces.OnClickRvItemListener
 import com.sagarock101.newsheadlines.model.Articles
 import com.sagarock101.newsheadlines.ui.adapter.TopHeadlinesAdapter
 import com.sagarock101.newsheadlines.viewmodel.NewsHeadlinesViewModel
 import javax.inject.Inject
 
-class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding, NewsHeadlinesViewModel>(), Injectable {
+class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding, NewsHeadlinesViewModel>(), Injectable, OnClickRvItemListener {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    @Inject
-    lateinit var string: String
-
-    @Inject
-    lateinit var newsHeadlinesRepo: NewsHeadlinesRepo
-
     override fun getLayout() = R.layout.fragment_news_headlines
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun initView() {
         viewModel = injectViewModel(viewModelFactory)
@@ -47,6 +38,7 @@ class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding
                     val snapHelper = SnapHelper()
                     binding.rvNews.adapter = TopHeadlinesAdapter().apply {
                         setItems(it.data?.articles as MutableList<Articles>)
+                        listener = this@NewsHeadlinesFragment
                     }
                     snapHelper.attachToRecyclerView(binding.rvNews)
                 }
@@ -55,6 +47,10 @@ class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding
                 }
             }
         })
+    }
+
+    override fun onClick(data: Any?) {
+
     }
 
 }
