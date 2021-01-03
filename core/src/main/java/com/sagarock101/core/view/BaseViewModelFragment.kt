@@ -1,4 +1,4 @@
-package com.embibe.core.view
+package com.sagarock101.core.view
 
 import android.app.Activity
 import android.os.Bundle
@@ -8,12 +8,9 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.sagarock101.core.viewmodel.BaseViewModel
+import com.embibe.core.view.BaseFragment
 import com.sagarock101.core.viewmodel.CoroutineViewModel
 
-/**
- * Created by Anil Gudigar on 25,September,2020
- */
 abstract class BaseViewModelFragment<B : ViewDataBinding, VM : CoroutineViewModel> : BaseFragment() {
 
     protected lateinit var binding: B

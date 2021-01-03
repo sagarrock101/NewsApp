@@ -26,8 +26,11 @@ class NewsHeadlinesModule {
 
     @Singleton
     @Provides
-    fun provideNewsRemoteDataSource(newsHeadlinesService: NewsHeadlinesService) = NewsHeadLinesRemoteSource(newsHeadlinesService)
+    fun provideNewsRemoteDataSource(newsHeadlinesService: NewsHeadlinesService) : NewsHeadLinesRemoteSource {
+       return NewsHeadLinesRemoteSource(newsHeadlinesService)
+    }
 
     @Provides
     fun getString() = "s"
+
 }

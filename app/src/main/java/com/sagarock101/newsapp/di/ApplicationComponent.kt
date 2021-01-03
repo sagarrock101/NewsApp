@@ -20,7 +20,6 @@ import javax.inject.Singleton
         AndroidSupportInjectionModule::class,
         ActivityBuildersModule::class,
         NewsHeadlinesModule::class,
-        CoreDataModule::class,
         ViewModelModule::class,
         NewsViewModelModule::class
     ]

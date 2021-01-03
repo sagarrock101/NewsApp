@@ -5,5 +5,5 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 
 inline fun <reified T: ViewModel> Fragment.injectViewModel(factory: ViewModelProvider.Factory): T {
-    return ViewModelProvider(requireActivity()).get(T::class.java)
+    return ViewModelProvider(requireActivity(), factory).get(T::class.java)
 }

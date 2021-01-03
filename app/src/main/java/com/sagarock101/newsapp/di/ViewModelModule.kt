@@ -8,7 +8,7 @@ import dagger.Binds
 import dagger.Module
 
 
-@Module
+@Module(includes = [NewsViewModelModule::class])
 abstract class ViewModelModule {
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

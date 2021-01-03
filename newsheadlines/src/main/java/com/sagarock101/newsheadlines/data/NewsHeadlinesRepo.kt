@@ -6,8 +6,10 @@ import com.sagarock101.core.data.resultLiveData
 import com.sagarock101.newsheadlines.data.remote.NewsHeadLinesRemoteSource
 import com.sagarock101.newsheadlines.model.NewsHeadLines
 import javax.inject.Inject
+import javax.inject.Singleton
 
-class  NewsHeadlinesRepo @Inject constructor(private val remoteSource: NewsHeadLinesRemoteSource) {
+@Singleton
+class NewsHeadlinesRepo @Inject constructor(private val remoteSource: NewsHeadLinesRemoteSource) {
 
     fun getNewsHeadlines(country: String): LiveData<DataWrapper<NewsHeadLines>> {
         return resultLiveData {

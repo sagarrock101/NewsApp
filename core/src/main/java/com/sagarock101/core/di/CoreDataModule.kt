@@ -1,10 +1,9 @@
 package com.sagarock101.core.di
 
-import com.facebook.stetho.Stetho
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.Gson
 import com.sagarock101.common.BuildConfig
-import com.sagarock101.core.utils.InterceptorWithApiKey
+import com.sagarock101.core.utilities.InterceptorWithApiKey
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

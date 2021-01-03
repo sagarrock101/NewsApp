@@ -1,6 +1,6 @@
 package com.sagarock101.newsheadlines.data.remote
 
-import com.sagarock101.core.utils.BaseDataSource
+import com.sagarock101.core.utilities.BaseDataSource
 import javax.inject.Inject
 
 class NewsHeadLinesRemoteSource @Inject constructor(private val newsHeadlinesService: NewsHeadlinesService):

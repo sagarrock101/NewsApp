@@ -4,13 +4,13 @@ import android.app.Activity
 import android.app.Application
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import com.sagarock101.core.interfaces.Injectable
 import com.sagarock101.newsapp.MyApplication
 import dagger.android.AndroidInjection
 import dagger.android.HasAndroidInjector
 import dagger.android.support.AndroidSupportInjection
+import dagger.android.support.DaggerAppCompatActivity
 
 /**
  * Helper class to automatically inject fragments if they implement [Injectable].
@@ -52,7 +52,7 @@ object AppInjector {
         if (activity is HasAndroidInjector) {
             AndroidInjection.inject(activity)
         }
-        if (activity is FragmentActivity) {
+        if (activity is DaggerAppCompatActivity) {
             activity.supportFragmentManager
                 .registerFragmentLifecycleCallbacks(
                     object : FragmentManager.FragmentLifecycleCallbacks() {

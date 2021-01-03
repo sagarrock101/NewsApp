@@ -1,47 +1,57 @@
 package com.sagarock101.newsheadlines.fragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import com.embibe.core.view.BaseViewModelFragment
+import com.sagarock101.core.view.BaseViewModelFragment
+import com.sagarock101.core.data.DataWrapper
 import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.core.interfaces.Injectable
+import com.sagarock101.core.utilities.Utils
 import com.sagarock101.newsheadlines.R
+import com.sagarock101.newsheadlines.data.NewsHeadlinesRepo
 import com.sagarock101.newsheadlines.databinding.FragmentNewsHeadlinesBinding
+import com.sagarock101.newsheadlines.model.Articles
+import com.sagarock101.newsheadlines.ui.adapter.TopHeadlinesAdapter
 import com.sagarock101.newsheadlines.viewmodel.NewsHeadlinesViewModel
 import javax.inject.Inject
 
-class NewsHeadlinesFragment : Fragment() {
+class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding, NewsHeadlinesViewModel>(), Injectable {
 
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    lateinit var binding: FragmentNewsHeadlinesBinding
+    @Inject
+    lateinit var string: String
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentNewsHeadlinesBinding.inflate(inflater)
-        binding.btnCheck.setOnClickListener {
-            findNavController().navigate(R.id.action_newsHeadlinesFragment_to_newsDetailFragment)
-        }
-        return binding.root
+    @Inject
+    lateinit var newsHeadlinesRepo: NewsHeadlinesRepo
+
+    override fun getLayout() = R.layout.fragment_news_headlines
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
     }
 
-//    override fun bindView(inflater: LayoutInflater, container: ViewGroup?): View {
-//
-//    }
+    override fun initView() {
+        viewModel = injectViewModel(viewModelFactory)
+        viewModel.getNewsHeadLines()
+        binding.vm = viewModel
+        viewModel.newsHeadLinesLD.observe(viewLifecycleOwner, Observer {
+            when(it.status) {
+                DataWrapper.Status.LOADING -> {
 
-//    override fun getLayout() = R.layout.fragment_news_headlines
-//
-//    override fun initView() {
-//        viewModel = injectViewModel(viewModelFactory)
-//        binding.btnCheck.setOnClickListener {
-//            findNavController().navigate(R.id.action_newsHeadlinesFragment_to_newsDetailFragment)
-//        }
-//    }
+                }
+                DataWrapper.Status.SUCCESS -> {
+                    binding.rvNews.adapter = TopHeadlinesAdapter().apply {
+                        setItems(it.data?.articles as MutableList<Articles>)
+                    }
+                }
+                DataWrapper.Status.ERROR -> {
+                    it.message?.let { it1 -> Utils.showToast(requireContext(), it1) }
+                }
+            }
+        })
+    }
+
 }

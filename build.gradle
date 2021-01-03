@@ -7,6 +7,7 @@ buildscript {
         retrofit_version = "2.9.0"
         stetho_version = "1.5.1"
         multidex_version = "2.0.1"
+        intuit_sdp_version = "1.0.6"
     }
     repositories {
         google()
