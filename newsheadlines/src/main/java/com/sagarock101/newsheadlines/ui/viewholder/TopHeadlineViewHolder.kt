@@ -13,7 +13,7 @@ class TopHeadlineViewHolder(val binding: ItemNewsCardBinding)
     override fun bind(item: Articles) {
         binding.article = item
         itemView.setOnClickListener {
-            listener?.onClick(item)
+            listener?.onClick(item, binding)
         }
     }
 
