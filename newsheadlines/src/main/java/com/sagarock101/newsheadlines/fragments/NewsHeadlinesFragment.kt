@@ -59,7 +59,6 @@ class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding
             setItems(it.data?.articles as MutableList<Articles>)
             listener = this@NewsHeadlinesFragment
         }
-        binding.rvNews.onFlingListener = null
         snapHelper.attachToRecyclerView(binding.rvNews)
     }
 
