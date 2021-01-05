@@ -1,12 +1,14 @@
 package com.sagarock101.newsheadlines.fragments
 
-import android.os.Build
 import android.os.Bundle
-import android.transition.TransitionInflater
-import androidx.annotation.RequiresApi
+import android.view.View
+import androidx.core.view.doOnPreDraw
+import androidx.transition.TransitionInflater
 import androidx.lifecycle.ViewModelProvider
-import com.sagarock101.core.view.BaseViewModelFragment
+import androidx.transition.ChangeBounds
+import androidx.transition.Transition
 import com.sagarock101.core.di.injectViewModel
+import com.sagarock101.core.view.BaseViewModelFragment
 import com.sagarock101.newsheadlines.R
 import com.sagarock101.newsheadlines.databinding.FragmentNewsDetailBinding
 import com.sagarock101.newsheadlines.viewmodel.NewsHeadlinesViewModel
@@ -19,17 +21,21 @@ class NewsDetailFragment : BaseViewModelFragment<FragmentNewsDetailBinding, News
 
     override fun getLayout() = R.layout.fragment_news_detail
 
-    @RequiresApi(Build.VERSION_CODES.KITKAT)
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
-    }
-
-    override fun initView() {
+    override fun initView(view: View) {
+        val animation = TransitionInflater.from(context).inflateTransition(com.sagarock101.stylekit.R.transition.shared_element_transition)
+        sharedElementEnterTransition = animation
+        sharedElementReturnTransition = animation
         viewModel = injectViewModel(viewModelFactory)
-
-//        if(arguments != null) {
-//            binding.imgUrl = arguments?.getString("imgUrl") ?: ""
-//        }
+        if(arguments != null) {
+            binding.imgUrl = arguments?.getString("imgUrl") ?: ""
+        }
+        binding.ivNewsImg.transitionName = "news"
     }
+
+    private fun enterTransition(): Transition? {
+        val bounds = ChangeBounds()
+        bounds.duration = 2000
+        return bounds
+    }
+
 }

@@ -21,7 +21,7 @@
             android:src="@drawable/ic_news"
             app:imgSrc="@{article.urlToImage}"
             android:scaleType="centerCrop"
-            android:transitionName="news_img"
+            android:transitionName="news"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -37,12 +37,12 @@ abstract class BaseViewModelFragment<B : ViewDataBinding, VM : CoroutineViewMode
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         readBundle()
-        initView()
+        initView(view)
     }
 
     abstract fun getLayout(): Int
 
-    abstract fun initView()
+    abstract fun initView(view: View)
 
     protected fun readBundle() {
         bundle = this.arguments
