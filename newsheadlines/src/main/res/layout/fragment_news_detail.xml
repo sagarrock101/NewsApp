@@ -15,8 +15,6 @@
             android:id="@+id/iv_news_img"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_500sdp"
-            android:transitionName="news"
-            app:imgSrc="@{imgUrl}"
             android:scaleType="centerCrop"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -2,6 +2,7 @@ package com.sagarock101.newsheadlines.fragments
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.ViewCompat
 import androidx.core.view.doOnPreDraw
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -51,9 +52,7 @@ class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding
             }
         })
         postponeEnterTransition()
-        view.doOnPreDraw {
-            startPostponedEnterTransition()
-        }
+        view.doOnPreDraw { startPostponedEnterTransition() }
     }
 
     private fun attachSnapToRvWithData(it: DataWrapper<NewsHeadLines>) {
@@ -63,15 +62,24 @@ class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding
             var extras: FragmentNavigator.Extras? = null
             bundle.apply {
                 putString("imgUrl", data.urlToImage)
+                putString("title", data.title)
             }
             extras = FragmentNavigatorExtras(
-                imageView to "news"
+                imageView to ViewCompat.getTransitionName(imageView)!!
             )
             findNavController().navigate(R.id.action_newsHeadlinesFragment_to_newsDetailFragment, bundle, null, extras)
         }.apply {
             setItems(it.data?.articles as MutableList<Articles>)
         }
         snapHelper.attachToRecyclerView(binding.rvNews)
+//        binding.rvNews.apply {
+//            postponeEnterTransition()
+//            viewTreeObserver
+//                .addOnPreDrawListener {
+//                    startPostponedEnterTransition()
+//                    true
+//                }
+//        }
     }
 
 //    override fun onClick(data: Any?, imageView: ImageView) {

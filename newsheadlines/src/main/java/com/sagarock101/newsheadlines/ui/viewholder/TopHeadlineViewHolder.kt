@@ -3,6 +3,7 @@ package com.sagarock101.newsheadlines.ui.viewholder
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.core.view.ViewCompat
 import com.sagarock101.core.viewholder.BaseViewHolder
 import com.sagarock101.newsheadlines.R
 import com.sagarock101.newsheadlines.databinding.ItemNewsCardBinding
@@ -14,6 +15,7 @@ class TopHeadlineViewHolder(val binding: ItemNewsCardBinding)
     var onItemClick: ((ImageView, Articles) -> Unit)? = null
     override fun bind(item: Articles) {
         binding.article = item
+        ViewCompat.setTransitionName(binding.ivNewsImg, item.title)
         itemView.setOnClickListener {
             onItemClick?.invoke(binding.ivNewsImg, item)
         }
