@@ -51,8 +51,6 @@ class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding
                 }
             }
         })
-        postponeEnterTransition()
-        view.doOnPreDraw { startPostponedEnterTransition() }
     }
 
     private fun attachSnapToRvWithData(it: DataWrapper<NewsHeadLines>) {
@@ -67,19 +65,19 @@ class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding
             extras = FragmentNavigatorExtras(
                 imageView to ViewCompat.getTransitionName(imageView)!!
             )
-            findNavController().navigate(R.id.action_newsHeadlinesFragment_to_newsDetailFragment, bundle, null, extras)
+         findNavController().navigate(R.id.action_newsHeadlinesFragment_to_newsDetailFragment, bundle, null, extras)
         }.apply {
             setItems(it.data?.articles as MutableList<Articles>)
         }
         snapHelper.attachToRecyclerView(binding.rvNews)
-//        binding.rvNews.apply {
-//            postponeEnterTransition()
-//            viewTreeObserver
-//                .addOnPreDrawListener {
-//                    startPostponedEnterTransition()
-//                    true
-//                }
-//        }
+        binding.rvNews.apply {
+            postponeEnterTransition()
+            viewTreeObserver
+                .addOnPreDrawListener {
+                    startPostponedEnterTransition()
+                    true
+                }
+        }
     }
 
 //    override fun onClick(data: Any?, imageView: ImageView) {

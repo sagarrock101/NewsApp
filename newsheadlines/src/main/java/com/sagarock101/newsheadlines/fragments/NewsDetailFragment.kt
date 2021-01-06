@@ -23,13 +23,14 @@ class NewsDetailFragment :
 
     override fun initView(view: View) {
         val animation =
-            TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+            TransitionInflater.from(context)
+                .inflateTransition(R.transition.shared_element_transition)
         sharedElementEnterTransition = animation
-//        sharedElementReturnTransition = animation
         viewModel = injectViewModel(viewModelFactory)
         if (arguments != null) {
             val requestOptions = RequestOptions().dontTransform()
-            Glide.with(binding.ivNewsImg).load(arguments?.getString("imgUrl")).apply(requestOptions).into(binding.ivNewsImg)
+            Glide.with(binding.ivNewsImg).load(arguments?.getString("imgUrl")).apply(requestOptions)
+                .into(binding.ivNewsImg)
             ViewCompat.setTransitionName(binding.ivNewsImg, arguments?.getString("title") ?: "")
         }
 
