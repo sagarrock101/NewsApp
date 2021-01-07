@@ -11,10 +11,10 @@
         <action
             android:id="@+id/action_newsHeadlinesFragment_to_newsDetailFragment"
             app:destination="@id/newsDetailFragment"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/nav_default_pop_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_exit_anim"
-            app:popExitAnim="@anim/fragment_open_exit" />
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/newsDetailFragment"

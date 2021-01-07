@@ -31,6 +31,7 @@
             tools:listitem="@layout/item_news_card"
             android:orientation="horizontal"
             android:visibility="visible"
+            android:textAlignment="center"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

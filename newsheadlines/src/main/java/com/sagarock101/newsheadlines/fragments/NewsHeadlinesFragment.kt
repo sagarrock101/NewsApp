@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import androidx.transition.TransitionInflater
 import com.sagarock101.core.data.DataWrapper
 import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.core.interfaces.Injectable
@@ -34,6 +35,7 @@ class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding
         super.onCreate(savedInstanceState)
         viewModel = injectViewModel(viewModelFactory)
         viewModel.getNewsHeadLines()
+
     }
 
     override fun initView(view: View) {
@@ -80,19 +82,13 @@ class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding
         }
     }
 
-//    override fun onClick(data: Any?, imageView: ImageView) {
-//        val bundle = Bundle()
-//        var extras: FragmentNavigator.Extras? = null
-//        if(data is Articles ) {
-//            bundle.apply {
-//                putString("imgUrl", data.urlToImage)
-//            }
-//            extras = FragmentNavigatorExtras(
-//                imageView to "news"
-//            )
-//        }
-//        findNavController().navigate(R.id.action_newsHeadlinesFragment_to_newsDetailFragment, bundle, null, extras)
-//    }
+    private fun setExitToFullScreenTransition() {
+        exitTransition =
+            TransitionInflater.from(context).inflateTransition(R.transition.doggo_list_exit_transition)
+    }
 
-
+    private fun setReturnFromFullScreenTransition() {
+        reenterTransition =
+            TransitionInflater.from(context).inflateTransition(R.transition.doggo_list_return_transition)
+    }
 }
