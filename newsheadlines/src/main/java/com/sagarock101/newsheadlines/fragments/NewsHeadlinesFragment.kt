@@ -61,8 +61,8 @@ class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding
             val bundle = Bundle()
             var extras: FragmentNavigator.Extras? = null
             bundle.apply {
-                putString("imgUrl", data.urlToImage)
-                putString("title", data.title)
+                putString(getString(R.string.img_url), data.urlToImage)
+                putString(getString(R.string.title), data.title)
             }
             extras = FragmentNavigatorExtras(
                 imageView to ViewCompat.getTransitionName(imageView)!!
@@ -82,13 +82,4 @@ class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding
         }
     }
 
-    private fun setExitToFullScreenTransition() {
-        exitTransition =
-            TransitionInflater.from(context).inflateTransition(R.transition.doggo_list_exit_transition)
-    }
-
-    private fun setReturnFromFullScreenTransition() {
-        reenterTransition =
-            TransitionInflater.from(context).inflateTransition(R.transition.doggo_list_return_transition)
-    }
 }
