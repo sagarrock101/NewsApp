@@ -38,17 +38,32 @@ class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        binding.shimmer.startShimmer()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        binding.shimmer.stopShimmer()
+    }
+
     override fun initView(view: View) {
         binding.vm = viewModel
         viewModel.newsHeadLinesLD.observe(viewLifecycleOwner, Observer {
             when(it.status) {
                 DataWrapper.Status.LOADING -> {
-
+                    binding.shimmer.startShimmer()
                 }
                 DataWrapper.Status.SUCCESS -> {
+                    binding.shimmer.stopShimmer()
+                    binding.shimmer.visibility = View.GONE
+                    binding.rvNews.visibility = View.VISIBLE
                     attachSnapToRvWithData(it)
                 }
                 DataWrapper.Status.ERROR -> {
+                    binding.shimmer.stopShimmer()
+                    binding.shimmer.visibility = View.GONE
                     it.message?.let { it1 -> Utils.showToast(requireContext(), it1) }
                 }
             }

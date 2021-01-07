@@ -12,17 +12,40 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/iv_img"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_100sdp"
-            android:src="@drawable/ic_news"
-            android:transitionName="news"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_300sdp"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            app:layout_constraintTop_toTopOf="@id/rv_news"
+            app:layout_constraintBottom_toBottomOf="@id/rv_news"
+            app:layout_constraintStart_toStartOf="@id/rv_news"
+            app:layout_constraintEnd_toEndOf="@id/rv_news"
+            >
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               >
+               <include layout="@layout/shimmer_layout_news_card"/>
+               <include layout="@layout/shimmer_layout_news_card"/>
+               <include layout="@layout/shimmer_layout_news_card"/>
+               <include layout="@layout/shimmer_layout_news_card"/>
+               <include layout="@layout/shimmer_layout_news_card"/>
+               <include layout="@layout/shimmer_layout_news_card"/>
+               <include layout="@layout/shimmer_layout_news_card"/>
+               <include layout="@layout/shimmer_layout_news_card"/>
+               <include layout="@layout/shimmer_layout_news_card"/>
+               <include layout="@layout/shimmer_layout_news_card"/>
+               <include layout="@layout/shimmer_layout_news_card"/>
+               <include layout="@layout/shimmer_layout_news_card"/>
+               <include layout="@layout/shimmer_layout_news_card"/>
+               <include layout="@layout/shimmer_layout_news_card"/>
+               <include layout="@layout/shimmer_layout_news_card"/>
+           </LinearLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_news"
@@ -30,7 +53,7 @@
             android:layout_height="wrap_content"
             tools:listitem="@layout/item_news_card"
             android:orientation="horizontal"
-            android:visibility="visible"
+            android:visibility="invisible"
             android:textAlignment="center"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"

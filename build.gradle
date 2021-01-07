@@ -8,6 +8,7 @@ buildscript {
         stetho_version = "1.5.1"
         multidex_version = "2.0.1"
         intuit_sdp_version = "1.0.6"
+        shimmer_version = "0.5.0"
     }
     repositories {
         google()
