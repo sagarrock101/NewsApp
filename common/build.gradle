@@ -6,6 +6,7 @@ plugins {
 
 apply plugin : 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: 'org.jetbrains.kotlin.android.extensions'
 
 def apikeyPropertiesFile = rootProject.file("local.properties")
 def apikeyProperties = new Properties()

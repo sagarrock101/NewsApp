@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/newsHeadlinesFragment"
-        android:name="com.sagarock101.newsheadlines.fragments.NewsHeadlinesFragment"
+        android:name="com.sagarock101.newsheadlines.ui.fragments.NewsHeadlinesFragment"
         android:label="NewsHeadlinesFragment" >
         <action
             android:id="@+id/action_newsHeadlinesFragment_to_newsDetailFragment"
@@ -16,12 +16,11 @@
     </fragment>
     <fragment
         android:id="@+id/newsDetailFragment"
-        android:name="com.sagarock101.newsheadlines.fragments.NewsDetailFragment"
+        android:name="com.sagarock101.newsheadlines.ui.fragments.NewsDetailFragment"
         android:label="NewsDetailFragment" >
         <argument
-            android:name="Title"
-            app:argType="string"
-            app:nullable="true"
-            android:defaultValue='""' />
+            android:name="article"
+            app:argType="com.sagarock101.newsheadlines.model.Articles"
+            app:nullable="true" />
     </fragment>
 </navigation>

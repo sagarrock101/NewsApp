@@ -1,15 +1,13 @@
-package com.sagarock101.newsheadlines.fragments
+package com.sagarock101.newsheadlines.ui.fragments
 
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.ViewCompat
-import androidx.core.view.doOnPreDraw
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
-import androidx.transition.TransitionInflater
 import com.sagarock101.core.data.DataWrapper
 import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.core.interfaces.Injectable
@@ -35,7 +33,6 @@ class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding
         super.onCreate(savedInstanceState)
         viewModel = injectViewModel(viewModelFactory)
         viewModel.getNewsHeadLines()
-
     }
 
     override fun onResume() {
@@ -72,17 +69,14 @@ class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding
 
     private fun attachSnapToRvWithData(it: DataWrapper<NewsHeadLines>) {
         val snapHelper = SnapHelper()
+        var extras: FragmentNavigator.Extras?
         binding.rvNews.adapter = TopHeadlinesAdapter() { imageView, data ->
-            val bundle = Bundle()
-            var extras: FragmentNavigator.Extras? = null
-            bundle.apply {
-                putString(getString(R.string.img_url), data.urlToImage)
-                putString(getString(R.string.title), data.title)
-            }
+            val directions = NewsHeadlinesFragmentDirections.actionNewsHeadlinesFragmentToNewsDetailFragment(data)
             extras = FragmentNavigatorExtras(
                 imageView to ViewCompat.getTransitionName(imageView)!!
             )
-         findNavController().navigate(R.id.action_newsHeadlinesFragment_to_newsDetailFragment, bundle, null, extras)
+         findNavController().navigate(directions,
+             extras ?: FragmentNavigatorExtras())
         }.apply {
             setItems(it.data?.articles as MutableList<Articles>)
         }

@@ -1,7 +1,8 @@
-package com.sagarock101.newsheadlines.fragments
+package com.sagarock101.newsheadlines.ui.fragments
 
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import androidx.transition.TransitionInflater
 import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.core.view.BaseViewModelFragment
@@ -16,6 +17,8 @@ class NewsDetailFragment :
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    private val args: NewsDetailFragmentArgs by navArgs()
 
     override fun getLayout() = R.layout.fragment_news_detail
 
@@ -34,11 +37,12 @@ class NewsDetailFragment :
 
     private fun startEnterTransitionAfterLoadingImage() {
         binding.ivNewsImg.apply {
-            transitionName = arguments?.getString(getString(R.string.title)) ?: ""
-            startTransitionAfterImageLoad(arguments?.getString(getString(R.string.img_url)) ?: "") {
+            transitionName = args?.article?.title ?: ""
+            startTransitionAfterImageLoad(args?.article?.urlToImage ?: "") {
                 startPostponedEnterTransition()
             }
         }
+        binding.tvDesc.text = args?.article?.content
     }
 
 }

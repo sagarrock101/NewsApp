@@ -1,6 +1,8 @@
 package com.sagarock101.newsheadlines.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 /*
 Copyright (c) 2020 Kotlin Data Classes Generated from JSON powered by http://www.json2kotlin.com
@@ -13,8 +15,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
+@Parcelize
 data class Articles (
-
 	@SerializedName("source") val source : Source,
 	@SerializedName("author") val author : String,
 	@SerializedName("title") val title : String,
@@ -23,4 +25,4 @@ data class Articles (
 	@SerializedName("urlToImage") val urlToImage : String,
 	@SerializedName("publishedAt") val publishedAt : String,
 	@SerializedName("content") val content : String
-)
+) : Parcelable
