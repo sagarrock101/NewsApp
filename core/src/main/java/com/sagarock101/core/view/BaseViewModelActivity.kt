@@ -1,16 +1,10 @@
-/*
- *  Copyright (c) 2020. Embibe.  All rights reserved
- *
- */
-
-package com.embibe.core.view
+package com.sagarock101.core.view
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import com.sagarock101.core.data.DataWrapper
-import com.sagarock101.core.view.BaseActivity
 import com.sagarock101.core.viewmodel.BaseViewModel
 import dagger.android.DispatchingAndroidInjector
 import javax.inject.Inject
