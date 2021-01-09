@@ -73,10 +73,11 @@ class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding
     private fun attachSnapToRvWithData(it: DataWrapper<NewsHeadLines>) {
         val snapHelper = SnapHelper()
         var extras: FragmentNavigator.Extras?
-        binding.rvNews.adapter = TopHeadlinesAdapter() { imageView, data ->
+        binding.rvNews.adapter = TopHeadlinesAdapter() { imageView, textView,  data ->
             val directions = NewsHeadlinesFragmentDirections.actionNewsHeadlinesFragmentToNewsDetailFragment(data)
             extras = FragmentNavigatorExtras(
-                imageView to ViewCompat.getTransitionName(imageView)!!
+                imageView to ViewCompat.getTransitionName(imageView)!!,
+                textView to ViewCompat.getTransitionName(textView)!!
             )
          findNavController().navigate(directions,
              extras ?: FragmentNavigatorExtras())

@@ -43,8 +43,9 @@ class NewsDetailFragment :
 
     private fun startEnterTransitionAfterLoadingImage() {
         binding.article = args.article
+        binding.tvTitle.transitionName = args?.article?.title ?: ""
         binding.ivNewsImg.apply {
-            transitionName = args?.article?.title ?: ""
+            transitionName = args?.article?.urlToImage ?: ""
             startTransitionAfterImageLoad(args?.article?.urlToImage ?: "") {
                 startPostponedEnterTransition()
             }
