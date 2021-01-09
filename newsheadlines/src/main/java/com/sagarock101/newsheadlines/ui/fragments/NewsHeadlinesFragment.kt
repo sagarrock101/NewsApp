@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import com.sagarock101.core.bindings.removeTransparentStatusBar
 import com.sagarock101.core.data.DataWrapper
 import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.core.interfaces.Injectable
@@ -20,6 +21,7 @@ import com.sagarock101.newsheadlines.model.Articles
 import com.sagarock101.newsheadlines.model.NewsHeadLines
 import com.sagarock101.newsheadlines.ui.adapter.TopHeadlinesAdapter
 import com.sagarock101.newsheadlines.viewmodel.NewsHeadlinesViewModel
+import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
 class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding, NewsHeadlinesViewModel>(), Injectable {
@@ -46,6 +48,7 @@ class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding
     }
 
     override fun initView(view: View) {
+        (activity as DaggerAppCompatActivity).removeTransparentStatusBar()
         binding.vm = viewModel
         viewModel.newsHeadLinesLD.observe(viewLifecycleOwner, Observer {
             when(it.status) {

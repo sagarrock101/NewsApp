@@ -83,6 +83,7 @@ dependencies {
     api 'com.jakewharton.timber:timber:4.7.1'
     api "androidx.multidex:multidex:$multidex_version"
     api "com.intuit.sdp:sdp-android:$intuit_sdp_version"
+    api "com.intuit.ssp:ssp-android:$intuit_sdp_version"
 
     api 'com.github.bumptech.glide:glide:4.11.0'
     kapt 'com.github.bumptech.glide:compiler:4.11.0'

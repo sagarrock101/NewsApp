@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="vm"
             type="com.sagarock101.newsheadlines.viewmodel.NewsHeadlinesViewModel" />
@@ -12,47 +13,51 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
             android:layout_width="match_parent"
-            android:layout_height="?android:attr/actionBarSize"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize">
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:fontFamily="@font/potta_one_regular"
+                    android:text="@string/newsapp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_20ssp" />
+            </Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
 
         <com.facebook.shimmer.ShimmerFrameLayout
             android:id="@+id/shimmer"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_300sdp"
-            android:orientation="vertical"
             android:layout_gravity="center"
-            app:layout_constraintTop_toTopOf="@id/rv_news"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@id/rv_news"
-            app:layout_constraintStart_toStartOf="@id/rv_news"
             app:layout_constraintEnd_toEndOf="@id/rv_news"
-            >
-           <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:orientation="horizontal"
-               >
-               <include layout="@layout/shimmer_layout_news_card"/>
-               <include layout="@layout/shimmer_layout_news_card"/>
-               <include layout="@layout/shimmer_layout_news_card"/>
-               <include layout="@layout/shimmer_layout_news_card"/>
-               <include layout="@layout/shimmer_layout_news_card"/>
-               <include layout="@layout/shimmer_layout_news_card"/>
-               <include layout="@layout/shimmer_layout_news_card"/>
-               <include layout="@layout/shimmer_layout_news_card"/>
-               <include layout="@layout/shimmer_layout_news_card"/>
-               <include layout="@layout/shimmer_layout_news_card"/>
-               <include layout="@layout/shimmer_layout_news_card"/>
-               <include layout="@layout/shimmer_layout_news_card"/>
-               <include layout="@layout/shimmer_layout_news_card"/>
-               <include layout="@layout/shimmer_layout_news_card"/>
-               <include layout="@layout/shimmer_layout_news_card"/>
-           </LinearLayout>
+            app:layout_constraintStart_toStartOf="@id/rv_news"
+            app:layout_constraintTop_toTopOf="@id/rv_news">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <include layout="@layout/shimmer_layout_news_card" />
+
+                <include layout="@layout/shimmer_layout_news_card" />
+
+                <include layout="@layout/shimmer_layout_news_card" />
+            </LinearLayout>
 
         </com.facebook.shimmer.ShimmerFrameLayout>
 
@@ -60,15 +65,14 @@
             android:id="@+id/rv_news"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/item_news_card"
             android:orientation="horizontal"
-            android:visibility="invisible"
             android:textAlignment="center"
+            android:visibility="invisible"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            />
+            tools:listitem="@layout/item_news_card" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
