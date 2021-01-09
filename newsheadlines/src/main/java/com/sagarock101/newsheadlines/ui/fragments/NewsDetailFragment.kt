@@ -42,13 +42,13 @@ class NewsDetailFragment :
     }
 
     private fun startEnterTransitionAfterLoadingImage() {
+        binding.article = args.article
         binding.ivNewsImg.apply {
             transitionName = args?.article?.title ?: ""
             startTransitionAfterImageLoad(args?.article?.urlToImage ?: "") {
                 startPostponedEnterTransition()
             }
         }
-        binding.tvDesc.text = args?.article?.content
     }
 
 }

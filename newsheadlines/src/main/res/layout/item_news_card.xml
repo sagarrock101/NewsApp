@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="article"
             type="com.sagarock101.newsheadlines.model.Articles" />
@@ -14,48 +15,59 @@
         android:layout_height="@dimen/_350sdp"
         android:layout_margin="@dimen/_8sdp">
 
+
         <ImageView
             android:id="@+id/iv_news_img"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:imgSrc="@{article.urlToImage}"
-            android:scaleType="centerCrop"
             android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
             android:src="@drawable/ic_news"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:imgSrc="@{article.urlToImage}"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:targetApi="lollipop" />
 
         <View
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/black_rounded_bg"
             android:alpha="0.15"
-            app:layout_constraintTop_toTopOf="@id/iv_news_img"
-            app:layout_constraintStart_toStartOf="@id/iv_news_img"
-            app:layout_constraintEnd_toEndOf="@id/iv_news_img"
+            android:background="@drawable/black_rounded_bg"
             app:layout_constraintBottom_toBottomOf="@id/iv_news_img"
-            />
+            app:layout_constraintEnd_toEndOf="@id/iv_news_img"
+            app:layout_constraintStart_toStartOf="@id/iv_news_img"
+            app:layout_constraintTop_toTopOf="@id/iv_news_img" />
 
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/_16ssp"
             android:layout_marginStart="@dimen/_12sdp"
-            tools:text="@string/hello_i_am_news"
+            android:elegantTextHeight="true"
             android:text="@{article.title}"
             android:textColor="@color/white"
+            android:textSize="@dimen/_16ssp"
             android:textStyle="bold"
-            android:elegantTextHeight="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintVertical_bias="0.9"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/iv_news_img" />
+            app:layout_constraintTop_toTopOf="@+id/iv_news_img"
+            app:layout_constraintVertical_bias="0.9"
+            tools:text="@string/hello_i_am_news" />
+
+        <ImageView
+            android:id="@+id/iv_selector"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="?android:attr/selectableItemBackground"
+            app:layout_constraintTop_toTopOf="@id/iv_news_img"
+            app:layout_constraintStart_toStartOf="@id/iv_news_img"
+            app:layout_constraintBottom_toBottomOf="@id/iv_news_img"
+            app:layout_constraintEnd_toEndOf="@id/iv_news_img"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
