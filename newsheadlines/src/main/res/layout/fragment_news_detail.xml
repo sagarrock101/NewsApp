@@ -32,6 +32,7 @@
                 android:layout_height="wrap_content"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
+
                 <ImageView
                     android:id="@+id/iv_news_img"
                     android:layout_width="match_parent"
@@ -44,8 +45,19 @@
                 <com.google.android.material.appbar.MaterialToolbar
                     android:layout_width="wrap_content"
                     android:layout_height="?attr/actionBarSize"
+                    android:layout_marginStart="-10dp"
+                    android:layout_marginTop="@dimen/_12sdp"
                     android:layout_marginBottom="@dimen/_40sdp"
-                    app:layout_collapseMode="pin" />
+                    app:layout_collapseMode="pin">
+                    <ImageView
+                        android:id="@+id/iv_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleX="1.2"
+                        android:scaleY="1.2"
+                        style="@style/ripple_glow_with_padding"
+                        android:src="@drawable/ic_baseline_arrow_back_24" />
+                </com.google.android.material.appbar.MaterialToolbar>
             </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>
 

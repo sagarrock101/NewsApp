@@ -4,8 +4,11 @@ import android.view.View
 import android.view.WindowManager
 import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.transition.TransitionInflater
+import com.google.android.material.appbar.AppBarLayout
 import com.sagarock101.core.bindings.setTransparentStatusBar
 import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.core.utilities.Utils
@@ -18,7 +21,7 @@ import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
 class NewsDetailFragment :
-    BaseViewModelFragment<FragmentNewsDetailBinding, NewsHeadlinesViewModel>() {
+    BaseViewModelFragment<FragmentNewsDetailBinding, NewsHeadlinesViewModel>(), View.OnClickListener, AppBarLayout.OnOffsetChangedListener {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -35,10 +38,7 @@ class NewsDetailFragment :
         sharedElementEnterTransition = animation
         postponeEnterTransition()
         viewModel = injectViewModel(viewModelFactory)
-        if (arguments != null) {
-            startEnterTransitionAfterLoadingImage()
-        }
-
+        startEnterTransitionAfterLoadingImage()
     }
 
     private fun startEnterTransitionAfterLoadingImage() {
@@ -50,6 +50,22 @@ class NewsDetailFragment :
                 startPostponedEnterTransition()
             }
         }
+        binding.ivBack.setOnClickListener(this)
+        binding.appBar.addOnOffsetChangedListener(this)
+    }
+
+    override fun onClick(v: View?) {
+        when(v) {
+            binding.ivBack -> {
+                findNavController().popBackStack()
+            }
+        }
+    }
+
+    override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
+        if(verticalOffset == 0)
+            binding.ivBack.visibility = View.GONE
+        else binding.ivBack.visibility = View.VISIBLE
     }
 
 }

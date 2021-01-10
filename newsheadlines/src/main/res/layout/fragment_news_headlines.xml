@@ -34,7 +34,7 @@
                     android:fontFamily="@font/potta_one_regular"
                     android:text="@string/newsapp"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_20ssp" />
+                    android:textSize="@dimen/_16ssp" />
             </Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
 
