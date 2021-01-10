@@ -10,8 +10,10 @@ import com.sagarock101.newsheadlines.R
 import com.sagarock101.newsheadlines.model.Articles
 import com.sagarock101.newsheadlines.ui.viewholder.TopHeadlineViewHolder
 
-class TopHeadlinesAdapter(var onItemClick: (ImageView, TextView, Articles) -> Unit) :
+class TopHeadlinesAdapter() :
     BaseAdapter<Articles>() {
+
+    var onItemClick: ((ImageView, TextView, Articles) -> Unit)? = null
 
     override fun getLayoutId(position: Int, obj: Articles) = R.layout.item_news_card
 

@@ -35,7 +35,7 @@ class TopHeadlineViewHolder(val binding: ItemNewsCardBinding)
     companion object {
         fun from(
             parent: ViewGroup,
-            onItemClick: (ImageView, TextView, Articles) -> Unit
+            onItemClick: ((ImageView, TextView, Articles) -> Unit)? = null
             ): BaseViewHolder<Articles> {
             val layoutInflater = LayoutInflater.from(parent.context)
             val binding = ItemNewsCardBinding.inflate(layoutInflater, parent, false)

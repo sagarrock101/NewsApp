@@ -8,6 +8,7 @@ import com.sagarock101.newsheadlines.R
 import com.sagarock101.newsheadlines.data.NewsHeadlinesRepo
 import com.sagarock101.newsheadlines.data.remote.NewsHeadLinesRemoteSource
 import com.sagarock101.newsheadlines.data.remote.NewsHeadlinesService
+import com.sagarock101.newsheadlines.model.ArticleRequest
 import kotlinx.coroutines.Dispatchers.Main
 import javax.inject.Inject
 
@@ -19,14 +20,31 @@ class NewsHeadlinesViewModel @Inject constructor() : CoroutineViewModel(Main) {
     @Inject
     lateinit var application: Application
 
-    private val newsHeadLinesMLD = MutableLiveData<String>()
+    private val newsHeadLinesMLD = MutableLiveData<ArticleRequest>()
 
     val newsHeadLinesLD = newsHeadLinesMLD.switchMap {
-        newsHeadlinesRepo.getNewsHeadlines(it)
+        if (it.category.isEmpty())
+            newsHeadlinesRepo.getNewsHeadlines(it.country)
+        else newsHeadlinesRepo.getNewsHeadlines(it.country, it.category)
     }
 
-    fun getNewsHeadLines() {
-        newsHeadLinesMLD.postValue(application.applicationContext.getString(R.string.india))
+    fun getNewsHeadLines(type: String = "") {
+        if (type.isEmpty()) {
+            newsHeadLinesMLD.postValue(
+                ArticleRequest(
+                    application.applicationContext.getString(R.string.india),
+                    ""
+                )
+            )
+        } else {
+            newsHeadLinesMLD.postValue(
+                ArticleRequest(
+                    application.applicationContext.getString(R.string.india),
+                    category = type
+                )
+            )
+        }
+
     }
 
 }

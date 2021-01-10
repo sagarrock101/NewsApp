@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.chip.ChipGroup
 import com.sagarock101.core.bindings.removeTransparentStatusBar
 import com.sagarock101.core.data.DataWrapper
 import com.sagarock101.core.di.injectViewModel
@@ -20,7 +21,6 @@ import com.sagarock101.core.view.BaseViewModelFragment
 import com.sagarock101.newsheadlines.R
 import com.sagarock101.newsheadlines.databinding.FragmentNewsHeadlinesBinding
 import com.sagarock101.newsheadlines.model.Articles
-import com.sagarock101.newsheadlines.model.NewsHeadLines
 import com.sagarock101.newsheadlines.ui.adapter.TopHeadlinesAdapter
 import com.sagarock101.newsheadlines.viewmodel.NewsHeadlinesViewModel
 import dagger.android.support.DaggerAppCompatActivity
@@ -28,7 +28,7 @@ import javax.inject.Inject
 
 class NewsHeadlinesFragment :
     BaseViewModelFragment<FragmentNewsHeadlinesBinding, NewsHeadlinesViewModel>(), Injectable,
-    OnSnapPositionChangeListener {
+    OnSnapPositionChangeListener, ChipGroup.OnCheckedChangeListener {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -55,17 +55,23 @@ class NewsHeadlinesFragment :
 
     override fun initView(view: View) {
         (activity as DaggerAppCompatActivity).removeTransparentStatusBar()
+        setAdapterToRecyclerView()
+        attachSnapTov()
+        binding.chipGroup.setOnCheckedChangeListener(this)
         binding.vm = viewModel
         viewModel.newsHeadLinesLD.observe(viewLifecycleOwner, Observer {
             when (it.status) {
                 DataWrapper.Status.LOADING -> {
+                    binding.shimmer.visibility = View.VISIBLE
                     binding.shimmer.startShimmer()
                 }
                 DataWrapper.Status.SUCCESS -> {
                     binding.shimmer.stopShimmer()
                     binding.shimmer.visibility = View.GONE
                     binding.rvNews.visibility = View.VISIBLE
-                    attachSnapToRvWithData(it)
+                    adapter?.apply {
+                        setItems(it.data?.articles as MutableList<Articles>)
+                    }
                 }
                 DataWrapper.Status.ERROR -> {
                     binding.shimmer.stopShimmer()
@@ -76,10 +82,10 @@ class NewsHeadlinesFragment :
         })
     }
 
-    private fun attachSnapToRvWithData(it: DataWrapper<NewsHeadLines>) {
-        val snapHelper = SnapHelper()
+    private fun setAdapterToRecyclerView() {
+        adapter = TopHeadlinesAdapter()
         var extras: FragmentNavigator.Extras?
-        adapter = TopHeadlinesAdapter() { imageView, textView, data ->
+        adapter?.onItemClick = { imageView, textView, data ->
             val directions =
                 NewsHeadlinesFragmentDirections.actionNewsHeadlinesFragmentToNewsDetailFragment(data)
             extras = FragmentNavigatorExtras(
@@ -90,9 +96,11 @@ class NewsHeadlinesFragment :
                 directions,
                 extras ?: FragmentNavigatorExtras()
             )
-        }.apply {
-            setItems(it.data?.articles as MutableList<Articles>)
         }
+    }
+
+    private fun attachSnapTov() {
+        val snapHelper = SnapHelper()
         snapHelper.attachToRecyclerView(binding.rvNews)
         val snapOnScrollListener = SnapOnScrollListener(snapHelper, this)
         binding.rvNews.apply {
@@ -111,6 +119,47 @@ class NewsHeadlinesFragment :
         //TODO need to decrease/increase alpha layer on proper positions
 //        adapter?.notifyChange(position, true)
 //        adapter?.notifyChange(previousPotion, false)
+    }
+
+    override fun onCheckedChanged(group: ChipGroup?, checkedId: Int) {
+        when (checkedId) {
+            binding.chipAll.id -> {
+                viewModel.getNewsHeadLines()
+                scrollToFirstArticle()
+            }
+            binding.chipBusiness.id -> {
+                viewModel.getNewsHeadLines(getString(R.string.business))
+                scrollToFirstArticle()
+            }
+            binding.chipEntertainment.id -> {
+                viewModel.getNewsHeadLines(getString(R.string.entertainment))
+                scrollToFirstArticle()
+            }
+            binding.chipHealth.id -> {
+                viewModel.getNewsHeadLines(getString(R.string.health))
+                scrollToFirstArticle()
+            }
+            binding.chipSports.id -> {
+                viewModel.getNewsHeadLines(getString(R.string.sports))
+                scrollToFirstArticle()
+            }
+            binding.chipTechnology.id -> {
+                viewModel.getNewsHeadLines(getString(R.string.technology))
+                scrollToFirstArticle()
+            }
+            binding.chipScience.id -> {
+                viewModel.getNewsHeadLines(getString(R.string.science))
+                scrollToFirstArticle()
+            }
+
+        }
+    }
+
+    private fun scrollToFirstArticle() {
+        adapter?.itemCount?.let {
+            if(it > 0)
+                binding.rvNews.scrollToPosition(0)
+        }
     }
 
 }

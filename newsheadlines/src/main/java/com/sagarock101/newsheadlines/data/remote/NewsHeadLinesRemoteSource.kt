@@ -11,4 +11,9 @@ class NewsHeadLinesRemoteSource @Inject constructor(private val newsHeadlinesSer
            newsHeadlinesService.getTopHeadlines(country)
        }
 
+    suspend fun  getNewsHeadLines(country: String, category: String) =
+        execute {
+            newsHeadlinesService.getTopHeadlines(country, category)
+        }
+
 }

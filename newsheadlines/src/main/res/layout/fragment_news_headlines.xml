@@ -54,9 +54,7 @@
                 android:orientation="horizontal"
                 app:checkedChip="@id/chip_all"
                 app:chipSpacing="@dimen/_16sdp"
-                app:singleSelection="true"
-
-                >
+                app:singleSelection="true">
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_all"
@@ -113,7 +111,7 @@
         <com.facebook.shimmer.ShimmerFrameLayout
             android:id="@+id/shimmer"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_300sdp"
+            android:layout_height="@dimen/_400sdp"
             android:layout_gravity="center"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@id/rv_news"

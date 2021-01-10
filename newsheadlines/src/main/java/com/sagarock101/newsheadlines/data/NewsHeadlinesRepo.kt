@@ -16,4 +16,10 @@ class NewsHeadlinesRepo @Inject constructor(private val remoteSource: NewsHeadLi
             remoteSource.getNewsHeadLines(country)
         }
     }
+
+    fun getNewsHeadlines(country: String, category: String): LiveData<DataWrapper<NewsHeadLines>> {
+        return resultLiveData {
+            remoteSource.getNewsHeadLines(country, category)
+        }
+    }
 }

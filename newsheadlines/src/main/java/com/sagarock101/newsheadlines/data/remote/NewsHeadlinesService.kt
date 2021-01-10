@@ -10,5 +10,11 @@ interface NewsHeadlinesService {
     @GET("top-headlines")
     suspend fun getTopHeadlines(
         @Query("country") country: String
-    ) : Response<NewsHeadLines>
+    ): Response<NewsHeadLines>
+
+    @GET("top-headlines")
+    suspend fun getTopHeadlines(
+        @Query("country") country: String,
+        @Query("category") category: String
+    ): Response<NewsHeadLines>
 }
