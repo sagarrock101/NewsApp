@@ -31,7 +31,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_8sdp"
-                    android:fontFamily="@font/potta_one_regular"
+                    android:fontFamily="@font/permanent_marker_regular"
                     android:text="@string/newsapp"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_16ssp" />

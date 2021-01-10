@@ -20,9 +20,8 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
     private val navController by lazy { findNavController(R.id.nav_main_fragment) }
 
     private var btmNavObjectAnimator: ObjectAnimator? = null
-    private var btnNavAlphaObjectAnimator: ObjectAnimator? = null
+    private var btmNavAlphaObjectAnimator: ObjectAnimator? = null
 
-    private var animatorSet = AnimatorSet()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,14 +58,15 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
             }
 
         }
+        btmNavAlphaObjectAnimator = ObjectAnimator.ofFloat(binding.btmNav, View.ALPHA, 0f, 1f)
         btmNavObjectAnimator = ObjectAnimator.ofFloat(
             binding.btmNav,
             View.TRANSLATION_Y,
             binding.btmNav.height.toFloat(),
             0f
         ).apply {
-            duration = 500
             addListener(listener)
+            duration = 500
             start()
         }
     }
@@ -89,7 +89,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
             }
 
         }
-        btnNavAlphaObjectAnimator = ObjectAnimator.ofFloat(binding.btmNav, View.ALPHA, 0f, 1f)
+        btmNavAlphaObjectAnimator = ObjectAnimator.ofFloat(binding.btmNav, View.ALPHA, 1f, 0f)
         btmNavObjectAnimator = ObjectAnimator.ofFloat(
             binding.btmNav,
             View.TRANSLATION_Y,
@@ -97,13 +97,9 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
             binding.btmNav.height.toFloat()
         ).apply {
             addListener(listener)
-        }
-        animatorSet.apply {
-            playTogether(btnNavAlphaObjectAnimator, btmNavObjectAnimator)
             duration = 500
             start()
         }
-
     }
 
     override fun onResume() {
