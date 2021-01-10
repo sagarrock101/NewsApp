@@ -39,7 +39,7 @@ class SplashFragment : DaggerFragment() {
         viewModel = injectViewModel(viewModelFactory)
         (activity)?.findViewById<BottomNavigationView>(R.id.btm_nav)?.visibility = View.GONE
         Handler(Looper.getMainLooper()).postDelayed(Runnable {
-            (activity)?.findViewById<BottomNavigationView>(R.id.btm_nav)?.visibility = View.VISIBLE
+            (activity)?.findViewById<BottomNavigationView>(R.id.btm_nav)?.visibility = View.GONE
             navigateToNewsHeadlines()
         }, 1000)
         return binding.root

@@ -1,35 +1,29 @@
 package com.sagarock101.newsapp.ui.activities
 
 import android.animation.Animator
+import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import com.google.gson.Gson
-import com.sagarock101.core.utilities.Utils
 import com.sagarock101.newsapp.R
 import com.sagarock101.newsapp.databinding.ActivityMainBinding
-import com.sagarock101.newsheadlines.data.remote.NewsHeadlinesService
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasAndroidInjector
 import dagger.android.support.DaggerAppCompatActivity
-import javax.inject.Inject
 
 class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChangedListener {
 
     lateinit var binding: ActivityMainBinding
+
     private val navController by lazy { findNavController(R.id.nav_main_fragment) }
-    private var objectAnimatorShowBtm: ObjectAnimator? = null
-    private var objectAnimatorHideBtm: ObjectAnimator? = null
+
+    private var btmNavObjectAnimator: ObjectAnimator? = null
+    private var btnNavAlphaObjectAnimator: ObjectAnimator? = null
+
+    private var animatorSet = AnimatorSet()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -41,10 +35,9 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
         arguments: Bundle?
     ) {
         when (destination.id) {
-            R.id.newsDetailFragment -> {
-                hideBtmNavBar()
-            }
-            else -> showBtnNavBar()
+            R.id.newsDetailFragment -> hideBtmNavBar()
+
+            R.id.newsHeadlinesFragment -> showBtnNavBar()
         }
     }
 
@@ -55,7 +48,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
             }
 
             override fun onAnimationEnd(animation: Animator?) {
-                objectAnimatorShowBtm?.removeAllListeners()
+                btmNavObjectAnimator?.removeAllListeners()
             }
 
             override fun onAnimationCancel(animation: Animator?) {
@@ -66,7 +59,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
             }
 
         }
-        objectAnimatorShowBtm = ObjectAnimator.ofFloat(
+        btmNavObjectAnimator = ObjectAnimator.ofFloat(
             binding.btmNav,
             View.TRANSLATION_Y,
             binding.btmNav.height.toFloat(),
@@ -86,7 +79,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
 
             override fun onAnimationEnd(animation: Animator?) {
                 binding.btmNav.visibility = View.GONE
-                objectAnimatorHideBtm?.removeAllListeners()
+                btmNavObjectAnimator?.removeAllListeners()
             }
 
             override fun onAnimationCancel(animation: Animator?) {
@@ -96,17 +89,20 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
             }
 
         }
-        objectAnimatorHideBtm = ObjectAnimator.ofFloat(
+        btnNavAlphaObjectAnimator = ObjectAnimator.ofFloat(binding.btmNav, View.ALPHA, 0f, 1f)
+        btmNavObjectAnimator = ObjectAnimator.ofFloat(
             binding.btmNav,
             View.TRANSLATION_Y,
             0f,
             binding.btmNav.height.toFloat()
         ).apply {
-            duration = 500
-            start()
             addListener(listener)
         }
-
+        animatorSet.apply {
+            playTogether(btnNavAlphaObjectAnimator, btmNavObjectAnimator)
+            duration = 500
+            start()
+        }
 
     }
 
