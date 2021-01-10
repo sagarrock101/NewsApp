@@ -31,9 +31,10 @@
             tools:targetApi="lollipop" />
 
         <View
+            android:id="@+id/view_alpha_layer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:alpha="0.15"
+            android:alpha="0.4"
             android:background="@drawable/black_rounded_bg"
             app:layout_constraintBottom_toBottomOf="@id/iv_news_img"
             app:layout_constraintEnd_toEndOf="@id/iv_news_img"

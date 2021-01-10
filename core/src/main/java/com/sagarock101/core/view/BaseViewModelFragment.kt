@@ -9,6 +9,7 @@ import android.view.inputmethod.InputMethodManager
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.embibe.core.view.BaseFragment
+import com.sagarock101.core.utilities.Utils
 import com.sagarock101.core.viewmodel.CoroutineViewModel
 
 abstract class BaseViewModelFragment<B : ViewDataBinding, VM : CoroutineViewModel> : BaseFragment() {
@@ -90,6 +91,10 @@ abstract class BaseViewModelFragment<B : ViewDataBinding, VM : CoroutineViewMode
             }
             imm.hideSoftInputFromWindow(view.windowToken, 0)
         }
+    }
+
+    fun showToast(msg: String) {
+        Utils.showToast(requireContext(), msg)
     }
 
 }

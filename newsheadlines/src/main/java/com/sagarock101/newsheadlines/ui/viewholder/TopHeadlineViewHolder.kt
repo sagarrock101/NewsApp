@@ -24,6 +24,14 @@ class TopHeadlineViewHolder(val binding: ItemNewsCardBinding)
         }
     }
 
+    fun decreaseAlpha() {
+        binding.viewAlphaLayer.alpha = 0.15f
+    }
+
+    fun increaseAlpha() {
+        binding.viewAlphaLayer.alpha = 0.3f
+    }
+
     companion object {
         fun from(
             parent: ViewGroup,

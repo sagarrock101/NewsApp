@@ -12,7 +12,9 @@ import com.sagarock101.core.bindings.removeTransparentStatusBar
 import com.sagarock101.core.data.DataWrapper
 import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.core.interfaces.Injectable
+import com.sagarock101.core.interfaces.OnSnapPositionChangeListener
 import com.sagarock101.core.utilities.SnapHelper
+import com.sagarock101.core.utilities.SnapOnScrollListener
 import com.sagarock101.core.utilities.Utils
 import com.sagarock101.core.view.BaseViewModelFragment
 import com.sagarock101.newsheadlines.R
@@ -24,10 +26,14 @@ import com.sagarock101.newsheadlines.viewmodel.NewsHeadlinesViewModel
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
-class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding, NewsHeadlinesViewModel>(), Injectable {
+class NewsHeadlinesFragment :
+    BaseViewModelFragment<FragmentNewsHeadlinesBinding, NewsHeadlinesViewModel>(), Injectable,
+    OnSnapPositionChangeListener {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    private var adapter: TopHeadlinesAdapter? = null
 
     override fun getLayout() = R.layout.fragment_news_headlines
 
@@ -51,7 +57,7 @@ class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding
         (activity as DaggerAppCompatActivity).removeTransparentStatusBar()
         binding.vm = viewModel
         viewModel.newsHeadLinesLD.observe(viewLifecycleOwner, Observer {
-            when(it.status) {
+            when (it.status) {
                 DataWrapper.Status.LOADING -> {
                     binding.shimmer.startShimmer()
                 }
@@ -73,19 +79,25 @@ class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding
     private fun attachSnapToRvWithData(it: DataWrapper<NewsHeadLines>) {
         val snapHelper = SnapHelper()
         var extras: FragmentNavigator.Extras?
-        binding.rvNews.adapter = TopHeadlinesAdapter() { imageView, textView,  data ->
-            val directions = NewsHeadlinesFragmentDirections.actionNewsHeadlinesFragmentToNewsDetailFragment(data)
+        adapter = TopHeadlinesAdapter() { imageView, textView, data ->
+            val directions =
+                NewsHeadlinesFragmentDirections.actionNewsHeadlinesFragmentToNewsDetailFragment(data)
             extras = FragmentNavigatorExtras(
                 imageView to ViewCompat.getTransitionName(imageView)!!,
                 textView to ViewCompat.getTransitionName(textView)!!
             )
-         findNavController().navigate(directions,
-             extras ?: FragmentNavigatorExtras())
+            findNavController().navigate(
+                directions,
+                extras ?: FragmentNavigatorExtras()
+            )
         }.apply {
             setItems(it.data?.articles as MutableList<Articles>)
         }
         snapHelper.attachToRecyclerView(binding.rvNews)
+        val snapOnScrollListener = SnapOnScrollListener(snapHelper, this)
         binding.rvNews.apply {
+            adapter = this@NewsHeadlinesFragment.adapter
+            addOnScrollListener(snapOnScrollListener)
             postponeEnterTransition()
             viewTreeObserver
                 .addOnPreDrawListener {
@@ -93,6 +105,12 @@ class NewsHeadlinesFragment : BaseViewModelFragment<FragmentNewsHeadlinesBinding
                     true
                 }
         }
+    }
+
+    override fun onSnapPositionChange(position: Int, previousPotion: Int) {
+        //TODO need to decrease/increase alpha layer on proper positions
+//        adapter?.notifyChange(position, true)
+//        adapter?.notifyChange(previousPotion, false)
     }
 
 }
