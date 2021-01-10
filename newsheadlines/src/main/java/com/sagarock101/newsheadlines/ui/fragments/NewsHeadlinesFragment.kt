@@ -1,6 +1,8 @@
 package com.sagarock101.newsheadlines.ui.fragments
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import androidx.core.view.ViewCompat
 import androidx.lifecycle.Observer
@@ -24,6 +26,7 @@ import com.sagarock101.newsheadlines.model.Articles
 import com.sagarock101.newsheadlines.ui.adapter.TopHeadlinesAdapter
 import com.sagarock101.newsheadlines.viewmodel.NewsHeadlinesViewModel
 import dagger.android.support.DaggerAppCompatActivity
+import kotlinx.android.synthetic.main.fragment_news_headlines.*
 import javax.inject.Inject
 
 class NewsHeadlinesFragment :
@@ -34,6 +37,8 @@ class NewsHeadlinesFragment :
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private var adapter: TopHeadlinesAdapter? = null
+
+    private var handler: Handler? = null
 
     override fun getLayout() = R.layout.fragment_news_headlines
 
@@ -57,6 +62,7 @@ class NewsHeadlinesFragment :
         (activity as DaggerAppCompatActivity).removeTransparentStatusBar()
         setAdapterToRecyclerView()
         attachSnapTov()
+        handler = Handler(Looper.getMainLooper())
         binding.chipGroup.setOnCheckedChangeListener(this)
         binding.vm = viewModel
         viewModel.newsHeadLinesLD.observe(viewLifecycleOwner, Observer {
@@ -125,31 +131,45 @@ class NewsHeadlinesFragment :
         when (checkedId) {
             binding.chipAll.id -> {
                 viewModel.getNewsHeadLines()
-                scrollToFirstArticle()
+//                handler?.postDelayed({
+//                    scrollToFirstArticle()
+//                }, 500)
             }
             binding.chipBusiness.id -> {
-                viewModel.getNewsHeadLines(getString(R.string.business))
-                scrollToFirstArticle()
+                viewModel.getNewsHeadLines(getString(R.string.entertainment))
+//                handler?.postDelayed({
+//                    scrollToFirstArticle()
+//                }, 500)
             }
             binding.chipEntertainment.id -> {
                 viewModel.getNewsHeadLines(getString(R.string.entertainment))
-                scrollToFirstArticle()
+//                handler?.postDelayed({
+//                    scrollToFirstArticle()
+//                }, 500)
             }
             binding.chipHealth.id -> {
                 viewModel.getNewsHeadLines(getString(R.string.health))
-                scrollToFirstArticle()
+//                handler?.postDelayed({
+//                    scrollToFirstArticle()
+//                }, 500)
             }
             binding.chipSports.id -> {
                 viewModel.getNewsHeadLines(getString(R.string.sports))
-                scrollToFirstArticle()
+//                handler?.postDelayed({
+//                    scrollToFirstArticle()
+//                }, 500)
             }
             binding.chipTechnology.id -> {
                 viewModel.getNewsHeadLines(getString(R.string.technology))
-                scrollToFirstArticle()
+//                handler?.postDelayed({
+//                    scrollToFirstArticle()
+//                }, 500)
             }
             binding.chipScience.id -> {
                 viewModel.getNewsHeadLines(getString(R.string.science))
-                scrollToFirstArticle()
+//                handler?.postDelayed({
+//                    scrollToFirstArticle()
+//                }, 500)
             }
 
         }
@@ -160,6 +180,24 @@ class NewsHeadlinesFragment :
             if(it > 0)
                 binding.rvNews.scrollToPosition(0)
         }
+    }
+
+    private fun getNews(category: String = "") {
+        handler?.postDelayed({
+            viewModel.getNewsHeadLines(category)
+            binding.shimmer.apply {
+                visibility = View.VISIBLE
+                startShimmer()
+                binding.rvNews.visibility = View.GONE
+            }
+            scrollToFirstArticle()
+        }, 1000)
+    }
+
+    override fun onDestroyView() {
+        handler = null
+        binding.chipGroup.setOnCheckedChangeListener(null)
+        super.onDestroyView()
     }
 
 }
