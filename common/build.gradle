@@ -90,4 +90,6 @@ dependencies {
 
     api "com.facebook.shimmer:shimmer:$shimmer_version"
 
+    api "com.airbnb.android:lottie:$lottieVersion"
+
 }

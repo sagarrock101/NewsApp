@@ -49,14 +49,17 @@
                     android:layout_marginTop="@dimen/_12sdp"
                     android:layout_marginBottom="@dimen/_40sdp"
                     app:layout_collapseMode="pin">
+
                     <ImageView
                         android:id="@+id/iv_back"
+                        style="@style/ripple_glow_with_padding"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
                         android:scaleX="1.2"
                         android:scaleY="1.2"
-                        style="@style/ripple_glow_with_padding"
                         android:src="@drawable/ic_baseline_arrow_back_24" />
+
                 </com.google.android.material.appbar.MaterialToolbar>
             </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>
@@ -113,6 +116,34 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@id/tv_desc"
                     app:layout_constraintTop_toBottomOf="@id/tv_desc" />
+
+                <TextView
+                    android:id="@+id/tv_swipe_left"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/swipe_left_to_read_the_full_article"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    android:textSize="@dimen/_16ssp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/tv_desc"
+                    app:layout_constraintTop_toBottomOf="@id/tv_content" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lv_swipe_left_arrow"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_marginBottom="-30dp"
+                    android:scaleX="0.6"
+                    android:scaleY="0.6"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_swipe_left" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.core.widget.NestedScrollView>

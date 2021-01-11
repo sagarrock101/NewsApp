@@ -5,6 +5,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.transition.TransitionInflater
+import com.airbnb.lottie.Lottie
+import com.airbnb.lottie.LottieAnimationView
+import com.airbnb.lottie.LottieDrawable
 import com.google.android.material.appbar.AppBarLayout
 import com.sagarock101.core.bindings.setTransparentStatusBar
 import com.sagarock101.core.di.injectViewModel
@@ -18,7 +21,7 @@ import javax.inject.Inject
 
 class NewsDetailFragment :
     BaseViewModelFragment<FragmentNewsDetailBinding, NewsHeadlinesViewModel>(),
-    View.OnClickListener, AppBarLayout.OnOffsetChangedListener, androidx.transition.Transition.TransitionListener {
+    View.OnClickListener, androidx.transition.Transition.TransitionListener {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -37,6 +40,15 @@ class NewsDetailFragment :
         postponeEnterTransition()
         viewModel = injectViewModel(viewModelFactory)
         startEnterTransitionAfterLoadingImage()
+        setSwipeLeftLottieAnimation()
+    }
+
+    private fun setSwipeLeftLottieAnimation() {
+        binding.lvSwipeLeftArrow.apply {
+            setAnimation(R.raw.swipe_left_arrows)
+            repeatCount = LottieDrawable.INFINITE
+            playAnimation()
+        }
     }
 
     private fun startEnterTransitionAfterLoadingImage() {
@@ -49,7 +61,6 @@ class NewsDetailFragment :
             }
         }
         binding.ivBack.setOnClickListener(this)
-        binding.appBar.addOnOffsetChangedListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -60,16 +71,12 @@ class NewsDetailFragment :
         }
     }
 
-    override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
-        if (verticalOffset == 0)
-            binding.ivBack.visibility = View.GONE
-        else binding.ivBack.visibility = View.VISIBLE
-    }
-
 
     override fun onTransitionEnd(transition: androidx.transition.Transition) {
         binding.tvContent.visibility = View.VISIBLE
         binding.tvDesc.visibility = View.VISIBLE
+        binding.lvSwipeLeftArrow.visibility = View.VISIBLE
+        binding.tvSwipeLeft.visibility = View.VISIBLE
     }
 
     override fun onTransitionResume(transition: androidx.transition.Transition) {

@@ -26,7 +26,6 @@ import com.sagarock101.newsheadlines.model.Articles
 import com.sagarock101.newsheadlines.ui.adapter.TopHeadlinesAdapter
 import com.sagarock101.newsheadlines.viewmodel.NewsHeadlinesViewModel
 import dagger.android.support.DaggerAppCompatActivity
-import kotlinx.android.synthetic.main.fragment_news_headlines.*
 import javax.inject.Inject
 
 class NewsHeadlinesFragment :

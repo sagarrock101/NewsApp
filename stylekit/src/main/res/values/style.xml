@@ -15,7 +15,7 @@
 
     <style name="ripple_glow_with_padding">
         <item name="android:clickable">true</item>
-        <item name="android:padding">16dp</item>
+        <item name="android:padding">10dp</item>
         <item name="android:background">@drawable/ripple_bg</item>
         <item name="android:focusable">true</item>
     </style>
