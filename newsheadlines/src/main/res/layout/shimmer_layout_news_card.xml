@@ -12,9 +12,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="@dimen/_220sdp"
-        android:layout_height="@dimen/_350sdp"
+        android:layout_height="@dimen/_370sdp"
         android:layout_margin="@dimen/_8sdp"
-        android:alpha="0.15"
+        android:alpha="0.1"
         android:background="@drawable/black_rounded_bg">
 
         <ImageView
