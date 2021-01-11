@@ -55,6 +55,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
 
             override fun onAnimationStart(animation: Animator?) {
                 binding.btmNav.visibility = View.VISIBLE
+                binding.btmNav.setBackgroundResource(R.color.white)
             }
 
         }
@@ -86,6 +87,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
             }
 
             override fun onAnimationStart(animation: Animator?) {
+                binding.btmNav.setBackgroundResource(android.R.color.transparent)
             }
 
         }

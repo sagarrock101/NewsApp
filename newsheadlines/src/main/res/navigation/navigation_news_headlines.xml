@@ -11,8 +11,7 @@
         <action
             android:id="@+id/action_newsHeadlinesFragment_to_newsDetailFragment"
             app:destination="@id/newsDetailFragment"
-            app:exitAnim="@anim/slide_out_left"
-            app:popExitAnim="@anim/slide_out_right" />
+     />
     </fragment>
     <fragment
         android:id="@+id/newsDetailFragment"

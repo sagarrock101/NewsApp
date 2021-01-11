@@ -4,11 +4,9 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.transition.Transition
 import androidx.transition.TransitionInflater
-import com.airbnb.lottie.Lottie
-import com.airbnb.lottie.LottieAnimationView
 import com.airbnb.lottie.LottieDrawable
-import com.google.android.material.appbar.AppBarLayout
 import com.sagarock101.core.bindings.setTransparentStatusBar
 import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.core.view.BaseViewModelFragment
@@ -32,11 +30,11 @@ class NewsDetailFragment :
 
     override fun initView(view: View) {
         (activity as DaggerAppCompatActivity).setTransparentStatusBar()
-        val animation =
-            TransitionInflater.from(context)
-                .inflateTransition(R.transition.shared_element_transition)
-        sharedElementEnterTransition = animation
-        (sharedElementEnterTransition as? androidx.transition.ChangeBounds)?.addListener(this)
+        sharedElementEnterTransition = TransitionInflater.from(context)
+            .inflateTransition(android.R.transition.move)
+        (sharedElementEnterTransition as? Transition)?.addListener(this)
+        sharedElementReturnTransition = TransitionInflater.from(context)
+            .inflateTransition(R.transition.shared_element_transition)
         postponeEnterTransition()
         viewModel = injectViewModel(viewModelFactory)
         startEnterTransitionAfterLoadingImage()
