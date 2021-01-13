@@ -13,7 +13,7 @@ import com.sagarock101.newsheadlines.ui.viewholder.TopHeadlineViewHolder
 class TopHeadlinesAdapter() :
     BaseAdapter<Articles>() {
 
-    var onItemClick: ((ImageView, TextView, Articles) -> Unit)? = null
+    var onItemClick: ((ImageView, TextView, Articles, Int) -> Unit)? = null
 
     override fun getLayoutId(position: Int, obj: Articles) = R.layout.item_news_card
 
@@ -23,12 +23,15 @@ class TopHeadlinesAdapter() :
         payloads: MutableList<Any>
     ) {
         val topHeadlineViewHolder = holder as TopHeadlineViewHolder
+        topHeadlineViewHolder.pushAndGetTextFromBottom()
         if (!payloads.isNullOrEmpty()) {
             if (payloads[0] is Boolean) {
                 val canChangeAlpha = payloads[0] as Boolean
                 if (canChangeAlpha)
                     topHeadlineViewHolder.decreaseAlpha()
                 else topHeadlineViewHolder.increaseAlpha()
+            } else if(payloads[0] is Int) {
+                topHeadlineViewHolder.pushAndGetTextFromBottom()
             }
         }
         super.onBindViewHolder(holder, position, payloads)
@@ -40,5 +43,9 @@ class TopHeadlinesAdapter() :
 
     fun notifyChange(position: Int, canChangeAlpha: Boolean) {
         notifyItemChanged(position, canChangeAlpha)
+    }
+
+    fun slideTextFromBottom(position: Int) {
+        notifyItemChanged(position, 1)
     }
 }

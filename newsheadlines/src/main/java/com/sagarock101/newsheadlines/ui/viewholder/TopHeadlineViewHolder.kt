@@ -1,6 +1,7 @@
 package com.sagarock101.newsheadlines.ui.viewholder
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
@@ -14,13 +15,13 @@ import org.w3c.dom.Text
 
 class TopHeadlineViewHolder(val binding: ItemNewsCardBinding)
     : BaseViewHolder<Articles>(binding) {
-    var onItemClick: ((ImageView, TextView, Articles) -> Unit)? = null
+    var onItemClick: ((ImageView, TextView, Articles, Int) -> Unit)? = null
     override fun bind(item: Articles) {
         binding.article = item
         ViewCompat.setTransitionName(binding.ivNewsImg, item.urlToImage)
         ViewCompat.setTransitionName(binding.tvTitle, item.title)
         itemView.setOnClickListener {
-            onItemClick?.invoke(binding.ivNewsImg, binding.tvTitle, item)
+            onItemClick?.invoke(binding.ivNewsImg, binding.tvTitle, item, adapterPosition)
         }
     }
 
@@ -32,10 +33,20 @@ class TopHeadlineViewHolder(val binding: ItemNewsCardBinding)
         binding.viewAlphaLayer.alpha = 0.3f
     }
 
+    private fun pushTextToBottom() {
+        binding.tvTitle.animate().translationY(1.0f).setDuration(1000).start()
+    }
+
+    fun pushAndGetTextFromBottom() {
+        binding.tvTitle.visibility = View.GONE
+//        pushTextToBottom()
+//        binding.tvTitle.animate().translationY(0.0f).setDuration(1000).start()
+    }
+
     companion object {
         fun from(
             parent: ViewGroup,
-            onItemClick: ((ImageView, TextView, Articles) -> Unit)? = null
+            onItemClick: ((ImageView, TextView, Articles, Int) -> Unit)? = null
             ): BaseViewHolder<Articles> {
             val layoutInflater = LayoutInflater.from(parent.context)
             val binding = ItemNewsCardBinding.inflate(layoutInflater, parent, false)

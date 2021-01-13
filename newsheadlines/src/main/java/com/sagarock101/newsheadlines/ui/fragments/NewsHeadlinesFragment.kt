@@ -1,15 +1,19 @@
 package com.sagarock101.newsheadlines.ui.fragments
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import androidx.transition.Transition
+import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.sagarock101.core.bindings.removeTransparentStatusBar
 import com.sagarock101.core.data.DataWrapper
@@ -30,7 +34,7 @@ import javax.inject.Inject
 
 class NewsHeadlinesFragment :
     BaseViewModelFragment<FragmentNewsHeadlinesBinding, NewsHeadlinesViewModel>(), Injectable,
-    OnSnapPositionChangeListener, ChipGroup.OnCheckedChangeListener {
+    OnSnapPositionChangeListener, ChipGroup.OnCheckedChangeListener, Transition.TransitionListener {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -38,6 +42,14 @@ class NewsHeadlinesFragment :
     private var adapter: TopHeadlinesAdapter? = null
 
     private var handler: Handler? = null
+
+    private var runnable: Runnable? = null
+
+    private var extras: FragmentNavigator.Extras? = null
+
+    private var sharedTextView: TextView? = null
+
+    private var onClickedPosition: Int = -1
 
     override fun getLayout() = R.layout.fragment_news_headlines
 
@@ -58,9 +70,36 @@ class NewsHeadlinesFragment :
     }
 
     override fun initView(view: View) {
+//        if(onClickedPosition != -1) {
+//            (activity)?.window?.sharedElementEnterTransition = null
+//            (activity)?.window?.sharedElementEnterTransition = null
+//            (activity)?.window?.sharedElementReenterTransition = null
+//            (activity)?.window?.sharedElementReturnTransition = null
+//            ViewCompat.setTransitionName(sharedTextView!!, null)
+//        }
+        (sharedElementEnterTransition as? Transition)?.addListener(this)
+        runnable = Runnable {
+            binding.shimmer.apply {
+                visibility = View.VISIBLE
+                stopShimmer()
+                binding.rvNews.visibility = View.VISIBLE
+            }
+            scrollToFirstArticle()
+        }
         (activity as DaggerAppCompatActivity).removeTransparentStatusBar()
         setAdapterToRecyclerView()
         attachSnapTov()
+        if(onClickedPosition != -1) {
+            adapter?.slideTextFromBottom(onClickedPosition)
+//            sharedTextView?.visibility = View.GONE
+//            var objectAnimator = ObjectAnimator.ofFloat(sharedTextView, View.TRANSLATION_Y, 0f, 2f)
+//            objectAnimator?.addUpdateListener {
+//                sharedTextView?.translationY = it.animatedValue as Float
+//            }
+//            objectAnimator.duration = 1000
+//            objectAnimator.start()
+//            sharedTextView?.animate()?.translationY(0.0f)?.setDuration(1000)?.start()
+        }
         handler = Handler(Looper.getMainLooper())
         binding.chipGroup.setOnCheckedChangeListener(this)
         binding.vm = viewModel
@@ -89,14 +128,14 @@ class NewsHeadlinesFragment :
 
     private fun setAdapterToRecyclerView() {
         adapter = TopHeadlinesAdapter()
-        var extras: FragmentNavigator.Extras?
-        adapter?.onItemClick = { imageView, textView, data ->
+        adapter?.onItemClick = { imageView, textView, data, position ->
             val directions =
                 NewsHeadlinesFragmentDirections.actionNewsHeadlinesFragmentToNewsDetailFragment(data)
             extras = FragmentNavigatorExtras(
-                imageView to ViewCompat.getTransitionName(imageView)!!,
-                textView to ViewCompat.getTransitionName(textView)!!
+                imageView to ViewCompat.getTransitionName(imageView)!!
             )
+            sharedTextView = textView
+            onClickedPosition = position
             findNavController().navigate(
                 directions,
                 extras ?: FragmentNavigatorExtras()
@@ -129,46 +168,25 @@ class NewsHeadlinesFragment :
     override fun onCheckedChanged(group: ChipGroup?, checkedId: Int) {
         when (checkedId) {
             binding.chipAll.id -> {
-                viewModel.getNewsHeadLines()
-//                handler?.postDelayed({
-//                    scrollToFirstArticle()
-//                }, 500)
+               binding.chipAll.callApiIfChipIsPressed()
             }
             binding.chipBusiness.id -> {
-                viewModel.getNewsHeadLines(getString(R.string.entertainment))
-//                handler?.postDelayed({
-//                    scrollToFirstArticle()
-//                }, 500)
+                binding.chipBusiness.callApiIfChipIsPressed(getString(R.string.business))
             }
             binding.chipEntertainment.id -> {
-                viewModel.getNewsHeadLines(getString(R.string.entertainment))
-//                handler?.postDelayed({
-//                    scrollToFirstArticle()
-//                }, 500)
+                binding.chipEntertainment.callApiIfChipIsPressed(getString(R.string.entertainment))
             }
             binding.chipHealth.id -> {
-                viewModel.getNewsHeadLines(getString(R.string.health))
-//                handler?.postDelayed({
-//                    scrollToFirstArticle()
-//                }, 500)
+                binding.chipHealth.callApiIfChipIsPressed(getString(R.string.health))
             }
             binding.chipSports.id -> {
-                viewModel.getNewsHeadLines(getString(R.string.sports))
-//                handler?.postDelayed({
-//                    scrollToFirstArticle()
-//                }, 500)
+                binding.chipHealth.callApiIfChipIsPressed(getString(R.string.sports))
             }
             binding.chipTechnology.id -> {
-                viewModel.getNewsHeadLines(getString(R.string.technology))
-//                handler?.postDelayed({
-//                    scrollToFirstArticle()
-//                }, 500)
+                binding.chipTechnology.callApiIfChipIsPressed(getString(R.string.technology))
             }
             binding.chipScience.id -> {
-                viewModel.getNewsHeadLines(getString(R.string.science))
-//                handler?.postDelayed({
-//                    scrollToFirstArticle()
-//                }, 500)
+                binding.chipScience.callApiIfChipIsPressed(getString(R.string.science))
             }
 
         }
@@ -176,27 +194,53 @@ class NewsHeadlinesFragment :
 
     private fun scrollToFirstArticle() {
         adapter?.itemCount?.let {
-            if(it > 0)
+            if (it > 0)
                 binding.rvNews.scrollToPosition(0)
         }
     }
 
     private fun getNews(category: String = "") {
-        handler?.postDelayed({
-            viewModel.getNewsHeadLines(category)
-            binding.shimmer.apply {
-                visibility = View.VISIBLE
-                startShimmer()
-                binding.rvNews.visibility = View.GONE
-            }
-            scrollToFirstArticle()
-        }, 1000)
+        viewModel.getNewsHeadLines(category)
+        binding.shimmer.startShimmer()
+        binding.rvNews.visibility = View.GONE
+        runnable?.let {
+            handler?.postDelayed(
+                it, 1000
+            )
+        }
     }
 
     override fun onDestroyView() {
+        runnable?.let { handler?.removeCallbacks(it) }
         handler = null
         binding.chipGroup.setOnCheckedChangeListener(null)
         super.onDestroyView()
     }
+
+    private fun Chip.callApiIfChipIsPressed(category: String = "") {
+        if (this.isPressed)
+            getNews(category)
+    }
+
+    override fun onTransitionEnd(transition: Transition) {
+        showToast(transition.name.toString())
+    }
+
+    override fun onTransitionResume(transition: Transition) {
+        showToast(transition.name.toString())
+    }
+
+    override fun onTransitionPause(transition: Transition) {
+        showToast(transition.name.toString())
+    }
+
+    override fun onTransitionCancel(transition: Transition) {
+        showToast(transition.name.toString())
+    }
+
+    override fun onTransitionStart(transition: Transition) {
+        showToast(transition.name.toString())
+    }
+
 
 }

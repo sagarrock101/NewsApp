@@ -19,7 +19,7 @@ import javax.inject.Inject
 
 class NewsDetailFragment :
     BaseViewModelFragment<FragmentNewsDetailBinding, NewsHeadlinesViewModel>(),
-    View.OnClickListener, androidx.transition.Transition.TransitionListener {
+    View.OnClickListener, Transition.TransitionListener {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -70,23 +70,23 @@ class NewsDetailFragment :
     }
 
 
-    override fun onTransitionEnd(transition: androidx.transition.Transition) {
+    override fun onTransitionEnd(transition: Transition) {
         binding.tvContent.visibility = View.VISIBLE
         binding.tvDesc.visibility = View.VISIBLE
         binding.lvSwipeLeftArrow.visibility = View.VISIBLE
         binding.tvSwipeLeft.visibility = View.VISIBLE
     }
 
-    override fun onTransitionResume(transition: androidx.transition.Transition) {
+    override fun onTransitionResume(transition: Transition) {
     }
 
-    override fun onTransitionPause(transition: androidx.transition.Transition) {
+    override fun onTransitionPause(transition: Transition) {
     }
 
-    override fun onTransitionCancel(transition: androidx.transition.Transition) {
+    override fun onTransitionCancel(transition: Transition) {
     }
 
-    override fun onTransitionStart(transition: androidx.transition.Transition) {
+    override fun onTransitionStart(transition: Transition) {
     }
 
 
