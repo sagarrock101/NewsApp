@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.sagarock101.core.bindings.removeTransparentStatusBar
 import com.sagarock101.core.data.DataWrapper
@@ -129,46 +130,25 @@ class NewsHeadlinesFragment :
     override fun onCheckedChanged(group: ChipGroup?, checkedId: Int) {
         when (checkedId) {
             binding.chipAll.id -> {
-                viewModel.getNewsHeadLines()
-//                handler?.postDelayed({
-//                    scrollToFirstArticle()
-//                }, 500)
+               binding.chipAll.callApiIfChipIsPressed()
             }
             binding.chipBusiness.id -> {
-                viewModel.getNewsHeadLines(getString(R.string.entertainment))
-//                handler?.postDelayed({
-//                    scrollToFirstArticle()
-//                }, 500)
+                binding.chipBusiness.callApiIfChipIsPressed(getString(R.string.business))
             }
             binding.chipEntertainment.id -> {
-                viewModel.getNewsHeadLines(getString(R.string.entertainment))
-//                handler?.postDelayed({
-//                    scrollToFirstArticle()
-//                }, 500)
+                binding.chipEntertainment.callApiIfChipIsPressed(getString(R.string.entertainment))
             }
             binding.chipHealth.id -> {
-                viewModel.getNewsHeadLines(getString(R.string.health))
-//                handler?.postDelayed({
-//                    scrollToFirstArticle()
-//                }, 500)
+                binding.chipHealth.callApiIfChipIsPressed(getString(R.string.health))
             }
             binding.chipSports.id -> {
-                viewModel.getNewsHeadLines(getString(R.string.sports))
-//                handler?.postDelayed({
-//                    scrollToFirstArticle()
-//                }, 500)
+                binding.chipHealth.callApiIfChipIsPressed(getString(R.string.sports))
             }
             binding.chipTechnology.id -> {
-                viewModel.getNewsHeadLines(getString(R.string.technology))
-//                handler?.postDelayed({
-//                    scrollToFirstArticle()
-//                }, 500)
+                binding.chipTechnology.callApiIfChipIsPressed(getString(R.string.technology))
             }
             binding.chipScience.id -> {
-                viewModel.getNewsHeadLines(getString(R.string.science))
-//                handler?.postDelayed({
-//                    scrollToFirstArticle()
-//                }, 500)
+                binding.chipScience.callApiIfChipIsPressed(getString(R.string.science))
             }
 
         }
@@ -197,6 +177,11 @@ class NewsHeadlinesFragment :
         handler = null
         binding.chipGroup.setOnCheckedChangeListener(null)
         super.onDestroyView()
+    }
+
+    private fun Chip.callApiIfChipIsPressed(category: String = "") {
+        if (this.isPressed)
+            getNews(category)
     }
 
 }

@@ -1,12 +1,13 @@
 package com.sagarock101.newsheadlines.ui.fragments
 
+import android.content.Intent
+import android.net.Uri
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.transition.Transition
 import androidx.transition.TransitionInflater
-import com.airbnb.lottie.LottieDrawable
 import com.sagarock101.core.bindings.setTransparentStatusBar
 import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.core.view.BaseViewModelFragment
@@ -19,7 +20,7 @@ import javax.inject.Inject
 
 class NewsDetailFragment :
     BaseViewModelFragment<FragmentNewsDetailBinding, NewsHeadlinesViewModel>(),
-    View.OnClickListener, androidx.transition.Transition.TransitionListener {
+    View.OnClickListener, Transition.TransitionListener {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -38,15 +39,7 @@ class NewsDetailFragment :
         postponeEnterTransition()
         viewModel = injectViewModel(viewModelFactory)
         startEnterTransitionAfterLoadingImage()
-        setSwipeLeftLottieAnimation()
-    }
-
-    private fun setSwipeLeftLottieAnimation() {
-        binding.lvSwipeLeftArrow.apply {
-            setAnimation(R.raw.swipe_left_arrows)
-            repeatCount = LottieDrawable.INFINITE
-            playAnimation()
-        }
+        binding.btnReadFullStory.setOnClickListener(this)
     }
 
     private fun startEnterTransitionAfterLoadingImage() {
@@ -66,27 +59,37 @@ class NewsDetailFragment :
             binding.ivBack -> {
                 findNavController().popBackStack()
             }
+            binding.btnReadFullStory -> {
+                showAppChooserDialog()
+            }
         }
     }
 
-
-    override fun onTransitionEnd(transition: androidx.transition.Transition) {
-        binding.tvContent.visibility = View.VISIBLE
-        binding.tvDesc.visibility = View.VISIBLE
-        binding.lvSwipeLeftArrow.visibility = View.VISIBLE
-        binding.tvSwipeLeft.visibility = View.VISIBLE
+    private fun showAppChooserDialog() {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(args.article?.url))
+        startActivity(intent)
     }
 
-    override fun onTransitionResume(transition: androidx.transition.Transition) {
+
+    override fun onTransitionEnd(transition: Transition) {
+        with(binding) {
+            tvContent.visibility =View.VISIBLE
+            tvDesc.visibility = View.VISIBLE
+            btnReadFullStory.visibility = View.VISIBLE
+        }
+
     }
 
-    override fun onTransitionPause(transition: androidx.transition.Transition) {
+    override fun onTransitionResume(transition: Transition) {
     }
 
-    override fun onTransitionCancel(transition: androidx.transition.Transition) {
+    override fun onTransitionPause(transition: Transition) {
     }
 
-    override fun onTransitionStart(transition: androidx.transition.Transition) {
+    override fun onTransitionCancel(transition: Transition) {
+    }
+
+    override fun onTransitionStart(transition: Transition) {
     }
 
 

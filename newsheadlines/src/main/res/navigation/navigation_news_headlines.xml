@@ -12,11 +12,34 @@
             android:id="@+id/action_newsHeadlinesFragment_to_newsDetailFragment"
             app:destination="@id/newsDetailFragment"
      />
+        <action
+            android:id="@+id/action_newsHeadlinesFragment_to_newsDetailViewPagerFragment"
+            app:destination="@id/newsDetailViewPagerFragment" />
     </fragment>
     <fragment
         android:id="@+id/newsDetailFragment"
         android:name="com.sagarock101.newsheadlines.ui.fragments.NewsDetailFragment"
         android:label="NewsDetailFragment" >
+        <argument
+            android:name="article"
+            app:argType="com.sagarock101.newsheadlines.model.Articles"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_newsDetailFragment_to_newsDetailWebFragment"
+            app:destination="@id/newsDetailWebFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_in_left"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsDetailWebFragment"
+        android:name="com.sagarock101.newsheadlines.ui.fragments.NewsDetailWebFragment"
+        android:label="NewsDetailWebFragment" />
+    <fragment
+        android:id="@+id/newsDetailViewPagerFragment"
+        android:name="com.sagarock101.newsheadlines.ui.fragments.NewsDetailViewPagerFragment"
+        android:label="NewsDetailViewPagerFragment" >
         <argument
             android:name="article"
             app:argType="com.sagarock101.newsheadlines.model.Articles"

@@ -1,10 +1,11 @@
 package com.sagarock101.newsapp.ui.activities
 
 import android.animation.Animator
-import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
@@ -13,8 +14,11 @@ import com.sagarock101.newsapp.R
 import com.sagarock101.newsapp.databinding.ActivityMainBinding
 import dagger.android.support.DaggerAppCompatActivity
 
-class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChangedListener {
+const val MIN_DISTANCE = 150
 
+class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChangedListener {
+    private var x2: Float = 0.0f
+    private var x1: Float = 0.0f
     lateinit var binding: ActivityMainBinding
 
     private val navController by lazy { findNavController(R.id.nav_main_fragment) }
@@ -114,6 +118,5 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
         super.onPause()
         navController.removeOnDestinationChangedListener(this)
     }
-
 
 }
