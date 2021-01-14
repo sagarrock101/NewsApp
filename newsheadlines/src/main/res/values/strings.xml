@@ -15,4 +15,6 @@
     <string name="science">science</string>
     <string name="swipe_left_to_read_the_full_article">Swipe left to read the full article</string>
     <string name="read_full_story">Read full story</string>
+    <string name="save">Save</string>
+    <string name="share">Share</string>
 </resources>

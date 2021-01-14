@@ -8,11 +8,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.transition.Transition
 import androidx.transition.TransitionInflater
+import com.google.android.material.appbar.AppBarLayout
 import com.sagarock101.core.bindings.setTransparentStatusBar
 import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.core.view.BaseViewModelFragment
 import com.sagarock101.newsheadlines.R
-import com.sagarock101.newsheadlines.binding.startTransitionAfterImageLoad
+import com.sagarock101.newsheadlines.binding.*
 import com.sagarock101.newsheadlines.databinding.FragmentNewsDetailBinding
 import com.sagarock101.newsheadlines.viewmodel.NewsHeadlinesViewModel
 import dagger.android.support.DaggerAppCompatActivity
@@ -20,7 +21,7 @@ import javax.inject.Inject
 
 class NewsDetailFragment :
     BaseViewModelFragment<FragmentNewsDetailBinding, NewsHeadlinesViewModel>(),
-    View.OnClickListener, Transition.TransitionListener {
+    View.OnClickListener, Transition.TransitionListener, AppBarLayout.OnOffsetChangedListener {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -29,7 +30,10 @@ class NewsDetailFragment :
 
     override fun getLayout() = R.layout.fragment_news_detail
 
+    private var isFabRotated = false
+
     override fun initView(view: View) {
+        setHasOptionsMenu(true)
         (activity as DaggerAppCompatActivity).setTransparentStatusBar()
         sharedElementEnterTransition = TransitionInflater.from(context)
             .inflateTransition(android.R.transition.move)
@@ -39,7 +43,11 @@ class NewsDetailFragment :
         postponeEnterTransition()
         viewModel = injectViewModel(viewModelFactory)
         startEnterTransitionAfterLoadingImage()
+        binding.fabSave.hideChildFabInitially()
+        binding.fabShare.hideChildFabInitially()
         binding.btnReadFullStory.setOnClickListener(this)
+        binding.fabAdd.setOnClickListener(this)
+        binding.appBar.addOnOffsetChangedListener(this)
     }
 
     private fun startEnterTransitionAfterLoadingImage() {
@@ -62,6 +70,20 @@ class NewsDetailFragment :
             binding.btnReadFullStory -> {
                 showAppChooserDialog()
             }
+            binding.fabAdd -> {
+                animateFab(v)
+            }
+        }
+    }
+
+    private fun animateFab(v: View) {
+        isFabRotated = v.rotateFab(!isFabRotated)
+        if (isFabRotated) {
+            binding.fabShare.showFab()
+            binding.fabSave.showFab()
+        } else {
+            binding.fabShare.hideFab()
+            binding.fabSave.hideFab()
         }
     }
 
@@ -73,7 +95,7 @@ class NewsDetailFragment :
 
     override fun onTransitionEnd(transition: Transition) {
         with(binding) {
-            tvContent.visibility =View.VISIBLE
+            tvContent.visibility = View.VISIBLE
             tvDesc.visibility = View.VISIBLE
             btnReadFullStory.visibility = View.VISIBLE
         }
@@ -92,5 +114,10 @@ class NewsDetailFragment :
     override fun onTransitionStart(transition: Transition) {
     }
 
+    override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
+        if (verticalOffset == 0)
+            binding.fabAdd.visibility = View.GONE
+        else binding.fabAdd.visibility = View.VISIBLE
+    }
 
 }

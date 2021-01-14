@@ -92,4 +92,5 @@ dependencies {
 
     api "com.airbnb.android:lottie:$lottieVersion"
 
+
 }

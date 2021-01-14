@@ -31,6 +31,7 @@ abstract class BaseViewModelFragment<B : ViewDataBinding, VM : CoroutineViewMode
         savedInstanceState: Bundle?
     ): View? {
         val dataBinding = DataBindingUtil.inflate<B>(inflater, getLayout(), container, false)
+        setHasOptionsMenu(true)
         this.binding = dataBinding
         return binding.root
     }

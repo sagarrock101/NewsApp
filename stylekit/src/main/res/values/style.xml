@@ -31,4 +31,9 @@
     <style name="SmallerText" parent="TextAppearance.AppCompat.Medium">
         <item name="android:textSize">16sp</item>
     </style>
+
+    <style name="MyScaleSize">
+        <item name="android:scaleX">0.8</item>
+        <item name="android:scaleY">0.8</item>
+    </style>
 </resources>
