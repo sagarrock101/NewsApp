@@ -70,15 +70,24 @@ class NewsDetailFragment :
 
     override fun onClick(v: View?) {
         when (v) {
-            binding.ivBack -> {
-                findNavController().popBackStack()
-            }
-            binding.btnReadFullStory -> {
-                showAppChooserDialog()
-            }
-            binding.fabAdd -> {
-                animateFab(v)
-            }
+            binding.ivBack -> findNavController().popBackStack()
+
+            binding.btnReadFullStory -> showAppChooserDialog()
+
+            binding.fabAdd -> animateFab(v)
+
+            binding.fabShare -> shareArticle()
+
+        }
+    }
+
+    private fun shareArticle() {
+        val sharingIntent = Intent(Intent.ACTION_SEND)
+        sharingIntent.apply {
+            type = "text/plain"
+            putExtra(Intent.EXTRA_SUBJECT, args?.article?.title)
+            putExtra(Intent.EXTRA_TEXT, args.article?.url)
+            startActivity(Intent.createChooser(sharingIntent, getString(R.string.share_using)))
         }
     }
 
