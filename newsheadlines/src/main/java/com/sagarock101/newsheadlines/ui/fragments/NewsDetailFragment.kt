@@ -2,7 +2,6 @@ package com.sagarock101.newsheadlines.ui.fragments
 
 import android.content.Intent
 import android.net.Uri
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -18,7 +17,6 @@ import com.sagarock101.newsheadlines.binding.*
 import com.sagarock101.newsheadlines.databinding.FragmentNewsDetailBinding
 import com.sagarock101.newsheadlines.viewmodel.NewsHeadlinesViewModel
 import dagger.android.support.DaggerAppCompatActivity
-import timber.log.Timber
 import javax.inject.Inject
 
 class NewsDetailFragment :
@@ -47,9 +45,15 @@ class NewsDetailFragment :
         startEnterTransitionAfterLoadingImage()
         binding.fabSave.hideChildFabInitially()
         binding.fabShare.hideChildFabInitially()
+        binding.appBar.addOnOffsetChangedListener(this)
+        setClickListener()
+    }
+
+    private fun setClickListener() {
         binding.btnReadFullStory.setOnClickListener(this)
         binding.fabAdd.setOnClickListener(this)
-        binding.appBar.addOnOffsetChangedListener(this)
+        binding.fabSave.setOnClickListener(this)
+        binding.fabShare.setOnClickListener(this)
     }
 
     private fun startEnterTransitionAfterLoadingImage() {
