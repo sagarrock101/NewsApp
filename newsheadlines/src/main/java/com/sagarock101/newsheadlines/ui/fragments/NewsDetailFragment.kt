@@ -2,6 +2,7 @@ package com.sagarock101.newsheadlines.ui.fragments
 
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -17,6 +18,7 @@ import com.sagarock101.newsheadlines.binding.*
 import com.sagarock101.newsheadlines.databinding.FragmentNewsDetailBinding
 import com.sagarock101.newsheadlines.viewmodel.NewsHeadlinesViewModel
 import dagger.android.support.DaggerAppCompatActivity
+import timber.log.Timber
 import javax.inject.Inject
 
 class NewsDetailFragment :
@@ -115,9 +117,9 @@ class NewsDetailFragment :
     }
 
     override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
-        if (verticalOffset == 0)
-            binding.fabAdd.visibility = View.GONE
-        else binding.fabAdd.visibility = View.VISIBLE
+        if (verticalOffset == -binding.appBar.totalScrollRange)
+            binding.fabAdd.visibility = View.VISIBLE
+        else binding.fabAdd.visibility = View.GONE
     }
 
 }

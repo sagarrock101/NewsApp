@@ -154,7 +154,6 @@
                 android:layout_centerInParent="true"
                 android:layout_margin="10dp"
                 android:src="@drawable/ic_baseline_bookmark_24"
-                android:tint="@color/grey_80"
                 app:backgroundTint="@color/grey_20"
                 app:fabSize="mini"
                 app:rippleColor="@color/white" />
@@ -165,7 +164,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:src="@drawable/ic_baseline_share_24"
-                android:tint="@color/grey_80"
                 app:backgroundTint="@color/grey_20"
                 app:fabSize="mini"
                 app:rippleColor="@color/white" />
