@@ -1,3 +1,6 @@
+include ':database'
+include ':categories'
+include ':saved'
 include ':core'
 include ':common'
 include ':stylekit'

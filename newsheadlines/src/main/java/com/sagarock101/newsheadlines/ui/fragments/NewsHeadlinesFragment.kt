@@ -162,13 +162,13 @@ class NewsHeadlinesFragment :
     }
 
     private fun getNews(category: String = "") {
+        binding.shimmer.apply {
+            visibility = View.VISIBLE
+            startShimmer()
+            binding.rvNews.visibility = View.GONE
+        }
         handler?.postDelayed({
             viewModel.getNewsHeadLines(category)
-            binding.shimmer.apply {
-                visibility = View.VISIBLE
-                startShimmer()
-                binding.rvNews.visibility = View.GONE
-            }
             scrollToFirstArticle()
         }, 1000)
     }

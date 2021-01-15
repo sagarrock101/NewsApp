@@ -154,8 +154,8 @@
                 android:layout_centerInParent="true"
                 android:layout_margin="10dp"
                 android:src="@drawable/ic_baseline_bookmark_24"
-                app:backgroundTint="@color/grey_20"
                 app:fabSize="mini"
+                app:tint="@color/white"
                 app:rippleColor="@color/white" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -164,7 +164,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:src="@drawable/ic_baseline_share_24"
-                app:backgroundTint="@color/grey_20"
+                app:tint="@color/white"
                 app:fabSize="mini"
                 app:rippleColor="@color/white" />
 
