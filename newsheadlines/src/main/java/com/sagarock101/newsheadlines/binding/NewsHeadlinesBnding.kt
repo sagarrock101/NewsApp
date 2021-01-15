@@ -40,34 +40,42 @@ fun ImageView.setImage(url: String?) {
             .apply(requestOptions.placeholder(R.drawable.ic_news))
             .into(this)
 
+    } ?: kotlin.run {
+        Glide.with(context).load(R.drawable.ic_news)
+            .into(this)
     }
 }
 
 fun ImageView.startTransitionAfterImageLoad(url: String, onFinished: () -> Unit) {
-    Glide.with(context)
-        .load(url)
-        .listener(object : RequestListener<Drawable> {
-            override fun onLoadFailed(
-                e: GlideException?,
-                model: Any?,
-                target: Target<Drawable>?,
-                isFirstResource: Boolean
-            ): Boolean {
-                return false
-            }
+    if (url.isNotEmpty()) {
+        Glide.with(context)
+            .load(url)
+            .listener(object : RequestListener<Drawable> {
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    return false
+                }
 
-            override fun onResourceReady(
-                resource: Drawable?,
-                model: Any?,
-                target: Target<Drawable>?,
-                dataSource: DataSource?,
-                isFirstResource: Boolean
-            ): Boolean {
-                onFinished.invoke()
-                return false
-            }
+                override fun onResourceReady(
+                    resource: Drawable?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    dataSource: DataSource?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    onFinished.invoke()
+                    return false
+                }
 
-        }).into(this)
+            }).into(this)
+    } else {
+        this.setImageResource(R.drawable.ic_news)
+    }
+
 }
 
 fun View.rotateFab(rotate: Boolean): Boolean {

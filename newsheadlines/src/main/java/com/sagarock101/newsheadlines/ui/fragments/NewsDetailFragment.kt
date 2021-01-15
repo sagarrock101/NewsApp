@@ -40,7 +40,8 @@ class NewsDetailFragment :
         (sharedElementEnterTransition as? Transition)?.addListener(this)
         sharedElementReturnTransition = TransitionInflater.from(context)
             .inflateTransition(R.transition.shared_element_transition)
-        postponeEnterTransition()
+        if (args?.article?.urlToImage != null)
+            postponeEnterTransition()
         viewModel = injectViewModel(viewModelFactory)
         startEnterTransitionAfterLoadingImage()
         binding.fabSave.hideChildFabInitially()
@@ -61,9 +62,14 @@ class NewsDetailFragment :
         binding.tvTitle.transitionName = args?.article?.title ?: ""
         binding.ivNewsImg.apply {
             transitionName = args?.article?.urlToImage ?: ""
-            startTransitionAfterImageLoad(args?.article?.urlToImage ?: "") {
-                startPostponedEnterTransition()
+            args.article?.urlToImage?.let {
+                startTransitionAfterImageLoad(args?.article?.urlToImage ?: "") {
+                    startPostponedEnterTransition()
+                }
+            } ?: kotlin.run {
+                binding.ivNewsImg.setImageResource(R.drawable.ic_news)
             }
+
         }
         binding.ivBack.setOnClickListener(this)
     }
