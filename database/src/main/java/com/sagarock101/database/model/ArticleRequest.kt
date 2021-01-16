@@ -1,4 +1,4 @@
-package com.sagarock101.newsheadlines.model
+package com.sagarock101.database.model
 
 data class ArticleRequest(
     var country: String,

@@ -1,6 +1,9 @@
-package com.sagarock101.newsheadlines.model
+package com.sagarock101.database.model
 
 import android.os.Parcelable
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
@@ -15,9 +18,42 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
+@Entity
 @Parcelize
-data class Source (
+data class Articles(
 
-	@SerializedName("id") val id : String,
-	@SerializedName("name") val name : String
+    @ColumnInfo
+    @SerializedName("source")
+    val source: Source,
+
+    @ColumnInfo
+    @SerializedName("author")
+    val author: String,
+
+    @ColumnInfo
+    @SerializedName("title")
+    val title: String,
+
+    @ColumnInfo
+    @SerializedName("description")
+    val description: String,
+
+    @ColumnInfo
+    @SerializedName("url")
+    val url: String,
+
+    @ColumnInfo
+    @SerializedName("urlToImage")
+    var urlToImage: String? = null,
+
+    @ColumnInfo
+    @SerializedName("publishedAt")
+    val publishedAt: String,
+
+    @ColumnInfo
+    @SerializedName("content")
+    val content: String,
+
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0
 ) : Parcelable

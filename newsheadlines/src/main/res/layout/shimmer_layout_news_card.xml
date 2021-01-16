@@ -7,7 +7,7 @@
 
         <variable
             name="article"
-            type="com.sagarock101.newsheadlines.model.Articles" />
+            type="com.sagarock101.database.model.Articles" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

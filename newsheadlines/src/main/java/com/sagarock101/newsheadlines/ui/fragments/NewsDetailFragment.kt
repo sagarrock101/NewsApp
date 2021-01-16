@@ -3,6 +3,7 @@ package com.sagarock101.newsheadlines.ui.fragments
 import android.content.Intent
 import android.net.Uri
 import android.view.View
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -32,6 +33,8 @@ class NewsDetailFragment :
 
     private var isFabRotated = false
 
+//    private var isSaved = args?.article?.id?.let { viewModel.checkIfNewsExists(it) }
+
     override fun initView(view: View) {
         setHasOptionsMenu(true)
         (activity as DaggerAppCompatActivity).setTransparentStatusBar()
@@ -48,6 +51,12 @@ class NewsDetailFragment :
         binding.fabShare.hideChildFabInitially()
         binding.appBar.addOnOffsetChangedListener(this)
         setClickListener()
+        viewModel.savedLiveData.observe(this, Observer { isSaved ->
+            if (isSaved)
+                binding.fabSave.setColorFilter(R.color.black)
+            else
+                binding.fabSave.setColorFilter(R.color.white)
+        })
     }
 
     private fun setClickListener() {
@@ -84,7 +93,19 @@ class NewsDetailFragment :
 
             binding.fabShare -> shareArticle()
 
+            binding.fabSave -> saveArticle()
+
         }
+    }
+
+    private fun saveArticle() {
+        args.article?.let {
+            viewModel.insertNews(it)
+        }
+    }
+
+    private fun deleteArticle() {
+
     }
 
     private fun shareArticle() {

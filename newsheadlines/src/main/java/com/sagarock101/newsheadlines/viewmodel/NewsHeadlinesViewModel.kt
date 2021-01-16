@@ -1,14 +1,15 @@
 package com.sagarock101.newsheadlines.viewmodel
 
 import android.app.Application
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.switchMap
 import com.sagarock101.core.viewmodel.CoroutineViewModel
+import com.sagarock101.database.NewsDatabaseRepo
 import com.sagarock101.newsheadlines.R
 import com.sagarock101.newsheadlines.data.NewsHeadlinesRepo
-import com.sagarock101.newsheadlines.data.remote.NewsHeadLinesRemoteSource
-import com.sagarock101.newsheadlines.data.remote.NewsHeadlinesService
-import com.sagarock101.newsheadlines.model.ArticleRequest
+import com.sagarock101.database.model.ArticleRequest
+import com.sagarock101.database.model.Articles
 import kotlinx.coroutines.Dispatchers.Main
 import javax.inject.Inject
 
@@ -18,9 +19,15 @@ class NewsHeadlinesViewModel @Inject constructor() : CoroutineViewModel(Main) {
     lateinit var newsHeadlinesRepo: NewsHeadlinesRepo
 
     @Inject
+    lateinit var newsDatabaseRepo: NewsDatabaseRepo
+
+    @Inject
     lateinit var application: Application
 
     private val newsHeadLinesMLD = MutableLiveData<ArticleRequest>()
+
+    private val _isSaved = MutableLiveData<Boolean>()
+    val savedLiveData: LiveData<Boolean> = _isSaved
 
     val newsHeadLinesLD = newsHeadLinesMLD.switchMap {
         if (it.category.isEmpty())
@@ -45,6 +52,22 @@ class NewsHeadlinesViewModel @Inject constructor() : CoroutineViewModel(Main) {
             )
         }
 
+    }
+
+    fun insertNews(articles: Articles) = launch {
+        newsDatabaseRepo.insertNews(articles)
+    }
+
+    fun getSavedNewsArticles() = launch {
+        newsDatabaseRepo.getAllSavedNews()
+    }
+
+    private fun checkIfNewsExists(id: Int) = launch {
+        _isSaved.value = newsDatabaseRepo.checkIfNewsExists(id)
+    }
+
+    fun checkIfSaved(articles: Articles) {
+        checkIfNewsExists(articles.id)
     }
 
 }

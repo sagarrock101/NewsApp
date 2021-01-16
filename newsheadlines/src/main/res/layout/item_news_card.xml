@@ -7,7 +7,12 @@
 
         <variable
             name="article"
-            type="com.sagarock101.newsheadlines.model.Articles" />
+            type="com.sagarock101.database.model.Articles" />
+
+        <variable
+            name="viewModel"
+            type="com.sagarock101.newsheadlines.viewmodel.NewsHeadlinesViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -47,12 +52,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_12sdp"
             android:elegantTextHeight="true"
+            android:ellipsize="end"
+            android:lines="3"
             android:text="@{article.title}"
             android:textColor="@color/white"
             android:textSize="@dimen/_16ssp"
             android:textStyle="bold"
-            android:lines="3"
-            android:ellipsize="end"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -66,11 +71,10 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="?android:attr/selectableItemBackground"
-            app:layout_constraintTop_toTopOf="@id/iv_news_img"
-            app:layout_constraintStart_toStartOf="@id/iv_news_img"
             app:layout_constraintBottom_toBottomOf="@id/iv_news_img"
             app:layout_constraintEnd_toEndOf="@id/iv_news_img"
-            />
+            app:layout_constraintStart_toStartOf="@id/iv_news_img"
+            app:layout_constraintTop_toTopOf="@id/iv_news_img" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

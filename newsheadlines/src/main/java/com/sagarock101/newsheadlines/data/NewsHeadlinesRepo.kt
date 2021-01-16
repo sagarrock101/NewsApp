@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import com.sagarock101.core.data.DataWrapper
 import com.sagarock101.core.data.resultLiveData
 import com.sagarock101.newsheadlines.data.remote.NewsHeadLinesRemoteSource
-import com.sagarock101.newsheadlines.model.NewsHeadLines
+import com.sagarock101.database.model.NewsHeadLines
 import javax.inject.Inject
 import javax.inject.Singleton
 

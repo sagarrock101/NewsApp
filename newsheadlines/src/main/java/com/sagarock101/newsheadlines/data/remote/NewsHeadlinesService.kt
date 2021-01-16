@@ -1,6 +1,6 @@
 package com.sagarock101.newsheadlines.data.remote
 
-import com.sagarock101.newsheadlines.model.NewsHeadLines
+import com.sagarock101.database.model.NewsHeadLines
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

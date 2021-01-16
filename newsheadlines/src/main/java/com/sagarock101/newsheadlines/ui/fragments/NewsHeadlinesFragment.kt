@@ -23,7 +23,7 @@ import com.sagarock101.core.utilities.Utils
 import com.sagarock101.core.view.BaseViewModelFragment
 import com.sagarock101.newsheadlines.R
 import com.sagarock101.newsheadlines.databinding.FragmentNewsHeadlinesBinding
-import com.sagarock101.newsheadlines.model.Articles
+import com.sagarock101.database.model.Articles
 import com.sagarock101.newsheadlines.ui.adapter.TopHeadlinesAdapter
 import com.sagarock101.newsheadlines.viewmodel.NewsHeadlinesViewModel
 import dagger.android.support.DaggerAppCompatActivity
@@ -64,7 +64,6 @@ class NewsHeadlinesFragment :
         attachSnapTov()
         handler = Handler(Looper.getMainLooper())
         binding.chipGroup.setOnCheckedChangeListener(this)
-        binding.vm = viewModel
         viewModel.newsHeadLinesLD.observe(viewLifecycleOwner, Observer {
             when (it.status) {
                 DataWrapper.Status.LOADING -> {
@@ -91,7 +90,9 @@ class NewsHeadlinesFragment :
     private fun setAdapterToRecyclerView() {
         adapter = TopHeadlinesAdapter()
         var extras: FragmentNavigator.Extras?
-        adapter?.onItemClick = { imageView, textView, data ->
+        adapter?.apply {
+            this.viewModel = this@NewsHeadlinesFragment.viewModel
+        }?.onItemClick = { imageView, textView, data ->
             val directions =
                 NewsHeadlinesFragmentDirections.actionNewsHeadlinesFragmentToNewsDetailFragment(data)
             extras = FragmentNavigatorExtras(

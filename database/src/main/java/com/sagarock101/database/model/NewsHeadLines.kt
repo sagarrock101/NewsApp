@@ -1,8 +1,7 @@
-package com.sagarock101.newsheadlines.model
+package com.sagarock101.database.model
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
+import com.sagarock101.database.model.Articles
 
 /*
 Copyright (c) 2020 Kotlin Data Classes Generated from JSON powered by http://www.json2kotlin.com
@@ -15,14 +14,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
-@Parcelize
-data class Articles(
-    @SerializedName("source") val source: Source,
-    @SerializedName("author") val author: String,
-    @SerializedName("title") val title: String,
-    @SerializedName("description") val description: String,
-    @SerializedName("url") val url: String,
-    @SerializedName("urlToImage") var urlToImage: String? = null,
-    @SerializedName("publishedAt") val publishedAt: String,
-    @SerializedName("content") val content: String
-) : Parcelable
+
+data class NewsHeadLines (
+
+	@SerializedName("status") val status : String,
+	@SerializedName("totalResults") val totalResults : Int,
+	@SerializedName("articles") val articles : List<Articles>
+)

@@ -19,7 +19,7 @@
         android:label="NewsDetailFragment" >
         <argument
             android:name="article"
-            app:argType="com.sagarock101.newsheadlines.model.Articles"
+            app:argType="com.sagarock101.database.model.Articles"
             app:nullable="true" />
     </fragment>
 </navigation>

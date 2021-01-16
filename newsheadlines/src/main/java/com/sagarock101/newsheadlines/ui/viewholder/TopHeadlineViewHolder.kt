@@ -7,17 +7,21 @@ import android.widget.TextView
 import androidx.core.view.ViewCompat
 import com.sagarock101.core.viewholder.BaseViewHolder
 import com.sagarock101.newsheadlines.databinding.ItemNewsCardBinding
-import com.sagarock101.newsheadlines.model.Articles
+import com.sagarock101.database.model.Articles
+import com.sagarock101.newsheadlines.viewmodel.NewsHeadlinesViewModel
 
 class TopHeadlineViewHolder(val binding: ItemNewsCardBinding)
     : BaseViewHolder<Articles>(binding) {
     var onItemClick: ((ImageView, TextView, Articles) -> Unit)? = null
+    var viewModel: NewsHeadlinesViewModel? = null
     override fun bind(item: Articles) {
         binding.article = item
+        binding.viewModel = viewModel
         ViewCompat.setTransitionName(binding.ivNewsImg, item.urlToImage ?: "")
         ViewCompat.setTransitionName(binding.tvTitle, item.title)
         itemView.setOnClickListener {
             onItemClick?.invoke(binding.ivNewsImg, binding.tvTitle, item)
+            viewModel?.checkIfSaved(item)
         }
     }
 
@@ -32,13 +36,15 @@ class TopHeadlineViewHolder(val binding: ItemNewsCardBinding)
     companion object {
         fun from(
             parent: ViewGroup,
-            onItemClick: ((ImageView, TextView, Articles) -> Unit)? = null
+            onItemClick: ((ImageView, TextView, Articles) -> Unit)? = null,
+            viewModel: NewsHeadlinesViewModel? = null
             ): BaseViewHolder<Articles> {
             val layoutInflater = LayoutInflater.from(parent.context)
             val binding = ItemNewsCardBinding.inflate(layoutInflater, parent, false)
 
             return TopHeadlineViewHolder(binding).apply {
                 this.onItemClick = onItemClick
+                this.viewModel = viewModel
             }
         }
     }

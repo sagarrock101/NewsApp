@@ -7,13 +7,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sagarock101.core.adapter.BaseAdapter
 import com.sagarock101.core.viewholder.BaseViewHolder
 import com.sagarock101.newsheadlines.R
-import com.sagarock101.newsheadlines.model.Articles
+import com.sagarock101.database.model.Articles
 import com.sagarock101.newsheadlines.ui.viewholder.TopHeadlineViewHolder
+import com.sagarock101.newsheadlines.viewmodel.NewsHeadlinesViewModel
 
 class TopHeadlinesAdapter() :
     BaseAdapter<Articles>() {
 
     var onItemClick: ((ImageView, TextView, Articles) -> Unit)? = null
+    var viewModel: NewsHeadlinesViewModel? = null
 
     override fun getLayoutId(position: Int, obj: Articles) = R.layout.item_news_card
 
@@ -35,7 +37,7 @@ class TopHeadlinesAdapter() :
     }
 
     override fun getViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<Articles> {
-        return TopHeadlineViewHolder.from(parent, onItemClick)
+        return TopHeadlineViewHolder.from(parent, onItemClick, viewModel)
     }
 
     fun notifyChange(position: Int, canChangeAlpha: Boolean) {

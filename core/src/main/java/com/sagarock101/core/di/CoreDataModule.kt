@@ -1,5 +1,6 @@
 package com.sagarock101.core.di
 
+import android.app.Application
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.Gson
 import com.sagarock101.common.BuildConfig
@@ -44,6 +45,8 @@ class CoreDataModule {
     fun provideOkhttpClient(interceptorWithApiKey: InterceptorWithApiKey): OkHttpClient {
         return OkHttpClient().newBuilder().addInterceptor(interceptorWithApiKey).addNetworkInterceptor(StethoInterceptor()).build()
     }
+
+
 
 }
 
