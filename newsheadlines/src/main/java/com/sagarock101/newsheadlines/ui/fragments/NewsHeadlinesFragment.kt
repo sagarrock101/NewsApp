@@ -10,6 +10,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import androidx.transition.Transition
+import androidx.transition.TransitionInflater
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.sagarock101.core.bindings.removeTransparentStatusBar

@@ -38,24 +38,28 @@ class NewsDetailFragment :
 
     private var isSaved = false
 
-//    private var isSaved = args?.article?.id?.let { viewModel.checkIfNewsExists(it) }
-
     override fun initView(view: View) {
         setHasOptionsMenu(true)
         (activity as DaggerAppCompatActivity).setTransparentStatusBar()
         sharedElementEnterTransition = TransitionInflater.from(context)
-            .inflateTransition(android.R.transition.move)
+            .inflateTransition(R.transition.new_shared_element_transition)
         (sharedElementEnterTransition as? Transition)?.addListener(this)
-        sharedElementReturnTransition = TransitionInflater.from(context)
-            .inflateTransition(R.transition.shared_element_transition)
         if (args?.article?.urlToImage != null)
             postponeEnterTransition()
         viewModel = injectViewModel(viewModelFactory)
         startEnterTransitionAfterLoadingImage()
-        binding.fabSave.hideChildFabInitially()
-        binding.fabShare.hideChildFabInitially()
+        hideChildFabs()
         binding.appBar.addOnOffsetChangedListener(this)
         setClickListener()
+        setSaveObserver()
+    }
+
+    private fun hideChildFabs() {
+        binding.fabSave.hideChildFabInitially()
+        binding.fabShare.hideChildFabInitially()
+    }
+
+    private fun setSaveObserver() {
         viewModel.savedLiveData.observe(this, Observer { isSaved ->
             this.isSaved = isSaved
             if (this.isSaved) {

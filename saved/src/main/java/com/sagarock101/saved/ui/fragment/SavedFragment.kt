@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import androidx.transition.TransitionInflater
 import com.sagarock101.core.bindings.removeTransparentStatusBar
 import com.sagarock101.core.di.ViewModelFactory
 import com.sagarock101.core.di.injectViewModel
