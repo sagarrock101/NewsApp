@@ -7,16 +7,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.navigation.NavGraph
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.bottomnavigation.BottomNavigationMenu
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sagarock101.core.di.ViewModelFactory
 import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.newsapp.R
 import com.sagarock101.newsapp.databinding.FragmentSplashBinding
-import com.sagarock101.newsheadlines.viewmodel.NewsHeadlinesViewModel
+import com.sagarock101.newsheadlines.viewmodel.NewsViewModel
 import dagger.android.support.DaggerFragment
 import java.lang.Exception
 import javax.inject.Inject
@@ -28,7 +26,7 @@ class SplashFragment : DaggerFragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    lateinit var viewModel: NewsHeadlinesViewModel
+    lateinit var viewModel: NewsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,10 +45,10 @@ class SplashFragment : DaggerFragment() {
 
     private fun navigateToNewsHeadlines() {
         try {
-            val graph = findNavController().graph.findNode(R.id.navigation_news_headlines)
-            if (graph is NavGraph) {
-                graph.startDestination = R.id.newsHeadlinesFragment
-            }
+//            val graph = findNavController().graph.findNode(R.id.navigation_news_headlines)
+//            if (graph is NavGraph) {
+//                graph.startDestination = R.id.newsHeadlinesFragment
+//            }
             findNavController().navigate(R.id.action_splashFragment_to_newsHeadlinesFragment3)
         } catch (e: Exception) {
             Log.e(this.javaClass.name, "${e.message}")

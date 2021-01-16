@@ -21,9 +21,9 @@ import javax.inject.Singleton
         AndroidSupportInjectionModule::class,
         ActivityBuildersModule::class,
         NewsHeadlinesModule::class,
-        ViewModelModule::class,
-        NewsViewModelModule::class,
-        DatabaseModule::class
+        ViewModelModule::class ,
+        DatabaseModule ::class,
+        NewsViewModelModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<MyApplication> {

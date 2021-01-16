@@ -14,7 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.Main
 import javax.inject.Inject
 
-class NewsHeadlinesViewModel @Inject constructor() : CoroutineViewModel(Main) {
+class NewsViewModel @Inject constructor() : CoroutineViewModel(Main) {
 
     @Inject
     lateinit var newsHeadlinesRepo: NewsHeadlinesRepo
@@ -24,6 +24,7 @@ class NewsHeadlinesViewModel @Inject constructor() : CoroutineViewModel(Main) {
 
     @Inject
     lateinit var application: Application
+
 
     private val newsHeadLinesMLD = MutableLiveData<ArticleRequest>()
 
@@ -81,4 +82,7 @@ class NewsHeadlinesViewModel @Inject constructor() : CoroutineViewModel(Main) {
         _isSaved.value = false
     }
 
+    fun getAllSavedNews(): LiveData<List<Articles>> {
+        return newsDatabaseRepo.getAllSavedNews()
+    }
 }

@@ -5,8 +5,6 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.net.Uri
 import android.view.View
-import android.widget.ImageView
-import androidx.core.content.res.ResourcesCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -21,12 +19,12 @@ import com.sagarock101.core.view.BaseViewModelFragment
 import com.sagarock101.newsheadlines.R
 import com.sagarock101.newsheadlines.binding.*
 import com.sagarock101.newsheadlines.databinding.FragmentNewsDetailBinding
-import com.sagarock101.newsheadlines.viewmodel.NewsHeadlinesViewModel
+import com.sagarock101.newsheadlines.viewmodel.NewsViewModel
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
 class NewsDetailFragment :
-    BaseViewModelFragment<FragmentNewsDetailBinding, NewsHeadlinesViewModel>(),
+    BaseViewModelFragment<FragmentNewsDetailBinding, NewsViewModel>(),
     View.OnClickListener, Transition.TransitionListener, AppBarLayout.OnOffsetChangedListener {
 
     @Inject

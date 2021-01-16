@@ -19,4 +19,9 @@
         android:id="@+id/navigation_news_headlines"
         app:graph="@navigation/navigation_news_headlines" />
 
+    <include
+        android:id="@+id/navigation_saved"
+        app:graph="@navigation/navigation_saved"
+        />
+
 </navigation>

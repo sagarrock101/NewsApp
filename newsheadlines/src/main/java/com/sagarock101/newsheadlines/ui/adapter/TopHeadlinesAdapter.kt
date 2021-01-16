@@ -9,13 +9,13 @@ import com.sagarock101.core.viewholder.BaseViewHolder
 import com.sagarock101.newsheadlines.R
 import com.sagarock101.database.model.Articles
 import com.sagarock101.newsheadlines.ui.viewholder.TopHeadlineViewHolder
-import com.sagarock101.newsheadlines.viewmodel.NewsHeadlinesViewModel
+import com.sagarock101.newsheadlines.viewmodel.NewsViewModel
 
 class TopHeadlinesAdapter() :
     BaseAdapter<Articles>() {
 
     var onItemClick: ((ImageView, TextView, Articles) -> Unit)? = null
-    var viewModel: NewsHeadlinesViewModel? = null
+    var viewModel: NewsViewModel? = null
 
     override fun getLayoutId(position: Int, obj: Articles) = R.layout.item_news_card
 

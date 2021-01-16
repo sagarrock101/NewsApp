@@ -18,9 +18,6 @@ abstract class BaseViewModelFragment<B : ViewDataBinding, VM : CoroutineViewMode
     protected lateinit var viewModel: VM
     protected var bundle: Bundle? = null
 
-//    @Inject
-//    lateinit var persistenceManager: PersistenceManager
-
     override fun bindView(inflater: LayoutInflater, container: ViewGroup?): View {
         return binding.root
     }
@@ -48,37 +45,6 @@ abstract class BaseViewModelFragment<B : ViewDataBinding, VM : CoroutineViewMode
 
     protected fun readBundle() {
         bundle = this.arguments
-    }
-
-    fun wipeData() {
-//        val locale: String =
-//            persistenceManager.getStringToPreferences(PersistenceManager.PREF_LOCALE)
-//        val assetsVersion: Int =
-//            persistenceManager.getIntToPreferences(PersistenceManager.PREF_KEY_ASSETS_VERSION)
-//        val dbVersion: Int =
-//            persistenceManager.getIntToPreferences(PersistenceManager.KEY_DB_VERSION)
-//        persistenceManager.saveStringToPrefrence(PersistenceManager.PREF_LOCALE, locale)
-//        persistenceManager.saveIntToPrefrence(
-//            PersistenceManager.PREF_KEY_ASSETS_VERSION,
-//            assetsVersion
-//        )
-//        persistenceManager.saveIntToPrefrence(PersistenceManager.KEY_DB_VERSION, dbVersion)
-
-//        Delete.from(QuestionSetItem.class).execute(false);
-
-//        Delete.from(QuestionSetItem.class).execute(false);
-//        repoProvider.getTestRepo().deleteAllTest()
-//        repoProvider.getCommonRepo().deleteAllQuestion()
-//        repoProvider.getCommonRepo().deleteAllConcept()
-//        repoProvider.getCommonRepo().deleteAllPack()
-//        repoProvider.getCommonRepo().deleteAllAttempts()
-//        repoProvider.getTestRepo().deleteAllInstruction()
-//        repoProvider.getCommonRepo().deleteAllSection()
-//        repoProvider.getPracticeRepo().deleteAllPractice()
-//        repoProvider.getPracticeRepo().deleteAllChapters()
-//        repoProvider.getCommonRepo().deleteAllEvent()
-//        repoProvider.getCommonRepo().deleteAllFormat()
-//        TestManager.getInstance().reset()
     }
 
 

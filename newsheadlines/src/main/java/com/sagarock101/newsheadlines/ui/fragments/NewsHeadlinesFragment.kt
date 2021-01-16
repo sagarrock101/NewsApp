@@ -25,12 +25,12 @@ import com.sagarock101.newsheadlines.R
 import com.sagarock101.newsheadlines.databinding.FragmentNewsHeadlinesBinding
 import com.sagarock101.database.model.Articles
 import com.sagarock101.newsheadlines.ui.adapter.TopHeadlinesAdapter
-import com.sagarock101.newsheadlines.viewmodel.NewsHeadlinesViewModel
+import com.sagarock101.newsheadlines.viewmodel.NewsViewModel
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
 class NewsHeadlinesFragment :
-    BaseViewModelFragment<FragmentNewsHeadlinesBinding, NewsHeadlinesViewModel>(), Injectable,
+    BaseViewModelFragment<FragmentNewsHeadlinesBinding, NewsViewModel>(), Injectable,
     OnSnapPositionChangeListener, ChipGroup.OnCheckedChangeListener {
 
     @Inject
@@ -59,6 +59,7 @@ class NewsHeadlinesFragment :
     }
 
     override fun initView(view: View) {
+        binding.appBar.toolbarTitle.text = getString(R.string.newsapp)
         (activity as DaggerAppCompatActivity).removeTransparentStatusBar()
         setAdapterToRecyclerView()
         attachSnapTov()

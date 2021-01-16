@@ -1,31 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/white">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/iv_news_img"
-        android:layout_width="@dimen/_65sdp"
-        android:layout_height="@dimen/_65sdp"
-        android:layout_margin="@dimen/_8sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
+        <variable
+            name="viewModel"
+            type="com.sagarock101.newsheadlines.viewmodel.NewsViewModel" />
 
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="0dp"
+        <variable
+            name="article"
+            type="com.sagarock101.database.model.Articles" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
-        android:lines="2"
-        android:ellipsize="end"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/iv_news_img"
-        app:layout_constraintTop_toTopOf="@id/iv_news_img"
-        app:layout_constraintBottom_toBottomOf="@id/iv_news_img"
-        />
+        android:layout_margin="@dimen/_4sdp"
+        android:background="@drawable/white_rounded_bg">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/iv_news_img"
+            android:layout_width="@dimen/_65sdp"
+            android:layout_height="@dimen/_65sdp"
+            android:layout_margin="@dimen/_8sdp"
+            app:imgSrc="@{article.urlToImage}"
+            android:src="@drawable/ic_news"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:lines="2"
+            android:ellipsize="end"
+            android:text="@{article.title}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_news_img"
+            app:layout_constraintTop_toTopOf="@id/iv_news_img"
+            app:layout_constraintBottom_toBottomOf="@id/iv_news_img" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

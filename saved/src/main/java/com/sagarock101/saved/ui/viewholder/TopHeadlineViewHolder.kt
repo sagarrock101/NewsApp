@@ -1,4 +1,4 @@
-package com.sagarock101.newsheadlines.ui.viewholder
+package com.sagarock101.saved.ui.viewholder
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,11 +6,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.ViewCompat
 import com.sagarock101.core.viewholder.BaseViewHolder
-import com.sagarock101.newsheadlines.databinding.ItemNewsCardBinding
 import com.sagarock101.database.model.Articles
 import com.sagarock101.newsheadlines.viewmodel.NewsViewModel
+import com.sagarock101.saved.databinding.ItemSavedBinding
 
-class TopHeadlineViewHolder(val binding: ItemNewsCardBinding)
+class SavedNewsViewHolder(val binding: ItemSavedBinding)
     : BaseViewHolder<Articles>(binding) {
     var onItemClick: ((ImageView, TextView, Articles) -> Unit)? = null
     var viewModel: NewsViewModel? = null
@@ -25,14 +25,6 @@ class TopHeadlineViewHolder(val binding: ItemNewsCardBinding)
         }
     }
 
-    fun decreaseAlpha() {
-        binding.viewAlphaLayer.alpha = 0.15f
-    }
-
-    fun increaseAlpha() {
-        binding.viewAlphaLayer.alpha = 0.3f
-    }
-
     companion object {
         fun from(
             parent: ViewGroup,
@@ -40,9 +32,9 @@ class TopHeadlineViewHolder(val binding: ItemNewsCardBinding)
             viewModel: NewsViewModel? = null
             ): BaseViewHolder<Articles> {
             val layoutInflater = LayoutInflater.from(parent.context)
-            val binding = ItemNewsCardBinding.inflate(layoutInflater, parent, false)
+            val binding = ItemSavedBinding.inflate(layoutInflater, parent, false)
 
-            return TopHeadlineViewHolder(binding).apply {
+            return SavedNewsViewHolder(binding).apply {
                 this.onItemClick = onItemClick
                 this.viewModel = viewModel
             }

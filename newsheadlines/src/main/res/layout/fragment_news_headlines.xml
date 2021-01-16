@@ -12,30 +12,15 @@
         android:background="@color/white"
         >
 
-        <com.google.android.material.appbar.AppBarLayout
+        <include
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
+            layout="@layout/custom_app_bar"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?android:attr/actionBarSize">
-
-                <TextView
-                    android:id="@+id/toolbar_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:fontFamily="@font/permanent_marker_regular"
-                    android:text="@string/newsapp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_16ssp" />
-            </Toolbar>
-        </com.google.android.material.appbar.AppBarLayout>
+            app:layout_constraintEnd_toEndOf="parent"
+            />
 
         <HorizontalScrollView
             android:id="@+id/horizontal_chip_group"

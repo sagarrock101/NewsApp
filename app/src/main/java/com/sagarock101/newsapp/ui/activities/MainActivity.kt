@@ -3,6 +3,7 @@ package com.sagarock101.newsapp.ui.activities
 import android.animation.Animator
 import android.animation.ObjectAnimator
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Toast
@@ -10,15 +11,15 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sagarock101.newsapp.R
 import com.sagarock101.newsapp.databinding.ActivityMainBinding
 import dagger.android.support.DaggerAppCompatActivity
 
-const val MIN_DISTANCE = 150
+class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChangedListener,
+    BottomNavigationView.OnNavigationItemReselectedListener,
+    BottomNavigationView.OnNavigationItemSelectedListener {
 
-class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChangedListener {
-    private var x2: Float = 0.0f
-    private var x1: Float = 0.0f
     lateinit var binding: ActivityMainBinding
 
     private val navController by lazy { findNavController(R.id.nav_main_fragment) }
@@ -30,6 +31,8 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding.btmNav.setOnNavigationItemReselectedListener(this)
+        binding.btmNav.setOnNavigationItemSelectedListener(this)
     }
 
     override fun onDestinationChanged(
@@ -41,10 +44,17 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
             R.id.newsDetailFragment -> hideBtmNavBar()
 
             R.id.newsHeadlinesFragment -> showBtnNavBar()
+
+            R.id.newsDetailFragment2 -> hideBtmNavBar()
+
+            R.id.savedFragment -> showBtnNavBar()
         }
     }
 
     private fun showBtnNavBar() {
+        if(binding.btmNav.visibility == View.VISIBLE)
+            return
+
         val listener = object : Animator.AnimatorListener {
             override fun onAnimationRepeat(animation: Animator?) {
 
@@ -117,6 +127,31 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
     override fun onPause() {
         super.onPause()
         navController.removeOnDestinationChangedListener(this)
+    }
+
+    override fun onNavigationItemReselected(item: MenuItem) {
+
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.navigation_news_headlines -> {
+                findNavController(R.id.nav_main_fragment).navigate(R.id.navigation_news_headlines)
+                return true
+            }
+
+            R.id.navigation_saved -> {
+                findNavController(R.id.nav_main_fragment).navigate(R.id.navigation_saved)
+                return true
+            }
+
+            R.id.navigation_category -> {
+
+            }
+        }
+
+        return false
+
     }
 
 }

@@ -11,7 +11,7 @@
 
         <variable
             name="viewModel"
-            type="com.sagarock101.newsheadlines.viewmodel.NewsHeadlinesViewModel" />
+            type="com.sagarock101.newsheadlines.viewmodel.NewsViewModel" />
 
     </data>
 
