@@ -16,6 +16,6 @@ interface NewsDao {
     @Delete
     suspend fun deleteNews(articles: Articles)
 
-    @Query("Select exists(select * from Articles where id = :id)")
-    suspend fun isRowExists(id: Int): Boolean
+    @Query("select exists(select * from Articles where title = :title)")
+    suspend fun isRowExists(title: String): Boolean
 }

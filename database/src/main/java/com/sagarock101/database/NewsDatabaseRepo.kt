@@ -15,5 +15,5 @@ class NewsDatabaseRepo @Inject constructor(private val dao: NewsDao){
         dao.deleteNews(articles)
     }
 
-    suspend fun checkIfNewsExists(id: Int) = dao.isRowExists(id)
+    suspend fun checkIfNewsExists(title: String) = dao.isRowExists(title)
 }

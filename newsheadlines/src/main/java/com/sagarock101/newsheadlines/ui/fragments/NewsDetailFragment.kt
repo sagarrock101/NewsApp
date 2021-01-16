@@ -1,8 +1,13 @@
 package com.sagarock101.newsheadlines.ui.fragments
 
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.net.Uri
 import android.view.View
+import android.widget.ImageView
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.widget.ImageViewCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -33,6 +38,8 @@ class NewsDetailFragment :
 
     private var isFabRotated = false
 
+    private var isSaved = false
+
 //    private var isSaved = args?.article?.id?.let { viewModel.checkIfNewsExists(it) }
 
     override fun initView(view: View) {
@@ -52,10 +59,18 @@ class NewsDetailFragment :
         binding.appBar.addOnOffsetChangedListener(this)
         setClickListener()
         viewModel.savedLiveData.observe(this, Observer { isSaved ->
-            if (isSaved)
-                binding.fabSave.setColorFilter(R.color.black)
-            else
-                binding.fabSave.setColorFilter(R.color.white)
+            this.isSaved = isSaved
+            if (this.isSaved) {
+                ImageViewCompat.setImageTintList(
+                    binding.fabSave,
+                    ColorStateList.valueOf(Color.BLACK)
+                )
+            } else {
+                ImageViewCompat.setImageTintList(
+                    binding.fabSave,
+                    ColorStateList.valueOf(Color.WHITE)
+                )
+            }
         })
     }
 
@@ -93,7 +108,7 @@ class NewsDetailFragment :
 
             binding.fabShare -> shareArticle()
 
-            binding.fabSave -> saveArticle()
+            binding.fabSave -> if (isSaved) deleteArticle() else saveArticle()
 
         }
     }
@@ -105,7 +120,9 @@ class NewsDetailFragment :
     }
 
     private fun deleteArticle() {
-
+        args.article?.let {
+            viewModel.deleteNews(it)
+        }
     }
 
     private fun shareArticle() {
@@ -160,6 +177,11 @@ class NewsDetailFragment :
         if (verticalOffset == -binding.appBar.totalScrollRange)
             binding.fabAdd.visibility = View.VISIBLE
         else binding.fabAdd.visibility = View.GONE
+    }
+
+    override fun onDestroyView() {
+        viewModel.clearViewModelMLDs()
+        super.onDestroyView()
     }
 
 }

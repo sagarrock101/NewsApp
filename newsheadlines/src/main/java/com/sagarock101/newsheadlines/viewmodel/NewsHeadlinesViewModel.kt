@@ -10,6 +10,7 @@ import com.sagarock101.newsheadlines.R
 import com.sagarock101.newsheadlines.data.NewsHeadlinesRepo
 import com.sagarock101.database.model.ArticleRequest
 import com.sagarock101.database.model.Articles
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.Main
 import javax.inject.Inject
 
@@ -54,20 +55,30 @@ class NewsHeadlinesViewModel @Inject constructor() : CoroutineViewModel(Main) {
 
     }
 
-    fun insertNews(articles: Articles) = launch {
+    fun insertNews(articles: Articles) = launch{
         newsDatabaseRepo.insertNews(articles)
+        checkIfSaved(articles)
     }
 
     fun getSavedNewsArticles() = launch {
         newsDatabaseRepo.getAllSavedNews()
     }
 
-    private fun checkIfNewsExists(id: Int) = launch {
-        _isSaved.value = newsDatabaseRepo.checkIfNewsExists(id)
+    private fun checkIfNewsExists(title: String) = launch {
+        _isSaved.value = newsDatabaseRepo.checkIfNewsExists(title)
     }
 
     fun checkIfSaved(articles: Articles) {
-        checkIfNewsExists(articles.id)
+        articles.title?.let { checkIfNewsExists(it) }
+    }
+
+    fun deleteNews(articles: Articles) = launch {
+        newsDatabaseRepo.deleteNews(articles)
+        checkIfSaved(articles)
+    }
+
+    fun clearViewModelMLDs() {
+        _isSaved.value = false
     }
 
 }

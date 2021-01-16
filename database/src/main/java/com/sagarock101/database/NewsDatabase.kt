@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.room.*
 import com.sagarock101.database.model.Articles
 
-@Database(entities = [Articles::class], version = 3, exportSchema = false)
+@Database(entities = [Articles::class], version = 5, exportSchema = false)
 @TypeConverters(TypeConverterForSource::class)
 abstract class NewsDatabase : RoomDatabase() {
     abstract fun newsDao(): NewsDao

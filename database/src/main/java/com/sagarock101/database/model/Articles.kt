@@ -1,6 +1,7 @@
 package com.sagarock101.database.model
 
 import android.os.Parcelable
+import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -24,23 +25,25 @@ data class Articles(
 
     @ColumnInfo
     @SerializedName("source")
-    val source: Source,
+    val source: Source? = null,
 
     @ColumnInfo
     @SerializedName("author")
-    val author: String,
+    val author: String? = null,
 
     @ColumnInfo
+    @PrimaryKey
+    @NonNull
     @SerializedName("title")
     val title: String,
 
     @ColumnInfo
     @SerializedName("description")
-    val description: String,
+    val description: String? = null,
 
     @ColumnInfo
     @SerializedName("url")
-    val url: String,
+    val url: String? = null,
 
     @ColumnInfo
     @SerializedName("urlToImage")
@@ -48,12 +51,9 @@ data class Articles(
 
     @ColumnInfo
     @SerializedName("publishedAt")
-    val publishedAt: String,
+    val publishedAt: String? = null,
 
     @ColumnInfo
     @SerializedName("content")
-    val content: String,
-
-    @PrimaryKey(autoGenerate = true)
-    val id: Int = 0
+    val content: String? = null
 ) : Parcelable
