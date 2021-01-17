@@ -61,6 +61,7 @@ class NewsHeadlinesFragment :
     }
 
     override fun initView(view: View) {
+        exitTransition = TransitionInflater.from(requireContext()).inflateTransition(R.transition.exit_transition)
         binding.appBar.toolbarTitle.text = getString(R.string.newsapp)
         (activity as DaggerAppCompatActivity).removeTransparentStatusBar()
         setAdapterToRecyclerView()

@@ -35,6 +35,7 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
     }
 
     override fun initView(view: View) {
+        exitTransition = TransitionInflater.from(requireContext()).inflateTransition(R.transition.exit_transition)
         (activity as DaggerAppCompatActivity).removeTransparentStatusBar()
         binding.appBar.toolbarTitle.text = getString(R.string.newsapp)
         viewModel = injectViewModel(viewModelFactory)

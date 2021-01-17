@@ -4,21 +4,19 @@ import android.animation.Animator
 import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.MotionEvent
 import android.view.View
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sagarock101.newsapp.R
 import com.sagarock101.newsapp.databinding.ActivityMainBinding
 import dagger.android.support.DaggerAppCompatActivity
 
 class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChangedListener,
-    BottomNavigationView.OnNavigationItemReselectedListener,
-    BottomNavigationView.OnNavigationItemSelectedListener {
+    BottomNavigationView.OnNavigationItemReselectedListener {
 
     lateinit var binding: ActivityMainBinding
 
@@ -26,13 +24,14 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
 
     private var btmNavObjectAnimator: ObjectAnimator? = null
     private var btmNavAlphaObjectAnimator: ObjectAnimator? = null
-
+    private var currentBtmMenuSelected = "NewsHeadlinesFragment"
+    private var prevDestination = "NewsHeadlinesFragment"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.btmNav.setOnNavigationItemReselectedListener(this)
-        binding.btmNav.setOnNavigationItemSelectedListener(this)
+        binding.btmNav.setupWithNavController(findNavController(R.id.nav_main_fragment))
     }
 
     override fun onDestinationChanged(
@@ -52,7 +51,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
     }
 
     private fun showBtnNavBar() {
-        if(binding.btmNav.visibility == View.VISIBLE)
+        if (binding.btmNav.visibility == View.VISIBLE)
             return
 
         val listener = object : Animator.AnimatorListener {
@@ -130,27 +129,6 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
     }
 
     override fun onNavigationItemReselected(item: MenuItem) {
-
-    }
-
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
-            R.id.navigation_news_headlines -> {
-                findNavController(R.id.nav_main_fragment).navigate(R.id.navigation_news_headlines)
-                return true
-            }
-
-            R.id.navigation_saved -> {
-                findNavController(R.id.nav_main_fragment).navigate(R.id.navigation_saved)
-                return true
-            }
-
-            R.id.navigation_category -> {
-
-            }
-        }
-
-        return false
 
     }
 
