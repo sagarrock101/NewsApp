@@ -179,14 +179,12 @@ class NewsDetailFragment :
     override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
         if (verticalOffset == -binding.appBar.totalScrollRange) {
             binding.fabAdd.visibility = View.VISIBLE
+            binding.fabShare.visibility = View.VISIBLE
+            binding.fabSave.visibility = View.VISIBLE
         } else {
-            binding.fabAdd.apply {
-                if(rotation == 135f)
-                   isFabRotated = rotateFab(false)
-                binding.fabShare.hideFab()
-                binding.fabSave.hideFab()
-                visibility = View.GONE
-            }
+            binding.fabAdd.visibility = View.GONE
+            binding.fabShare.visibility = View.GONE
+            binding.fabSave.visibility = View.GONE
         }
     }
 
