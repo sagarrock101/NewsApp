@@ -61,7 +61,6 @@ class NewsHeadlinesFragment :
     }
 
     override fun initView(view: View) {
-        exitTransition = TransitionInflater.from(requireContext()).inflateTransition(R.transition.exit_transition)
         binding.appBar.toolbarTitle.text = getString(R.string.newsapp)
         (activity as DaggerAppCompatActivity).removeTransparentStatusBar()
         setAdapterToRecyclerView()
@@ -147,7 +146,7 @@ class NewsHeadlinesFragment :
                 binding.chipHealth.callApiIfChipIsPressed(getString(R.string.health))
             }
             binding.chipSports.id -> {
-                binding.chipHealth.callApiIfChipIsPressed(getString(R.string.sports))
+                binding.chipSports.callApiIfChipIsPressed(getString(R.string.sports))
             }
             binding.chipTechnology.id -> {
                 binding.chipTechnology.callApiIfChipIsPressed(getString(R.string.technology))

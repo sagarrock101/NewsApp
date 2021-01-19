@@ -7,7 +7,6 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
-import androidx.transition.TransitionInflater
 import com.sagarock101.core.bindings.removeTransparentStatusBar
 import com.sagarock101.core.di.ViewModelFactory
 import com.sagarock101.core.di.injectViewModel
@@ -35,7 +34,6 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
     }
 
     override fun initView(view: View) {
-        exitTransition = TransitionInflater.from(requireContext()).inflateTransition(R.transition.exit_transition)
         (activity as DaggerAppCompatActivity).removeTransparentStatusBar()
         binding.appBar.toolbarTitle.text = getString(R.string.newsapp)
         viewModel = injectViewModel(viewModelFactory)

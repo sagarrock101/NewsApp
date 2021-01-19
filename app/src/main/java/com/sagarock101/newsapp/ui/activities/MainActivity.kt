@@ -31,6 +31,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.btmNav.setOnNavigationItemReselectedListener(this)
+//        binding.btmNav.setOnNavigationItemSelectedListener(this)
         binding.btmNav.setupWithNavController(findNavController(R.id.nav_main_fragment))
     }
 

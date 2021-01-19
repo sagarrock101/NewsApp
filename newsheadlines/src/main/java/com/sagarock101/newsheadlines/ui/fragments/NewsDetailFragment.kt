@@ -145,6 +145,7 @@ class NewsDetailFragment :
         } else {
             binding.fabShare.hideFab()
             binding.fabSave.hideFab()
+            binding.fabAdd.visibility = View.VISIBLE
         }
     }
 
@@ -176,9 +177,17 @@ class NewsDetailFragment :
     }
 
     override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
-        if (verticalOffset == -binding.appBar.totalScrollRange)
+        if (verticalOffset == -binding.appBar.totalScrollRange) {
             binding.fabAdd.visibility = View.VISIBLE
-        else binding.fabAdd.visibility = View.GONE
+        } else {
+            binding.fabAdd.apply {
+                if(rotation == 135f)
+                   isFabRotated = rotateFab(false)
+                binding.fabShare.hideFab()
+                binding.fabSave.hideFab()
+                visibility = View.GONE
+            }
+        }
     }
 
     override fun onDestroyView() {
