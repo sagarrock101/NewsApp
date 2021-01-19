@@ -82,6 +82,7 @@ fun View.rotateFab(rotate: Boolean): Boolean {
     this.animate().setDuration(200)
         .setListener(object : AnimatorListenerAdapter() {
             override fun onAnimationEnd(animation: Animator?) {
+                visibility = View.VISIBLE
                 super.onAnimationEnd(animation)
             }
         })

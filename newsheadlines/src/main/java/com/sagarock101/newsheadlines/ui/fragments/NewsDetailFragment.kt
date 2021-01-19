@@ -142,10 +142,10 @@ class NewsDetailFragment :
         if (isFabRotated) {
             binding.fabShare.showFab()
             binding.fabSave.showFab()
+            binding.fabAdd.visibility = View.VISIBLE
         } else {
             binding.fabShare.hideFab()
             binding.fabSave.hideFab()
-            binding.fabAdd.visibility = View.VISIBLE
         }
     }
 
