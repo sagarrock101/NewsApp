@@ -1,0 +1,89 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="source"
+            type="com.sagarock101.categories.model.Source" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_4sdp"
+        app:cardCornerRadius="@dimen/_8sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_rounded_bg">
+
+            <ImageView
+                android:id="@+id/iv_source"
+                android:layout_width="@dimen/_85sdp"
+                android:layout_height="@dimen/_85sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:src="@drawable/ic_news"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.1" />
+
+            <TextView
+                android:id="@+id/tv_source_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{source.id}"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:layout_constraintEnd_toStartOf="@id/iv_right_arrow"
+                app:layout_constraintStart_toEndOf="@id/iv_source"
+                app:layout_constraintTop_toTopOf="@id/iv_source" />
+
+            <TextView
+                android:id="@+id/tv_source_source"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{source.category}"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:layout_constraintEnd_toStartOf="@id/iv_right_arrow"
+                app:layout_constraintStart_toStartOf="@id/tv_source_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_source_title" />
+
+            <TextView
+                android:id="@+id/tv_source_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:visibility="gone"
+                android:text="@{source.description}"
+                app:layout_constraintEnd_toEndOf="@+id/tv_source_source"
+                app:layout_constraintStart_toStartOf="@id/iv_source"
+                app:layout_constraintTop_toBottomOf="@id/iv_source" />
+
+            <Button
+                android:id="@+id/btn_open_in_browser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_source_desc" />
+
+            <ImageView
+                android:id="@+id/iv_right_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                app:layout_constraintTop_toTopOf="@id/iv_source"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/iv_source"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

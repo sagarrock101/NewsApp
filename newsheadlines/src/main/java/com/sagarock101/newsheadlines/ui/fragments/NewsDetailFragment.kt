@@ -13,6 +13,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.transition.Transition
 import androidx.transition.TransitionInflater
 import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.snackbar.Snackbar
 import com.sagarock101.core.bindings.setTransparentStatusBar
 import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.core.view.BaseViewModelFragment
@@ -44,7 +45,7 @@ class NewsDetailFragment :
         sharedElementEnterTransition = TransitionInflater.from(context)
             .inflateTransition(R.transition.new_shared_element_transition)
         (sharedElementEnterTransition as? Transition)?.addListener(this)
-        if (args?.article?.urlToImage != null)
+        if (args.article?.urlToImage != null)
             postponeEnterTransition()
         viewModel = injectViewModel(viewModelFactory)
         startEnterTransitionAfterLoadingImage()
@@ -118,12 +119,20 @@ class NewsDetailFragment :
     private fun saveArticle() {
         args.article?.let {
             viewModel.insertNews(it)
+//            showSnack("Saved")
+        }
+    }
+
+    private fun showSnack(actionName: String) {
+        activity?.findViewById<View>(android.R.id.content)?.let {
+            Snackbar.make(it, actionName, Snackbar.LENGTH_SHORT).show()
         }
     }
 
     private fun deleteArticle() {
         args.article?.let {
             viewModel.deleteNews(it)
+//            showSnack("Removed")
         }
     }
 

@@ -1,5 +1,5 @@
 include ':database'
-include ':categories'
+include ':sources'
 include ':saved'
 include ':core'
 include ':common'
