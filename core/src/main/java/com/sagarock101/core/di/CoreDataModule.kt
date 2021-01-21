@@ -46,7 +46,5 @@ class CoreDataModule {
         return OkHttpClient().newBuilder().addInterceptor(interceptorWithApiKey).addNetworkInterceptor(StethoInterceptor()).build()
     }
 
-
-
 }
 

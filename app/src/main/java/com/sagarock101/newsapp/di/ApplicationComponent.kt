@@ -1,6 +1,8 @@
 package com.sagarock101.newsapp.di
 
 import android.app.Application
+import com.sagarock101.categories.di.SourceDataModule
+import com.sagarock101.categories.di.SourceViewModelModule
 import com.sagarock101.core.di.CoreDataModule
 import com.sagarock101.database.di.DatabaseModule
 import com.sagarock101.newsapp.MyApplication
@@ -21,9 +23,11 @@ import javax.inject.Singleton
         AndroidSupportInjectionModule::class,
         ActivityBuildersModule::class,
         NewsHeadlinesModule::class,
+        SourceDataModule::class,
         ViewModelModule::class ,
         DatabaseModule ::class,
-        NewsViewModelModule::class
+        NewsViewModelModule::class,
+        SourceViewModelModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<MyApplication> {

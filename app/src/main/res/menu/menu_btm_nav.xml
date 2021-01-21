@@ -7,9 +7,9 @@
         />
 
     <item
-        android:id="@+id/navigation_category"
-        android:icon="@drawable/ic_baseline_category_24"
-        android:title="@string/categories"
+        android:id="@+id/navigation_sources"
+        android:icon="@drawable/ic_baseline_rss_feed_24"
+        android:title="@string/sources"
         />
 
     <item

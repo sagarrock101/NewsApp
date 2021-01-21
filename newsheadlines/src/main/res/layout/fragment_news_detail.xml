@@ -37,6 +37,7 @@
                     android:id="@+id/iv_news_img"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_400sdp"
+                    android:layout_marginEnd="-2dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_news"
                     app:layout_collapseMode="parallax"

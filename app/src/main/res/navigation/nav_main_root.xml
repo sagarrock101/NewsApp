@@ -24,4 +24,9 @@
         app:graph="@navigation/navigation_saved"
         />
 
+    <include
+        android:id="@+id/navigation_sources"
+        app:graph="@navigation/navigation_sources"
+        />
+
 </navigation>
