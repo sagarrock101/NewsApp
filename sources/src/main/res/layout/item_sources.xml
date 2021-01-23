@@ -63,9 +63,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:visibility="gone"
+                android:gravity="fill_horizontal"
                 android:text="@{source.description}"
-                app:layout_constraintEnd_toEndOf="@+id/tv_source_source"
+                android:visibility="gone"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/iv_source"
                 app:layout_constraintTop_toBottomOf="@id/iv_source" />
 

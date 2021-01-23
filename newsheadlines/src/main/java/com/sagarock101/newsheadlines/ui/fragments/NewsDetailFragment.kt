@@ -124,9 +124,7 @@ class NewsDetailFragment :
     }
 
     private fun showSnack(actionName: String) {
-        activity?.findViewById<View>(android.R.id.content)?.let {
-            Snackbar.make(it, actionName, Snackbar.LENGTH_SHORT).show()
-        }
+        Snackbar.make(binding.colParent, actionName, Snackbar.LENGTH_SHORT).show()
     }
 
     private fun deleteArticle() {

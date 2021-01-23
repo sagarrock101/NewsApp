@@ -1,5 +1,6 @@
 package com.sagarock101.saved.ui.adapter
 
+import android.R.attr.data
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
@@ -9,6 +10,7 @@ import com.sagarock101.database.model.Articles
 import com.sagarock101.newsheadlines.viewmodel.NewsViewModel
 import com.sagarock101.saved.R
 import com.sagarock101.saved.ui.viewholder.SavedNewsViewHolder
+
 
 class SavedNewsAdapter() :
     BaseAdapter<Articles>() {
@@ -23,7 +25,20 @@ class SavedNewsAdapter() :
         return SavedNewsViewHolder.from(parent, onItemClick, viewModel)
     }
 
-    fun notifyChange(position: Int, canChangeAlpha: Boolean) {
-        notifyItemChanged(position, canChangeAlpha)
+    fun getSavedNewsAt(position: Int): Articles {
+        return listItems[position]
     }
+
+    fun removeItem(position: Int) {
+        listItems.removeAt(position)
+        notifyItemRemoved(position)
+    }
+
+    fun restoreItem(item: Articles?, position: Int) {
+        if (item != null) {
+            listItems.add(position, item)
+        }
+        notifyItemInserted(position)
+    }
+
 }

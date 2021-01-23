@@ -7,9 +7,13 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.sagarock101.core.bindings.removeTransparentStatusBar
 import com.sagarock101.core.di.ViewModelFactory
 import com.sagarock101.core.di.injectViewModel
+import com.sagarock101.core.utilities.UiActionClassWithItemHelper
 import com.sagarock101.core.view.BaseViewModelFragment
 import com.sagarock101.database.model.Articles
 import com.sagarock101.newsheadlines.viewmodel.NewsViewModel
@@ -25,6 +29,10 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
     lateinit var viewModelFactory: ViewModelFactory
 
     lateinit var adapter: SavedNewsAdapter
+
+    private var currentSwipedItem: Articles? = null
+
+    private var currentSwipedPosition = -1
 
     override fun getLayout() = R.layout.fragment_saved
 
@@ -74,5 +82,36 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
                     true
                 }
         }
+
+        setUpItemTouchHelper()
+    }
+
+    private fun setUpItemTouchHelper() {
+        val uiActionClassWithItemTouchHelper =
+            object : UiActionClassWithItemHelper(requireContext()) {
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                    currentSwipedItem = adapter.getSavedNewsAt(viewHolder.adapterPosition)
+                    currentSwipedPosition = viewHolder.adapterPosition
+                    adapter.removeItem(viewHolder.adapterPosition)
+                    Snackbar.make(binding.root, getString(R.string.removed), Snackbar.LENGTH_SHORT)
+                        .addCallback(object : Snackbar.Callback() {
+                            override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
+                                if (event == DISMISS_EVENT_TIMEOUT) {
+                                    viewModel.deleteNews(currentSwipedItem!!)
+                                }
+                            }
+                        })
+                        .setAction(getString(R.string.undo)) {
+                            adapter.restoreItem(
+                                currentSwipedItem,
+                                currentSwipedPosition
+                            )
+                        }
+                        .show()
+                }
+            }
+        val itemTouchHelper = ItemTouchHelper(uiActionClassWithItemTouchHelper)
+        itemTouchHelper.attachToRecyclerView(binding.rvSavedNews)
+
     }
 }

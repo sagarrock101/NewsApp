@@ -12,4 +12,7 @@
     <color name="colorPrimary">#4CAF50</color>
     <color name="colorDarkPrimary">#388E3C</color>
     <color name="colorSecondary">#4CAF50</color>
+    <color name="white_dull">#B5B5B5</color>
+    <color name="grey_20">#cccccc</color>
+    <color name="grey_80">#37474F</color>
 </resources>
