@@ -1,6 +1,6 @@
 package com.sagarock101.categories.di
 
-import com.sagarock101.categories.ui.SourcesFragment
+import com.sagarock101.categories.ui.fragments.SourcesFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

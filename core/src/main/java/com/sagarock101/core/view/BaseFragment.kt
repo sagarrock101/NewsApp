@@ -1,24 +1,15 @@
-/*
- *  Copyright (c) 2020. Embibe.  All rights reserved
- *
- */
-
-package com.embibe.core.view
+package com.sagarock101.core.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.sagarock101.core.view.BaseActivity
 import dagger.android.support.DaggerFragment
 
-/**
- * Created by Anil Gudigar on 25,September,2020
- */
 abstract class BaseFragment : DaggerFragment() {
 
     companion object {
-        var TAG = "BaseFragment"
+        var TAG = "com.sagarock101.core.view.BaseFragment"
     }
 
     protected val fragmentArguments: Bundle?
@@ -77,5 +68,6 @@ abstract class BaseFragment : DaggerFragment() {
             (activity as BaseActivity).searchIcon(showIcon)
         }
     }
+
 
 }

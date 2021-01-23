@@ -11,5 +11,5 @@ import javax.inject.Singleton
 @Singleton
 class SourceRepo @Inject constructor(private val sourceRemoteSource: SourceRemoteSource) {
 
-    suspend fun getSource() = resultLiveData { sourceRemoteSource.getSources() }
+    fun getSource() = resultLiveData { sourceRemoteSource.getSources() }
 }

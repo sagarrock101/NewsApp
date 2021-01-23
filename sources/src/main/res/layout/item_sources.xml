@@ -8,26 +8,32 @@
     </data>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cv_parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:clickable="true"
+        android:foreground="?android:selectableItemBackground"
         android:layout_margin="@dimen/_4sdp"
-        app:cardCornerRadius="@dimen/_8sdp">
+        app:cardCornerRadius="@dimen/_8sdp"
+        android:focusable="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/white_rounded_bg">
 
             <ImageView
                 android:id="@+id/iv_source"
-                android:layout_width="@dimen/_85sdp"
-                android:layout_height="@dimen/_85sdp"
+                android:layout_width="@dimen/_55sdp"
+                android:layout_height="@dimen/_55sdp"
                 android:layout_margin="@dimen/_10sdp"
-                android:src="@drawable/ic_news"
+                android:src="@drawable/ary_news"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.1" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/tv_source_title"
@@ -68,6 +74,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
+                android:text="check out in browser"
+                android:textAllCaps="false"
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

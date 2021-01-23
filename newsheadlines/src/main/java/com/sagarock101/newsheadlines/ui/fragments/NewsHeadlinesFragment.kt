@@ -61,7 +61,7 @@ class NewsHeadlinesFragment :
     }
 
     override fun initView(view: View) {
-        binding.appBar.toolbarTitle.text = getString(R.string.newsapp)
+//        binding.appBar.toolbarTitle.text = getString(R.string.newsapp)
         (activity as DaggerAppCompatActivity).removeTransparentStatusBar()
         setAdapterToRecyclerView()
         attachSnapTov()

@@ -11,14 +11,6 @@
         android:layout_height="match_parent"
         android:background="@color/white">
 
-        <include
-            android:id="@+id/app_bar"
-            layout="@layout/custom_app_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <HorizontalScrollView
             android:id="@+id/horizontal_chip_group"
@@ -27,7 +19,7 @@
             android:scrollbars="none"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/app_bar">
+            app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/chip_group"

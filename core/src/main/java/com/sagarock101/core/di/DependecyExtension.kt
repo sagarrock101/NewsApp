@@ -7,3 +7,4 @@ import androidx.lifecycle.ViewModelProvider
 inline fun <reified T: ViewModel> Fragment.injectViewModel(factory: ViewModelProvider.Factory): T {
     return ViewModelProvider(requireActivity(), factory).get(T::class.java)
 }
+

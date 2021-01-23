@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.embibe.core.view.BaseFragment
 import com.sagarock101.core.utilities.Utils
 import com.sagarock101.core.viewmodel.CoroutineViewModel
 

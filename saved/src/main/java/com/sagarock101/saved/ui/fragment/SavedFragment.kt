@@ -35,7 +35,6 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
 
     override fun initView(view: View) {
         (activity as DaggerAppCompatActivity).removeTransparentStatusBar()
-        binding.appBar.toolbarTitle.text = getString(R.string.newsapp)
         viewModel = injectViewModel(viewModelFactory)
         setupRvWithAdapter()
         setSavedNewsObserver()

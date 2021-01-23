@@ -7,6 +7,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.NavGraph
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -36,8 +38,10 @@ class SplashFragment : DaggerFragment() {
         binding = FragmentSplashBinding.inflate(inflater)
         viewModel = injectViewModel(viewModelFactory)
         (activity)?.findViewById<BottomNavigationView>(R.id.btm_nav)?.visibility = View.GONE
+        (activity)?.findViewById<ConstraintLayout>(R.id.custom_app_bar)?.visibility = View.GONE
         Handler(Looper.getMainLooper()).postDelayed(Runnable {
             (activity)?.findViewById<BottomNavigationView>(R.id.btm_nav)?.visibility = View.GONE
+            (activity)?.findViewById<ConstraintLayout>(R.id.custom_app_bar)?.visibility = View.VISIBLE
             navigateToNewsHeadlines()
         }, 1000)
         return binding.root

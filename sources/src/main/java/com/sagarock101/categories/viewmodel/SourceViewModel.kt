@@ -13,7 +13,7 @@ class SourceViewModel @Inject constructor(): CoroutineViewModel(Main) {
     @Inject
     lateinit var sourceRepo : SourceRepo
 
-    suspend fun getSources(): LiveData<DataWrapper<Sources>> {
+    fun getSources(): LiveData<DataWrapper<Sources>> {
         return sourceRepo.getSource()
     }
 }

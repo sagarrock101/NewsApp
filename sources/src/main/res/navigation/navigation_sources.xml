@@ -5,6 +5,6 @@
 
     <fragment
         android:id="@+id/sourcesFragment"
-        android:name="com.sagarock101.categories.ui.SourcesFragment"
+        android:name="com.sagarock101.categories.ui.fragments.SourcesFragment"
         android:label="SourcesFragment" />
 </navigation>
