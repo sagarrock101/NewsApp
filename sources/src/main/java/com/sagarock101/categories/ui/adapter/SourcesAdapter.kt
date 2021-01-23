@@ -48,7 +48,7 @@ class SourcesAdapter : BaseAdapter<Source>() {
 
         override fun bind(item: Source) {
             binding.source = item
-            binding.cvParent.setOnClickListener(this)
+            binding.ivRightArrow.setOnClickListener(this)
             binding.btnOpenInBrowser.setOnClickListener(this)
 
         }
@@ -89,7 +89,7 @@ class SourcesAdapter : BaseAdapter<Source>() {
 
         override fun onClick(v: View?) {
             when (v) {
-                binding.cvParent -> clickEventLogic()
+                binding.ivRightArrow -> clickEventLogic()
                 binding.btnOpenInBrowser -> openBrowser()
             }
         }

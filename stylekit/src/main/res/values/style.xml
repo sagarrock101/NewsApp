@@ -13,10 +13,17 @@
         <item name="android:fontFamily">@font/karla_variable_font_wght</item>
     </style>
 
-    <style name="ripple_glow_with_padding">
+    <style name="ripple_glow_with_padding_white">
         <item name="android:clickable">true</item>
         <item name="android:padding">10dp</item>
-        <item name="android:background">@drawable/ripple_bg</item>
+        <item name="android:background">@drawable/ripple_bg_white</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="ripple_glow_with_padding_silver">
+        <item name="android:clickable">true</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@drawable/ripple_bg_silver</item>
         <item name="android:focusable">true</item>
     </style>
 

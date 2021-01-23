@@ -87,6 +87,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/_4sdp"
+                android:padding="@dimen/_10sdp"
+                style="@style/ripple_glow_with_padding_silver"
                 android:src="@drawable/ic_baseline_arrow_forward_ios_24"
                 app:layout_constraintTop_toTopOf="@id/iv_source"
                 app:layout_constraintEnd_toEndOf="parent"
