@@ -88,15 +88,15 @@ class SourcesAdapter : BaseAdapter<Source>() {
         }
 
         override fun onClick(v: View?) {
-            when(v) {
-                binding.cvParent -> {
-                    clickEventLogic()
-                }
-                binding.btnOpenInBrowser -> {
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(binding.source!!.url))
-                    startActivity(itemView.context, intent, null)
-                }
+            when (v) {
+                binding.cvParent -> clickEventLogic()
+                binding.btnOpenInBrowser -> clickEventLogic()
             }
+        }
+
+        private fun openBrowser() {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(binding.source!!.url))
+            startActivity(itemView.context, intent, null)
         }
 
         private fun clickEventLogic() {
