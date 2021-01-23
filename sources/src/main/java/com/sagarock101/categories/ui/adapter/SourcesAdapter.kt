@@ -1,11 +1,15 @@
 package com.sagarock101.categories.ui.adapter
 
 import android.animation.ObjectAnimator
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivities
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.sagarock101.categories.R
 import com.sagarock101.categories.databinding.ItemSourcesBinding
@@ -40,28 +44,12 @@ class SourcesAdapter : BaseAdapter<Source>() {
 
 
     inner class SourceViewHolder(private val binding: ItemSourcesBinding) :
-        BaseViewHolder<Source>(binding) {
+        BaseViewHolder<Source>(binding), View.OnClickListener {
 
         override fun bind(item: Source) {
             binding.source = item
-            binding.cvParent.setOnClickListener {
-                selectedPosition = adapterPosition
-                if (lastSelectedPosition == -1) {
-                    lastSelectedPosition = selectedPosition
-                } else {
-                    if (lastSelectedPosition != selectedPosition)
-                        notifyItemChanged(lastSelectedPosition)
-                    if (lastSelectedPosition == selectedPosition) {
-                        notifyItemChanged(lastSelectedPosition)
-                        notifyItemChanged(selectedPosition)
-                        lastSelectedPosition = -1
-                        selectedPosition = -1
-                        return@setOnClickListener
-                    }
-                    lastSelectedPosition = selectedPosition
-                }
-                notifyItemChanged(selectedPosition)
-            }
+            binding.cvParent.setOnClickListener(this)
+            binding.btnOpenInBrowser.setOnClickListener(this)
 
         }
 
@@ -97,6 +85,37 @@ class SourcesAdapter : BaseAdapter<Source>() {
                 duration = 300
                 start()
             }
+        }
+
+        override fun onClick(v: View?) {
+            when(v) {
+                binding.cvParent -> {
+                    clickEventLogic()
+                }
+                binding.btnOpenInBrowser -> {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(binding.source!!.url))
+                    startActivity(itemView.context, intent, null)
+                }
+            }
+        }
+
+        private fun clickEventLogic() {
+            selectedPosition = adapterPosition
+            if (lastSelectedPosition == -1) {
+                lastSelectedPosition = selectedPosition
+            } else {
+                if (lastSelectedPosition != selectedPosition)
+                    notifyItemChanged(lastSelectedPosition)
+                if (lastSelectedPosition == selectedPosition) {
+                    notifyItemChanged(lastSelectedPosition)
+                    notifyItemChanged(selectedPosition)
+                    lastSelectedPosition = -1
+                    selectedPosition = -1
+                    return
+                }
+                lastSelectedPosition = selectedPosition
+            }
+            notifyItemChanged(selectedPosition)
         }
 
     }
