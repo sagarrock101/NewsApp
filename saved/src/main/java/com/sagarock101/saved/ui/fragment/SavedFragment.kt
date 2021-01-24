@@ -126,8 +126,8 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
         items?.let {
             listOfItemsToBeDeleted.addAll(it)
             adapter.removeItems(listOfItemsToBeDeleted)
+            viewModel.deleteListOfNews(listOfItemsToBeDeleted)
         }
-
     }
 
     private fun setupRvWithAdapter() {

@@ -85,4 +85,10 @@ class NewsViewModel @Inject constructor() : CoroutineViewModel(Main) {
     fun getAllSavedNews(): LiveData<List<Articles>> {
         return newsDatabaseRepo.getAllSavedNews()
     }
+
+    fun deleteListOfNews(list: MutableList<Articles>) {
+        list.forEachIndexed { index, articles ->
+            deleteNews(articles)
+        }
+    }
 }
