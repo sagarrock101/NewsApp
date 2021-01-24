@@ -1,4 +1,4 @@
-package com.sagarock101.core.utilities
+package com.sagarock101.core.utils
 
 import android.util.SparseArray
 import android.view.ViewGroup

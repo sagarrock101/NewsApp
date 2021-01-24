@@ -10,8 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
-import androidx.transition.Transition
-import androidx.transition.TransitionInflater
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.sagarock101.core.bindings.removeTransparentStatusBar
@@ -19,9 +17,9 @@ import com.sagarock101.core.data.DataWrapper
 import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.core.interfaces.Injectable
 import com.sagarock101.core.interfaces.OnSnapPositionChangeListener
-import com.sagarock101.core.utilities.SnapHelper
-import com.sagarock101.core.utilities.SnapOnScrollListener
-import com.sagarock101.core.utilities.Utils
+import com.sagarock101.core.utils.SnapHelper
+import com.sagarock101.core.utils.SnapOnScrollListener
+import com.sagarock101.core.utils.Utils
 import com.sagarock101.core.view.BaseViewModelFragment
 import com.sagarock101.newsheadlines.R
 import com.sagarock101.newsheadlines.databinding.FragmentNewsHeadlinesBinding

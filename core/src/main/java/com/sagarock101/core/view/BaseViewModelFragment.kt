@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.sagarock101.core.utilities.Utils
+import com.sagarock101.core.utils.Utils
 import com.sagarock101.core.viewmodel.CoroutineViewModel
 
 abstract class BaseViewModelFragment<B : ViewDataBinding, VM : CoroutineViewModel> : BaseFragment() {

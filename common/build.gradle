@@ -92,5 +92,6 @@ dependencies {
 
     api "com.airbnb.android:lottie:$lottieVersion"
 
+    api "androidx.recyclerview:recyclerview-selection:$recycler_view_selection"
 
 }

@@ -18,4 +18,5 @@
     <string name="save">Save</string>
     <string name="share">Share</string>
     <string name="share_using">Share using</string>
+    <string name="empty">""</string>
 </resources>

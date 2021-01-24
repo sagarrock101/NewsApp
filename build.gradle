@@ -11,6 +11,7 @@ buildscript {
         shimmer_version = "0.5.0"
         lottieVersion = "3.6.0"
         room_version = "2.2.6"
+        recycler_view_selection = "1.0.0"
     }
     repositories {
         google()

@@ -4,6 +4,8 @@ import android.R.attr.data
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.selection.SelectionTracker
+import androidx.recyclerview.widget.RecyclerView
 import com.sagarock101.core.adapter.BaseAdapter
 import com.sagarock101.core.viewholder.BaseViewHolder
 import com.sagarock101.database.model.Articles
@@ -17,9 +19,18 @@ class SavedNewsAdapter() :
 
     var onItemClick: ((ImageView, TextView, Articles) -> Unit)? = null
     var viewModel: NewsViewModel? = null
+    var tracker: SelectionTracker<Articles>? = null
 
     override fun getLayoutId(position: Int, obj: Articles) = R.layout.item_saved
 
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        val item = listItems[position]
+        val savedNewsViewHolder = holder as SavedNewsViewHolder
+        savedNewsViewHolder.bind(item)
+        tracker?.let {
+            holder.setSelected(it.isSelected(item))
+        }
+    }
 
     override fun getViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<Articles> {
         return SavedNewsViewHolder.from(parent, onItemClick, viewModel)

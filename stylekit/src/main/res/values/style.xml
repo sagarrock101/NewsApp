@@ -11,6 +11,7 @@
         <item name="android:windowContentTransitions">true</item>
         <item name="android:windowTranslucentStatus">false</item>
         <item name="android:fontFamily">@font/karla_variable_font_wght</item>
+        <item name="windowActionModeOverlay">true</item>
     </style>
 
     <style name="ripple_glow_with_padding_white">

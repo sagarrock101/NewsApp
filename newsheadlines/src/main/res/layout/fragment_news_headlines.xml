@@ -11,6 +11,16 @@
         android:layout_height="match_parent"
         android:background="@color/white">
 
+        <include
+            android:id="@+id/custom_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/custom_app_bar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
 
         <HorizontalScrollView
             android:id="@+id/horizontal_chip_group"
@@ -19,7 +29,7 @@
             android:scrollbars="none"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/custom_app_bar">
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/chip_group"
@@ -90,7 +100,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/rv_news"
             app:layout_constraintStart_toStartOf="@id/rv_news"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/custom_app_bar"
             app:layout_constraintVertical_bias="@dimen/card_vertical_constraint_bias">
 
             <LinearLayout
@@ -116,7 +126,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/custom_app_bar"
             app:layout_constraintVertical_bias="@dimen/card_vertical_constraint_bias"
             tools:listitem="@layout/item_news_card" />
     </androidx.constraintlayout.widget.ConstraintLayout>

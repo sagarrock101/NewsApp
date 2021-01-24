@@ -8,7 +8,7 @@
             name="imgUrl"
             type="String" />
 
-        <import type="com.sagarock101.core.utilities.Utils" />
+        <import type="com.sagarock101.core.utils.Utils" />
 
         <variable
             name="article"

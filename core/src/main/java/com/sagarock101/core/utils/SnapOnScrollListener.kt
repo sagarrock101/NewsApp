@@ -1,4 +1,4 @@
-package com.sagarock101.core.utilities
+package com.sagarock101.core.utils
 
 import androidx.recyclerview.widget.RecyclerView
 import com.sagarock101.core.bindings.getSnapPosition

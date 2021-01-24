@@ -33,7 +33,9 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
         binding.btmNav.setOnNavigationItemReselectedListener(this)
 //        binding.btmNav.setOnNavigationItemSelectedListener(this)
         binding.btmNav.setupWithNavController(findNavController(R.id.nav_main_fragment))
-        binding.customAppBar.toolbarTitle.text = getString(R.string.newsapp)
+//        binding.customAppBar.toolbarTitle.text = getString(R.string.newsapp)
+//        setSupportActionBar(binding.customAppBar.toolbar)
+//        supportActionBar?.title = getString(R.string.empty)
     }
 
     override fun onDestinationChanged(
@@ -44,22 +46,22 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
         when (destination.id) {
             R.id.newsDetailFragment -> {
                 hideBtmNavBar()
-                binding.customAppBar.clAppBar.visibility = View.GONE
+//                binding.customAppBar.clAppBar.visibility = View.GONE
             }
 
             R.id.newsHeadlinesFragment -> {
                 showBtnNavBar()
-                binding.customAppBar.clAppBar.visibility = View.VISIBLE
+//                binding.customAppBar.clAppBar.visibility = View.VISIBLE
             }
 
             R.id.newsDetailFragment2 -> {
                 hideBtmNavBar()
-                binding.customAppBar.clAppBar.visibility = View.GONE
+//                binding.customAppBar.clAppBar.visibility = View.GONE
             }
 
             R.id.savedFragment -> {
                 showBtnNavBar()
-                binding.customAppBar.clAppBar.visibility = View.VISIBLE
+//                binding.customAppBar.clAppBar.visibility = View.VISIBLE
             }
         }
     }

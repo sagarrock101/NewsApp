@@ -1,4 +1,4 @@
-package com.sagarock101.core.utilities
+package com.sagarock101.core.utils
 
 import com.sagarock101.common.AppConstants
 import com.sagarock101.common.BuildConfig

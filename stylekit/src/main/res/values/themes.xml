@@ -2,6 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.NewsApp" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Primary brand color. -->
+        <item name="windowActionModeOverlay">true</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryVariant">@color/colorDarkPrimary</item>
         <item name="colorOnPrimary">@color/black</item>

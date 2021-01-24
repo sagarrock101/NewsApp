@@ -8,14 +8,12 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivities
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.sagarock101.categories.R
 import com.sagarock101.categories.databinding.ItemSourcesBinding
 import com.sagarock101.categories.model.Source
 import com.sagarock101.core.adapter.BaseAdapter
-import com.sagarock101.core.utilities.Utils
 import com.sagarock101.core.viewholder.BaseViewHolder
 
 class SourcesAdapter : BaseAdapter<Source>() {

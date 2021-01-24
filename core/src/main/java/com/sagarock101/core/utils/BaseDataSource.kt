@@ -3,7 +3,7 @@
  *
  */
 
-package com.sagarock101.core.utilities
+package com.sagarock101.core.utils
 
 import com.sagarock101.core.data.DataWrapper
 import retrofit2.HttpException

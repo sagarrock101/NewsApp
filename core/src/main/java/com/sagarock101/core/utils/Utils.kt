@@ -1,4 +1,4 @@
-package com.sagarock101.core.utilities
+package com.sagarock101.core.utils
 
 import android.content.Context
 import android.widget.Toast

@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_4sdp"
-        android:background="@drawable/white_rounded_bg">
+        android:background="@drawable/bg_saved_item_selector">
 
         <ImageView
             android:id="@+id/iv_news_img"

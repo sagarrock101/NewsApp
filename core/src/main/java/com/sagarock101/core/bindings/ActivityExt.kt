@@ -6,7 +6,7 @@ import android.view.View
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.sagarock101.core.R
-import com.sagarock101.core.utilities.SnapHelper
+import com.sagarock101.core.utils.SnapHelper
 
 fun Activity.setTransparentStatusBar() {
     window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
