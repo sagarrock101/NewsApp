@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.selection.Selection
 import androidx.recyclerview.selection.SelectionPredicates
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.selection.StorageStrategy
@@ -34,6 +35,7 @@ import javax.inject.Inject
 
 class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>() {
 
+    private var items: Selection<Articles>? = null
     private var itemTouchHelper: ItemTouchHelper? = null
 
     @Inject
@@ -52,6 +54,8 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
     private var actionMode: ActionMode? = null
 
     private var selectionTracker: SelectionTracker<Articles>? = null
+
+    private var listOfItemsToBeDeleted: MutableList<Articles> = mutableListOf()
 
     override fun getLayout() = R.layout.fragment_saved
 
@@ -82,13 +86,13 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
     }
 
     private fun setupActionMode() {
-        if(actionModeCallback != null)
+        if (actionModeCallback != null)
             return
         actionModeCallback = object : ActionMode.Callback {
             override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
                 return when (item?.itemId) {
-                    R.menu.menu_list_delete -> {
-                        showToast("delete")
+                    R.id.option_delete -> {
+                        actionModeDeletePressed()
                         mode?.finish()
                         true
                     }
@@ -98,7 +102,7 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
 
             override fun onCreateActionMode(mode: ActionMode?, menu: Menu?): Boolean {
                 mode?.menuInflater?.inflate(R.menu.menu_list_delete, menu)
-                mode?.title = "select"
+                mode?.title = "Selection"
                 actionMode = mode
                 return true
             }
@@ -110,10 +114,19 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
             override fun onDestroyActionMode(mode: ActionMode?) {
                 actionModeCallback = null
                 selectionTracker?.clearSelection()
+                listOfItemsToBeDeleted.clear()
             }
 
         }
         (activity as DaggerAppCompatActivity).startSupportActionMode(actionModeCallback!!)
+
+    }
+
+    private fun actionModeDeletePressed() {
+        items?.let {
+            listOfItemsToBeDeleted.addAll(it)
+            adapter.removeItems(listOfItemsToBeDeleted)
+        }
 
     }
 
@@ -129,7 +142,7 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
                 textView to ViewCompat.getTransitionName(textView)!!
             )
 
-            if(!selectionTracker?.hasSelection()!!)  {
+            if (!selectionTracker?.hasSelection()!!) {
                 actionMode?.finish()
                 findNavController().navigate(
                     directions,
@@ -165,7 +178,8 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
         selectionTracker?.addObserver(object : SelectionTracker.SelectionObserver<Articles>() {
             override fun onSelectionChanged() {
                 super.onSelectionChanged()
-                val items = selectionTracker?.selection!!.size()
+                items = selectionTracker?.selection!!
+                updateMenuTitle(items?.size())
                 if (selectionTracker?.hasSelection()!!) {
                     setupActionMode()
                     removeItemTouchHelperFromRecyclerView()
@@ -216,6 +230,12 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
     override fun onDestroyView() {
         super.onDestroyView()
         actionMode?.finish()
+    }
+
+    private fun updateMenuTitle(selectedSize: Int?) {
+        actionMode?.let {
+            it.title = "Selection $selectedSize"
+        }
     }
 
 }

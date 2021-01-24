@@ -51,4 +51,11 @@ class SavedNewsAdapter() :
         notifyItemInserted(position)
     }
 
+    fun removeItems(items: MutableList<Articles>) {
+        items.forEachIndexed { _, articles ->
+            listItems.removeAt(listItems.indexOf(articles))
+        }
+        notifyDataSetChanged()
+    }
+
 }
