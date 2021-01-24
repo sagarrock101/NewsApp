@@ -1,6 +1,5 @@
 package com.sagarock101.saved.ui.adapter
 
-import android.R.attr.data
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView

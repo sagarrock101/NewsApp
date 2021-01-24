@@ -34,6 +34,8 @@ import javax.inject.Inject
 
 class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>() {
 
+    private var itemTouchHelper: ItemTouchHelper? = null
+
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
@@ -126,10 +128,14 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
                 imageView to ViewCompat.getTransitionName(imageView)!!,
                 textView to ViewCompat.getTransitionName(textView)!!
             )
-            findNavController().navigate(
-                directions,
-                extras ?: FragmentNavigatorExtras()
-            )
+
+            if(!selectionTracker?.hasSelection()!!)  {
+                actionMode?.finish()
+                findNavController().navigate(
+                    directions,
+                    extras ?: FragmentNavigatorExtras()
+                )
+            }
         }
 
         binding.rvSavedNews.apply {
@@ -162,8 +168,10 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
                 val items = selectionTracker?.selection!!.size()
                 if (selectionTracker?.hasSelection()!!) {
                     setupActionMode()
+                    removeItemTouchHelperFromRecyclerView()
                 } else {
                     actionMode?.finish()
+                    attachItemTouchHelperToRecyclerView()
                 }
             }
         })
@@ -193,11 +201,21 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
                         .show()
                 }
             }
-        val itemTouchHelper = ItemTouchHelper(uiActionClassWithItemTouchHelper)
-        itemTouchHelper.attachToRecyclerView(binding.rvSavedNews)
-
+        itemTouchHelper = ItemTouchHelper(uiActionClassWithItemTouchHelper)
+        attachItemTouchHelperToRecyclerView()
     }
 
+    private fun attachItemTouchHelperToRecyclerView() {
+        itemTouchHelper?.attachToRecyclerView(binding.rvSavedNews)
+    }
 
+    private fun removeItemTouchHelperFromRecyclerView() {
+        itemTouchHelper?.attachToRecyclerView(null)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        actionMode?.finish()
+    }
 
 }
