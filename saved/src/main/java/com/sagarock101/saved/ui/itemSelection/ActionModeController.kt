@@ -7,7 +7,6 @@ import android.view.MenuItem
 import androidx.recyclerview.selection.SelectionTracker
 import com.sagarock101.core.utils.Utils
 import com.sagarock101.database.model.Articles
-import com.sagarock101.saved.R
 
 class ActionModeController(
     private val context: Context,

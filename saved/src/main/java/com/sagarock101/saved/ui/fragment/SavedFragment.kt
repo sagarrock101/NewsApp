@@ -31,6 +31,7 @@ import com.sagarock101.saved.ui.itemSelection.MyItemKeyProvider
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
+
 class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>() {
 
     @Inject
@@ -44,7 +45,9 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
 
     private var listOfSavedArticles: List<Articles>? = null
 
-    private var actionMode: ActionMode.Callback? = null
+    private var actionModeCallback: ActionMode.Callback? = null
+
+    private var actionMode: ActionMode? = null
 
     private var selectionTracker: SelectionTracker<Articles>? = null
 
@@ -63,7 +66,14 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
         (activity as DaggerAppCompatActivity)?.setSupportActionBar(binding.customAppBar.toolbar)
         (activity as DaggerAppCompatActivity).supportActionBar?.title = getString(R.string.empty)
         setHasOptionsMenu(true)
+        setOnBackPressListener()
     }
+
+    private fun setOnBackPressListener() {
+
+    }
+
+
 
     private fun setSavedNewsObserver() {
         viewModel.getAllSavedNews().observe(viewLifecycleOwner, Observer { savedArticles ->
@@ -77,8 +87,11 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
     }
 
     private fun setupActionMode() {
-        actionMode = object : ActionMode.Callback {
+        if(actionModeCallback != null)
+            return
+        actionModeCallback = object : ActionMode.Callback {
             override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
+                actionMode = mode
                 return when (item?.itemId) {
                     R.menu.menu_list_delete -> {
                         showToast("delete")
@@ -100,11 +113,12 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
             }
 
             override fun onDestroyActionMode(mode: ActionMode?) {
-                actionMode = null
+                actionModeCallback = null
+                selectionTracker?.clearSelection()
             }
 
         }
-        (activity as DaggerAppCompatActivity).startSupportActionMode(actionMode!!)
+        (activity as DaggerAppCompatActivity).startSupportActionMode(actionModeCallback!!)
 
     }
 
@@ -156,7 +170,7 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
                 if (selectionTracker?.hasSelection()!!) {
                     setupActionMode()
                 } else {
-                    actionMode = null
+                    actionModeCallback = null
                 }
             }
         })
