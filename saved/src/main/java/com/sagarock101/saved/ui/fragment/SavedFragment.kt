@@ -96,7 +96,7 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
             }
 
             override fun onPrepareActionMode(mode: ActionMode?, menu: Menu?): Boolean {
-                TODO("Not yet implemented")
+                return false
             }
 
             override fun onDestroyActionMode(mode: ActionMode?) {
@@ -153,7 +153,7 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
             override fun onSelectionChanged() {
                 super.onSelectionChanged()
                 val items = selectionTracker?.selection!!.size()
-                if (selectionTracker?.hasSelection()!! && actionMode != null) {
+                if (selectionTracker?.hasSelection()!!) {
                     setupActionMode()
                 } else {
                     actionMode = null
