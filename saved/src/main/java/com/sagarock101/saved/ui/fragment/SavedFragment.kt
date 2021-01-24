@@ -53,6 +53,8 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
 
     override fun getLayout() = R.layout.fragment_saved
 
+    //TODO: need to refactor
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         adapter = SavedNewsAdapter()
@@ -63,17 +65,8 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
         viewModel = injectViewModel(viewModelFactory)
         setupRvWithAdapter()
         setSavedNewsObserver()
-        (activity as DaggerAppCompatActivity)?.setSupportActionBar(binding.customAppBar.toolbar)
-        (activity as DaggerAppCompatActivity).supportActionBar?.title = getString(R.string.empty)
         setHasOptionsMenu(true)
-        setOnBackPressListener()
     }
-
-    private fun setOnBackPressListener() {
-
-    }
-
-
 
     private fun setSavedNewsObserver() {
         viewModel.getAllSavedNews().observe(viewLifecycleOwner, Observer { savedArticles ->
@@ -91,7 +84,6 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
             return
         actionModeCallback = object : ActionMode.Callback {
             override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
-                actionMode = mode
                 return when (item?.itemId) {
                     R.menu.menu_list_delete -> {
                         showToast("delete")
@@ -105,6 +97,7 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
             override fun onCreateActionMode(mode: ActionMode?, menu: Menu?): Boolean {
                 mode?.menuInflater?.inflate(R.menu.menu_list_delete, menu)
                 mode?.title = "select"
+                actionMode = mode
                 return true
             }
 
@@ -170,7 +163,7 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
                 if (selectionTracker?.hasSelection()!!) {
                     setupActionMode()
                 } else {
-                    actionModeCallback = null
+                    actionMode?.finish()
                 }
             }
         })
