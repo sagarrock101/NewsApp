@@ -79,7 +79,9 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="?attr/bgColor"
+                >
 
 
                 <TextView
@@ -89,7 +91,7 @@
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:text="@{article.title}"
-                    android:textColor="@color/black"
+                    android:textColor="?attr/textColor"
                     android:textSize="@dimen/_28ssp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"

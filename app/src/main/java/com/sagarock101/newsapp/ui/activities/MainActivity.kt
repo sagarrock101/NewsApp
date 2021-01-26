@@ -2,40 +2,68 @@ package com.sagarock101.newsapp.ui.activities
 
 import android.animation.Animator
 import android.animation.ObjectAnimator
+import android.app.AlertDialog
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.RadioGroup
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.sagarock101.FragmentDialogTheme
 import com.sagarock101.newsapp.R
 import com.sagarock101.newsapp.databinding.ActivityMainBinding
 import dagger.android.support.DaggerAppCompatActivity
 
+const val BTM_NAV_ANIM_DURATION = 300L
 class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChangedListener,
-    BottomNavigationView.OnNavigationItemReselectedListener {
+    BottomNavigationView.OnNavigationItemReselectedListener, FragmentDialogTheme.Companion.OnDialogThemeBtnListener {
 
+    private var dialogFragment: FragmentDialogTheme? = null
+    private var dialog: AlertDialog.Builder? = null
     lateinit var binding: ActivityMainBinding
 
     private val navController by lazy { findNavController(R.id.nav_main_fragment) }
 
     private var btmNavObjectAnimator: ObjectAnimator? = null
     private var btmNavAlphaObjectAnimator: ObjectAnimator? = null
-    private var currentBtmMenuSelected = "NewsHeadlinesFragment"
-    private var prevDestination = "NewsHeadlinesFragment"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        setTheme(com.sagarock101.stylekit.R.style.LightTheme)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.btmNav.setOnNavigationItemReselectedListener(this)
 //        binding.btmNav.setOnNavigationItemSelectedListener(this)
+        setSupportActionBar(binding.customAppBar.toolbar)
+        supportActionBar?.title = getString(R.string.empty)
         binding.btmNav.setupWithNavController(findNavController(R.id.nav_main_fragment))
-//        binding.customAppBar.toolbarTitle.text = getString(R.string.newsapp)
-//        setSupportActionBar(binding.customAppBar.toolbar)
-//        supportActionBar?.title = getString(R.string.empty)
+        createDialog()
+    }
+
+    private fun createDialog() {
+        dialogFragment = FragmentDialogTheme().apply {
+            listener = this@MainActivity
+        }
+//        val dialogThemeBinding = DialogThemeBinding.inflate(layoutInflater)
+//        dialog = getDialog()
+//        dialog?.setView(dialogThemeBinding.root)
+////        showThemeFromSharedPref(themeRadioGroup)
+//        dialogThemeBinding.rgThemes.setOnCheckedChangeListener { group, checkedId ->
+//            when(checkedId) {
+//                dialogThemeBinding.rbLightTheme.id -> {
+//
+//                }
+//                dialogThemeBinding.rbDartkTheme.id -> {
+//
+//                }
+//            }
+//        }
     }
 
     override fun onDestinationChanged(
@@ -96,7 +124,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
             0f
         ).apply {
             addListener(listener)
-            duration = 500
+            duration = BTM_NAV_ANIM_DURATION
             start()
         }
     }
@@ -128,7 +156,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
             binding.btmNav.height.toFloat()
         ).apply {
             addListener(listener)
-            duration = 500
+            duration = BTM_NAV_ANIM_DURATION
             start()
         }
     }
@@ -146,6 +174,56 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
 
     override fun onNavigationItemReselected(item: MenuItem) {
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_change_theme, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.nav_change_theme -> {
+                showDialog()
+                return true
+            }
+        }
+        return false
+    }
+
+    private fun getDialog(): AlertDialog.Builder {
+        return AlertDialog.Builder(this, com.sagarock101.stylekit.R.style.LightThemeDialog)
+    }
+
+    private fun showDialog() {
+        dialogFragment?.show(supportFragmentManager, "")
+//        dialog?.show()
+    }
+
+    override fun onDialogThemeBtnClick(themeName: String) {
+        changeTheme(themeName)
+    }
+
+    private fun changeTheme(themeName: String) {
+        when(themeName) {
+            getString(com.sagarock101.stylekit.R.string.light_theme) -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                recreate()
+            }
+
+            getString(com.sagarock101.stylekit.R.string.dark_theme) -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                recreate()
+            }
+        }
+    }
+
+    override fun onBackPressed() {
+        if(dialogFragment?.isAdded!!) {
+            dialogFragment?.dismiss()
+        }
+        super.onBackPressed()
     }
 
 }
