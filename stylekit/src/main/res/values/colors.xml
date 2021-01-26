@@ -9,8 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorGrey">#dddddd</color>
     <color name="colorPrimary">#4CAF50</color>
-    <color name="colorDarkPrimary">#5C0B0B0B</color>
-    <color name="black_dull">#191717</color>
+    <color name="colorDarkPrimary">#388E3C</color>
+    <color name="colorDarkStatus">#191717</color>
+    <color name="black_dull">#1E1D1D</color>
     <color name="colorSecondary">#4CAF50</color>
     <color name="white_dull">#B5B5B5</color>
     <color name="grey_20">#cccccc</color>

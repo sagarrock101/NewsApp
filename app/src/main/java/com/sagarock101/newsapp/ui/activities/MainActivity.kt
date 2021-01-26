@@ -34,9 +34,11 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
     private var btmNavObjectAnimator: ObjectAnimator? = null
     private var btmNavAlphaObjectAnimator: ObjectAnimator? = null
 
+    private var themeName: Int = com.sagarock101.stylekit.R.style.DarkTheme
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(themeName)
         super.onCreate(savedInstanceState)
-//        setTheme(com.sagarock101.stylekit.R.style.LightTheme)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.btmNav.setOnNavigationItemReselectedListener(this)
 //        binding.btmNav.setOnNavigationItemSelectedListener(this)
@@ -208,12 +210,14 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
     private fun changeTheme(themeName: String) {
         when(themeName) {
             getString(com.sagarock101.stylekit.R.string.light_theme) -> {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                this.themeName = com.sagarock101.stylekit.R.style.LightTheme
                 recreate()
             }
 
             getString(com.sagarock101.stylekit.R.string.dark_theme) -> {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                this.themeName = com.sagarock101.stylekit.R.style.DarkTheme
                 recreate()
             }
         }

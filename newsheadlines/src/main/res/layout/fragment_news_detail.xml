@@ -25,7 +25,7 @@
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent">
+            android:background="?attr/bgColor">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:id="@+id/collapsing_toolbar"
@@ -105,7 +105,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:text="@{article.description}"
-                    android:textColor="@color/black"
+                    android:textColor="?attr/textColor"
                     android:textSize="@dimen/_16ssp"
                     android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -119,7 +119,7 @@
                     android:layout_marginTop="@dimen/_20sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:text="@{Utils.truncateExtra(article.content)}"
-                    android:textColor="@color/black"
+                    android:textColor="?attr/textColor"
                     android:textSize="@dimen/_16ssp"
                     android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -135,6 +135,7 @@
                     android:text="@string/read_full_story"
                     android:textAllCaps="false"
                     android:visibility="gone"
+                    android:backgroundTint="@color/colorPrimary"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

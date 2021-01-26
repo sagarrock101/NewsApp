@@ -15,7 +15,7 @@ fun Activity.setTransparentStatusBar() {
 
 fun Activity.removeTransparentStatusBar() {
     window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
-    window.statusBarColor = ResourcesCompat.getColor(resources, R.color.colorDarkPrimary, null)
+    window.statusBarColor = ResourcesCompat.getColor(resources, R.color.black, null)
 }
 
 fun SnapHelper.getSnapPosition(recyclerView: RecyclerView): Int {
