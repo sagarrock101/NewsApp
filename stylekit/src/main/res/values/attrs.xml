@@ -4,4 +4,5 @@
     <attr name="textColor" format="color"/>
     <attr name="metaTextColor" format="color"/>
     <attr name="statusBarColor" format="color"/>
+    <attr name="btmIconAndTextColor" format="color"/>
 </resources>
