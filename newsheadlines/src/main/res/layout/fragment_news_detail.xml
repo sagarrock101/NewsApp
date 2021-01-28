@@ -135,7 +135,6 @@
                     android:text="@string/read_full_story"
                     android:textAllCaps="false"
                     android:visibility="gone"
-                    android:backgroundTint="@color/colorPrimary"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

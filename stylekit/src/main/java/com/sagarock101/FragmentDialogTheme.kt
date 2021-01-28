@@ -18,7 +18,7 @@ class FragmentDialogTheme: DialogFragment(), RadioGroup.OnCheckedChangeListener 
         }
     }
 
-    var listener: OnDialogThemeBtnListener? = null
+    private var listener: OnDialogThemeBtnListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,5 +51,9 @@ class FragmentDialogTheme: DialogFragment(), RadioGroup.OnCheckedChangeListener 
                     listener?.onDialogThemeBtnClick(getString(R.string.dark_theme))
                 }
             }
+    }
+
+    fun setListener(listener: OnDialogThemeBtnListener) {
+        this.listener = listener
     }
 }

@@ -3,29 +3,38 @@ package com.sagarock101.newsapp.ui.activities
 import android.animation.Animator
 import android.animation.ObjectAnimator
 import android.app.AlertDialog
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.RadioGroup
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sagarock101.FragmentDialogTheme
+import com.sagarock101.common.AppConstants
 import com.sagarock101.newsapp.R
 import com.sagarock101.newsapp.databinding.ActivityMainBinding
+import com.sagarock101.stylekit.binding.changeStatusBarBasedOnTheme
+import com.sagarock101.stylekit.binding.getThemeId
 import dagger.android.support.DaggerAppCompatActivity
+import kotlinx.coroutines.flow.Flow
+import timber.log.Timber
+import java.io.IOException
 
 const val BTM_NAV_ANIM_DURATION = 300L
-class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChangedListener,
-    BottomNavigationView.OnNavigationItemReselectedListener, FragmentDialogTheme.Companion.OnDialogThemeBtnListener {
 
-    private var dialogFragment: FragmentDialogTheme? = null
+class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChangedListener,
+    BottomNavigationView.OnNavigationItemReselectedListener,
+    FragmentDialogTheme.Companion.OnDialogThemeBtnListener {
+
+    private var themeSelected: Int? = null
+    private var dialogFragment = FragmentDialogTheme()
+
     private var dialog: AlertDialog.Builder? = null
     lateinit var binding: ActivityMainBinding
 
@@ -34,38 +43,46 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
     private var btmNavObjectAnimator: ObjectAnimator? = null
     private var btmNavAlphaObjectAnimator: ObjectAnimator? = null
 
-    private var themeName: Int = com.sagarock101.stylekit.R.style.DarkTheme
+    private var themeName: Int? = null
+
+    private val LIGHT_THEME = com.sagarock101.stylekit.R.style.LightTheme
+    private val DARK_THEME = com.sagarock101.stylekit.R.style.DarkTheme
+
+
+    lateinit var sharedPreferences: SharedPreferences
+
+    lateinit var sharedPrefFile: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setTheme(themeName)
         super.onCreate(savedInstanceState)
+        changeStatusBarBasedOnTheme()
+        setupSharedPreferences()
+        setupTheme()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.btmNav.setOnNavigationItemReselectedListener(this)
-//        binding.btmNav.setOnNavigationItemSelectedListener(this)
         setSupportActionBar(binding.customAppBar.toolbar)
         supportActionBar?.title = getString(R.string.empty)
         binding.btmNav.setupWithNavController(findNavController(R.id.nav_main_fragment))
         createDialog()
     }
 
+    private fun setupTheme() {
+        themeSelected?.let { setTheme(it) }
+    }
+
+    private fun observerTheme() {
+
+    }
+
+    private fun setupSharedPreferences() {
+        sharedPrefFile = applicationContext.packageName
+        sharedPreferences = getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
+        themeSelected = sharedPreferences.getInt(AppConstants.UI_THEME_KEY, DARK_THEME)
+    }
+
     private fun createDialog() {
-        dialogFragment = FragmentDialogTheme().apply {
-            listener = this@MainActivity
-        }
-//        val dialogThemeBinding = DialogThemeBinding.inflate(layoutInflater)
-//        dialog = getDialog()
-//        dialog?.setView(dialogThemeBinding.root)
-////        showThemeFromSharedPref(themeRadioGroup)
-//        dialogThemeBinding.rgThemes.setOnCheckedChangeListener { group, checkedId ->
-//            when(checkedId) {
-//                dialogThemeBinding.rbLightTheme.id -> {
-//
-//                }
-//                dialogThemeBinding.rbDartkTheme.id -> {
-//
-//                }
-//            }
-//        }
+        dialogFragment?.setListener(this)
+
     }
 
     override fun onDestinationChanged(
@@ -114,7 +131,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
 
             override fun onAnimationStart(animation: Animator?) {
                 binding.btmNav.visibility = View.VISIBLE
-                binding.btmNav.setBackgroundResource(R.color.white)
+                binding.btmNav.setBackgroundResource(if (getThemeId() == LIGHT_THEME) R.color.white else R.color.black)
             }
 
         }
@@ -170,8 +187,11 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
 
 
     override fun onPause() {
-        super.onPause()
+        val preferenceEditor = sharedPreferences.edit()
+        themeSelected?.let { preferenceEditor.putInt(AppConstants.UI_THEME_KEY, it) }
+        preferenceEditor.apply()
         navController.removeOnDestinationChangedListener(this)
+        super.onPause()
     }
 
     override fun onNavigationItemReselected(item: MenuItem) {
@@ -185,7 +205,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
+        when (item.itemId) {
             R.id.nav_change_theme -> {
                 showDialog()
                 return true
@@ -194,13 +214,8 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
         return false
     }
 
-    private fun getDialog(): AlertDialog.Builder {
-        return AlertDialog.Builder(this, com.sagarock101.stylekit.R.style.LightThemeDialog)
-    }
-
     private fun showDialog() {
         dialogFragment?.show(supportFragmentManager, "")
-//        dialog?.show()
     }
 
     override fun onDialogThemeBtnClick(themeName: String) {
@@ -208,26 +223,38 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
     }
 
     private fun changeTheme(themeName: String) {
-        when(themeName) {
+        when (themeName) {
             getString(com.sagarock101.stylekit.R.string.light_theme) -> {
-//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 this.themeName = com.sagarock101.stylekit.R.style.LightTheme
+                themeSelected = LIGHT_THEME
+                dialogFragment?.dismiss()
+//                setTheme(LIGHT_THEME)
                 recreate()
             }
 
             getString(com.sagarock101.stylekit.R.string.dark_theme) -> {
-//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 this.themeName = com.sagarock101.stylekit.R.style.DarkTheme
+               themeSelected = DARK_THEME
+                dialogFragment?.dismiss()
+//                setTheme(DARK_THEME)
                 recreate()
             }
         }
     }
 
     override fun onBackPressed() {
-        if(dialogFragment?.isAdded!!) {
+        if (dialogFragment?.isAdded!!) {
             dialogFragment?.dismiss()
         }
         super.onBackPressed()
     }
+
+
+//    override fun getTheme(): Resources.Theme {
+//        val theme = super.getTheme()
+//        theme.applyStyle(themeName ?: LIGHT_THEME, true)
+//        return theme
+//    }
+
 
 }

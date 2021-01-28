@@ -1,7 +1,6 @@
 package com.sagarock101.core.utils
 
 import androidx.recyclerview.widget.RecyclerView
-import com.sagarock101.core.bindings.getSnapPosition
 import com.sagarock101.core.interfaces.OnSnapPositionChangeListener
 
 class SnapOnScrollListener(
@@ -27,5 +26,11 @@ class SnapOnScrollListener(
     override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
         if(newState == RecyclerView.SCROLL_STATE_IDLE)
             notifySnapPositionChange(recyclerView)
+    }
+
+    fun SnapHelper.getSnapPosition(recyclerView: RecyclerView): Int {
+        val layoutManager = recyclerView.layoutManager ?: return RecyclerView.NO_POSITION
+        val snapView = findSnapView(layoutManager) ?: return RecyclerView.NO_POSITION
+        return layoutManager.getPosition(snapView)
     }
 }

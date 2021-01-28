@@ -1,5 +1,6 @@
 package com.sagarock101.newsheadlines.ui.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -12,7 +13,6 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
-import com.sagarock101.core.bindings.removeTransparentStatusBar
 import com.sagarock101.core.data.DataWrapper
 import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.core.interfaces.Injectable
@@ -21,12 +21,15 @@ import com.sagarock101.core.utils.SnapHelper
 import com.sagarock101.core.utils.SnapOnScrollListener
 import com.sagarock101.core.utils.Utils
 import com.sagarock101.core.view.BaseViewModelFragment
+import com.sagarock101.database.model.Articles
 import com.sagarock101.newsheadlines.R
 import com.sagarock101.newsheadlines.databinding.FragmentNewsHeadlinesBinding
-import com.sagarock101.database.model.Articles
 import com.sagarock101.newsheadlines.ui.adapter.TopHeadlinesAdapter
 import com.sagarock101.newsheadlines.viewmodel.NewsViewModel
-import dagger.android.support.DaggerAppCompatActivity
+import com.sagarock101.stylekit.binding.changeStatusBarBasedOnTheme
+import com.sagarock101.stylekit.binding.getThemeId
+import com.sagarock101.stylekit.binding.removeTransparentStatusBar
+import java.lang.reflect.Method
 import javax.inject.Inject
 
 class NewsHeadlinesFragment :
@@ -60,7 +63,7 @@ class NewsHeadlinesFragment :
 
     override fun initView(view: View) {
 //        binding.appBar.toolbarTitle.text = getString(R.string.newsapp)
-        (activity as DaggerAppCompatActivity).removeTransparentStatusBar()
+        changeStatusBarBasedOnTheme()
         setAdapterToRecyclerView()
         attachSnapTov()
         handler = Handler(Looper.getMainLooper())

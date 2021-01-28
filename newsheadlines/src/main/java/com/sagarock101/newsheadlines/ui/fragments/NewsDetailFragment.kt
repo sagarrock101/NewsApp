@@ -14,13 +14,14 @@ import androidx.transition.Transition
 import androidx.transition.TransitionInflater
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.snackbar.Snackbar
-import com.sagarock101.core.bindings.setTransparentStatusBar
+import com.sagarock101.stylekit.binding.setTransparentStatusBar
 import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.core.view.BaseViewModelFragment
 import com.sagarock101.newsheadlines.R
 import com.sagarock101.newsheadlines.binding.*
 import com.sagarock101.newsheadlines.databinding.FragmentNewsDetailBinding
 import com.sagarock101.newsheadlines.viewmodel.NewsViewModel
+import com.sagarock101.stylekit.binding.changeStatusBarBasedOnTheme
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
@@ -41,7 +42,7 @@ class NewsDetailFragment :
 
     override fun initView(view: View) {
         setHasOptionsMenu(true)
-        (activity as DaggerAppCompatActivity).setTransparentStatusBar()
+        (activity)?.setTransparentStatusBar()
         sharedElementEnterTransition = TransitionInflater.from(context)
             .inflateTransition(R.transition.new_shared_element_transition)
         (sharedElementEnterTransition as? Transition)?.addListener(this)
