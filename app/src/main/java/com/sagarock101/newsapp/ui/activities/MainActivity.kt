@@ -82,7 +82,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
 
     private fun createDialog() {
         dialogFragment?.setListener(this)
-
+        themeSelected?.let { dialogFragment.setThemeToBeChecked(it) }
     }
 
     override fun onDestinationChanged(

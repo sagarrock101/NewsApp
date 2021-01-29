@@ -8,6 +8,7 @@ import android.widget.RadioGroup
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.DialogFragment
 import com.sagarock101.stylekit.R
+import com.sagarock101.stylekit.binding.getThemeId
 import com.sagarock101.stylekit.databinding.FragmentDialogThemeBinding
 
 class FragmentDialogTheme: DialogFragment(), RadioGroup.OnCheckedChangeListener {
@@ -18,7 +19,11 @@ class FragmentDialogTheme: DialogFragment(), RadioGroup.OnCheckedChangeListener 
         }
     }
 
+    private var checkedThemeRes: Int? = null
+
+    private lateinit var binding: FragmentDialogThemeBinding
     private var listener: OnDialogThemeBtnListener? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,8 +35,7 @@ class FragmentDialogTheme: DialogFragment(), RadioGroup.OnCheckedChangeListener 
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentDialogThemeBinding.inflate(inflater)
-        binding.rgThemes.setOnCheckedChangeListener(this)
+        binding = FragmentDialogThemeBinding.inflate(inflater)
         dialog?.window?.setBackgroundDrawable(
             ResourcesCompat.getDrawable(
                 requireContext().resources,
@@ -39,7 +43,15 @@ class FragmentDialogTheme: DialogFragment(), RadioGroup.OnCheckedChangeListener 
                 null
             )
         )
+        highLightSelectedTheme()
+        binding.rgThemes.setOnCheckedChangeListener(this)
         return binding.root
+    }
+
+    private fun highLightSelectedTheme() {
+        if(checkedThemeRes == R.style.LightTheme)
+            binding.rbLightTheme.isChecked = true
+        else binding.rbDartkTheme.isChecked = true
     }
 
     override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
@@ -55,5 +67,9 @@ class FragmentDialogTheme: DialogFragment(), RadioGroup.OnCheckedChangeListener 
 
     fun setListener(listener: OnDialogThemeBtnListener) {
         this.listener = listener
+    }
+
+    fun setThemeToBeChecked(themeRes: Int) {
+        checkedThemeRes = themeRes
     }
 }

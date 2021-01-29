@@ -88,13 +88,13 @@
         <item name="android:scaleY">0.8</item>
     </style>
 
-    <style name="LightThemeDialog" parent="Theme.AppCompat.Dialog.Alert">
+    <style name="LightThemeDialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@android:color/white</item>
         <item name="android:textColor">@android:color/black</item>
         <item name="textColorAlertDialogListItem">@android:color/black</item>
     </style>
 
-    <style name="DarkThemeDialog" parent="Theme.AppCompat.Dialog.Alert">
+    <style name="DarkThemeDialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@android:color/black</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
