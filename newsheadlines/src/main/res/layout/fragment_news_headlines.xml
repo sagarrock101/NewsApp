@@ -11,9 +11,6 @@
         android:layout_height="match_parent"
         android:background="?attr/bgColor">
 
-
-
-
         <HorizontalScrollView
             android:id="@+id/horizontal_chip_group"
             android:layout_width="match_parent"
@@ -30,7 +27,9 @@
                 android:orientation="horizontal"
                 app:checkedChip="@id/chip_all"
                 app:chipSpacing="@dimen/_16sdp"
-                app:singleSelection="true">
+                app:singleSelection="true"
+                app:selectionRequired="true"
+                >
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_all"

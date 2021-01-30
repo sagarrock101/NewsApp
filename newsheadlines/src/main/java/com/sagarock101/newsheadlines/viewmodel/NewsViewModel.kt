@@ -31,6 +31,8 @@ class NewsViewModel @Inject constructor() : CoroutineViewModel(Main) {
     private val _isSaved = MutableLiveData<Boolean>()
     val savedLiveData: LiveData<Boolean> = _isSaved
 
+    var lastSelectedChipId = -1
+
     val newsHeadLinesLD = newsHeadLinesMLD.switchMap {
         if (it.category.isEmpty())
             newsHeadlinesRepo.getNewsHeadlines(it.country)

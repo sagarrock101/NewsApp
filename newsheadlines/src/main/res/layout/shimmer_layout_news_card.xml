@@ -15,7 +15,7 @@
         android:layout_height="@dimen/_350sdp"
         android:layout_margin="@dimen/_8sdp"
         android:alpha="0.1"
-        android:background="@drawable/black_rounded_bg">
+        android:background="?attr/bgColor">
 
         <ImageView
             android:id="@+id/iv_news_img"

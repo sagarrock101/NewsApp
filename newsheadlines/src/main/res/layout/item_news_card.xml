@@ -14,68 +14,76 @@
             type="com.sagarock101.newsheadlines.viewmodel.NewsViewModel" />
 
     </data>
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/_4sdp"
+        android:layout_margin="@dimen/_8sdp"
+        app:cardCornerRadius="@dimen/_8sdp"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_news_card"
+            android:layout_width="@dimen/_210sdp"
+            android:layout_height="@dimen/_350sdp"
+           >
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_news_card"
-        android:layout_width="@dimen/_210sdp"
-        android:layout_height="@dimen/_350sdp"
-        android:layout_margin="@dimen/_8sdp">
 
+            <ImageView
+                android:id="@+id/iv_news_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_news"
+                app:imgSrc="@{article.urlToImage}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:targetApi="lollipop" />
 
-        <ImageView
-            android:id="@+id/iv_news_img"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_news"
-            app:imgSrc="@{article.urlToImage}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:targetApi="lollipop" />
+            <View
+                android:id="@+id/view_alpha_layer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.7"
+                android:background="@drawable/black_rounded_bg"
+                app:layout_constraintBottom_toBottomOf="@id/iv_news_img"
+                app:layout_constraintEnd_toEndOf="@id/iv_news_img"
+                app:layout_constraintStart_toStartOf="@id/iv_news_img"
+                app:layout_constraintTop_toTopOf="@id/iv_news_img" />
 
-        <View
-            android:id="@+id/view_alpha_layer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:alpha="0.15"
-            android:background="@drawable/black_rounded_bg"
-            app:layout_constraintBottom_toBottomOf="@id/iv_news_img"
-            app:layout_constraintEnd_toEndOf="@id/iv_news_img"
-            app:layout_constraintStart_toStartOf="@id/iv_news_img"
-            app:layout_constraintTop_toTopOf="@id/iv_news_img" />
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:elegantTextHeight="true"
+                android:ellipsize="end"
+                android:lines="3"
+                android:text="@{article.title}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iv_news_img"
+                app:layout_constraintVertical_bias="0.9"
+                tools:text="@string/hello_i_am_news" />
 
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_12sdp"
-            android:elegantTextHeight="true"
-            android:ellipsize="end"
-            android:lines="3"
-            android:text="@{article.title}"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_16ssp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/iv_news_img"
-            app:layout_constraintVertical_bias="0.9"
-            tools:text="@string/hello_i_am_news" />
+            <ImageView
+                android:id="@+id/iv_selector"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?android:attr/selectableItemBackground"
+                app:layout_constraintBottom_toBottomOf="@id/iv_news_img"
+                app:layout_constraintEnd_toEndOf="@id/iv_news_img"
+                app:layout_constraintStart_toStartOf="@id/iv_news_img"
+                app:layout_constraintTop_toTopOf="@id/iv_news_img" />
 
-        <ImageView
-            android:id="@+id/iv_selector"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="?android:attr/selectableItemBackground"
-            app:layout_constraintBottom_toBottomOf="@id/iv_news_img"
-            app:layout_constraintEnd_toEndOf="@id/iv_news_img"
-            app:layout_constraintStart_toStartOf="@id/iv_news_img"
-            app:layout_constraintTop_toTopOf="@id/iv_news_img" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

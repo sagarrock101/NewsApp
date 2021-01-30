@@ -1,6 +1,5 @@
 package com.sagarock101.newsheadlines.ui.fragments
 
-import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -28,9 +27,6 @@ import com.sagarock101.newsheadlines.databinding.FragmentNewsHeadlinesBinding
 import com.sagarock101.newsheadlines.ui.adapter.TopHeadlinesAdapter
 import com.sagarock101.newsheadlines.viewmodel.NewsViewModel
 import com.sagarock101.stylekit.binding.changeStatusBarBasedOnTheme
-import com.sagarock101.stylekit.binding.getThemeId
-import com.sagarock101.stylekit.binding.removeTransparentStatusBar
-import java.lang.reflect.Method
 import javax.inject.Inject
 
 class NewsHeadlinesFragment :
@@ -64,12 +60,10 @@ class NewsHeadlinesFragment :
     }
 
     override fun initView(view: View) {
-
-
+        handler = Handler(Looper.getMainLooper())
         changeStatusBarBasedOnTheme()
         setAdapterToRecyclerView()
         attachSnapTov()
-        handler = Handler(Looper.getMainLooper())
         binding.chipGroup.setOnCheckedChangeListener(this)
         viewModel.newsHeadLinesLD.observe(viewLifecycleOwner, Observer {
             when (it.status) {
@@ -106,6 +100,7 @@ class NewsHeadlinesFragment :
                 imageView to ViewCompat.getTransitionName(imageView)!!,
                 textView to ViewCompat.getTransitionName(textView)!!
             )
+            viewModel.lastSelectedChipId = binding.chipGroup.checkedChipId
             findNavController().navigate(
                 directions,
                 extras ?: FragmentNavigatorExtras()
@@ -129,10 +124,9 @@ class NewsHeadlinesFragment :
         }
     }
 
-    override fun onSnapPositionChange(position: Int, previousPotion: Int) {
-        //TODO need to decrease/increase alpha layer on proper positions
-//        adapter?.notifyChange(position, true)
-//        adapter?.notifyChange(previousPotion, false)
+    override fun onSnapPositionChange(position: Int, previousPosition: Int) {
+        adapter?.notifyChange(position, true)
+        adapter?.notifyChange(previousPosition, false)
     }
 
     override fun onCheckedChanged(group: ChipGroup?, checkedId: Int) {
@@ -199,10 +193,10 @@ class NewsHeadlinesFragment :
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         prevCheckedId = savedInstanceState?.getInt(AppConstants.SELECTED_CHIP_KEY)
-        if(prevCheckedId == binding.chipAll.id)
-            viewModel.getNewsHeadLines()
-        if(prevCheckedId == null)
-            viewModel.getNewsHeadLines()
+        if ((prevCheckedId == null || prevCheckedId == binding.chipAll.id)
+            && (viewModel.lastSelectedChipId == binding.chipAll.id || viewModel.lastSelectedChipId == -1)) {
+                viewModel.getNewsHeadLines()
+        }
     }
 
 }

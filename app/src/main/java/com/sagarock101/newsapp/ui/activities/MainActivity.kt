@@ -36,7 +36,6 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
     private var themeSelected: Int? = null
     private var dialogFragment = FragmentDialogTheme()
 
-    private var dialog: AlertDialog.Builder? = null
     lateinit var binding: ActivityMainBinding
 
     private val navController by lazy { findNavController(R.id.nav_main_fragment) }
@@ -69,10 +68,6 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
 
     private fun setupTheme() {
         themeSelected?.let { setTheme(it) }
-    }
-
-    private fun observerTheme() {
-
     }
 
     private fun setupSharedPreferences() {
@@ -132,7 +127,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
 
             override fun onAnimationStart(animation: Animator?) {
                 binding.btmNav.visibility = View.VISIBLE
-                binding.btmNav.setBackgroundResource(if (getThemeId() == LIGHT_THEME) R.color.white else R.color.black)
+                binding.btmNav.setBackgroundResource(if (themeSelected == LIGHT_THEME) R.color.white else R.color.black)
             }
 
         }
@@ -249,15 +244,4 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
         }
         super.onBackPressed()
     }
-
-
-
-
-//    override fun getTheme(): Resources.Theme {
-//        val theme = super.getTheme()
-//        theme.applyStyle(themeName ?: LIGHT_THEME, true)
-//        return theme
-//    }
-
-
 }

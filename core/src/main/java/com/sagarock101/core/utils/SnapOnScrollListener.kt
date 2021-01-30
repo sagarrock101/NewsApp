@@ -11,7 +11,7 @@ class SnapOnScrollListener(
 
     override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
         super.onScrolled(recyclerView, dx, dy)
-//        notifySnapPositionChange(recyclerView)
+        notifySnapPositionChange(recyclerView)
     }
 
     private fun notifySnapPositionChange(recyclerView: RecyclerView) {

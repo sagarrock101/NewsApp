@@ -31,8 +31,7 @@ fun ImageView.setImage(url: String?) {
     val requestOptions = RequestOptions()
     requestOptions.apply {
         transform(
-            CenterCrop(),
-            RoundedCorners(16)
+            CenterCrop()
         )
     }
     url?.let {
