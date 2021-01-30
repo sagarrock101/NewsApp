@@ -35,49 +35,49 @@
                     android:id="@+id/chip_all"
                     style="@style/MyChip"
                     android:layout_width="@dimen/_80sdp"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_height="@dimen/_45sdp"
                     android:text="@string/all" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_business"
                     style="@style/MyChip"
                     android:layout_width="@dimen/_80sdp"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_height="@dimen/_45sdp"
                     android:text="@string/business" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_sports"
                     style="@style/MyChip"
                     android:layout_width="@dimen/_80sdp"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_height="@dimen/_45sdp"
                     android:text="@string/sports" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_health"
                     style="@style/MyChip"
                     android:layout_width="@dimen/_80sdp"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_height="@dimen/_45sdp"
                     android:text="@string/health" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_entertainment"
                     style="@style/MyChip"
                     android:layout_width="@dimen/_100sdp"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_height="@dimen/_45sdp"
                     android:text="@string/entertainment" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_technology"
                     style="@style/MyChip"
                     android:layout_width="@dimen/_100sdp"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_height="@dimen/_45sdp"
                     android:text="@string/technology" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_science"
                     style="@style/MyChip"
                     android:layout_width="@dimen/_80sdp"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_height="@dimen/_45sdp"
                     android:text="@string/science" />
 
             </com.google.android.material.chip.ChipGroup>

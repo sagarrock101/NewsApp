@@ -33,7 +33,7 @@
                 app:cardCornerRadius="@dimen/_4sdp"
                 android:elevation="@dimen/_4sdp"
                 android:layout_margin="@dimen/_8sdp"
-                app:cardBackgroundColor="?attr/bgColor"
+                app:cardBackgroundColor="?attr/btmBgColor"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

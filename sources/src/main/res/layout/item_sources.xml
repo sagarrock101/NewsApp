@@ -11,8 +11,8 @@
         android:id="@+id/cv_parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/purple"
         android:clickable="true"
+        app:cardBackgroundColor="?attr/btmBgColor"
         android:foreground="?android:selectableItemBackground"
         android:layout_margin="@dimen/_4sdp"
         app:cardCornerRadius="@dimen/_8sdp"
@@ -22,7 +22,7 @@
             android:id="@+id/cl_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/white_rounded_bg">
+            >
 
             <ImageView
                 android:id="@+id/iv_source"
@@ -43,6 +43,7 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_14sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
+                android:textColor="?attr/textColor"
                 app:layout_constraintEnd_toStartOf="@id/iv_right_arrow"
                 app:layout_constraintStart_toEndOf="@id/iv_source"
                 app:layout_constraintTop_toTopOf="@id/iv_source" />
@@ -54,6 +55,7 @@
                 android:text="@{source.category}"
                 android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
+                android:textColor="?attr/textColor"
                 app:layout_constraintEnd_toStartOf="@id/iv_right_arrow"
                 app:layout_constraintStart_toStartOf="@id/tv_source_title"
                 app:layout_constraintTop_toBottomOf="@id/tv_source_title" />
@@ -67,6 +69,7 @@
                 android:text="@{source.description}"
                 android:visibility="gone"
                 android:layout_marginEnd="@dimen/_10sdp"
+                android:textColor="?attr/textColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/iv_source"
                 app:layout_constraintTop_toBottomOf="@id/iv_source" />
