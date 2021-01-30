@@ -13,7 +13,7 @@
         <item name="android:windowContentTransitions">true</item>
         <item name="android:windowTranslucentStatus">false</item>
         <item name="textColor">@android:color/black</item>
-        <item name="bgColor">@color/white</item>
+        <item name="bgColor">@color/white_dull</item>
         <item name="btmIconAndTextColor">@color/colorPrimary</item>
         <item name="android:windowDisablePreview">@drawable/ic_news</item>
         <item name="btmBgColor">@color/white</item>
