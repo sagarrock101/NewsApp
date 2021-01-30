@@ -13,6 +13,7 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
+import com.sagarock101.common.AppConstants
 import com.sagarock101.core.data.DataWrapper
 import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.core.interfaces.Injectable
@@ -36,6 +37,8 @@ class NewsHeadlinesFragment :
     BaseViewModelFragment<FragmentNewsHeadlinesBinding, NewsViewModel>(), Injectable,
     OnSnapPositionChangeListener, ChipGroup.OnCheckedChangeListener {
 
+    private var prevCheckedId: Int? = null
+
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
@@ -48,7 +51,6 @@ class NewsHeadlinesFragment :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = injectViewModel(viewModelFactory)
-        viewModel.getNewsHeadLines()
     }
 
     override fun onResume() {
@@ -62,7 +64,8 @@ class NewsHeadlinesFragment :
     }
 
     override fun initView(view: View) {
-//        binding.appBar.toolbarTitle.text = getString(R.string.newsapp)
+
+
         changeStatusBarBasedOnTheme()
         setAdapterToRecyclerView()
         attachSnapTov()
@@ -135,7 +138,7 @@ class NewsHeadlinesFragment :
     override fun onCheckedChanged(group: ChipGroup?, checkedId: Int) {
         when (checkedId) {
             binding.chipAll.id -> {
-               binding.chipAll.callApiIfChipIsPressed()
+                binding.chipAll.callApiIfChipIsPressed()
             }
             binding.chipBusiness.id -> {
                 binding.chipBusiness.callApiIfChipIsPressed(getString(R.string.business))
@@ -155,13 +158,12 @@ class NewsHeadlinesFragment :
             binding.chipScience.id -> {
                 binding.chipScience.callApiIfChipIsPressed(getString(R.string.science))
             }
-
         }
     }
 
     private fun scrollToFirstArticle() {
         adapter?.itemCount?.let {
-            if(it > 0)
+            if (it > 0)
                 binding.rvNews.scrollToPosition(0)
         }
     }
@@ -187,6 +189,20 @@ class NewsHeadlinesFragment :
     private fun Chip.callApiIfChipIsPressed(category: String = "") {
         if (this.isPressed)
             getNews(category)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt(AppConstants.SELECTED_CHIP_KEY, binding.chipGroup.checkedChipId)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        prevCheckedId = savedInstanceState?.getInt(AppConstants.SELECTED_CHIP_KEY)
+        if(prevCheckedId == binding.chipAll.id)
+            viewModel.getNewsHeadLines()
+        if(prevCheckedId == null)
+            viewModel.getNewsHeadLines()
     }
 
 }

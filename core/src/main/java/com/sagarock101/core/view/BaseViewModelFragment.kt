@@ -63,4 +63,5 @@ abstract class BaseViewModelFragment<B : ViewDataBinding, VM : CoroutineViewMode
         Utils.showToast(requireContext(), msg)
     }
 
+
 }

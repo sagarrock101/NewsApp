@@ -6,6 +6,7 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -248,6 +249,8 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
         }
         super.onBackPressed()
     }
+
+
 
 
 //    override fun getTheme(): Resources.Theme {
