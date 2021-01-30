@@ -102,4 +102,9 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
+
+    <style name="DefaultTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+
+    </style>
+
 </resources>
