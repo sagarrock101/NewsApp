@@ -9,24 +9,22 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:focusable="true"
-        android:background="@color/white_dull"
-        >
-
+        android:background="?attr/bgColor"
+        android:focusable="true">
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_saved_news"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginBottom="56dp"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:layout_marginBottom="56dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/item_saved"/>
+            tools:listitem="@layout/item_saved" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

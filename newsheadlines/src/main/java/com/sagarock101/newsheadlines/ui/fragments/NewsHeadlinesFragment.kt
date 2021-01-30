@@ -177,6 +177,7 @@ class NewsHeadlinesFragment :
     override fun onDestroyView() {
         handler = null
         binding.chipGroup.setOnCheckedChangeListener(null)
+        viewModel.lastSelectedChipId = binding.chipGroup.checkedChipId
         super.onDestroyView()
     }
 
