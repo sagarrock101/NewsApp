@@ -16,6 +16,7 @@
         <item name="bgColor">@color/white</item>
         <item name="btmIconAndTextColor">@color/colorPrimary</item>
         <item name="android:windowDisablePreview">@drawable/ic_news</item>
+        <item name="btmBgColor">@color/white</item>
     </style>
 
     <style name="DarkTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -35,6 +36,7 @@
         <item name="btmIconAndTextColor">@color/purple</item>
         <item name="actionOverflowButtonStyle">@style/actionOverflowButtonStyle</item>
         <item name="android:windowDisablePreview">@drawable/ic_news</item>
+        <item name="btmBgColor">@android:color/black</item>
         <!-- sets the style for the overflow button -->
     </style>
 

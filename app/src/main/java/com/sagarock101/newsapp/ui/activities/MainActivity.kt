@@ -78,7 +78,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
     private fun setupSharedPreferences() {
         sharedPrefFile = applicationContext.packageName
         sharedPreferences = getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
-        themeSelected = sharedPreferences.getInt(AppConstants.UI_THEME_KEY, DARK_THEME)
+        themeSelected = sharedPreferences.getInt(AppConstants.UI_THEME_KEY, LIGHT_THEME)
     }
 
     private fun createDialog() {

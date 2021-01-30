@@ -38,10 +38,12 @@ fun ImageView.setImage(url: String?) {
     url?.let {
         Glide.with(context).load(it)
             .apply(requestOptions.placeholder(R.drawable.ic_news))
+            .dontAnimate()
             .into(this)
 
     } ?: kotlin.run {
         Glide.with(context).load(R.drawable.ic_news)
+            .dontAnimate()
             .into(this)
     }
 }
