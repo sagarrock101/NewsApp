@@ -10,6 +10,8 @@ import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.ViewGroup
+import androidx.core.view.contains
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
@@ -18,6 +20,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sagarock101.FragmentDialogTheme
 import com.sagarock101.common.AppConstants
+import com.sagarock101.core.utils.Utils.enterReveal
+import com.sagarock101.core.utils.Utils.exitReveal
 import com.sagarock101.newsapp.R
 import com.sagarock101.newsapp.databinding.ActivityMainBinding
 import com.sagarock101.stylekit.binding.changeStatusBarBasedOnTheme
@@ -90,27 +94,33 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
             R.id.newsDetailFragment -> {
                 hideBtmNavBar()
                 hideViewOrShowViews(View.GONE)
+                binding.fabSearch.exitReveal()
             }
 
             R.id.newsHeadlinesFragment -> {
                 showBtnNavBar()
                 hideViewOrShowViews(View.VISIBLE)
+                if((binding.root as ViewGroup).contains(binding.fabSearch))
+                    binding.fabSearch.enterReveal()
             }
 
             R.id.newsDetailFragment2 -> {
                 hideBtmNavBar()
                 hideViewOrShowViews(View.GONE)
+                binding.fabSearch.exitReveal()
             }
 
             R.id.savedFragment -> {
                 showBtnNavBar()
                 binding.customAppBar.clAppBar.visibility = View.VISIBLE
-                binding.fabSearch.visibility = View.GONE
+                binding.fabSearch.exitReveal()
             }
             R.id.sourcesFragment -> {
-                binding.fabSearch.visibility = View.GONE
+                binding.fabSearch.exitReveal()
             }
-            R.id.splashFragment -> binding.fabSearch.visibility = View.GONE
+            R.id.splashFragment -> {
+                binding.fabSearch.visibility = View.INVISIBLE
+            }
         }
     }
 
@@ -252,7 +262,6 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
 
     private fun hideViewOrShowViews(visibility: Int) {
         with(binding) {
-            fabSearch.visibility = visibility
             binding.customAppBar.clAppBar.visibility = visibility
         }
     }
