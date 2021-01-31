@@ -2,11 +2,10 @@ package com.sagarock101.newsapp.ui.activities
 
 import android.animation.Animator
 import android.animation.ObjectAnimator
-import android.app.AlertDialog
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.os.PersistableBundle
+import android.transition.Transition
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -25,17 +24,13 @@ import com.sagarock101.core.utils.Utils.exitReveal
 import com.sagarock101.newsapp.R
 import com.sagarock101.newsapp.databinding.ActivityMainBinding
 import com.sagarock101.stylekit.binding.changeStatusBarBasedOnTheme
-import com.sagarock101.stylekit.binding.getThemeId
 import dagger.android.support.DaggerAppCompatActivity
-import kotlinx.coroutines.flow.Flow
-import timber.log.Timber
-import java.io.IOException
 
 const val BTM_NAV_ANIM_DURATION = 300L
 
 class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChangedListener,
     BottomNavigationView.OnNavigationItemReselectedListener,
-    FragmentDialogTheme.Companion.OnDialogThemeBtnListener {
+    FragmentDialogTheme.Companion.OnDialogThemeBtnListener, android.transition.Transition.TransitionListener{
 
     private var themeSelected: Int? = null
     private var dialogFragment = FragmentDialogTheme()
@@ -68,6 +63,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
         supportActionBar?.title = getString(R.string.empty)
         binding.btmNav.setupWithNavController(findNavController(R.id.nav_main_fragment))
         createDialog()
+        window?.enterTransition?.addListener(this)
     }
 
     private fun setupTheme() {
@@ -265,4 +261,22 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
             binding.customAppBar.clAppBar.visibility = visibility
         }
     }
+
+    override fun onTransitionEnd(transition: Transition?) {
+        binding.fabSearch.enterReveal()
+    }
+
+    override fun onTransitionResume(transition: Transition?) {
+    }
+
+    override fun onTransitionPause(transition: Transition?) {
+    }
+
+    override fun onTransitionCancel(transition: Transition?) {
+    }
+
+    override fun onTransitionStart(transition: Transition?) {
+    }
+
+
 }

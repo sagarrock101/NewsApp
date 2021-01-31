@@ -29,7 +29,7 @@ object Utils {
         try {
             val anim = ViewAnimationUtils.createCircularReveal(this, cx, cy, 0f, finalRadius.toFloat())
             visibility = View.VISIBLE
-            anim.start()            
+            anim.start()
         } catch (e: Exception) {
             Timber.e(e.message)
         }
