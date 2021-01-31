@@ -127,6 +127,8 @@
             app:spi_dotSize="@dimen/_6sdp"
             app:spi_dotSelectedSize="@dimen/_8sdp"
             app:spi_dotSelectedColor="?attr/btmIconAndTextColor"
+            app:spi_dotSpacing="@dimen/_8sdp"
+            app:spi_visibleDotThreshold="5"
             android:layout_marginTop="@dimen/_25sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
