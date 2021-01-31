@@ -27,9 +27,8 @@
                 android:orientation="horizontal"
                 app:checkedChip="@id/chip_all"
                 app:chipSpacing="@dimen/_16sdp"
-                app:singleSelection="true"
                 app:selectionRequired="true"
-                >
+                app:singleSelection="true">
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_all"
@@ -120,5 +119,17 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="@dimen/card_vertical_constraint_bias"
             tools:listitem="@layout/item_news_card" />
+
+        <ru.tinkoff.scrollingpagerindicator.ScrollingPagerIndicator
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:spi_dotSize="@dimen/_6sdp"
+            app:spi_dotSelectedSize="@dimen/_8sdp"
+            app:spi_dotSelectedColor="?attr/btmIconAndTextColor"
+            android:layout_marginTop="@dimen/_25sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_news" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -26,11 +26,11 @@ class TopHeadlineViewHolder(val binding: ItemNewsCardBinding)
     }
 
     fun decreaseAlpha() {
-        binding.viewAlphaLayer.alpha = 0.0f
+        binding.viewAlphaLayer.alpha = 0.2f
     }
 
     fun increaseAlpha() {
-        binding.viewAlphaLayer.alpha = 0.7f
+        binding.viewAlphaLayer.alpha = 0.8f
     }
 
     companion object {

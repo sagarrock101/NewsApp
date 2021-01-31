@@ -43,6 +43,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/menu_btm_nav" />
+        
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundTint="?attr/btmIconAndTextColor"
+            android:src="@drawable/ic_baseline_search_24"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@id/btm_nav"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="@dimen/_6sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

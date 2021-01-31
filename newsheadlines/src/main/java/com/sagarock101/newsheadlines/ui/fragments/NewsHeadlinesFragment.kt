@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.sagarock101.common.AppConstants
@@ -17,6 +18,7 @@ import com.sagarock101.core.data.DataWrapper
 import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.core.interfaces.Injectable
 import com.sagarock101.core.interfaces.OnSnapPositionChangeListener
+import com.sagarock101.core.utils.CirclePagerIndicatorDecoration
 import com.sagarock101.core.utils.SnapHelper
 import com.sagarock101.core.utils.SnapOnScrollListener
 import com.sagarock101.core.utils.Utils
@@ -122,11 +124,17 @@ class NewsHeadlinesFragment :
                     true
                 }
         }
+        binding.indicator.attachToRecyclerView(binding.rvNews)
+
     }
 
     override fun onSnapPositionChange(position: Int, previousPosition: Int) {
         adapter?.notifyChange(position, true)
-        adapter?.notifyChange(previousPosition, false)
+        adapter?.listItems?.size?.let {
+            if ((it - 1) != previousPosition) {
+                adapter?.notifyChange(previousPosition, false)
+            }
+        }
     }
 
     override fun onCheckedChanged(group: ChipGroup?, checkedId: Int) {
@@ -195,8 +203,9 @@ class NewsHeadlinesFragment :
         super.onActivityCreated(savedInstanceState)
         prevCheckedId = savedInstanceState?.getInt(AppConstants.SELECTED_CHIP_KEY)
         if ((prevCheckedId == null || prevCheckedId == binding.chipAll.id)
-            && (viewModel.lastSelectedChipId == binding.chipAll.id || viewModel.lastSelectedChipId == -1)) {
-                viewModel.getNewsHeadLines()
+            && (viewModel.lastSelectedChipId == binding.chipAll.id || viewModel.lastSelectedChipId == -1)
+        ) {
+            viewModel.getNewsHeadLines()
         }
     }
 

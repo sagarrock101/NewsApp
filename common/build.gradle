@@ -92,6 +92,9 @@ dependencies {
 
     api "com.airbnb.android:lottie:$lottieVersion"
 
+    //noinspection GradleDependency
     api "androidx.recyclerview:recyclerview-selection:$recycler_view_selection"
+
+    api "ru.tinkoff.scrollingpagerindicator:scrollingpagerindicator:$scrolling_page_indicator_version"
 
 }

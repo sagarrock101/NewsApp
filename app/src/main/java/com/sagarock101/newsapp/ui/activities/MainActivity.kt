@@ -89,23 +89,28 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
         when (destination.id) {
             R.id.newsDetailFragment -> {
                 hideBtmNavBar()
-                binding.customAppBar.clAppBar.visibility = View.GONE
+                hideViewOrShowViews(View.GONE)
             }
 
             R.id.newsHeadlinesFragment -> {
                 showBtnNavBar()
-                binding.customAppBar.clAppBar.visibility = View.VISIBLE
+                hideViewOrShowViews(View.VISIBLE)
             }
 
             R.id.newsDetailFragment2 -> {
                 hideBtmNavBar()
-                binding.customAppBar.clAppBar.visibility = View.GONE
+                hideViewOrShowViews(View.GONE)
             }
 
             R.id.savedFragment -> {
                 showBtnNavBar()
                 binding.customAppBar.clAppBar.visibility = View.VISIBLE
+                binding.fabSearch.visibility = View.GONE
             }
+            R.id.sourcesFragment -> {
+                binding.fabSearch.visibility = View.GONE
+            }
+            R.id.splashFragment -> binding.fabSearch.visibility = View.GONE
         }
     }
 
@@ -243,5 +248,12 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
             dialogFragment?.dismiss()
         }
         super.onBackPressed()
+    }
+
+    private fun hideViewOrShowViews(visibility: Int) {
+        with(binding) {
+            fabSearch.visibility = visibility
+            binding.customAppBar.clAppBar.visibility = visibility
+        }
     }
 }

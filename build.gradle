@@ -13,6 +13,7 @@ buildscript {
         room_version = "2.2.6"
         recycler_view_selection = "1.0.0"
         data_store_version = "1.0.0-alpha06"
+        scrolling_page_indicator_version = "1.2.1"
     }
     repositories {
         google()
