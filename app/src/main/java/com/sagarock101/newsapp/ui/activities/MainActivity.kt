@@ -30,7 +30,7 @@ const val BTM_NAV_ANIM_DURATION = 300L
 
 class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChangedListener,
     BottomNavigationView.OnNavigationItemReselectedListener,
-    FragmentDialogTheme.Companion.OnDialogThemeBtnListener, android.transition.Transition.TransitionListener{
+    FragmentDialogTheme.Companion.OnDialogThemeBtnListener {
 
     private var themeSelected: Int? = null
     private var dialogFragment = FragmentDialogTheme()
@@ -63,7 +63,6 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
         supportActionBar?.title = getString(R.string.empty)
         binding.btmNav.setupWithNavController(findNavController(R.id.nav_main_fragment))
         createDialog()
-        window?.enterTransition?.addListener(this)
     }
 
     private fun setupTheme() {
@@ -96,7 +95,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
             R.id.newsHeadlinesFragment -> {
                 showBtnNavBar()
                 hideViewOrShowViews(View.VISIBLE)
-                if((binding.root as ViewGroup).contains(binding.fabSearch))
+                if ((binding.root as ViewGroup).contains(binding.fabSearch))
                     binding.fabSearch.enterReveal()
             }
 
@@ -241,7 +240,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
 
             getString(com.sagarock101.stylekit.R.string.dark_theme) -> {
                 this.themeName = com.sagarock101.stylekit.R.style.DarkTheme
-               themeSelected = DARK_THEME
+                themeSelected = DARK_THEME
                 dialogFragment?.dismiss()
 //                setTheme(DARK_THEME)
                 recreate()
@@ -261,22 +260,5 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
             binding.customAppBar.clAppBar.visibility = visibility
         }
     }
-
-    override fun onTransitionEnd(transition: Transition?) {
-        binding.fabSearch.enterReveal()
-    }
-
-    override fun onTransitionResume(transition: Transition?) {
-    }
-
-    override fun onTransitionPause(transition: Transition?) {
-    }
-
-    override fun onTransitionCancel(transition: Transition?) {
-    }
-
-    override fun onTransitionStart(transition: Transition?) {
-    }
-
 
 }
