@@ -19,8 +19,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sagarock101.FragmentDialogTheme
 import com.sagarock101.common.AppConstants
-import com.sagarock101.core.utils.MyAnimationUtils.enterReveal
-import com.sagarock101.core.utils.MyAnimationUtils.exitReveal
+import com.sagarock101.core.utils.MyAnimationUtils.enterFabReveal
+import com.sagarock101.core.utils.MyAnimationUtils.exitFabReveal
 import com.sagarock101.core.utils.PreferenceHelper
 import com.sagarock101.newsapp.R
 import com.sagarock101.newsapp.databinding.ActivityMainBinding
@@ -87,29 +87,29 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
             R.id.newsDetailFragment -> {
                 hideBtmNavBar()
                 hideViewOrShowViews(View.GONE)
-                binding.fabSearch.exitReveal()
+                binding.fabSearch.exitFabReveal()
             }
 
             R.id.newsHeadlinesFragment -> {
                 showBtnNavBar()
                 hideViewOrShowViews(View.VISIBLE)
                 if ((binding.root as ViewGroup).contains(binding.fabSearch))
-                    binding.fabSearch.enterReveal()
+                    binding.fabSearch.enterFabReveal()
             }
 
             R.id.newsDetailFragment2 -> {
                 hideBtmNavBar()
                 hideViewOrShowViews(View.GONE)
-                binding.fabSearch.exitReveal()
+                binding.fabSearch.exitFabReveal()
             }
 
             R.id.savedFragment -> {
                 showBtnNavBar()
                 binding.customAppBar.clAppBar.visibility = View.VISIBLE
-                binding.fabSearch.exitReveal()
+                binding.fabSearch.exitFabReveal()
             }
             R.id.sourcesFragment -> {
-                binding.fabSearch.exitReveal()
+                binding.fabSearch.exitFabReveal()
             }
             R.id.splashFragment -> {
                 binding.fabSearch.visibility = View.INVISIBLE
