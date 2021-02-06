@@ -16,6 +16,8 @@ import kotlin.math.sqrt
 
 object MyAnimationUtils {
     fun View.enterFabReveal() {
+        if(visibility == View.VISIBLE)
+            return
         val cx = measuredHeight / 2
         val cy = measuredWidth / 2
         val finalRadius = width.coerceAtLeast(height).div(2)

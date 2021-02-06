@@ -10,11 +10,12 @@ import com.sagarock101.core.view.BaseViewModelFragment
 import com.sagarock101.search.R
 import com.sagarock101.search.databinding.FragmentSearchBinding
 import com.sagarock101.search.model.Articles
+import com.sagarock101.search.ui.activity.SearchActivity
 import com.sagarock101.search.ui.adapters.SearchResultsAdapter
 import com.sagarock101.search.ui.viewmodel.SearchViewModel
 import javax.inject.Inject
 
-class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, SearchViewModel>() {
+class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, SearchViewModel>(), View.OnClickListener {
 
     lateinit var searchListAdapter: SearchResultsAdapter
 
@@ -29,6 +30,7 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
     }
 
     override fun initView(view: View) {
+        binding.ivClose.setOnClickListener(this)
         viewModel = injectViewModel(viewModelFactory)
         viewModel.getSearchResults("donald")
         binding.rvSearchResults.adapter = searchListAdapter
@@ -42,5 +44,15 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
             }
         })
     }
+
+    override fun onClick(v: View?) {
+        when(v) {
+            binding.ivClose -> {
+                hideKeyboard()
+                activity?.onBackPressed()
+            }
+        }
+    }
+
 
 }

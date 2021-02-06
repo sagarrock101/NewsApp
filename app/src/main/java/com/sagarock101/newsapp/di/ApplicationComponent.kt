@@ -3,6 +3,7 @@ package com.sagarock101.newsapp.di
 import android.app.Application
 import com.sagarock101.categories.di.SourceDataModule
 import com.sagarock101.categories.di.SourceViewModelModule
+import com.sagarock101.categories.viewmodel.SourceViewModel
 import com.sagarock101.core.di.CoreDataModule
 import com.sagarock101.database.di.DatabaseModule
 import com.sagarock101.newsapp.MyApplication
@@ -32,7 +33,8 @@ import javax.inject.Singleton
         NewsViewModelModule::class,
         SearchModule::class,
         SearchViewModelModule::class,
-        SearchBuildersModule::class
+        SearchBuildersModule::class,
+        SourceViewModelModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<MyApplication> {

@@ -10,10 +10,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:cursorVisible="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColor="?attr/btmIconAndTextColor"
+            android:textCursorDrawable="@null"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_close"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_close"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
             android:id="@+id/iv_close"
             android:layout_width="@dimen/_36sdp"
             android:layout_height="@dimen/_36sdp"
+            style="@style/ripple_glow_with_padding_silver"
             android:src="@drawable/ic_baseline_close_24"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
