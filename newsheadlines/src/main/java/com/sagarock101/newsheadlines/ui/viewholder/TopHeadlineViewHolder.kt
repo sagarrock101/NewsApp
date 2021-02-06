@@ -1,10 +1,12 @@
 package com.sagarock101.newsheadlines.ui.viewholder
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.ViewCompat
+import com.sagarock101.core.utils.Utils.setOnSingleClickListener
 import com.sagarock101.core.viewholder.BaseViewHolder
 import com.sagarock101.newsheadlines.databinding.ItemNewsCardBinding
 import com.sagarock101.database.model.Articles
@@ -19,10 +21,10 @@ class TopHeadlineViewHolder(val binding: ItemNewsCardBinding)
         binding.viewModel = viewModel
         ViewCompat.setTransitionName(binding.ivNewsImg, item.urlToImage ?: "")
         ViewCompat.setTransitionName(binding.tvTitle, item.title)
-        itemView.setOnClickListener {
-            onItemClick?.invoke(binding.ivNewsImg, binding.tvTitle, item)
-            viewModel?.checkIfSaved(item)
-        }
+        itemView.setOnSingleClickListener(View.OnClickListener {
+                onItemClick?.invoke(binding.ivNewsImg, binding.tvTitle, item)
+                viewModel?.checkIfSaved(item)
+        }, 2000)
     }
 
     fun decreaseAlpha() {
