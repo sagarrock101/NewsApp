@@ -1,3 +1,4 @@
+include ':search'
 include ':database'
 include ':sources'
 include ':saved'

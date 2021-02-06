@@ -32,6 +32,7 @@ fun SnapHelper.getSnapPosition(recyclerView: RecyclerView): Int {
     return layoutManager.getPosition(snapView)
 }
 
+@SuppressLint("ResourceAsColor")
 @ColorInt
 fun Context.getColorFromAttr(
     @AttrRes attrColor: Int,
@@ -39,7 +40,7 @@ fun Context.getColorFromAttr(
     resolveRefs: Boolean = true
 ): Int {
     theme.resolveAttribute(attrColor, typedValue, resolveRefs)
-    return typedValue.data
+    return typedValue.resourceId
 }
 
 

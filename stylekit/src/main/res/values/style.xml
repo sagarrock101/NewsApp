@@ -17,6 +17,9 @@
         <item name="btmIconAndTextColor">@color/colorPrimary</item>
         <item name="android:windowDisablePreview">@drawable/ic_news</item>
         <item name="btmBgColor">@color/white</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
     </style>
 
     <style name="DarkTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -37,6 +40,8 @@
         <item name="actionOverflowButtonStyle">@style/actionOverflowButtonStyle</item>
         <item name="android:windowDisablePreview">@drawable/ic_news</item>
         <item name="btmBgColor">@android:color/black</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
         <!-- sets the style for the overflow button -->
     </style>
 
@@ -107,6 +112,18 @@
 
     <style name="DefaultTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
 
+    </style>
+
+    <style name="Theme.Transparent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTheme.Transparent" parent="AppTheme">
+<!--        <item name="android:windowBackground">@android:color/transparent</item>-->
+<!--        <item name="android:windowIsTranslucent">true</item>-->
+<!--        <item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
     </style>
 
 </resources>

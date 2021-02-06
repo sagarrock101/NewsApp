@@ -3,13 +3,15 @@ package com.sagarock101.newsapp.ui.activities
 import android.animation.Animator
 import android.animation.ObjectAnimator
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.transition.Transition
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.contains
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
@@ -19,10 +21,12 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sagarock101.FragmentDialogTheme
 import com.sagarock101.common.AppConstants
-import com.sagarock101.core.utils.Utils.enterReveal
-import com.sagarock101.core.utils.Utils.exitReveal
+import com.sagarock101.core.utils.MyAnimationUtils.enterReveal
+import com.sagarock101.core.utils.MyAnimationUtils.exitReveal
 import com.sagarock101.newsapp.R
 import com.sagarock101.newsapp.databinding.ActivityMainBinding
+import com.sagarock101.search.ui.SearchActivity
+import com.sagarock101.search.ui.SearchDialogFragment
 import com.sagarock101.stylekit.binding.changeStatusBarBasedOnTheme
 import dagger.android.support.DaggerAppCompatActivity
 
@@ -30,11 +34,11 @@ const val BTM_NAV_ANIM_DURATION = 300L
 
 class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChangedListener,
     BottomNavigationView.OnNavigationItemReselectedListener,
-    FragmentDialogTheme.Companion.OnDialogThemeBtnListener {
+    FragmentDialogTheme.Companion.OnDialogThemeBtnListener, View.OnClickListener {
 
     private var themeSelected: Int? = null
-    private var dialogFragment = FragmentDialogTheme()
-
+    private var themeDialogFragment = FragmentDialogTheme()
+    private var searchDialogFragment = SearchDialogFragment()
     lateinit var binding: ActivityMainBinding
 
     private val navController by lazy { findNavController(R.id.nav_main_fragment) }
@@ -59,9 +63,10 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
         setupTheme()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.btmNav.setOnNavigationItemReselectedListener(this)
+        binding.fabSearch.setOnClickListener(this)
         setSupportActionBar(binding.customAppBar.toolbar)
         supportActionBar?.title = getString(R.string.empty)
-        binding.btmNav.setupWithNavController(findNavController(R.id.nav_main_fragment))
+        binding.btmNav.setupWithNavController(navController)
         createDialog()
     }
 
@@ -76,8 +81,8 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
     }
 
     private fun createDialog() {
-        dialogFragment?.setListener(this)
-        themeSelected?.let { dialogFragment.setThemeToBeChecked(it) }
+        themeDialogFragment?.setListener(this)
+        themeSelected?.let { themeDialogFragment.setThemeToBeChecked(it) }
     }
 
     override fun onDestinationChanged(
@@ -221,7 +226,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
     }
 
     private fun showDialog() {
-        dialogFragment?.show(supportFragmentManager, "")
+        themeDialogFragment?.show(supportFragmentManager, "")
     }
 
     override fun onDialogThemeBtnClick(themeName: String) {
@@ -233,7 +238,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
             getString(com.sagarock101.stylekit.R.string.light_theme) -> {
                 this.themeName = com.sagarock101.stylekit.R.style.LightTheme
                 themeSelected = LIGHT_THEME
-                dialogFragment?.dismiss()
+                themeDialogFragment?.dismiss()
 //                setTheme(LIGHT_THEME)
                 recreate()
             }
@@ -241,7 +246,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
             getString(com.sagarock101.stylekit.R.string.dark_theme) -> {
                 this.themeName = com.sagarock101.stylekit.R.style.DarkTheme
                 themeSelected = DARK_THEME
-                dialogFragment?.dismiss()
+                themeDialogFragment?.dismiss()
 //                setTheme(DARK_THEME)
                 recreate()
             }
@@ -249,8 +254,8 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
     }
 
     override fun onBackPressed() {
-        if (dialogFragment?.isAdded!!) {
-            dialogFragment?.dismiss()
+        if (themeDialogFragment?.isAdded!!) {
+            themeDialogFragment?.dismiss()
         }
         super.onBackPressed()
     }
@@ -259,6 +264,33 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
         with(binding) {
             binding.customAppBar.clAppBar.visibility = visibility
         }
+    }
+
+    override fun onClick(v: View?) {
+        when (v) {
+            binding.fabSearch -> {
+                showSearchDialog(v)
+            }
+        }
+    }
+
+    private fun showSearchDialog(view: View) {
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, view, "transition")
+        val revealX = (view.x + (view.width / 2)).toInt()
+        val revealY = (view.y + (view.height / 2)).toInt()
+        val intent = Intent(this, SearchActivity::class.java)
+            .apply {
+                putExtra("revealX", revealX)
+                putExtra("revealY", revealY)
+            }
+        ActivityCompat.startActivity(this, intent, options.toBundle())
+
+//        startActivity(Intent(this, SearchActivity::class.java))
+//        searchDialogFragment?.setMeasureWidthHeightOfFab(
+//            (binding.fabSearch.measuredWidth + binding.fabSearch.x).toInt(),
+//            (binding.fabSearch.measuredHeight + binding.fabSearch.y).toInt()
+//        )
+//        searchDialogFragment.show(supportFragmentManager, "")
     }
 
 }
