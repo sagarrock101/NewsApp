@@ -27,7 +27,6 @@ import com.sagarock101.core.utils.PreferenceHelper
 import com.sagarock101.newsapp.R
 import com.sagarock101.newsapp.databinding.ActivityMainBinding
 import com.sagarock101.search.ui.SearchActivity
-import com.sagarock101.search.ui.SearchDialogFragment
 import com.sagarock101.stylekit.binding.changeStatusBarBasedOnTheme
 import dagger.android.support.DaggerAppCompatActivity
 
