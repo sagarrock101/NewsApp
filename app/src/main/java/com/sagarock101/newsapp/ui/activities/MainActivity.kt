@@ -24,9 +24,10 @@ import com.sagarock101.core.utils.MyAnimationUtils.exitFabReveal
 import com.sagarock101.core.utils.PreferenceHelper
 import com.sagarock101.newsapp.R
 import com.sagarock101.newsapp.databinding.ActivityMainBinding
-import com.sagarock101.search.ui.SearchActivity
+import com.sagarock101.search.ui.activity.SearchActivity
 import com.sagarock101.stylekit.binding.changeStatusBarBasedOnTheme
 import dagger.android.support.DaggerAppCompatActivity
+import javax.inject.Inject
 
 const val BTM_NAV_ANIM_DURATION = 300L
 
@@ -48,6 +49,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
     private val LIGHT_THEME = com.sagarock101.stylekit.R.style.LightTheme
     private val DARK_THEME = com.sagarock101.stylekit.R.style.DarkTheme
 
+    @Inject
     lateinit var preferenceHelper: PreferenceHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,7 +71,6 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
     }
 
     private fun setupSharedPreferences() {
-        preferenceHelper = PreferenceHelper(this)
         themeSelected = preferenceHelper.getStringToPreferences(AppConstants.UI_THEME_KEY, LIGHT_THEME)
     }
 

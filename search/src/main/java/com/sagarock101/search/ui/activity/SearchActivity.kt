@@ -1,4 +1,4 @@
-package com.sagarock101.search.ui
+package com.sagarock101.search.ui.activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -13,17 +13,16 @@ import com.sagarock101.core.utils.PreferenceHelper
 import com.sagarock101.search.R
 import com.sagarock101.search.databinding.ActivitySearchBinding
 import com.sagarock101.stylekit.binding.getColorFromAttr
-import timber.log.Timber
 import kotlin.properties.Delegates
 
 class SearchActivity : AppCompatActivity() {
-
+    //TODO: need to refactor hardcoded intent key names
     lateinit var rootLayout: ConstraintLayout
     lateinit var binding: ActivitySearchBinding
 
     var revealX by Delegates.notNull<Int>()
     var revealY by Delegates.notNull<Int>()
-    
+
     private val LIGHT_THEME = com.sagarock101.stylekit.R.style.LightTheme
     private val DARK_THEME = com.sagarock101.stylekit.R.style.DarkTheme
 
@@ -36,7 +35,6 @@ class SearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         revealX = intent.getIntExtra("revealX", 0)
         revealY = intent.getIntExtra("revealY", 0)
-        Timber.i("x and y values of fab $revealX, $revealY")
         setupSharedPreferences()
         setupTheme()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_search)

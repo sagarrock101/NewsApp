@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.sagarock101.search.ui.SearchActivity"
+        <activity android:name="com.sagarock101.search.ui.activity.SearchActivity"
             android:screenOrientation="portrait"
             />
     </application>
