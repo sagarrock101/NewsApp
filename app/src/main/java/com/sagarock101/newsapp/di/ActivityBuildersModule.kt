@@ -4,6 +4,7 @@ import com.sagarock101.categories.di.SourcesFragmentBuildersModule
 import com.sagarock101.newsapp.ui.activities.MainActivity
 import com.sagarock101.newsheadlines.di.FragmentBuildersModule
 import com.sagarock101.saved.di.SavedFragmentsBuildersModule
+import com.sagarock101.search.di.SearchBuildersModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

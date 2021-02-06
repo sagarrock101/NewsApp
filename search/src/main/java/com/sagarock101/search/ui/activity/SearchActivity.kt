@@ -13,9 +13,10 @@ import com.sagarock101.core.utils.PreferenceHelper
 import com.sagarock101.search.R
 import com.sagarock101.search.databinding.ActivitySearchBinding
 import com.sagarock101.stylekit.binding.getColorFromAttr
+import dagger.android.support.DaggerAppCompatActivity
 import kotlin.properties.Delegates
 
-class SearchActivity : AppCompatActivity() {
+class SearchActivity : DaggerAppCompatActivity() {
     //TODO: need to refactor hardcoded intent key names
     lateinit var rootLayout: ConstraintLayout
     lateinit var binding: ActivitySearchBinding

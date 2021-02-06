@@ -1,4 +1,4 @@
-package com.sagarock101.search.viewmodel
+package com.sagarock101.search.ui.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.switchMap

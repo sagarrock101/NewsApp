@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation_search"
+    app:startDestination="@id/searchResultsFragment">
+
+    <fragment
+        android:id="@+id/searchResultsFragment"
+        android:name="com.sagarock101.search.ui.fragment.SearchResultsFragment"
+        android:label="SearchResultsFragment" >
+        <action
+            android:id="@+id/action_searchResultsFragment_to_searchDetailFragment"
+            app:destination="@id/searchDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchDetailFragment"
+        android:name="com.sagarock101.search.ui.fragment.SearchDetailFragment"
+        android:label="SearchDetailFragment" />
+</navigation>

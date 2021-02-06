@@ -25,7 +25,6 @@ class NewsViewModel @Inject constructor() : CoroutineViewModel(Main) {
     @Inject
     lateinit var application: Application
 
-
     private val newsHeadLinesMLD = MutableLiveData<ArticleRequest>()
 
     private val _isSaved = MutableLiveData<Boolean>()

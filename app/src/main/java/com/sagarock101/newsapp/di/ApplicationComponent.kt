@@ -10,7 +10,9 @@ import com.sagarock101.newsapp.ui.activities.MainActivity
 import com.sagarock101.newsheadlines.di.FragmentBuildersModule
 import com.sagarock101.newsheadlines.di.NewsHeadlinesModule
 import com.sagarock101.newsheadlines.di.NewsViewModelModule
+import com.sagarock101.search.di.SearchBuildersModule
 import com.sagarock101.search.di.SearchModule
+import com.sagarock101.search.di.SearchViewModelModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -25,11 +27,12 @@ import javax.inject.Singleton
         ActivityBuildersModule::class,
         NewsHeadlinesModule::class,
         SourceDataModule::class,
-        ViewModelModule::class ,
-        DatabaseModule ::class,
+        ViewModelModule::class,
+        DatabaseModule::class,
         NewsViewModelModule::class,
         SearchModule::class,
-        SourceViewModelModule::class
+        SearchViewModelModule::class,
+        SearchBuildersModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<MyApplication> {
