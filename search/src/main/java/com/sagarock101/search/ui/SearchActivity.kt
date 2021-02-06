@@ -3,7 +3,6 @@ package com.sagarock101.search.ui
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
@@ -17,6 +16,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import com.sagarock101.common.AppConstants
 import com.sagarock101.core.utils.MyAnimationUtils.startColorAnimation
+import com.sagarock101.core.utils.PreferenceHelper
 import com.sagarock101.search.R
 import com.sagarock101.search.databinding.ActivitySearchBinding
 import com.sagarock101.stylekit.binding.getColorFromAttr
@@ -32,15 +32,13 @@ class SearchActivity : AppCompatActivity() {
     var revealX by Delegates.notNull<Int>()
     var revealY by Delegates.notNull<Int>()
 
-    private var themeName: Int? = null
 
     private val LIGHT_THEME = com.sagarock101.stylekit.R.style.LightTheme
     private val DARK_THEME = com.sagarock101.stylekit.R.style.DarkTheme
 
-    lateinit var sharedPreferences: SharedPreferences
-    lateinit var sharedPrefFile: String
     private var themeSelected: Int? = null
 
+    lateinit var preferenceHelper: PreferenceHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -113,9 +111,8 @@ class SearchActivity : AppCompatActivity() {
     }
 
     private fun setupSharedPreferences() {
-        sharedPrefFile = applicationContext.packageName
-        sharedPreferences = getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
-        themeSelected = sharedPreferences.getInt(AppConstants.UI_THEME_KEY, LIGHT_THEME)
+        preferenceHelper = PreferenceHelper(this)
+        themeSelected = preferenceHelper.getStringToPreferences(AppConstants.UI_THEME_KEY, LIGHT_THEME)
     }
 
     private fun setupTheme() {

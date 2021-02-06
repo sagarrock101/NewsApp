@@ -23,6 +23,7 @@ import com.sagarock101.FragmentDialogTheme
 import com.sagarock101.common.AppConstants
 import com.sagarock101.core.utils.MyAnimationUtils.enterReveal
 import com.sagarock101.core.utils.MyAnimationUtils.exitReveal
+import com.sagarock101.core.utils.PreferenceHelper
 import com.sagarock101.newsapp.R
 import com.sagarock101.newsapp.databinding.ActivityMainBinding
 import com.sagarock101.search.ui.SearchActivity
@@ -38,7 +39,6 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
 
     private var themeSelected: Int? = null
     private var themeDialogFragment = FragmentDialogTheme()
-    private var searchDialogFragment = SearchDialogFragment()
     lateinit var binding: ActivityMainBinding
 
     private val navController by lazy { findNavController(R.id.nav_main_fragment) }
@@ -51,10 +51,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
     private val LIGHT_THEME = com.sagarock101.stylekit.R.style.LightTheme
     private val DARK_THEME = com.sagarock101.stylekit.R.style.DarkTheme
 
-
-    lateinit var sharedPreferences: SharedPreferences
-
-    lateinit var sharedPrefFile: String
+    lateinit var preferenceHelper: PreferenceHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,9 +72,8 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
     }
 
     private fun setupSharedPreferences() {
-        sharedPrefFile = applicationContext.packageName
-        sharedPreferences = getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
-        themeSelected = sharedPreferences.getInt(AppConstants.UI_THEME_KEY, LIGHT_THEME)
+        preferenceHelper = PreferenceHelper(this)
+        themeSelected = preferenceHelper.getStringToPreferences(AppConstants.UI_THEME_KEY, LIGHT_THEME)
     }
 
     private fun createDialog() {
@@ -198,9 +194,9 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
 
 
     override fun onPause() {
-        val preferenceEditor = sharedPreferences.edit()
-        themeSelected?.let { preferenceEditor.putInt(AppConstants.UI_THEME_KEY, it) }
-        preferenceEditor.apply()
+        themeSelected?.let {
+            preferenceHelper.saveToPreferences(AppConstants.UI_THEME_KEY, it)
+        }
         navController.removeOnDestinationChangedListener(this)
         super.onPause()
     }
@@ -239,7 +235,6 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
                 this.themeName = com.sagarock101.stylekit.R.style.LightTheme
                 themeSelected = LIGHT_THEME
                 themeDialogFragment?.dismiss()
-//                setTheme(LIGHT_THEME)
                 recreate()
             }
 
@@ -247,7 +242,6 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
                 this.themeName = com.sagarock101.stylekit.R.style.DarkTheme
                 themeSelected = DARK_THEME
                 themeDialogFragment?.dismiss()
-//                setTheme(DARK_THEME)
                 recreate()
             }
         }
@@ -261,9 +255,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
     }
 
     private fun hideViewOrShowViews(visibility: Int) {
-        with(binding) {
-            binding.customAppBar.clAppBar.visibility = visibility
-        }
+        binding.customAppBar.clAppBar.visibility = visibility
     }
 
     override fun onClick(v: View?) {
@@ -284,13 +276,6 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
                 putExtra("revealY", revealY)
             }
         ActivityCompat.startActivity(this, intent, options.toBundle())
-
-//        startActivity(Intent(this, SearchActivity::class.java))
-//        searchDialogFragment?.setMeasureWidthHeightOfFab(
-//            (binding.fabSearch.measuredWidth + binding.fabSearch.x).toInt(),
-//            (binding.fabSearch.measuredHeight + binding.fabSearch.y).toInt()
-//        )
-//        searchDialogFragment.show(supportFragmentManager, "")
     }
 
 }
