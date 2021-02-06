@@ -19,7 +19,7 @@
             android:id="@+id/cl_news_saved"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/bgColor">
+            android:background="?attr/btmBgColor">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_img_container"

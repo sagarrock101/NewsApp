@@ -18,7 +18,6 @@ class MyApplication: DaggerApplication(), HasAndroidInjector {
 //
     override fun androidInjector() = dispatchingAndroidInjector
 
-
     override fun onCreate() {
         super.onCreate()
         Stetho.initializeWithDefaults(this)
