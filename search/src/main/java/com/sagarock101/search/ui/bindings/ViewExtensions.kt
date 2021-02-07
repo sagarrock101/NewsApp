@@ -20,6 +20,7 @@ import com.sagarock101.core.adapter.BaseAdapter
 import com.sagarock101.core.data.DataWrapper
 import com.sagarock101.search.R
 import com.sagarock101.search.model.Articles
+import com.sagarock101.search.model.Results
 
 @BindingAdapter("app:items")
 fun setItems(listView: RecyclerView, items: List<Any>?) {
@@ -132,7 +133,7 @@ fun View.hideChildFabInitially() {
 }
 
 @BindingAdapter("app:showViewBasedOnListSize")
-fun View.showViewBasedOnListSize(items: List<Articles>?) {
+fun View.showViewBasedOnListSize(items: List<Results>?) {
     items?.let {
         visibility = if (it.isNotEmpty()) View.VISIBLE else View.GONE
     } ?: kotlin.run {
@@ -152,7 +153,7 @@ fun ProgressBar.showProgressBasedOnStatus(status: DataWrapper.Status?) {
 }
 
 @BindingAdapter("app:showTextWhenResultsAreEmpty" , "app:setItems")
-fun TextView.showTextWhenResultsAreEmptyAfterSearch(status: DataWrapper.Status?, items: List<Articles>?) {
+fun TextView.showTextWhenResultsAreEmptyAfterSearch(status: DataWrapper.Status?, items: List<Results>?) {
     visibility = when(status) {
         DataWrapper.Status.LOADING -> View.GONE
         DataWrapper.Status.SUCCESS -> {

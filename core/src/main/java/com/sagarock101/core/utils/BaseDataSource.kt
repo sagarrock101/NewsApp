@@ -1,8 +1,3 @@
-/*
- *  Copyright (c) 2020. Embibe.  All rights reserved
- *
- */
-
 package com.sagarock101.core.utils
 
 import com.sagarock101.core.data.DataWrapper

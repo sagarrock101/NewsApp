@@ -27,6 +27,7 @@ android {
         consumerProguardFiles "consumer-rules.pro"
 
         buildConfigField("String", "NEWS_API_KEY", apikeyProperties["NEWS_API_KEY"])
+        buildConfigField("String", "THE_GUARDIAN_NEWS_API_KEY", apikeyProperties["THE_GUARDIAN_NEWS_API_KEY"])
     }
 
     buildTypes {
@@ -36,6 +37,7 @@ android {
         }
         debug {
             buildConfigField "String", "BASE_URL", "\"https://newsapi.org/v2/\""
+            buildConfigField "String", "GUARDIAN_BASE_URL" , "\"https://content.guardianapis.com/\""
         }
     }
     compileOptions {

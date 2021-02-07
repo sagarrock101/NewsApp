@@ -8,18 +8,20 @@ import androidx.core.view.ViewCompat
 import com.sagarock101.core.viewholder.BaseViewHolder
 import com.sagarock101.search.databinding.ItemSearchResultBinding
 import com.sagarock101.search.model.Articles
+import com.sagarock101.search.model.Results
+import com.sagarock101.search.model.SearchResults
 
 class SearchResultsViewHolder(private val binding: ItemSearchResultBinding)
-    : BaseViewHolder<Articles>(binding) {
-    var onItemClick: ((ImageView, TextView, Articles) -> Unit)? = null
+    : BaseViewHolder<Results>(binding) {
+    var onItemClick: ((ImageView, TextView, Results) -> Unit)? = null
 //    var viewModel: NewsViewModel? = null
-    var item: Articles? = null
-    override fun bind(item: Articles) {
-        binding.article = item
+    var item: Results? = null
+    override fun bind(item: Results) {
+        binding.searchResult = item
         this.item = item
 //        binding.viewModel = viewModel
-        ViewCompat.setTransitionName(binding.ivNewsImg, item.urlToImage ?: "")
-        ViewCompat.setTransitionName(binding.tvTitle, item.title)
+        ViewCompat.setTransitionName(binding.ivNewsImg, item.fields.thumbnail ?: "")
+        ViewCompat.setTransitionName(binding.tvTitle, item.webTitle)
         itemView.setOnClickListener {
             onItemClick?.invoke(binding.ivNewsImg, binding.tvTitle, item)
 //            viewModel?.checkIfSaved(item)
@@ -29,10 +31,10 @@ class SearchResultsViewHolder(private val binding: ItemSearchResultBinding)
     companion object {
         fun from(
             parent: ViewGroup,
-            onItemClick: ((ImageView, TextView, Articles) -> Unit)? = null
+            onItemClick: ((ImageView, TextView, Results) -> Unit)? = null
 //            ,
 //            viewModel: NewsViewModel? = null
-            ): BaseViewHolder<Articles> {
+            ): BaseViewHolder<Results> {
             val layoutInflater = LayoutInflater.from(parent.context)
             val binding = ItemSearchResultBinding.inflate(layoutInflater, parent, false)
 

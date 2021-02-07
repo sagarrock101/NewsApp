@@ -8,17 +8,18 @@ import com.sagarock101.core.adapter.BaseAdapter
 import com.sagarock101.core.viewholder.BaseViewHolder
 import com.sagarock101.search.R
 import com.sagarock101.search.model.Articles
+import com.sagarock101.search.model.Results
 import com.sagarock101.search.ui.viewholder.SearchResultsViewHolder
 
 
 class SearchResultsAdapter() :
-    BaseAdapter<Articles>() {
+    BaseAdapter<Results>() {
 
-    var onItemClick: ((ImageView, TextView, Articles) -> Unit)? = null
+    var onItemClick: ((ImageView, TextView, Results) -> Unit)? = null
 
-    override fun getLayoutId(position: Int, obj: Articles) = R.layout.item_search_result
+    override fun getLayoutId(position: Int, obj: Results) = R.layout.item_search_result
 
-    override fun getViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<Articles> {
+    override fun getViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<Results> {
         return SearchResultsViewHolder.from(parent, onItemClick)
     }
 

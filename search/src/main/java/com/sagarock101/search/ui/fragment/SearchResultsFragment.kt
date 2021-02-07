@@ -16,6 +16,7 @@ import com.sagarock101.core.view.BaseViewModelFragment
 import com.sagarock101.search.R
 import com.sagarock101.search.databinding.FragmentSearchBinding
 import com.sagarock101.search.model.Articles
+import com.sagarock101.search.model.Results
 import com.sagarock101.search.ui.activity.SearchActivity
 import com.sagarock101.search.ui.adapters.SearchResultsAdapter
 import com.sagarock101.search.ui.viewmodel.SearchViewModel
@@ -28,7 +29,6 @@ import javax.inject.Inject
 
 class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, SearchViewModel>(),
     View.OnClickListener
-//    , TextWatcher
 {
 
     lateinit var searchListAdapter: SearchResultsAdapter
@@ -43,45 +43,43 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
         searchListAdapter = SearchResultsAdapter()
     }
 
-    override fun onResume() {
-        super.onResume()
-//        binding.etSearch.addTextChangedListener(this)
-    }
-
     @FlowPreview
     @ExperimentalCoroutinesApi
     override fun initView(view: View) {
-        binding.ivClose.setOnClickListener(this)
         viewModel = injectViewModel(viewModelFactory)
-        binding.vm = viewModel
-        binding.lifecycleOwner = this
-        binding.etSearch.textChanges()
-            .debounce(1200)
-            .distinctUntilChanged()
-            .filterNot { it.isNullOrBlank() || it.length == 3 }
-            .onEach {
-                it?.let {
-                    if (it.length > 3)
-                        viewModel.getSearchResults(it)
+        with(binding) {
+            ivClose.setOnClickListener(this@SearchResultsFragment)
+            vm = viewModel
+            lifecycleOwner = this@SearchResultsFragment
+            etSearch.textChanges()
+                .debounce(1200)
+                .distinctUntilChanged()
+                .filterNot { it.isNullOrBlank() || it.length == 3 }
+                .onEach {
+                    it?.let {
+                        if (it.length > 3)
+                            viewModel.getSearchResults(it)
+                    }
                 }
-            }
-            .launchIn(lifecycleScope)
+                .launchIn(lifecycleScope)
 
-        binding.rvSearchResults.adapter = searchListAdapter
-        viewModel.searchResultsLiveData.observe(viewLifecycleOwner, Observer {
-            when (it.status) {
-                DataWrapper.Status.LOADING -> {
-                    binding.tvYouCanSearchForNewsUsingPhrases.visibility = View.GONE
+            rvSearchResults.adapter = searchListAdapter
+            viewModel.searchResultsLiveData.observe(viewLifecycleOwner, Observer {
+                when (it.status) {
+                    DataWrapper.Status.LOADING -> {
+                        tvYouCanSearchForNewsUsingPhrases.visibility = View.GONE
+                    }
+                    DataWrapper.Status.SUCCESS -> {
+                        tvYouCanSearchForNewsUsingPhrases.visibility = View.GONE
+                        searchListAdapter.setItems(it.data?.response?.results as MutableList<Results>)
+                    }
+                    DataWrapper.Status.ERROR -> {
+                        Utils.showToast(requireContext(), "${it.message}")
+                    }
                 }
-                DataWrapper.Status.SUCCESS -> {
-                    binding.tvYouCanSearchForNewsUsingPhrases.visibility = View.GONE
-                    searchListAdapter.setItems(it.data?.articles as MutableList<Articles>)
-                }
-                DataWrapper.Status.ERROR -> {
-                    Utils.showToast(requireContext(), "${it.message}")
-                }
-            }
-        })
+            })
+        }
+
 
     }
 

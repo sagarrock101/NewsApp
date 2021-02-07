@@ -1,6 +1,7 @@
 package com.sagarock101.search.di
 
 import com.sagarock101.core.di.CoreDataModule
+import com.sagarock101.core.qualifiers.RetrofitForTheGuardianApi
 import com.sagarock101.search.data.remote.SearchRemoteSource
 import com.sagarock101.search.data.remote.SearchRepo
 import com.sagarock101.search.data.remote.SearchService
@@ -14,7 +15,10 @@ class SearchModule {
 
     @Singleton
     @Provides
-    fun provideSearchService(retrofit: Retrofit): SearchService {
+    fun provideSearchService(
+        @RetrofitForTheGuardianApi
+        retrofit: Retrofit
+    ): SearchService {
         return retrofit.create<SearchService>(SearchService::class.java)
     }
 
@@ -26,7 +30,7 @@ class SearchModule {
 
     @Singleton
     @Provides
-    fun provideSearchDataSource(searchService: SearchService) : SearchRemoteSource {
+    fun provideSearchDataSource(searchService: SearchService): SearchRemoteSource {
         return SearchRemoteSource(searchService)
     }
 

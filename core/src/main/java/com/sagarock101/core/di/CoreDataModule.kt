@@ -4,6 +4,9 @@ import android.app.Application
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.Gson
 import com.sagarock101.common.BuildConfig
+import com.sagarock101.core.qualifiers.OkHttpWithGuardianApiKeyInterceptor
+import com.sagarock101.core.qualifiers.RetrofitForTheGuardianApi
+import com.sagarock101.core.utils.GuardianApiKeyInterceptor
 import com.sagarock101.core.utils.InterceptorWithApiKey
 import com.sagarock101.core.utils.PreferenceHelper
 import dagger.Module
@@ -15,6 +18,7 @@ import javax.inject.Singleton
 
 @Module
 class CoreDataModule {
+    //TODO: need to migrate whole app to guardian api
 
     @Singleton
     @Provides
@@ -44,11 +48,39 @@ class CoreDataModule {
 
     @Provides
     fun provideOkhttpClient(interceptorWithApiKey: InterceptorWithApiKey): OkHttpClient {
-        return OkHttpClient().newBuilder().addInterceptor(interceptorWithApiKey).addNetworkInterceptor(StethoInterceptor()).build()
+        return OkHttpClient().newBuilder().addInterceptor(interceptorWithApiKey)
+            .addNetworkInterceptor(StethoInterceptor()).build()
     }
 
     @Provides
     fun providePreferenceHelper(context: Application) = PreferenceHelper(context)
+
+    @Provides
+    fun provideTheGuardianApiInterceptor(): GuardianApiKeyInterceptor {
+        return GuardianApiKeyInterceptor(BuildConfig.THE_GUARDIAN_NEWS_API_KEY)
+    }
+
+    @Provides
+    @OkHttpWithGuardianApiKeyInterceptor
+    fun provideOkHttpClientForGuardianApi(apiKeyInterceptor: GuardianApiKeyInterceptor): OkHttpClient {
+        return OkHttpClient().newBuilder().addInterceptor(apiKeyInterceptor)
+            .addNetworkInterceptor(StethoInterceptor()).build()
+    }
+
+    @Provides
+    @RetrofitForTheGuardianApi
+    fun provideRetrofitForGuardianApi(
+        @OkHttpWithGuardianApiKeyInterceptor
+        okhttpClient: OkHttpClient,
+        converterFactory: GsonConverterFactory
+    ) = Retrofit.Builder()
+        .baseUrl(BuildConfig.GUARDIAN_BASE_URL)
+        .client(okhttpClient)
+        .addConverterFactory(converterFactory)
+        .build()
+
+
+
 
 }
 
