@@ -12,6 +12,7 @@
         <import type="com.sagarock101.core.data.DataWrapper"/>
     </data>
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -25,7 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_height="70dp" />
-
+        //TODO : need to fix search ripple effect
         <EditText
             android:id="@+id/et_search"
             android:layout_width="0dp"
@@ -37,7 +38,7 @@
             android:textColor="?attr/btmIconAndTextColor"
             android:textCursorDrawable="@null"
             app:layout_constraintBottom_toBottomOf="@+id/iv_close"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_search_icon"
             app:layout_constraintStart_toEndOf="@id/iv_close"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,6 +51,19 @@
             app:layout_constraintBottom_toBottomOf="@id/view_as_toolbar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_search_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/rounded_mic_bg"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_marginEnd="@dimen/_2sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_close"
+            app:layout_constraintBottom_toBottomOf="@id/iv_close"
+            android:focusable="true" />
 
         <TextView
             android:id="@+id/tv_no_results_for_query"
