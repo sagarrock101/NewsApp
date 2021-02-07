@@ -5,6 +5,8 @@ import android.animation.AnimatorListenerAdapter
 import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.ImageView
+import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -15,7 +17,9 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.sagarock101.core.adapter.BaseAdapter
+import com.sagarock101.core.data.DataWrapper
 import com.sagarock101.search.R
+import com.sagarock101.search.model.Articles
 
 @BindingAdapter("app:items")
 fun setItems(listView: RecyclerView, items: List<Any>?) {
@@ -126,3 +130,42 @@ fun View.hideChildFabInitially() {
     this.translationY = this.height.toFloat()
     this.alpha = 0f
 }
+
+@BindingAdapter("app:showViewBasedOnListSize")
+fun View.showViewBasedOnListSize(items: List<Articles>?) {
+    items?.let {
+        visibility = if (it.isNotEmpty()) View.VISIBLE else View.GONE
+    } ?: kotlin.run {
+        visibility = View.GONE
+    }
+}
+
+
+@BindingAdapter("app:showProgressBasedOnStatus")
+fun ProgressBar.showProgressBasedOnStatus(status: DataWrapper.Status?) {
+    visibility = when(status) {
+        DataWrapper.Status.LOADING -> View.VISIBLE
+        DataWrapper.Status.SUCCESS -> View.GONE
+        DataWrapper.Status.ERROR -> View.GONE
+        else -> View.GONE
+    }
+}
+
+@BindingAdapter("app:showTextWhenResultsAreEmpty" , "app:setItems")
+fun TextView.showTextWhenResultsAreEmptyAfterSearch(status: DataWrapper.Status?, items: List<Articles>?) {
+    visibility = when(status) {
+        DataWrapper.Status.LOADING -> View.GONE
+        DataWrapper.Status.SUCCESS -> {
+            items?.let {
+                if(it.isNotEmpty()) View.GONE else {
+                    View.VISIBLE
+                }
+            } ?: kotlin.run {
+                View.GONE
+            }
+        }
+        DataWrapper.Status.ERROR -> View.GONE
+        else -> View.GONE
+    }
+}
+

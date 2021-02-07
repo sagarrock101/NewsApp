@@ -5,10 +5,13 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
+import androidx.annotation.CheckResult
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import com.sagarock101.core.data.DataWrapper
 import com.sagarock101.core.di.ViewModelFactory
 import com.sagarock101.core.di.injectViewModel
+import com.sagarock101.core.utils.Utils
 import com.sagarock101.core.view.BaseViewModelFragment
 import com.sagarock101.search.R
 import com.sagarock101.search.databinding.FragmentSearchBinding
@@ -16,10 +19,17 @@ import com.sagarock101.search.model.Articles
 import com.sagarock101.search.ui.activity.SearchActivity
 import com.sagarock101.search.ui.adapters.SearchResultsAdapter
 import com.sagarock101.search.ui.viewmodel.SearchViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, SearchViewModel>(),
-    View.OnClickListener, TextWatcher {
+    View.OnClickListener
+//    , TextWatcher
+{
 
     lateinit var searchListAdapter: SearchResultsAdapter
 
@@ -35,53 +45,79 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
 
     override fun onResume() {
         super.onResume()
-        binding.etSearch.addTextChangedListener(this)
+//        binding.etSearch.addTextChangedListener(this)
     }
 
+    @FlowPreview
+    @ExperimentalCoroutinesApi
     override fun initView(view: View) {
         binding.ivClose.setOnClickListener(this)
         viewModel = injectViewModel(viewModelFactory)
-        viewModel.getSearchResults("donald duck")
+        binding.vm = viewModel
+        binding.lifecycleOwner = this
+        binding.etSearch.textChanges()
+            .debounce(1200)
+            .distinctUntilChanged()
+            .filterNot { it.isNullOrBlank() || it.length == 3 }
+            .onEach {
+                it?.let {
+                    if (it.length > 3)
+                        viewModel.getSearchResults(it)
+                }
+            }
+            .launchIn(lifecycleScope)
+
         binding.rvSearchResults.adapter = searchListAdapter
         viewModel.searchResultsLiveData.observe(viewLifecycleOwner, Observer {
             when (it.status) {
                 DataWrapper.Status.LOADING -> {
+                    binding.tvYouCanSearchForNewsUsingPhrases.visibility = View.GONE
                 }
                 DataWrapper.Status.SUCCESS -> {
+                    binding.tvYouCanSearchForNewsUsingPhrases.visibility = View.GONE
                     searchListAdapter.setItems(it.data?.articles as MutableList<Articles>)
                 }
                 DataWrapper.Status.ERROR -> {
+                    Utils.showToast(requireContext(), "${it.message}")
                 }
             }
         })
+
     }
 
     override fun onClick(v: View?) {
         when (v) {
             binding.ivClose -> {
                 hideKeyboard()
+                binding.root.visibility = View.GONE
                 activity?.onBackPressed()
             }
         }
     }
 
-    override fun afterTextChanged(s: Editable?) {
-        if(s.toString().trim().isNotEmpty())
-            viewModel.getSearchResults(s.toString())
+    @ExperimentalCoroutinesApi
+    @CheckResult
+    fun EditText.textChanges(): Flow<String?> {
+        return callbackFlow<String?> {
+            val listener = object : TextWatcher {
+                override fun afterTextChanged(s: Editable?) {
+                    if (s.toString().trim().isNotEmpty())
+                        offer(s.toString().trim())
+                }
+
+                override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) = Unit
+
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                }
+            }
+            addTextChangedListener(listener)
+            awaitClose { removeTextChangedListener(listener) }
+        }.onStart { emit(text.toString()) }
     }
-
-    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
-    }
-
-    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
-    }
-
-    override fun onPause() {
-        super.onPause()
-        binding.etSearch.removeTextChangedListener(this)
-    }
-
 
 }

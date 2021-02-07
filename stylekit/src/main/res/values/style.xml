@@ -74,6 +74,13 @@
         <item name="android:focusable">true</item>
     </style>
 
+    <style name="ripple_glow_with_theme_color_control">
+        <item name="android:clickable">true</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@drawable/ripple_bg_with_theme_primary_as_color_control</item>
+        <item name="android:focusable">true</item>
+    </style>
+
     <style name="ripple_glow_with_padding_silver">
         <item name="android:clickable">true</item>
         <item name="android:padding">10dp</item>
