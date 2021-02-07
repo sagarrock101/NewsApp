@@ -1,9 +1,12 @@
 package com.sagarock101.search.ui.activity
 
 import android.annotation.SuppressLint
+import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
 import com.sagarock101.common.AppConstants
@@ -14,7 +17,10 @@ import com.sagarock101.search.R
 import com.sagarock101.search.databinding.ActivitySearchBinding
 import com.sagarock101.stylekit.binding.getColorFromAttr
 import dagger.android.support.DaggerAppCompatActivity
+import java.util.jar.Manifest
 import kotlin.properties.Delegates
+
+const val REQUEST_PERMISSION_CODE = 101
 
 class SearchActivity : DaggerAppCompatActivity() {
     //TODO: need to refactor hardcoded intent key names
@@ -34,6 +40,7 @@ class SearchActivity : DaggerAppCompatActivity() {
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        checkIsPermissionForSpeechRecordingIsGranted()
         revealX = intent.getIntExtra("revealX", 0)
         revealY = intent.getIntExtra("revealY", 0)
         setupSharedPreferences()
@@ -46,6 +53,20 @@ class SearchActivity : DaggerAppCompatActivity() {
             ResourcesCompat.getColor(resources, getColorFromAttr(R.attr.btmIconAndTextColor), null),
             ResourcesCompat.getColor(resources, getColorFromAttr(R.attr.bgColor), null)
         )
+    }
+
+    private fun checkIsPermissionForSpeechRecordingIsGranted() {
+        if (ContextCompat.checkSelfPermission(
+                this,
+                android.Manifest.permission.RECORD_AUDIO
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(android.Manifest.permission.RECORD_AUDIO),
+                REQUEST_PERMISSION_CODE
+            )
+        }
     }
 
     @SuppressLint("ResourceType")
@@ -69,6 +90,14 @@ class SearchActivity : DaggerAppCompatActivity() {
 
     private fun setupTheme() {
         themeSelected?.let { setTheme(it) }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
 }

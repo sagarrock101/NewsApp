@@ -1,6 +1,10 @@
 package com.sagarock101.search.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
+import android.speech.RecognitionListener
+import android.speech.RecognizerIntent
+import android.speech.SpeechRecognizer
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -31,6 +35,8 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
     View.OnClickListener
 {
 
+    private lateinit var speechRecognitionListener: RecognitionListener
+    private var speechRecognizer: SpeechRecognizer? = null
     lateinit var searchListAdapter: SearchResultsAdapter
 
     @Inject
@@ -41,6 +47,7 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         searchListAdapter = SearchResultsAdapter()
+        speechRecognizer = SpeechRecognizer.createSpeechRecognizer(requireContext())
     }
 
     @FlowPreview
@@ -49,6 +56,7 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
         viewModel = injectViewModel(viewModelFactory)
         with(binding) {
             ivClose.setOnClickListener(this@SearchResultsFragment)
+            ivSearchIcon.setOnClickListener(this@SearchResultsFragment)
             vm = viewModel
             lifecycleOwner = this@SearchResultsFragment
             etSearch.textChanges()
@@ -80,6 +88,46 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
             })
         }
 
+        setUpSpeechRecognition()
+
+
+    }
+
+    private fun setUpSpeechRecognition() {
+        speechRecognitionListener = object : RecognitionListener {
+            override fun onReadyForSpeech(params: Bundle?) {
+
+            }
+
+            override fun onRmsChanged(rmsdB: Float) {
+
+            }
+
+            override fun onBufferReceived(buffer: ByteArray?) {
+            }
+
+            override fun onPartialResults(partialResults: Bundle?) {
+            }
+
+            override fun onEvent(eventType: Int, params: Bundle?) {
+            }
+
+            override fun onBeginningOfSpeech() {
+            }
+
+            override fun onEndOfSpeech() {
+            }
+
+            override fun onError(error: Int) {
+            }
+
+            override fun onResults(results: Bundle?) {
+                val speechList = results?.get(SpeechRecognizer.RESULTS_RECOGNITION) as? ArrayList<String>
+                binding.etSearch.setText(speechList?.get(0))
+                speechRecognizer?.stopListening()
+            }
+        }
+        speechRecognizer?.setRecognitionListener(speechRecognitionListener)
 
     }
 
@@ -90,7 +138,14 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
                 binding.root.visibility = View.GONE
                 activity?.onBackPressed()
             }
+            binding.ivSearchIcon -> {
+                speechRecognizer?.startListening(getRecognizerIntent())
+            }
         }
+    }
+
+    private fun getRecognizerIntent(): Intent? {
+      return  Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
     }
 
     @ExperimentalCoroutinesApi
