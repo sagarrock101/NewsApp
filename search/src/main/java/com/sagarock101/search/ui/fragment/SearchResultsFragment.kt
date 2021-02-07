@@ -10,8 +10,12 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
 import androidx.annotation.CheckResult
+import androidx.core.view.ViewCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.FragmentNavigator
+import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.navigation.fragment.findNavController
 import com.sagarock101.core.data.DataWrapper
 import com.sagarock101.core.di.ViewModelFactory
 import com.sagarock101.core.di.injectViewModel
@@ -24,6 +28,7 @@ import com.sagarock101.search.model.Results
 import com.sagarock101.search.ui.activity.SearchActivity
 import com.sagarock101.search.ui.adapters.SearchResultsAdapter
 import com.sagarock101.search.ui.viewmodel.SearchViewModel
+import com.sagarock101.stylekit.binding.changeStatusBarBasedOnTheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -35,6 +40,7 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
     View.OnClickListener
 {
 
+    private var listener: TextWatcher? = null
     private lateinit var speechRecognitionListener: RecognitionListener
     private var speechRecognizer: SpeechRecognizer? = null
     lateinit var searchListAdapter: SearchResultsAdapter
@@ -48,11 +54,18 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
         super.onCreate(savedInstanceState)
         searchListAdapter = SearchResultsAdapter()
         speechRecognizer = SpeechRecognizer.createSpeechRecognizer(requireContext())
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.etSearch.addTextChangedListener(listener)
     }
 
     @FlowPreview
     @ExperimentalCoroutinesApi
     override fun initView(view: View) {
+        changeStatusBarBasedOnTheme()
         viewModel = injectViewModel(viewModelFactory)
         with(binding) {
             ivClose.setOnClickListener(this@SearchResultsFragment)
@@ -70,8 +83,15 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
                     }
                 }
                 .launchIn(lifecycleScope)
-
-            rvSearchResults.adapter = searchListAdapter
+            rvSearchResults.apply {
+                adapter = searchListAdapter
+                postponeEnterTransition()
+                viewTreeObserver
+                    .addOnPreDrawListener {
+                        startPostponedEnterTransition()
+                        true
+                    }
+            }
             viewModel.searchResultsLiveData.observe(viewLifecycleOwner, Observer {
                 when (it.status) {
                     DataWrapper.Status.LOADING -> {
@@ -87,10 +107,25 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
                 }
             })
         }
-
+        setListItemClickListner()
         setUpSpeechRecognition()
+    }
 
-
+    private fun setListItemClickListner() {
+        var extras: FragmentNavigator.Extras?
+        searchListAdapter.onItemClick = { imageView, textView, data ->
+            val directions =
+                SearchResultsFragmentDirections.actionSearchResultsFragmentToSearchDetailFragment(data)
+            extras = FragmentNavigatorExtras(
+                imageView to ViewCompat.getTransitionName(imageView)!!,
+                textView to ViewCompat.getTransitionName(textView)!!
+            )
+//            viewModel.lastSelectedChipId = binding.chipGroup.checkedChipId
+            findNavController().navigate(
+                directions,
+                extras ?: FragmentNavigatorExtras()
+            )
+        }
     }
 
     private fun setUpSpeechRecognition() {
@@ -124,6 +159,7 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
             override fun onResults(results: Bundle?) {
                 val speechList = results?.get(SpeechRecognizer.RESULTS_RECOGNITION) as? ArrayList<String>
                 binding.etSearch.setText(speechList?.get(0))
+                binding.etSearch.setSelection(binding.etSearch.text.toString().length)
                 speechRecognizer?.stopListening()
             }
         }
@@ -152,7 +188,7 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
     @CheckResult
     fun EditText.textChanges(): Flow<String?> {
         return callbackFlow<String?> {
-            val listener = object : TextWatcher {
+             listener = object : TextWatcher {
                 override fun afterTextChanged(s: Editable?) {
                     if (s.toString().trim().isNotEmpty())
                         offer(s.toString().trim())
@@ -168,9 +204,15 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 }
             }
-            addTextChangedListener(listener)
-            awaitClose { removeTextChangedListener(listener) }
+            awaitClose {
+                removeTextChangedListener(listener)
+            }
         }.onStart { emit(text.toString()) }
     }
 
+    override fun onPause() {
+        super.onPause()
+        speechRecognizer?.stopListening()
+        binding.etSearch.removeTextChangedListener(listener)
+    }
 }

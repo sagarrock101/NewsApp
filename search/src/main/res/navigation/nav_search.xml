@@ -9,10 +9,17 @@
         android:label="SearchResultsFragment" >
         <action
             android:id="@+id/action_searchResultsFragment_to_searchDetailFragment"
-            app:destination="@id/searchDetailFragment" />
+            app:destination="@id/searchDetailFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/searchDetailFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/searchDetailFragment"
         android:name="com.sagarock101.search.ui.fragment.SearchDetailFragment"
-        android:label="SearchDetailFragment" />
+        android:label="SearchDetailFragment" >
+        <argument
+            android:name="searchedResult"
+            app:argType="com.sagarock101.search.model.Results" />
+    </fragment>
 </navigation>

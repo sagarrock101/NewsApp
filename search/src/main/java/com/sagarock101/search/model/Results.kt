@@ -1,7 +1,10 @@
 package com.sagarock101.search.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Results (
 
 	@SerializedName("id") val id : String,
@@ -16,4 +19,4 @@ data class Results (
 	@SerializedName("isHosted") val isHosted : Boolean,
 	@SerializedName("pillarId") val pillarId : String,
 	@SerializedName("pillarName") val pillarName : String
-)
+) : Parcelable

@@ -1,14 +1,19 @@
 package com.sagarock101.search.ui.activity
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import com.sagarock101.common.AppConstants
 import com.sagarock101.core.utils.MyAnimationUtils.startRevealOnGlobalLayoutChangeForActivity
 import com.sagarock101.core.utils.MyAnimationUtils.unRevealActivity
@@ -24,6 +29,7 @@ const val REQUEST_PERMISSION_CODE = 101
 
 class SearchActivity : DaggerAppCompatActivity() {
     //TODO: need to refactor hardcoded intent key names
+
     lateinit var rootLayout: ConstraintLayout
     lateinit var binding: ActivitySearchBinding
 
@@ -71,15 +77,27 @@ class SearchActivity : DaggerAppCompatActivity() {
 
     @SuppressLint("ResourceType")
     override fun onBackPressed() {
-        rootLayout.unRevealActivity(
-            revealX,
-            revealY,
-            ResourcesCompat.getColor(resources, getColorFromAttr(R.attr.btmIconAndTextColor), null),
-            ResourcesCompat.getColor(resources, getColorFromAttr(R.attr.bgColor), null)
-        ) {
-            finish()
+        when (findNavController(R.id.nav_search_fragment).currentDestination?.id) {
+            R.id.searchResultsFragment -> {
+                findNavController(R.id.nav_search_fragment).popBackStack()
+                rootLayout.unRevealActivity(
+                    revealX,
+                    revealY,
+                    ResourcesCompat.getColor(
+                        resources,
+                        getColorFromAttr(R.attr.btmIconAndTextColor),
+                        null
+                    ),
+                    ResourcesCompat.getColor(resources, getColorFromAttr(R.attr.bgColor), null)
+                ) {
+                    finish()
+                }
+            }
+            else -> {
+                super.onBackPressed()
+
+            }
         }
-        super.onBackPressed()
     }
 
     private fun setupSharedPreferences() {
@@ -98,6 +116,17 @@ class SearchActivity : DaggerAppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == REQUEST_PERMISSION_CODE
+            && grantResults[0] == PackageManager.PERMISSION_DENIED
+        ) {
+            //TODO: show a button to request permission to the user
+//            val intent = Intent(
+//                Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+//                Uri.fromParts("package", packageName, null)
+//            )
+//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+//            startActivity(intent)
+        }
     }
 
 }

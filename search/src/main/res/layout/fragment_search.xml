@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <View
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/view_as_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -27,6 +27,21 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_height="70dp" />
         //TODO : need to fix search ripple effect
+
+        <ImageView
+            android:id="@+id/iv_search_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/rounded_mic_bg"
+            android:clickable="true"
+            android:padding="@dimen/_4sdp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_marginEnd="@dimen/_2sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/view_as_toolbar"
+            app:layout_constraintBottom_toBottomOf="@id/view_as_toolbar"
+            android:focusable="true" />
+
         <EditText
             android:id="@+id/et_search"
             android:layout_width="0dp"
@@ -51,19 +66,6 @@
             app:layout_constraintBottom_toBottomOf="@id/view_as_toolbar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/iv_search_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/rounded_mic_bg"
-            android:clickable="true"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:layout_marginEnd="@dimen/_2sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/iv_close"
-            app:layout_constraintBottom_toBottomOf="@id/iv_close"
-            android:focusable="true" />
 
         <TextView
             android:id="@+id/tv_no_results_for_query"
