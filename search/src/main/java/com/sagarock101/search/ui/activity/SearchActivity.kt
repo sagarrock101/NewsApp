@@ -12,6 +12,9 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavController
+import androidx.navigation.NavDestination
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.sagarock101.common.AppConstants
@@ -27,9 +30,10 @@ import kotlin.properties.Delegates
 
 const val REQUEST_PERMISSION_CODE = 101
 
-class SearchActivity : DaggerAppCompatActivity() {
+class SearchActivity : DaggerAppCompatActivity(), NavController.OnDestinationChangedListener {
     //TODO: need to refactor hardcoded intent key names
 
+    private var currentDestination: Int = -1
     lateinit var rootLayout: ConstraintLayout
     lateinit var binding: ActivitySearchBinding
 
@@ -42,6 +46,9 @@ class SearchActivity : DaggerAppCompatActivity() {
     private var themeSelected: Int? = null
 
     lateinit var preferenceHelper: PreferenceHelper
+
+    private val navController by lazy { findNavController(R.id.nav_search_fragment) }
+
 
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,26 +84,24 @@ class SearchActivity : DaggerAppCompatActivity() {
 
     @SuppressLint("ResourceType")
     override fun onBackPressed() {
-        when (findNavController(R.id.nav_search_fragment).currentDestination?.id) {
+        when (currentDestination) {
             R.id.searchResultsFragment -> {
-                findNavController(R.id.nav_search_fragment).popBackStack()
-                rootLayout.unRevealActivity(
-                    revealX,
-                    revealY,
-                    ResourcesCompat.getColor(
-                        resources,
-                        getColorFromAttr(R.attr.btmIconAndTextColor),
-                        null
-                    ),
-                    ResourcesCompat.getColor(resources, getColorFromAttr(R.attr.bgColor), null)
-                ) {
-                    finish()
-                }
-            }
-            else -> {
+                unRevealActivity()
                 super.onBackPressed()
-
             }
+        }
+    }
+
+    @SuppressLint("ResourceType")
+    private fun unRevealActivity() {
+        rootLayout.unRevealActivity(
+            revealX,
+            revealY
+            ,
+            ResourcesCompat.getColor(resources, getColorFromAttr(R.attr.btmIconAndTextColor), null),
+            ResourcesCompat.getColor(resources, getColorFromAttr(R.attr.bgColor), null)
+        ) {
+            finish()
         }
     }
 
@@ -127,6 +132,24 @@ class SearchActivity : DaggerAppCompatActivity() {
 //            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
 //            startActivity(intent)
         }
+    }
+
+    override fun onDestinationChanged(
+        controller: NavController,
+        destination: NavDestination,
+        arguments: Bundle?
+    ) {
+        currentDestination = destination.id
+    }
+
+    override fun onPause() {
+        super.onPause()
+        navController.addOnDestinationChangedListener(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        navController.addOnDestinationChangedListener(this)
     }
 
 }

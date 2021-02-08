@@ -5,6 +5,7 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ArgbEvaluator
 import android.animation.ValueAnimator
+import android.annotation.SuppressLint
 import android.view.View
 import android.view.ViewAnimationUtils
 import android.view.ViewTreeObserver
@@ -55,10 +56,12 @@ object MyAnimationUtils {
     }
 
     fun View.startColorAnimation(
-        startColor: Int,
-        endColor: Int,
+        startColor: Int?,
+        endColor: Int?,
         duration: Int = 2000
     ) {
+        if(startColor == null || endColor == null)
+            return
         val anim = ValueAnimator()
         anim.setIntValues(startColor, endColor)
         anim.setEvaluator(ArgbEvaluator())
@@ -120,8 +123,8 @@ object MyAnimationUtils {
     fun View.unRevealActivity(
         x: Int,
         y: Int,
-        startColor: Int,
-        endColor: Int,
+        startColor: Int? = null,
+        endColor: Int? = null,
         action: (() -> Unit)? = null
     ) {
         startColorAnimation(startColor, endColor)
@@ -134,7 +137,9 @@ object MyAnimationUtils {
         circularReveal.duration = 400
         circularReveal.interpolator = FastOutSlowInInterpolator()
         circularReveal.addListener(object : AnimatorListenerAdapter() {
+            @SuppressLint("ResourceAsColor")
             override fun onAnimationEnd(animation: Animator) {
+                setBackgroundColor(R.color.transparent)
                 visibility = View.INVISIBLE
                 action?.invoke()
             }
