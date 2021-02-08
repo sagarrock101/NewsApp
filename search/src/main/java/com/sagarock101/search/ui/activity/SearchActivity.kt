@@ -88,7 +88,7 @@ class SearchActivity : DaggerAppCompatActivity(), NavController.OnDestinationCha
             R.id.searchResultsFragment -> {
                 unRevealActivity()
                 super.onBackPressed()
-            }
+            } else -> super.onBackPressed()
         }
     }
 
