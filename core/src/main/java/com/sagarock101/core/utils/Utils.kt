@@ -1,8 +1,15 @@
 package com.sagarock101.core.utils
 
 import android.content.Context
+import android.icu.text.SimpleDateFormat
+import android.os.Build
+import android.text.format.DateUtils
+import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import java.text.ParseException
+import java.util.*
 import java.util.concurrent.atomic.AtomicBoolean
 
 
@@ -41,9 +48,4 @@ object Utils {
             }
         }
     }
-
-
-
-
-
 }

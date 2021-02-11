@@ -1,5 +1,7 @@
 package com.sagarock101.search.ui.fragment
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
@@ -141,13 +143,13 @@ class SearchDetailFragment :
     }
 
     private fun shareArticle() {
-//        val sharingIntent = Intent(Intent.ACTION_SEND)
-//        sharingIntent.apply {
-//            type = "text/plain"
-//            putExtra(Intent.EXTRA_SUBJECT, args?.article?.title)
-//            putExtra(Intent.EXTRA_TEXT, args.article?.url)
-//            startActivity(Intent.createChooser(sharingIntent, getString(R.string.share_using)))
-//        }
+        val sharingIntent = Intent(Intent.ACTION_SEND)
+        sharingIntent.apply {
+            type = "text/plain"
+            putExtra(Intent.EXTRA_SUBJECT, args?.searchedResult?.webTitle)
+            putExtra(Intent.EXTRA_TEXT, args?.searchedResult?.webUrl)
+            startActivity(Intent.createChooser(sharingIntent, getString(R.string.share_using)))
+        }
     }
 
     private fun animateFab(v: View) {
@@ -163,8 +165,8 @@ class SearchDetailFragment :
     }
 
     private fun showAppChooserDialog() {
-//        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(args.article?.url))
-//        startActivity(intent)
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(args?.searchedResult?.webUrl))
+        startActivity(intent)
     }
 
 

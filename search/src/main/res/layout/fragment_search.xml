@@ -54,10 +54,27 @@
             android:focusableInTouchMode="true"
             android:textColor="?attr/btmIconAndTextColor"
             android:textCursorDrawable="@null"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/iv_close"
             app:layout_constraintEnd_toStartOf="@id/iv_search_icon"
             app:layout_constraintStart_toEndOf="@id/iv_close"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_listening"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:textColor="?attr/btmIconAndTextColor"
+            android:visibility="gone"
+            android:textSize="16sp"
+            android:gravity="left"
+            android:textAppearance="?attr/textAppearanceCaption"
+            app:layout_constraintTop_toTopOf="@id/et_search"
+            app:layout_constraintEnd_toEndOf="@id/et_search"
+            app:layout_constraintStart_toStartOf="@id/et_search"
+            app:layout_constraintBottom_toBottomOf="@id/et_search"
+            />
 
         <ImageView
             android:id="@+id/iv_close"

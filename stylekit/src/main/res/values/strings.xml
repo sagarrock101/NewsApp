@@ -5,4 +5,5 @@
     <string name="dark_theme">Dark</string>
     <string name="choose_theme">Choose Theme</string>
     <string name="read_full_story">Read full story</string>
+    <string name="share_using">Share Using</string>
 </resources>

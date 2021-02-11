@@ -18,6 +18,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.sagarock101.core.adapter.BaseAdapter
 import com.sagarock101.core.data.DataWrapper
+import com.sagarock101.core.utils.DateUtils
 import com.sagarock101.search.R
 import com.sagarock101.search.model.Articles
 import com.sagarock101.search.model.Results
@@ -168,5 +169,10 @@ fun TextView.showTextWhenResultsAreEmptyAfterSearch(status: DataWrapper.Status?,
         DataWrapper.Status.ERROR -> View.GONE
         else -> View.GONE
     }
+}
+
+@BindingAdapter("app:formatDate")
+fun TextView.getFormattedDate(unFormattedDate: String) {
+    text = DateUtils.parseDate(unFormattedDate)
 }
 

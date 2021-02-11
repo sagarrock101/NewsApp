@@ -2,6 +2,7 @@ package com.sagarock101.search.ui.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.speech.RecognitionListener
 import android.speech.RecognizerIntent
 import android.speech.SpeechRecognizer
@@ -37,8 +38,7 @@ import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, SearchViewModel>(),
-    View.OnClickListener
-{
+    View.OnClickListener {
 
     private var listener: TextWatcher? = null
     private lateinit var speechRecognitionListener: RecognitionListener
@@ -78,8 +78,10 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
                 .filterNot { it.isNullOrBlank() || it.length == 3 }
                 .onEach {
                     it?.let {
-                        if (it.length > 3)
+                        if (it.length >= 3) {
+                            hideKeyboard()
                             viewModel.getSearchResults(it)
+                        }
                     }
                 }
                 .launchIn(lifecycleScope)
@@ -115,7 +117,9 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
         var extras: FragmentNavigator.Extras?
         searchListAdapter.onItemClick = { imageView, textView, data ->
             val directions =
-                SearchResultsFragmentDirections.actionSearchResultsFragmentToSearchDetailFragment(data)
+                SearchResultsFragmentDirections.actionSearchResultsFragmentToSearchDetailFragment(
+                    data
+                )
             extras = FragmentNavigatorExtras(
                 imageView to ViewCompat.getTransitionName(imageView)!!,
                 textView to ViewCompat.getTransitionName(textView)!!
@@ -148,23 +152,56 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
             }
 
             override fun onBeginningOfSpeech() {
+                binding.etSearch.setText("")
+                startAnimateListeningText()
             }
 
             override fun onEndOfSpeech() {
+                endAnimateListeningText()
             }
 
             override fun onError(error: Int) {
             }
 
             override fun onResults(results: Bundle?) {
-                val speechList = results?.get(SpeechRecognizer.RESULTS_RECOGNITION) as? ArrayList<String>
+                val speechList =
+                    results?.get(SpeechRecognizer.RESULTS_RECOGNITION) as? ArrayList<String>
                 binding.etSearch.setText(speechList?.get(0))
                 binding.etSearch.setSelection(binding.etSearch.text.toString().length)
-                speechRecognizer?.stopListening()
+//                speechRecognizer?.stopListening()
             }
         }
         speechRecognizer?.setRecognitionListener(speechRecognitionListener)
 
+    }
+
+    private fun endAnimateListeningText() {
+
+    }
+
+    private fun startAnimateListeningText() {
+        val countDownTimer = object : CountDownTimer(2000, 200) {
+            override fun onFinish() {
+                binding.tvListening.visibility = View.GONE
+                speechRecognizer?.stopListening()
+            }
+
+            override fun onTick(millisUntilFinished: Long) {
+                binding.tvListening.visibility = View.VISIBLE
+                with(binding.tvListening) {
+                    when {
+                        this.text.toString().isEmpty() -> this.text = "Listening"
+                        this.text.toString().equals("Listening...") -> {
+                            this.text = "Listening."
+                        }
+                        else -> this.text = this.text.toString() + "."
+                    }
+                }
+
+            }
+        }
+
+        countDownTimer.start()
     }
 
     override fun onClick(v: View?) {
@@ -181,17 +218,20 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
     }
 
     private fun getRecognizerIntent(): Intent? {
-      return  Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+        return Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
     }
 
     @ExperimentalCoroutinesApi
     @CheckResult
     fun EditText.textChanges(): Flow<String?> {
         return callbackFlow<String?> {
-             listener = object : TextWatcher {
+            listener = object : TextWatcher {
                 override fun afterTextChanged(s: Editable?) {
-                    if (s.toString().trim().isNotEmpty())
+                    if (s.toString().trim().isNotEmpty()) {
                         offer(s.toString().trim())
+                    }
+                    binding.tvListening.text = ""
+                    binding.tvListening.visibility = View.GONE
                 }
 
                 override fun beforeTextChanged(
