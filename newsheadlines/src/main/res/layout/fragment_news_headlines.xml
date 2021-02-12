@@ -40,13 +40,15 @@
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_business"
                     style="@style/MyChip"
-                    android:layout_width="@dimen/_80sdp"
+                    android:layout_width="wrap_content"
                     android:layout_height="@dimen/_45sdp"
+                    app:chipIcon="@drawable/ic_business"
                     android:text="@string/business" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_sports"
                     style="@style/MyChip"
+                    app:chipIcon="@drawable/ic_running"
                     android:layout_width="@dimen/_80sdp"
                     android:layout_height="@dimen/_45sdp"
                     android:text="@string/sports" />
@@ -56,6 +58,7 @@
                     style="@style/MyChip"
                     android:layout_width="@dimen/_80sdp"
                     android:layout_height="@dimen/_45sdp"
+                    app:chipIcon="@drawable/ic_health"
                     android:text="@string/health" />
 
                 <com.google.android.material.chip.Chip
@@ -63,11 +66,13 @@
                     style="@style/MyChip"
                     android:layout_width="@dimen/_100sdp"
                     android:layout_height="@dimen/_45sdp"
+                    app:chipIcon="@drawable/ic_entertainment"
                     android:text="@string/entertainment" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_technology"
                     style="@style/MyChip"
+                    app:chipIcon="@drawable/ic_technology"
                     android:layout_width="@dimen/_100sdp"
                     android:layout_height="@dimen/_45sdp"
                     android:text="@string/technology" />
@@ -77,6 +82,7 @@
                     style="@style/MyChip"
                     android:layout_width="@dimen/_80sdp"
                     android:layout_height="@dimen/_45sdp"
+                    app:chipIcon="@drawable/ic_science"
                     android:text="@string/science" />
 
             </com.google.android.material.chip.ChipGroup>
