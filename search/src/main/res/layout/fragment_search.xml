@@ -131,6 +131,7 @@
             android:id="@+id/progress_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:indeterminateTint="?attr/btmIconAndTextColor"
             app:showProgressBasedOnStatus="@{vm.searchResultsLiveData.status}"
             app:layout_constraintTop_toBottomOf="@id/view_as_toolbar"
             app:layout_constraintStart_toStartOf="parent"

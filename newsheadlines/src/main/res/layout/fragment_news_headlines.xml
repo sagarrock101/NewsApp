@@ -36,7 +36,6 @@
                     android:layout_width="@dimen/_60sdp"
                     android:layout_height="@dimen/_45sdp"
                     android:textColor="?attr/textColor"
-
                     app:chipBackgroundColor="@drawable/bg_chip_selector"
                     android:text="@string/all" />
 
