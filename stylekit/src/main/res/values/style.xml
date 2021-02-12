@@ -95,6 +95,8 @@
         <item name="paddingEnd">10dp</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textAppearance">@style/SmallerText</item>
+        <item name="android:paddingLeft">@dimen/_8sdp</item>
+        <item name="android:paddingRight">@dimen/_8sdp</item>
     </style>
 
     <style name="SmallerText" parent="TextAppearance.AppCompat.Medium">
