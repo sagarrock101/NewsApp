@@ -1,10 +1,14 @@
 package com.sagarock101.search.ui.fragment
 
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
+import androidx.core.widget.ImageViewCompat
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -14,8 +18,11 @@ import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.snackbar.Snackbar
 import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.core.view.BaseViewModelFragment
+import com.sagarock101.database.model.Articles
+import com.sagarock101.database.model.Source
 import com.sagarock101.search.R
 import com.sagarock101.search.databinding.FragmentSearchItemDetailBinding
+import com.sagarock101.search.model.Results
 import com.sagarock101.search.ui.bindings.*
 import com.sagarock101.search.ui.viewmodel.SearchViewModel
 import com.sagarock101.stylekit.binding.setTransparentStatusBar
@@ -36,6 +43,8 @@ class SearchDetailFragment :
     private var isFabRotated = false
 
     private var isSaved = false
+
+    private var articles: Articles? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,6 +69,7 @@ class SearchDetailFragment :
         hideChildFabs()
         binding.appBar.addOnOffsetChangedListener(this)
         setClickListener()
+        translateSearchResultToArticle(args?.searchedResult)
         setSaveObserver()
     }
 
@@ -69,20 +79,20 @@ class SearchDetailFragment :
     }
 
     private fun setSaveObserver() {
-//        viewModel.savedLiveData.observe(this, Observer { isSaved ->
-//            this.isSaved = isSaved
-//            if (this.isSaved) {
-//                ImageViewCompat.setImageTintList(
-//                    binding.fabSave,
-//                    ColorStateList.valueOf(Color.BLACK)
-//                )
-//            } else {
-//                ImageViewCompat.setImageTintList(
-//                    binding.fabSave,
-//                    ColorStateList.valueOf(Color.WHITE)
-//                )
-//            }
-//        })
+        viewModel.savedLiveData.observe(this, Observer { isSaved ->
+            this.isSaved = isSaved
+            if (this.isSaved) {
+                ImageViewCompat.setImageTintList(
+                    binding.fabSave,
+                    ColorStateList.valueOf(Color.BLACK)
+                )
+            } else {
+                ImageViewCompat.setImageTintList(
+                    binding.fabSave,
+                    ColorStateList.valueOf(Color.WHITE)
+                )
+            }
+        })
     }
 
     private fun setClickListener() {
@@ -125,10 +135,10 @@ class SearchDetailFragment :
     }
 
     private fun saveArticle() {
-//        args.article?.let {
-//            viewModel.insertNews(it)
-////            showSnack("Saved")
-//        }
+        args.searchedResult?.let {
+            articles?.let { it1 -> viewModel.insertNews(it1) }
+//            showSnack("Saved")
+        }
     }
 
     private fun showSnack(actionName: String) {
@@ -136,10 +146,24 @@ class SearchDetailFragment :
     }
 
     private fun deleteArticle() {
-//        args.article?.let {
-//            viewModel.deleteNews(it)
-////            showSnack("Removed")
-//        }
+        args.searchedResult?.let {
+            articles?.let { it1 -> viewModel.deleteNews(it1) }
+//            showSnack("Removed")
+        }
+    }
+
+    private fun translateSearchResultToArticle(it: Results): Articles? {
+        articles = Articles(
+            Source(it.id, it.pillarName),
+            "",
+            it.webTitle,
+            description = "",
+            content = it.fields.bodyText,
+            url = it.webUrl,
+            urlToImage = it.fields.thumbnail
+        )
+
+        return articles
     }
 
     private fun shareArticle() {
