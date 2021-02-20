@@ -16,12 +16,14 @@ import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.snackbar.Snackbar
 import com.sagarock101.stylekit.binding.setTransparentStatusBar
 import com.sagarock101.core.di.injectViewModel
+import com.sagarock101.core.utils.Utils
 import com.sagarock101.core.view.BaseViewModelFragment
 import com.sagarock101.newsheadlines.R
 import com.sagarock101.newsheadlines.binding.*
 import com.sagarock101.newsheadlines.databinding.FragmentNewsDetailBinding
 import com.sagarock101.newsheadlines.viewmodel.NewsViewModel
 import com.sagarock101.stylekit.binding.changeStatusBarBasedOnTheme
+import com.sagarock101.widget.MyAppWidgetProvider
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
@@ -122,6 +124,8 @@ class NewsDetailFragment :
             viewModel.insertNews(it)
 //            showSnack("Saved")
         }
+        Utils.refreshWidget(requireContext(), MyAppWidgetProvider::class.java.name, com.sagarock101.widget.R.id.stack_view)
+
     }
 
     private fun showSnack(actionName: String) {
@@ -133,6 +137,8 @@ class NewsDetailFragment :
             viewModel.deleteNews(it)
 //            showSnack("Removed")
         }
+        Utils.refreshWidget(requireContext(), MyAppWidgetProvider::class.java.name, com.sagarock101.widget.R.id.stack_view)
+
     }
 
     private fun shareArticle() {
