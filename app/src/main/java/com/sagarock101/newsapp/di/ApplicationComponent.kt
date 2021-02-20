@@ -14,6 +14,8 @@ import com.sagarock101.newsheadlines.di.NewsViewModelModule
 import com.sagarock101.search.di.SearchBuildersModule
 import com.sagarock101.search.di.SearchModule
 import com.sagarock101.search.di.SearchViewModelModule
+import com.sagarock101.widget.di.ServiceBuildersModule
+import com.sagarock101.widget.di.WidgetServiceModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -34,7 +36,8 @@ import javax.inject.Singleton
         SearchModule::class,
         SearchViewModelModule::class,
         SearchBuildersModule::class,
-        SourceViewModelModule::class
+        SourceViewModelModule::class,
+        ServiceBuildersModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<MyApplication> {
@@ -48,5 +51,6 @@ interface ApplicationComponent : AndroidInjector<MyApplication> {
     }
 
     override fun inject(application: MyApplication)
+
 
 }

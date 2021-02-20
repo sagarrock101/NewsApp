@@ -20,8 +20,7 @@ object AppInjector {
     fun init(application: MyApplication) {
         DaggerApplicationComponent.builder().application(application)
             .build()
-        application
-            .registerActivityLifecycleCallbacks(object : Application.ActivityLifecycleCallbacks {
+        application.registerActivityLifecycleCallbacks(object : Application.ActivityLifecycleCallbacks {
                 override fun onActivityPaused(activity: Activity) {
 
                 }
@@ -50,7 +49,7 @@ object AppInjector {
 
     private fun handleActivity(activity: Activity) {
         if (activity is HasAndroidInjector) {
-            AndroidInjection.inject(activity)
+//            AndroidInjection.inject(activity)
         }
         if (activity is DaggerAppCompatActivity) {
             activity.supportFragmentManager
@@ -62,7 +61,7 @@ object AppInjector {
                             savedInstanceState: Bundle?
                         ) {
                             if (f is Injectable) {
-                                AndroidSupportInjection.inject(f)
+//                                AndroidSupportInjection.inject(f)
                             }
                         }
                     }, true

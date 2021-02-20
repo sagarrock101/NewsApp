@@ -16,4 +16,6 @@ class NewsDatabaseRepo @Inject constructor(private val dao: NewsDao){
     }
 
     suspend fun checkIfNewsExists(title: String) = dao.isRowExists(title)
+
+   fun getSynchronouslySavedNews() = dao.getAllSavedNewsSynchronously()
 }

@@ -21,6 +21,7 @@
             <option value="$PROJECT_DIR$/search" />
             <option value="$PROJECT_DIR$/sources" />
             <option value="$PROJECT_DIR$/stylekit" />
+            <option value="$PROJECT_DIR$/widget" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -18,4 +18,8 @@ interface NewsDao {
 
     @Query("select exists(select * from Articles where title = :title)")
     suspend fun isRowExists(title: String): Boolean
+
+    @Query("Select * from Articles")
+    fun getAllSavedNewsSynchronously(): List<Articles>
+
 }
