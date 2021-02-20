@@ -18,6 +18,6 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 @Parcelize
 data class Source (
 
-	@SerializedName("id") val id : String,
-	@SerializedName("name") val name : String
+	@SerializedName("id") val id : String? = null,
+	@SerializedName("name") val name : String? = null
 ) : Parcelable

@@ -95,7 +95,7 @@ class NewsDetailFragment :
                     startPostponedEnterTransition()
                 }
             } ?: kotlin.run {
-                binding.ivNewsImg.setImageResource(R.drawable.ic_news)
+                setImageResource(R.drawable.ic_news)
             }
 
         }
