@@ -15,7 +15,9 @@ import com.sagarock101.search.di.SearchBuildersModule
 import com.sagarock101.search.di.SearchModule
 import com.sagarock101.search.di.SearchViewModelModule
 import com.sagarock101.widget.di.ServiceBuildersModule
+import com.sagarock101.widget.di.WidgetBuildersModule
 import com.sagarock101.widget.di.WidgetServiceModule
+import com.sagarock101.widget.di.WidgetViewModelModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -37,7 +39,9 @@ import javax.inject.Singleton
         SearchViewModelModule::class,
         SearchBuildersModule::class,
         SourceViewModelModule::class,
-        ServiceBuildersModule::class
+        ServiceBuildersModule::class,
+        WidgetViewModelModule::class,
+        WidgetBuildersModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<MyApplication> {

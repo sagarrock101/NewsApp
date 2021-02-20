@@ -1,19 +1,35 @@
 package com.sagarock101.widget
 
+import android.R.attr.data
+import android.appwidget.AppWidgetManager
+import android.content.ComponentName
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.ImageViewCompat
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.appbar.AppBarLayout
 import com.sagarock101.common.AppConstants
 import com.sagarock101.core.utils.PreferenceHelper
+import com.sagarock101.core.utils.Utils
 import com.sagarock101.database.model.Articles
 import com.sagarock101.widget.databinding.ActivityWidgetItemDetailBinding
+import dagger.android.support.DaggerAppCompatActivity
+import javax.inject.Inject
 
-class WidgetItemDetailActivity : AppCompatActivity(), View.OnClickListener, AppBarLayout.OnOffsetChangedListener {
 
+class WidgetItemDetailActivity : DaggerAppCompatActivity(), View.OnClickListener, AppBarLayout.OnOffsetChangedListener {
+
+    companion object {
+
+    }
+
+    private var isSaved: Boolean = false
     lateinit var binding: ActivityWidgetItemDetailBinding
 
     private var articles: Articles? = null
@@ -27,9 +43,15 @@ class WidgetItemDetailActivity : AppCompatActivity(), View.OnClickListener, AppB
 
     private var isFabRotated = false
 
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    lateinit var viewModel: WidgetViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(WidgetViewModel::class.java)
         setupSharedPreferences()
         setupTheme()
         if(intent != null) {
@@ -42,7 +64,28 @@ class WidgetItemDetailActivity : AppCompatActivity(), View.OnClickListener, AppB
         binding.fabSave.hideChildFabInitially()
         binding.fabShare.hideChildFabInitially()
         setClickListener()
+        articles?.let { viewModel.checkIfSaved(it) }
+        setSaveObserver()
+
     }
+
+    private fun setSaveObserver() {
+        viewModel.savedLiveData.observe(this, Observer { isSaved ->
+            this.isSaved = isSaved
+            if (this.isSaved) {
+                ImageViewCompat.setImageTintList(
+                    binding.fabSave,
+                    ColorStateList.valueOf(Color.BLACK)
+                )
+            } else {
+                ImageViewCompat.setImageTintList(
+                    binding.fabSave,
+                    ColorStateList.valueOf(Color.WHITE)
+                )
+            }
+        })
+    }
+
 
     private fun setupSharedPreferences() {
         preferenceHelper = PreferenceHelper(this)
@@ -66,8 +109,28 @@ class WidgetItemDetailActivity : AppCompatActivity(), View.OnClickListener, AppB
 
             binding.fabShare -> shareArticle()
 
-//            binding.fabSave -> if (isSaved) deleteArticle() else saveArticle()
+            binding.fabSave -> if (isSaved) deleteArticle() else saveArticle()
         }
+    }
+
+    private fun saveArticle() {
+        articles?.let {
+            viewModel.insertNews(it)
+//            showSnack("Saved")
+        }
+        refreshWidget()
+    }
+
+    private fun deleteArticle() {
+        articles?.let {
+            viewModel.deleteNews(it)
+//            showSnack("Removed")
+        }
+        refreshWidget()
+    }
+
+    private fun refreshWidget() {
+        Utils.refreshWidget(this, MyAppWidgetProvider::class.java.name, R.id.stack_view)
     }
 
     override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {

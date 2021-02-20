@@ -8,13 +8,11 @@ import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.net.Uri
 import android.widget.RemoteViews
-import android.widget.Toast
 import com.sagarock101.database.model.Articles
 import com.sagarock101.database.model.Source
 import com.sagarock101.widget.service.StackWidgetService
-import timber.log.Timber
 
-const val NAVIGATE_TO_DETAIL = "com.sagarock101.widget.detailActivity"
+const val ACTION_NAVIGATE_TO_DETAIL = "com.sagarock101.widget.detailActivity"
 const val EXTRA_ITEM = "com.sagarock101.widget.EXTRA_ITEM"
 const val ARTICLE_ITEM = "com.sagarock101.database.model.articles"
 const val ARTICLE_ITEM_ID = "com.sagarock101.database.model.articles.source.id"
@@ -26,14 +24,17 @@ const val ARTICLE_ITEM_URL = "com.sagarock101.database.model.articles.url"
 const val ARTICLE_ITEM_URL_TO_IMG = "com.sagarock101.database.model.articles.urlToImage"
 const val ARTICLE_ITEM_PUBLISHED_AT = "com.sagarock101.database.model.articles.publishedAt"
 const val ARTICLE_ITEM_CONTENT = "com.sagarock101.database.model.articles.content"
+const val ACTION_FORCE_UPDATE = "update"
 
 class MyAppWidgetProvider : AppWidgetProvider() {
 
 
+    private var appWidgetId: Int = -1
+
     override fun onReceive(context: Context?, intent: Intent?) {
         val mgr: AppWidgetManager = AppWidgetManager.getInstance(context)
-        if (intent?.action == NAVIGATE_TO_DETAIL) {
-            val appWidgetId: Int = intent.getIntExtra(
+        if (intent?.action == ACTION_NAVIGATE_TO_DETAIL) {
+             appWidgetId = intent.getIntExtra(
                 AppWidgetManager.EXTRA_APPWIDGET_ID,
                 AppWidgetManager.INVALID_APPWIDGET_ID
             )
@@ -86,7 +87,7 @@ class MyAppWidgetProvider : AppWidgetProvider() {
                 MyAppWidgetProvider::class.java
             ).run {
 
-                action = NAVIGATE_TO_DETAIL
+                action = ACTION_NAVIGATE_TO_DETAIL
                 putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
                 data = Uri.parse(toUri(Intent.URI_INTENT_SCHEME))
                 PendingIntent.getBroadcast(context, 0, this, PendingIntent.FLAG_UPDATE_CURRENT)

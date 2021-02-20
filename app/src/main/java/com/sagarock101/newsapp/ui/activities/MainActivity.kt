@@ -12,6 +12,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.contains
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
@@ -26,6 +27,7 @@ import com.sagarock101.newsapp.R
 import com.sagarock101.newsapp.databinding.ActivityMainBinding
 import com.sagarock101.search.ui.activity.SearchActivity
 import com.sagarock101.stylekit.binding.changeStatusBarBasedOnTheme
+import com.sagarock101.widget.WidgetViewModel
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
@@ -49,8 +51,11 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
     private val LIGHT_THEME = com.sagarock101.stylekit.R.style.LightTheme
     private val DARK_THEME = com.sagarock101.stylekit.R.style.DarkTheme
 
+
     @Inject
     lateinit var preferenceHelper: PreferenceHelper
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

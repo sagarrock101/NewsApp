@@ -1,5 +1,7 @@
 package com.sagarock101.core.utils
 
+import android.appwidget.AppWidgetManager
+import android.content.ComponentName
 import android.content.Context
 import android.icu.text.SimpleDateFormat
 import android.os.Build
@@ -47,5 +49,16 @@ object Utils {
                 }
             }
         }
+    }
+
+    fun refreshWidget(context: Context, className: String, collectionId: Int) {
+        val appWidgetManager =
+            AppWidgetManager.getInstance(context)
+        val thisAppWidget = ComponentName(
+            context.packageName,
+            className
+        )
+        val appWidgetIds = appWidgetManager.getAppWidgetIds(thisAppWidget)
+        appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, collectionId)
     }
 }
