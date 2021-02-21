@@ -2,10 +2,12 @@ package com.sagarock101.database
 
 import android.app.Application
 import androidx.room.*
+import com.sagarock101.database.converters.TypeConverterForSource
+import com.sagarock101.database.converters.TypeConverterForTimeStamp
 import com.sagarock101.database.model.Articles
 
-@Database(entities = [Articles::class], version = 5, exportSchema = false)
-@TypeConverters(TypeConverterForSource::class)
+@Database(entities = [Articles::class], version = 6, exportSchema = false)
+@TypeConverters(TypeConverterForSource::class, TypeConverterForTimeStamp::class)
 abstract class NewsDatabase : RoomDatabase() {
     abstract fun newsDao(): NewsDao
 

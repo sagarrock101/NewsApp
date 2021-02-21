@@ -1,4 +1,4 @@
-package com.sagarock101.database
+package com.sagarock101.database.converters
 
 import androidx.room.TypeConverter
 import com.google.gson.Gson

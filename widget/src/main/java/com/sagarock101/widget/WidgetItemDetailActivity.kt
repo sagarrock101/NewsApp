@@ -1,8 +1,5 @@
 package com.sagarock101.widget
 
-import android.R.attr.data
-import android.appwidget.AppWidgetManager
-import android.content.ComponentName
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -15,19 +12,17 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.appbar.AppBarLayout
 import com.sagarock101.common.AppConstants
+import com.sagarock101.core.utils.MyAnimationUtils.enterFabReveal
 import com.sagarock101.core.utils.PreferenceHelper
 import com.sagarock101.core.utils.Utils
 import com.sagarock101.database.model.Articles
+import com.sagarock101.stylekit.binding.setTransparentStatusBar
 import com.sagarock101.widget.databinding.ActivityWidgetItemDetailBinding
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
 
 class WidgetItemDetailActivity : DaggerAppCompatActivity(), View.OnClickListener, AppBarLayout.OnOffsetChangedListener {
-
-    companion object {
-
-    }
 
     private var isSaved: Boolean = false
     lateinit var binding: ActivityWidgetItemDetailBinding
@@ -51,6 +46,7 @@ class WidgetItemDetailActivity : DaggerAppCompatActivity(), View.OnClickListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTransparentStatusBar()
         viewModel = ViewModelProvider(this, viewModelFactory).get(WidgetViewModel::class.java)
         setupSharedPreferences()
         setupTheme()
@@ -66,7 +62,6 @@ class WidgetItemDetailActivity : DaggerAppCompatActivity(), View.OnClickListener
         setClickListener()
         articles?.let { viewModel.checkIfSaved(it) }
         setSaveObserver()
-
     }
 
     private fun setSaveObserver() {
@@ -138,10 +133,12 @@ class WidgetItemDetailActivity : DaggerAppCompatActivity(), View.OnClickListener
             binding.fabAdd.visibility = View.VISIBLE
             binding.fabShare.visibility = View.VISIBLE
             binding.fabSave.visibility = View.VISIBLE
+            binding.ivGradient.visibility = View.VISIBLE
         } else {
             binding.fabAdd.visibility = View.GONE
             binding.fabShare.visibility = View.GONE
             binding.fabSave.visibility = View.GONE
+            binding.ivGradient.visibility = View.GONE
         }
     }
 
@@ -166,6 +163,7 @@ class WidgetItemDetailActivity : DaggerAppCompatActivity(), View.OnClickListener
         } else {
             binding.fabShare.hideFab()
             binding.fabSave.hideFab()
+            binding.fabAdd.visibility = View.VISIBLE
         }
     }
 

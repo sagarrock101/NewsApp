@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter
 import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -16,8 +17,12 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.sagarock101.core.adapter.BaseAdapter
+import com.sagarock101.core.utils.BindingUtils
+import com.sagarock101.core.utils.DateUtils
+import com.sagarock101.database.model.Source
 import com.sagarock101.newsheadlines.R
-
+import java.sql.Timestamp
+//TODO: need to make common bindings, extensions for both search, headlines and saved
 
 @BindingAdapter("app:items")
 fun setItems(listView: RecyclerView, items: List<Any>?) {
@@ -127,4 +132,14 @@ fun View.hideChildFabInitially() {
     this.visibility = View.GONE
     this.translationY = this.height.toFloat()
     this.alpha = 0f
+}
+
+@BindingAdapter("app:bindSource", "app:publishedAt")
+fun TextView.bindSourceAndTime(source: String, publishedAt: Timestamp) {
+    text = BindingUtils.getSourceAndTime(source, publishedAt)
+}
+
+@BindingAdapter("app:formatDate")
+fun TextView.getFormattedDate(unFormattedDate: Timestamp) {
+    text = DateUtils.parseDate(unFormattedDate.toString())
 }

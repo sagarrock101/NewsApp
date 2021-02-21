@@ -1,5 +1,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -57,10 +58,26 @@
                 android:lines="2"
                 android:text="@{article.title}"
                 android:textColor="?attr/textColor"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/cv_img_container"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/cv_img_container"
                 app:layout_constraintTop_toTopOf="@id/cv_img_container" />
+
+            <TextView
+                android:id="@+id/tv_news_source"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="?attr/textColor"
+                tools:text  = "saoighahg"
+                app:bindSource="@{article.source.name}"
+                app:publishedAt="@{article.publishedAt}"
+                android:layout_marginBottom="@dimen/_8sdp"
+                app:layout_constraintStart_toStartOf="@id/tv_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_title"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
 
             <ImageView
                 android:id="@+id/iv_ripple"

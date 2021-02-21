@@ -8,6 +8,7 @@ import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.net.Uri
 import android.widget.RemoteViews
+import com.sagarock101.database.converters.TypeConverterForTimeStamp
 import com.sagarock101.database.model.Articles
 import com.sagarock101.database.model.Source
 import com.sagarock101.widget.service.StackWidgetService
@@ -28,7 +29,7 @@ const val ACTION_FORCE_UPDATE = "update"
 
 class MyAppWidgetProvider : AppWidgetProvider() {
 
-
+    val typeConverterForTimeStamp = TypeConverterForTimeStamp()
     private var appWidgetId: Int = -1
 
     override fun onReceive(context: Context?, intent: Intent?) {
@@ -46,10 +47,10 @@ class MyAppWidgetProvider : AppWidgetProvider() {
             val desc: String? = intent.getStringExtra(ARTICLE_ITEM_DESCRIPTION)
             val url: String? = intent.getStringExtra(ARTICLE_ITEM_URL)
             val urlToImg: String? = intent.getStringExtra(ARTICLE_ITEM_URL_TO_IMG)
-            val publishedAt: String? = intent.getStringExtra(ARTICLE_ITEM_PUBLISHED_AT)
+            val publishedAt: Long? = intent.getLongExtra(ARTICLE_ITEM_PUBLISHED_AT, 0L)
             val content: String? = intent.getStringExtra(ARTICLE_ITEM_CONTENT)
 
-            navigateToWidgetDetailActivity(context, Articles(Source(id, name), author, title!!, desc, url, urlToImg, publishedAt, content))
+            navigateToWidgetDetailActivity(context, Articles(Source(id, name), author, title!!, desc, url, urlToImg, typeConverterForTimeStamp.toTimestamp(publishedAt), content))
         }
         super.onReceive(context, intent)
     }

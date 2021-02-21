@@ -185,6 +185,7 @@ class SearchDetailFragment :
         } else {
             binding.fabShare.hideFab()
             binding.fabSave.hideFab()
+            binding.fabAdd.visibility = View.VISIBLE
         }
     }
 
@@ -220,10 +221,12 @@ class SearchDetailFragment :
             binding.fabAdd.visibility = View.VISIBLE
             binding.fabShare.visibility = View.VISIBLE
             binding.fabSave.visibility = View.VISIBLE
+            binding.ivGradient.visibility = View.VISIBLE
         } else {
             binding.fabAdd.visibility = View.GONE
             binding.fabShare.visibility = View.GONE
             binding.fabSave.visibility = View.GONE
+            binding.ivGradient.visibility = View.GONE
         }
     }
 

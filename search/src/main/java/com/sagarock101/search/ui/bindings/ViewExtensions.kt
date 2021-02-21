@@ -18,10 +18,12 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.sagarock101.core.adapter.BaseAdapter
 import com.sagarock101.core.data.DataWrapper
+import com.sagarock101.core.utils.BindingUtils
 import com.sagarock101.core.utils.DateUtils
 import com.sagarock101.search.R
 import com.sagarock101.search.model.Articles
 import com.sagarock101.search.model.Results
+import java.sql.Timestamp
 
 @BindingAdapter("app:items")
 fun setItems(listView: RecyclerView, items: List<Any>?) {
@@ -172,7 +174,12 @@ fun TextView.showTextWhenResultsAreEmptyAfterSearch(status: DataWrapper.Status?,
 }
 
 @BindingAdapter("app:formatDate")
-fun TextView.getFormattedDate(unFormattedDate: String) {
-    text = DateUtils.parseDate(unFormattedDate)
+fun TextView.getFormattedDate(unFormattedDate: Timestamp) {
+    text = DateUtils.parseDate(unFormattedDate.toString())
+}
+
+@BindingAdapter("app:bindSource", "app:publishedAt")
+fun TextView.bindSourceAndTime(source: String, publishedAt: Timestamp) {
+    text = BindingUtils.getSourceAndTime(source, publishedAt)
 }
 

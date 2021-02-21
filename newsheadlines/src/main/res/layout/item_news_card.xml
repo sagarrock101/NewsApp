@@ -13,6 +13,8 @@
             name="viewModel"
             type="com.sagarock101.newsheadlines.viewmodel.NewsViewModel" />
 
+        <import type="com.sagarock101.core.utils.BindingUtils"/>
+
     </data>
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
@@ -70,8 +72,24 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/iv_news_img"
-                app:layout_constraintVertical_bias="0.9"
+                app:layout_constraintVertical_bias="0.85"
                 tools:text="@string/hello_i_am_news" />
+
+            <TextView
+                android:id="@+id/tv_news_source"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                tools:text  = "saoighahg"
+                app:bindSource="@{article.source.name}"
+                app:publishedAt="@{article.publishedAt}"
+                android:layout_marginBottom="@dimen/_8sdp"
+                app:layout_constraintStart_toStartOf="@id/tv_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_title"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
 
             <ImageView
                 android:id="@+id/iv_selector"

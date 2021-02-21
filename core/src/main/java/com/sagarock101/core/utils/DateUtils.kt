@@ -6,7 +6,7 @@ import java.util.*
 object DateUtils {
 
     fun parseDate(dateString: String): String {
-        val split = dateString.split("T")
+        val split = dateString.split(" ")
         val date = split[0]
         val dateSplit = date.split("-")
         var midOrEve: String = ""

@@ -7,6 +7,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
+import java.sql.Timestamp
 
 /*
 Copyright (c) 2020 Kotlin Data Classes Generated from JSON powered by http://www.json2kotlin.com
@@ -51,7 +52,7 @@ data class Articles(
 
     @ColumnInfo
     @SerializedName("publishedAt")
-    val publishedAt: String? = null,
+    val publishedAt: Timestamp? = null,
 
     @ColumnInfo
     @SerializedName("content")

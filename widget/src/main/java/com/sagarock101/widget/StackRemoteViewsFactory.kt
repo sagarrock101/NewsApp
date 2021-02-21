@@ -52,7 +52,6 @@ class StackRemoteViewsFactory(
         }
 
         val articleAtThisPosition = listOfArticles?.get(position)
-        // that is set on the collection view in StackWidgetProvider.
         val fillInIntent = Intent().apply {
 
             Bundle().also { extras ->
@@ -64,21 +63,16 @@ class StackRemoteViewsFactory(
                 extras.putString(ARTICLE_ITEM_DESCRIPTION, articleAtThisPosition?.description)
                 extras.putString(ARTICLE_ITEM_URL, articleAtThisPosition?.url)
                 extras.putString(ARTICLE_ITEM_URL_TO_IMG, articleAtThisPosition?.urlToImage)
-                extras.putString(ARTICLE_ITEM_PUBLISHED_AT, articleAtThisPosition?.publishedAt)
+                articleAtThisPosition?.publishedAt?.time?.let {
+                    extras.putLong(ARTICLE_ITEM_PUBLISHED_AT,
+                        it
+                    )
+                }
                 extras.putString(ARTICLE_ITEM_CONTENT, articleAtThisPosition?.content)
                 putExtras(extras)
             }
         }
-        // Make it possible to distinguish the individual on-click
-        // action of a given item
         setOnClickFillInIntent(R.id.rl_parent, fillInIntent)
-//        MyAppWidgetProvider.articles = listOfArticles?.get(position)
-//        val fillInIntent = Intent().apply {
-//            putExtra(EXTRA_ITEM, listOfArticles?.get(position))
-//        }
-//        // Make it possible to distinguish the individual on-click
-//        // action of a given item
-//        setOnClickFillInIntent(R.id.tv_news_title, fillInIntent)
     }
 
     override fun getCount() = listOfArticles?.size ?: 0
