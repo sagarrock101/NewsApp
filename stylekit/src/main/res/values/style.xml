@@ -20,7 +20,8 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:itemBackground">@drawable/bg_menu_dark</item>\
+        <item name="android:itemBackground">@drawable/bg_menu_dark</item>
+        <item name="android:textColor">@android:color/black</item>
     </style>
 
     <style name="DarkTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -44,6 +45,7 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:itemBackground">@drawable/bg_menu_dark</item>
+        <item name="android:textColor">@android:color/white</item>
         <!-- sets the style for the overflow button -->
     </style>
 
@@ -136,6 +138,10 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    </style>
+
+    <style name="MyTheme" parent="@style/ThemeOverlay.AppCompat.Light">
+
     </style>
 
 </resources>

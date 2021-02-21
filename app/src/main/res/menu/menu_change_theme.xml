@@ -3,8 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/nav_change_theme"
-        android:icon="@drawable/ic_moon_half_visible_face_on_light_and_half_on_darkness"
         android:title="@string/change_theme"
-        app:showAsAction="withText"
         />
 </menu>

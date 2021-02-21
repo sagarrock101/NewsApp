@@ -10,13 +10,15 @@
         android:id="@+id/iv_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.2"
         android:background="@color/black_dull" />
+
 
     <TextView
         android:id="@+id/tv_news_title"
