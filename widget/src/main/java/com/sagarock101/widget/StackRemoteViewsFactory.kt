@@ -39,6 +39,7 @@ class StackRemoteViewsFactory(
     @SuppressLint("CheckResult")
     override fun getViewAt(position: Int) = RemoteViews(context.packageName, R.layout.widget_item).apply {
         setTextViewText(R.id.tv_news_title, listOfArticles?.get(position)?.title)
+        setTextViewText(R.id.tv_source, listOfArticles?.get(position)?.source?.name)
         try {
             val requestOptions = RequestOptions()
             requestOptions.transform(CenterCrop(), RoundedCorners(10))
