@@ -175,6 +175,7 @@ class NewsDetailFragment :
             tvContent.visibility = View.VISIBLE
             tvDesc.visibility = View.VISIBLE
             btnReadFullStory.visibility = View.VISIBLE
+            tvPublishedDate.visibility = View.VISIBLE
         }
 
     }

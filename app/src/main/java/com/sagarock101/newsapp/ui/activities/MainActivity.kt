@@ -35,7 +35,7 @@ const val BTM_NAV_ANIM_DURATION = 300L
 class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
     BottomNavigationView.OnNavigationItemReselectedListener,
     FragmentDialogTheme.Companion.OnDialogThemeBtnListener, View.OnClickListener {
-
+    //TODO: need to add the network change UI for all frags
     private var themeSelected: Int? = null
     private var themeDialogFragment = FragmentDialogTheme()
     lateinit var binding: ActivityMainBinding

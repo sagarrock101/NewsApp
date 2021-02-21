@@ -107,6 +107,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="?attr/textColor"
+                    android:visibility="gone"
                     app:formatDate="@{article.publishedAt}"
                     app:layout_constraintTop_toBottomOf="@id/tv_title"
                     app:layout_constraintStart_toStartOf="@id/tv_title"
