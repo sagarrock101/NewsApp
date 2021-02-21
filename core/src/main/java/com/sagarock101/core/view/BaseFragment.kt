@@ -1,12 +1,17 @@
 package com.sagarock101.core.view
 
+import android.content.IntentFilter
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.sagarock101.core.reciever.NetworkChangeReceiver
 import dagger.android.support.DaggerFragment
 
-abstract class BaseFragment : DaggerFragment() {
+abstract class BaseFragment : DaggerFragment(), NetworkChangeReceiver.NetworkChangeListener {
+
+    lateinit var networkChangeReceiver: NetworkChangeReceiver
 
     companion object {
         var TAG = "com.sagarock101.core.view.BaseFragment"
@@ -27,46 +32,32 @@ abstract class BaseFragment : DaggerFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        toggleHeader(false)
+        networkChangeReceiver = NetworkChangeReceiver().apply {
+            networkChangeListener = this@BaseFragment
+        }
     }
 
 
     protected abstract fun bindView(inflater: LayoutInflater, container: ViewGroup?): View
 
-    fun navigate(screenName: String, bundle: Bundle) {
-        if (activity is BaseActivity) {
-            (activity as BaseActivity).navigate(screenName, bundle)
-        }
-    }
-
-    fun toggleHeader(showHeader: Boolean) {
-        if (activity is BaseActivity) {
-            (activity as BaseActivity).toggleHeader(showHeader)
-        }
-    }
-
-     fun hideSearchIcon(iconVisible:Boolean){
-
-         if(activity is BaseActivity){
-
-             (activity as BaseActivity).hideSearchIcon(iconVisible)
-         }
-     }
-
-
-    fun onScrollTop(index: Int) {
-        if (index > 0) {
-            toggleHeader(false)
-        }
-        else{
-            toggleHeader(true)
-        }
-    }
 
     fun searchIcon(showIcon : Boolean) {
         if(activity is BaseActivity) {
-            (activity as BaseActivity).searchIcon(showIcon)
+//            (activity as BaseActivity).searchIcon(showIcon)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        context?.registerReceiver(
+            networkChangeReceiver,
+            IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
+        )
+    }
+
+    override fun onPause() {
+        super.onPause()
+        context?.unregisterReceiver(networkChangeReceiver)
     }
 
 

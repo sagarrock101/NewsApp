@@ -235,4 +235,8 @@ class SearchDetailFragment :
         super.onDestroyView()
     }
 
+    override fun isNetworkActive(isActive: Boolean) {
+
+    }
+
 }

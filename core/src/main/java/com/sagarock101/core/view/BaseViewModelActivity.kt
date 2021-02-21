@@ -8,9 +8,7 @@ import com.sagarock101.core.data.DataWrapper
 import com.sagarock101.core.viewmodel.BaseViewModel
 import dagger.android.DispatchingAndroidInjector
 import javax.inject.Inject
-/**
- * Created by Anil Gudigar on 25,September,2020
- */
+
 abstract class BaseViewModelActivity<B : ViewDataBinding, VM : BaseViewModel> : BaseActivity() {
 
 
@@ -42,7 +40,7 @@ abstract class BaseViewModelActivity<B : ViewDataBinding, VM : BaseViewModel> : 
      * @param wrapper
      */
     protected fun handleState(wrapper: DataWrapper<Any>?) {
-        setLoading(wrapper != null && wrapper.status.equals(DataWrapper.Status.LOADING))
+//        setLoading(wrapper != null && wrapper.status.equals(DataWrapper.Status.LOADING))
         handleData(wrapper)
     }
 

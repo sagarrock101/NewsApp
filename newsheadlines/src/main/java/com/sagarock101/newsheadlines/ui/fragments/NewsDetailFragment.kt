@@ -210,4 +210,8 @@ class NewsDetailFragment :
         super.onDestroyView()
     }
 
+    override fun isNetworkActive(isActive: Boolean) {
+
+    }
+
 }

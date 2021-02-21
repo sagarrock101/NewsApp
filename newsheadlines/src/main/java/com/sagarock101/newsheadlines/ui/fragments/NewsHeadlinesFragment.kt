@@ -31,7 +31,7 @@ import javax.inject.Inject
 
 class NewsHeadlinesFragment :
     BaseViewModelFragment<FragmentNewsHeadlinesBinding, NewsViewModel>(), Injectable,
-    OnSnapPositionChangeListener, ChipGroup.OnCheckedChangeListener {
+    OnSnapPositionChangeListener, ChipGroup.OnCheckedChangeListener, View.OnClickListener {
 
     private var prevCheckedId: Int? = null
 
@@ -64,6 +64,7 @@ class NewsHeadlinesFragment :
         changeStatusBarBasedOnTheme()
         setAdapterToRecyclerView()
         attachSnapTov()
+        binding.layoutNoNetwork.btnRetry.setOnClickListener(this)
         binding.chipGroup.setOnCheckedChangeListener(this)
         viewModel.newsHeadLinesLD.observe(viewLifecycleOwner, Observer {
             when (it.status) {
@@ -187,6 +188,20 @@ class NewsHeadlinesFragment :
         super.onDestroyView()
     }
 
+    override fun isNetworkActive(isActive: Boolean) {
+        if(!isActive)
+            showNoWifiMsg()
+        else hideNoWifiMsg()
+    }
+
+    private fun hideNoWifiMsg() {
+        binding.layoutNoNetwork.svNoNetwork.visibility = View.GONE
+    }
+
+    private fun showNoWifiMsg() {
+        binding.layoutNoNetwork.svNoNetwork.visibility = View.VISIBLE
+    }
+
     private fun Chip.callApiIfChipIsPressed(category: String = "") {
         if (this.isPressed)
             getNews(category)
@@ -204,6 +219,12 @@ class NewsHeadlinesFragment :
             && (viewModel.lastSelectedChipId == binding.chipAll.id || viewModel.lastSelectedChipId == -1)
         ) {
             viewModel.getNewsHeadLines()
+        }
+    }
+
+    override fun onClick(v: View?) {
+        when(v) {
+            binding.layoutNoNetwork.btnRetry -> {}
         }
     }
 

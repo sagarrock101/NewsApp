@@ -1,16 +1,18 @@
 package com.sagarock101.core.view
 
+import android.content.IntentFilter
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatDelegate
 import com.sagarock101.core.R
+import com.sagarock101.core.reciever.NetworkChangeReceiver
 import dagger.android.support.DaggerAppCompatActivity
-import timber.log.Timber
 
-abstract class BaseActivity : DaggerAppCompatActivity() {
+abstract class BaseActivity : DaggerAppCompatActivity(), NetworkChangeReceiver.NetworkChangeListener {
 
-    internal lateinit var contentLayout: View
+    private lateinit var networkChangeReceiver: NetworkChangeReceiver
     internal lateinit var progressBar: ProgressBar
 
     abstract val layout: Int
@@ -21,45 +23,11 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
             setContentView(R.layout.activity_base)
             progressBar = findViewById(R.id.base_progress_bar)
         }
-//        requestedOrientation = if (resources.getBoolean(R.bool.is_portrait_only)) {
-//            ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-//        } else {
-//            ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-//        }
-        getDataFromBundle()
-        observeNetworkState()
-    }
-
-    abstract fun navigate(screenName:String, bundle: Bundle)
-    //override this method to extract data from bundle
-    abstract fun toggleHeader(showHeader: Boolean)
-
-    abstract fun hideSearchIcon(iconVisible:Boolean)
-
-    abstract fun searchIcon(showIcon : Boolean)
-    protected fun getDataFromBundle() {}
-
-    protected fun observeNetworkState() {}
-
-    protected fun setLoading(isLoading: Boolean) {
-        if (isLoading) {
-            showProgress()
-        } else {
-            hideProgressBar()
+        networkChangeReceiver = NetworkChangeReceiver().apply {
+            networkChangeListener = this@BaseActivity
         }
     }
 
-    fun showProgress() {
-        try {
-            progressBar.visibility = View.VISIBLE
-        } catch (e: Exception) {
-            Timber.e(e)
-        }
-    }
-
-    fun hideProgressBar() {
-        progressBar.visibility = View.GONE
-    }
 
     /**
      * @return true if child activity should use data binding instead of [.setContentView]
@@ -75,9 +43,18 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        registerReceiver(
+            networkChangeReceiver,
+            IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
+        )
+    }
 
-
-
+    override fun onPause() {
+        super.onPause()
+        unregisterReceiver(networkChangeReceiver)
+    }
 
 }
 

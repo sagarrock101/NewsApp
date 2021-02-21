@@ -233,6 +233,10 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
         actionMode?.finish()
     }
 
+    override fun isNetworkActive(isActive: Boolean) {
+
+    }
+
     private fun updateMenuTitle(selectedSize: Int?) {
         actionMode?.let {
             it.title = "Selection $selectedSize"

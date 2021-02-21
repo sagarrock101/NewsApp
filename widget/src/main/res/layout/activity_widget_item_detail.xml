@@ -78,6 +78,7 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="?attr/btmBgColor">
@@ -145,6 +146,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end|right"
             android:gravity="center_horizontal"
+            app:layout_anchor="@id/cl_container"
+            app:layout_anchorGravity="bottom|right|end"
             android:orientation="vertical">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton

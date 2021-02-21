@@ -57,6 +57,10 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
 
     }
 
+    override fun isNetworkActive(isActive: Boolean) {
+
+    }
+
     override fun onResume() {
         super.onResume()
         binding.etSearch.addTextChangedListener(listener)

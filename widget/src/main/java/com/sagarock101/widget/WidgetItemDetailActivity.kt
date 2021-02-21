@@ -11,8 +11,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.snackbar.Snackbar
 import com.sagarock101.common.AppConstants
-import com.sagarock101.core.utils.MyAnimationUtils.enterFabReveal
 import com.sagarock101.core.utils.PreferenceHelper
 import com.sagarock101.core.utils.Utils
 import com.sagarock101.database.model.Articles
@@ -111,7 +111,7 @@ class WidgetItemDetailActivity : DaggerAppCompatActivity(), View.OnClickListener
     private fun saveArticle() {
         articles?.let {
             viewModel.insertNews(it)
-//            showSnack("Saved")
+            showSnack("Saved")
         }
         refreshWidget()
     }
@@ -119,7 +119,7 @@ class WidgetItemDetailActivity : DaggerAppCompatActivity(), View.OnClickListener
     private fun deleteArticle() {
         articles?.let {
             viewModel.deleteNews(it)
-//            showSnack("Removed")
+            showSnack("Removed")
         }
         refreshWidget()
     }
@@ -175,6 +175,10 @@ class WidgetItemDetailActivity : DaggerAppCompatActivity(), View.OnClickListener
             putExtra(Intent.EXTRA_TEXT, articles?.url)
             startActivity(Intent.createChooser(sharingIntent, getString(R.string.share_using)))
         }
+    }
+
+    private fun showSnack(actionName: String) {
+        Snackbar.make(binding.fabAdd, actionName, Snackbar.LENGTH_SHORT).show()
     }
 
 }

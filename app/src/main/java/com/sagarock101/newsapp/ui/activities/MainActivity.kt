@@ -12,7 +12,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.contains
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
@@ -23,23 +22,24 @@ import com.sagarock101.common.AppConstants
 import com.sagarock101.core.utils.MyAnimationUtils.enterFabReveal
 import com.sagarock101.core.utils.MyAnimationUtils.exitFabReveal
 import com.sagarock101.core.utils.PreferenceHelper
+import com.sagarock101.core.view.BaseActivity
 import com.sagarock101.newsapp.R
 import com.sagarock101.newsapp.databinding.ActivityMainBinding
 import com.sagarock101.search.ui.activity.SearchActivity
 import com.sagarock101.stylekit.binding.changeStatusBarBasedOnTheme
-import com.sagarock101.widget.WidgetViewModel
-import dagger.android.support.DaggerAppCompatActivity
+import com.sagarock101.widget.showFab
 import javax.inject.Inject
 
 const val BTM_NAV_ANIM_DURATION = 300L
 
-class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChangedListener,
+class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
     BottomNavigationView.OnNavigationItemReselectedListener,
     FragmentDialogTheme.Companion.OnDialogThemeBtnListener, View.OnClickListener {
 
     private var themeSelected: Int? = null
     private var themeDialogFragment = FragmentDialogTheme()
     lateinit var binding: ActivityMainBinding
+    private var isNetworkActive = true
 
     private val navController by lazy { findNavController(R.id.nav_main_fragment) }
 
@@ -55,6 +55,8 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
     @Inject
     lateinit var preferenceHelper: PreferenceHelper
 
+    override val layout: Int
+        get() = R.layout.activity_main
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -100,7 +102,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
             R.id.newsHeadlinesFragment -> {
                 showBtnNavBar()
                 hideViewOrShowViews(View.VISIBLE)
-                if ((binding.root as ViewGroup).contains(binding.fabSearch))
+                if ((binding.root as ViewGroup).contains(binding.fabSearch) && isNetworkActive)
                     binding.fabSearch.enterFabReveal()
             }
 
@@ -225,6 +227,23 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
         return false
     }
 
+    override fun isNetworkActive(isActive: Boolean) {
+        if(!isActive) {
+            binding.fabSearch.visibility = View.GONE
+            isNetworkActive = false
+        }
+        else {
+            isNetworkActive = true
+            binding.fabSearch.enterFabReveal()
+        }
+    }
+
+    private fun hideNoInternetMessage() {}
+
+    private fun showNoInternetMessage() {
+
+    }
+
     private fun showDialog() {
         themeDialogFragment?.show(supportFragmentManager, "")
     }
@@ -281,5 +300,7 @@ class MainActivity : DaggerAppCompatActivity(), NavController.OnDestinationChang
             }
         ActivityCompat.startActivity(this, intent, options.toBundle())
     }
+
+    override fun shouldUseDataBinding() = true
 
 }

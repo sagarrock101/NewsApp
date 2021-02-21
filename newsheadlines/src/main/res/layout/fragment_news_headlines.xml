@@ -7,6 +7,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_news_headlines"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="?attr/bgColor">
@@ -154,5 +155,17 @@
             app:spi_dotSize="@dimen/_8sdp"
             app:spi_dotSpacing="@dimen/_10sdp"
             app:spi_visibleDotThreshold="5" />
+
+        <include
+            android:id="@+id/layout_no_network"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/layout_no_network"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

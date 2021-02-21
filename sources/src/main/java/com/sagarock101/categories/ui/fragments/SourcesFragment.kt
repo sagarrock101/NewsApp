@@ -30,6 +30,10 @@ class SourcesFragment : BaseViewModelFragment<FragmentSourcesBinding, SourceView
         adapter = SourcesAdapter()
     }
 
+    override fun isNetworkActive(isActive: Boolean) {
+
+    }
+
     override fun initView(view: View) {
         viewModel = injectViewModel(viewModelFactory)
         viewModel.getSources().observe(viewLifecycleOwner, Observer {

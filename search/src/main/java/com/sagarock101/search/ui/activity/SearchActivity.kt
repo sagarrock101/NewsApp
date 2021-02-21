@@ -21,6 +21,7 @@ import com.sagarock101.common.AppConstants
 import com.sagarock101.core.utils.MyAnimationUtils.startRevealOnGlobalLayoutChangeForActivity
 import com.sagarock101.core.utils.MyAnimationUtils.unRevealActivity
 import com.sagarock101.core.utils.PreferenceHelper
+import com.sagarock101.core.view.BaseActivity
 import com.sagarock101.search.R
 import com.sagarock101.search.databinding.ActivitySearchBinding
 import com.sagarock101.stylekit.binding.getColorFromAttr
@@ -30,7 +31,7 @@ import kotlin.properties.Delegates
 
 const val REQUEST_PERMISSION_CODE = 101
 
-class SearchActivity : DaggerAppCompatActivity(), NavController.OnDestinationChangedListener {
+class SearchActivity : BaseActivity(), NavController.OnDestinationChangedListener {
     //TODO: need to refactor hardcoded intent key names
 
     private var currentDestination: Int = -1
@@ -48,6 +49,9 @@ class SearchActivity : DaggerAppCompatActivity(), NavController.OnDestinationCha
     lateinit var preferenceHelper: PreferenceHelper
 
     private val navController by lazy { findNavController(R.id.nav_search_fragment) }
+
+    override val layout: Int
+        get() = R.layout.activity_search
 
 
     @SuppressLint("ResourceType")
@@ -134,6 +138,10 @@ class SearchActivity : DaggerAppCompatActivity(), NavController.OnDestinationCha
         }
     }
 
+    override fun isNetworkActive(isActive: Boolean) {
+
+    }
+
     override fun onDestinationChanged(
         controller: NavController,
         destination: NavDestination,
@@ -151,5 +159,7 @@ class SearchActivity : DaggerAppCompatActivity(), NavController.OnDestinationCha
         super.onResume()
         navController.addOnDestinationChangedListener(this)
     }
+
+    override fun shouldUseDataBinding() = true
 
 }
