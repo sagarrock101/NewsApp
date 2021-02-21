@@ -8,7 +8,7 @@ import com.sagarock101.database.NewsDatabaseRepo
 import com.sagarock101.widget.StackRemoteViewsFactory
 
 class StackWidgetService : RemoteViewsService() {
-
+    //TODO: need to use di for accessing db
     private var newsDatabase: NewsDatabase? = null
 
     private var newsDatabaseDao: NewsDao? = null
