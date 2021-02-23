@@ -17,4 +17,5 @@ interface NewsHeadlinesService {
         @Query("country") country: String,
         @Query("category") category: String
     ): Response<NewsHeadLines>
+
 }

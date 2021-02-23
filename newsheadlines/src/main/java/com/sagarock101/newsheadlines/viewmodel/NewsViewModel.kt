@@ -10,6 +10,7 @@ import com.sagarock101.newsheadlines.R
 import com.sagarock101.newsheadlines.data.NewsHeadlinesRepo
 import com.sagarock101.database.model.ArticleRequest
 import com.sagarock101.database.model.Articles
+import com.sagarock101.newsheadlines.data.SectionRepo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.Main
 import javax.inject.Inject
@@ -18,6 +19,9 @@ class NewsViewModel @Inject constructor() : CoroutineViewModel(Main) {
 
     @Inject
     lateinit var newsHeadlinesRepo: NewsHeadlinesRepo
+
+    @Inject
+    lateinit var sectionRepo: SectionRepo
 
     @Inject
     lateinit var newsDatabaseRepo: NewsDatabaseRepo
@@ -35,7 +39,9 @@ class NewsViewModel @Inject constructor() : CoroutineViewModel(Main) {
     val newsHeadLinesLD = newsHeadLinesMLD.switchMap {
         if (it.category.isEmpty())
             newsHeadlinesRepo.getNewsHeadlines(it.country)
-        else newsHeadlinesRepo.getNewsHeadlines(it.country, it.category)
+        else {
+            newsHeadlinesRepo.getNewsHeadlines(it.country, it.category)
+        }
     }
 
     fun getNewsHeadLines(type: String = "") {
