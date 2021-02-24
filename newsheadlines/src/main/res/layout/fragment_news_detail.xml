@@ -161,8 +161,9 @@
             android:id="@+id/ll_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end|right"
+            app:layout_anchor="@id/nsv_container"
             android:gravity="center_horizontal"
+            app:layout_anchorGravity="bottom|right|end"
             android:orientation="vertical">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton

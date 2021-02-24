@@ -15,6 +15,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.sagarock101.common.AppConstants
 import com.sagarock101.core.utils.PreferenceHelper
 import com.sagarock101.core.utils.Utils
+import com.sagarock101.core.utils.Utils.setOnSingleClickListener
 import com.sagarock101.database.model.Articles
 import com.sagarock101.stylekit.binding.setTransparentStatusBar
 import com.sagarock101.widget.databinding.ActivityWidgetItemDetailBinding
@@ -43,6 +44,7 @@ class WidgetItemDetailActivity : DaggerAppCompatActivity(), View.OnClickListener
 
     lateinit var viewModel: WidgetViewModel
 
+    private var snackBarDismissListener: Snackbar.Callback? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,6 +64,16 @@ class WidgetItemDetailActivity : DaggerAppCompatActivity(), View.OnClickListener
         setClickListener()
         articles?.let { viewModel.checkIfSaved(it) }
         setSaveObserver()
+        snackBarDismissListener = object : Snackbar.Callback() {
+
+            override fun onDismissed(sb: Snackbar?, event: Int) {
+                binding.llFab.animate().translationY(0f)
+            }
+
+            override fun onShown(sb: Snackbar?) {
+                sb?.view?.height?.toFloat()?.let { binding.llFab.translationY = -it }
+            }
+        }
     }
 
     private fun setSaveObserver() {
@@ -145,7 +157,7 @@ class WidgetItemDetailActivity : DaggerAppCompatActivity(), View.OnClickListener
     private fun setClickListener() {
         binding.btnReadFullStory.setOnClickListener(this)
         binding.fabAdd.setOnClickListener(this)
-        binding.fabSave.setOnClickListener(this)
+        binding.fabSave.setOnSingleClickListener(this, 2000)
         binding.fabShare.setOnClickListener(this)
     }
 
@@ -178,7 +190,9 @@ class WidgetItemDetailActivity : DaggerAppCompatActivity(), View.OnClickListener
     }
 
     private fun showSnack(actionName: String) {
-        Snackbar.make(binding.fabAdd, actionName, Snackbar.LENGTH_SHORT).show()
+        Snackbar.make(binding.fabAdd, actionName, Snackbar.LENGTH_SHORT)
+            .addCallback(snackBarDismissListener)
+            .show()
     }
 
 }

@@ -21,6 +21,7 @@ import com.sagarock101.stylekit.binding.removeTransparentStatusBar
 import com.sagarock101.core.di.ViewModelFactory
 import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.core.utils.UiActionClassWithItemHelper
+import com.sagarock101.core.utils.Utils
 import com.sagarock101.core.view.BaseViewModelFragment
 import com.sagarock101.database.model.Articles
 import com.sagarock101.newsheadlines.viewmodel.NewsViewModel
@@ -30,6 +31,7 @@ import com.sagarock101.saved.ui.adapter.SavedNewsAdapter
 import com.sagarock101.saved.ui.itemSelection.MyItemDetailsLookup
 import com.sagarock101.saved.ui.itemSelection.MyItemKeyProvider
 import com.sagarock101.stylekit.binding.changeStatusBarBasedOnTheme
+import com.sagarock101.widget.MyAppWidgetProvider
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
@@ -128,6 +130,7 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
             listOfItemsToBeDeleted.addAll(it)
             adapter.removeItems(listOfItemsToBeDeleted)
             viewModel.deleteListOfNews(listOfItemsToBeDeleted)
+            Utils.refreshWidget(requireContext(), MyAppWidgetProvider::class.java.name, com.sagarock101.widget.R.id.stack_view)
         }
     }
 
@@ -204,6 +207,7 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
                             override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
                                 if (event == DISMISS_EVENT_TIMEOUT) {
                                     viewModel.deleteNews(currentSwipedItem!!)
+                                    Utils.refreshWidget(requireContext(), MyAppWidgetProvider::class.java.name, com.sagarock101.widget.R.id.stack_view)
                                 }
                             }
                         })
