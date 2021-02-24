@@ -16,6 +16,7 @@ import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.snackbar.Snackbar
 import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.core.utils.Utils
+import com.sagarock101.core.utils.Utils.setOnSingleClickListener
 import com.sagarock101.core.view.BaseViewModelFragment
 import com.sagarock101.newsheadlines.R
 import com.sagarock101.newsheadlines.binding.*
@@ -28,7 +29,7 @@ import javax.inject.Inject
 class NewsDetailFragment :
     BaseViewModelFragment<FragmentNewsDetailBinding, NewsViewModel>(),
     View.OnClickListener, Transition.TransitionListener, AppBarLayout.OnOffsetChangedListener {
-
+    //TODO: need to make ll to extend fab and have ll fab behavior so it can go up when snack is shown currently handling it using translation
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
@@ -39,6 +40,9 @@ class NewsDetailFragment :
     private var isFabRotated = false
 
     private var isSaved = false
+
+    private var snackBarDismissListener: Snackbar.Callback? = null
+
 
     override fun initView(view: View) {
         setHasOptionsMenu(true)
@@ -54,6 +58,16 @@ class NewsDetailFragment :
         binding.appBar.addOnOffsetChangedListener(this)
         setClickListener()
         setSaveObserver()
+        snackBarDismissListener = object : Snackbar.Callback() {
+
+            override fun onDismissed(sb: Snackbar?, event: Int) {
+                binding.llFab.animate().translationY(0f)
+            }
+
+            override fun onShown(sb: Snackbar?) {
+                sb?.view?.height?.toFloat()?.let { binding.llFab.translationY = -it }
+            }
+        }
     }
 
     private fun hideChildFabs() {
@@ -81,7 +95,7 @@ class NewsDetailFragment :
     private fun setClickListener() {
         binding.btnReadFullStory.setOnClickListener(this)
         binding.fabAdd.setOnClickListener(this)
-        binding.fabSave.setOnClickListener(this)
+        binding.fabSave.setOnSingleClickListener(this, 2000)
         binding.fabShare.setOnClickListener(this)
     }
 
@@ -120,22 +134,32 @@ class NewsDetailFragment :
     private fun saveArticle() {
         args.article?.let {
             viewModel.insertNews(it)
-//            showSnack("Saved")
+            showSnack("Saved")
         }
-        Utils.refreshWidget(requireContext(), MyAppWidgetProvider::class.java.name, com.sagarock101.widget.R.id.stack_view)
+        Utils.refreshWidget(
+            requireContext(),
+            MyAppWidgetProvider::class.java.name,
+            com.sagarock101.widget.R.id.stack_view
+        )
 
     }
 
     private fun showSnack(actionName: String) {
-        Snackbar.make(binding.colParent, actionName, Snackbar.LENGTH_SHORT).show()
+        Snackbar.make(binding.colParent, actionName, Snackbar.LENGTH_SHORT)
+            .addCallback(snackBarDismissListener)
+            .show()
     }
 
     private fun deleteArticle() {
         args.article?.let {
             viewModel.deleteNews(it)
-//            showSnack("Removed")
+            showSnack("Removed")
         }
-        Utils.refreshWidget(requireContext(), MyAppWidgetProvider::class.java.name, com.sagarock101.widget.R.id.stack_view)
+        Utils.refreshWidget(
+            requireContext(),
+            MyAppWidgetProvider::class.java.name,
+            com.sagarock101.widget.R.id.stack_view
+        )
 
     }
 

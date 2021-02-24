@@ -17,6 +17,7 @@ import androidx.transition.TransitionInflater
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.snackbar.Snackbar
 import com.sagarock101.core.di.injectViewModel
+import com.sagarock101.core.utils.Utils.setOnSingleClickListener
 import com.sagarock101.core.view.BaseViewModelFragment
 import com.sagarock101.database.model.Articles
 import com.sagarock101.database.model.Source
@@ -46,6 +47,9 @@ class SearchDetailFragment :
 
     private var articles: Articles? = null
 
+    private var snackBarDismissListener: Snackbar.Callback? = null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val callback: OnBackPressedCallback =
@@ -71,6 +75,16 @@ class SearchDetailFragment :
         setClickListener()
         translateSearchResultToArticle(args?.searchedResult)
         setSaveObserver()
+        snackBarDismissListener = object : Snackbar.Callback() {
+
+            override fun onDismissed(sb: Snackbar?, event: Int) {
+                binding.llFab.animate().translationY(0f)
+            }
+
+            override fun onShown(sb: Snackbar?) {
+                sb?.view?.height?.toFloat()?.let { binding.llFab.translationY = -it }
+            }
+        }
     }
 
     private fun hideChildFabs() {
@@ -98,7 +112,7 @@ class SearchDetailFragment :
     private fun setClickListener() {
         binding.btnReadFullStory.setOnClickListener(this)
         binding.fabAdd.setOnClickListener(this)
-        binding.fabSave.setOnClickListener(this)
+        binding.fabSave.setOnSingleClickListener(this, 2000)
         binding.fabShare.setOnClickListener(this)
     }
 
@@ -137,18 +151,20 @@ class SearchDetailFragment :
     private fun saveArticle() {
         args.searchedResult?.let {
             articles?.let { it1 -> viewModel.insertNews(it1) }
-//            showSnack("Saved")
+            showSnack("Saved")
         }
     }
 
     private fun showSnack(actionName: String) {
-        Snackbar.make(binding.colParent, actionName, Snackbar.LENGTH_SHORT).show()
+        Snackbar.make(binding.colParent, actionName, Snackbar.LENGTH_SHORT)
+            .addCallback(snackBarDismissListener)
+            .show()
     }
 
     private fun deleteArticle() {
         args.searchedResult?.let {
             articles?.let { it1 -> viewModel.deleteNews(it1) }
-//            showSnack("Removed")
+            showSnack("Removed")
         }
     }
 
