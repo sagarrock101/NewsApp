@@ -24,6 +24,8 @@ import com.sagarock101.core.utils.PreferenceHelper
 import com.sagarock101.core.view.BaseActivity
 import com.sagarock101.search.R
 import com.sagarock101.search.databinding.ActivitySearchBinding
+import com.sagarock101.search.interfaces.OnSpeechRecognitionPermissionGrantedListener
+import com.sagarock101.search.ui.fragment.SearchResultsFragment
 import com.sagarock101.stylekit.binding.getColorFromAttr
 import dagger.android.support.DaggerAppCompatActivity
 import java.util.jar.Manifest
@@ -35,8 +37,10 @@ class SearchActivity : BaseActivity(), NavController.OnDestinationChangedListene
     //TODO: need to refactor hardcoded intent key names
 
     private var currentDestination: Int = -1
+
     lateinit var rootLayout: ConstraintLayout
     lateinit var binding: ActivitySearchBinding
+    lateinit var preferenceHelper: PreferenceHelper
 
     var revealX by Delegates.notNull<Int>()
     var revealY by Delegates.notNull<Int>()
@@ -45,8 +49,8 @@ class SearchActivity : BaseActivity(), NavController.OnDestinationChangedListene
     private val DARK_THEME = com.sagarock101.stylekit.R.style.DarkTheme
 
     private var themeSelected: Int? = null
-
-    lateinit var preferenceHelper: PreferenceHelper
+    private var onSpeechRecognitionPermissionGrantedListener: OnSpeechRecognitionPermissionGrantedListener? =
+        null
 
     private val navController by lazy { findNavController(R.id.nav_search_fragment) }
 
@@ -92,7 +96,8 @@ class SearchActivity : BaseActivity(), NavController.OnDestinationChangedListene
             R.id.searchResultsFragment -> {
                 unRevealActivity()
                 super.onBackPressed()
-            } else -> super.onBackPressed()
+            }
+            else -> super.onBackPressed()
         }
     }
 
@@ -129,13 +134,17 @@ class SearchActivity : BaseActivity(), NavController.OnDestinationChangedListene
             && grantResults[0] == PackageManager.PERMISSION_DENIED
         ) {
             //TODO: show a button to request permission to the user
-//            val intent = Intent(
-//                Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-//                Uri.fromParts("package", packageName, null)
-//            )
-//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-//            startActivity(intent)
+        } else {
+            startSpeechRecognition()
         }
+    }
+
+    private fun startSpeechRecognition() {
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_search_fragment)
+        val searchFragment =
+            navHostFragment?.childFragmentManager?.fragments?.get(0) as? SearchResultsFragment
+        onSpeechRecognitionPermissionGrantedListener = searchFragment
+        onSpeechRecognitionPermissionGrantedListener?.startSpeechRecognition()
     }
 
     override fun isNetworkActive(isActive: Boolean) {

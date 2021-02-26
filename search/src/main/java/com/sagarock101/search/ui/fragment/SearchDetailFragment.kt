@@ -17,6 +17,7 @@ import androidx.transition.TransitionInflater
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.snackbar.Snackbar
 import com.sagarock101.core.di.injectViewModel
+import com.sagarock101.core.utils.Utils
 import com.sagarock101.core.utils.Utils.setOnSingleClickListener
 import com.sagarock101.core.view.BaseViewModelFragment
 import com.sagarock101.database.model.Articles
@@ -27,6 +28,8 @@ import com.sagarock101.search.model.Results
 import com.sagarock101.search.ui.bindings.*
 import com.sagarock101.search.ui.viewmodel.SearchViewModel
 import com.sagarock101.stylekit.binding.setTransparentStatusBar
+import com.sagarock101.widget.MyAppWidgetProvider
+import java.lang.Exception
 import javax.inject.Inject
 
 
@@ -150,9 +153,21 @@ class SearchDetailFragment :
 
     private fun saveArticle() {
         args.searchedResult?.let {
-            articles?.let { it1 -> viewModel.insertNews(it1) }
+            articles?.let { it1 ->
+                try {
+                    it1.publishedAt = Utils.getCurrentTimeStamp()
+                } catch (e: Exception) {
+                    Utils.showToast(requireContext(), "${e.message}")
+                }
+                viewModel.insertNews(it1)
+            }
             showSnack("Saved")
         }
+        Utils.refreshWidget(
+            requireContext(),
+            MyAppWidgetProvider::class.java.name,
+            com.sagarock101.widget.R.id.stack_view
+        )
     }
 
     private fun showSnack(actionName: String) {

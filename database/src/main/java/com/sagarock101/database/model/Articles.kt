@@ -52,7 +52,7 @@ data class Articles(
 
     @ColumnInfo
     @SerializedName("publishedAt")
-    val publishedAt: Timestamp? = null,
+    var publishedAt: Timestamp? = null,
 
     @ColumnInfo
     @SerializedName("content")

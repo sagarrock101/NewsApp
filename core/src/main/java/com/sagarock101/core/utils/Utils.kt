@@ -10,6 +10,8 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import java.sql.Timestamp
+import java.text.DateFormat
 import java.text.ParseException
 import java.util.*
 import java.util.concurrent.atomic.AtomicBoolean
@@ -60,5 +62,20 @@ object Utils {
         )
         val appWidgetIds = appWidgetManager.getAppWidgetIds(thisAppWidget)
         appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, collectionId)
+    }
+
+    fun getCurrentTimeStamp(): Timestamp? {
+        val formattedString = getFormattedDateString()
+        val dateFormat =
+            java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+        val parsedDate = dateFormat.parse(formattedString)
+        return Timestamp(parsedDate.time)
+    }
+
+    fun getFormattedDateString(): String {
+        var yourString = Calendar.getInstance().time
+        val format: DateFormat = java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+        format.setTimeZone(TimeZone.getDefault())
+        return format.format(yourString)
     }
 }

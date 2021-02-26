@@ -20,10 +20,17 @@ import com.sagarock101.database.model.Articles
 import com.sagarock101.stylekit.binding.setTransparentStatusBar
 import com.sagarock101.widget.databinding.ActivityWidgetItemDetailBinding
 import dagger.android.support.DaggerAppCompatActivity
+import java.lang.Exception
+import java.sql.Timestamp
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.time.ZonedDateTime
+import java.util.*
 import javax.inject.Inject
 
 
-class WidgetItemDetailActivity : DaggerAppCompatActivity(), View.OnClickListener, AppBarLayout.OnOffsetChangedListener {
+class WidgetItemDetailActivity : DaggerAppCompatActivity(), View.OnClickListener,
+    AppBarLayout.OnOffsetChangedListener {
 
     private var isSaved: Boolean = false
     lateinit var binding: ActivityWidgetItemDetailBinding
@@ -52,7 +59,7 @@ class WidgetItemDetailActivity : DaggerAppCompatActivity(), View.OnClickListener
         viewModel = ViewModelProvider(this, viewModelFactory).get(WidgetViewModel::class.java)
         setupSharedPreferences()
         setupTheme()
-        if(intent != null) {
+        if (intent != null) {
             articles = intent.getParcelableExtra(ARTICLE_ITEM)
         }
         binding = DataBindingUtil.setContentView(this, R.layout.activity_widget_item_detail)
@@ -105,7 +112,7 @@ class WidgetItemDetailActivity : DaggerAppCompatActivity(), View.OnClickListener
     }
 
     override fun onClick(v: View?) {
-        when(v) {
+        when (v) {
             binding.ivBack -> {
                 finish()
             }
@@ -122,6 +129,11 @@ class WidgetItemDetailActivity : DaggerAppCompatActivity(), View.OnClickListener
 
     private fun saveArticle() {
         articles?.let {
+            try {
+                it.publishedAt = Utils.getCurrentTimeStamp()
+            } catch (e: Exception) {
+                Utils.showToast(this, "${e.message}")
+            }
             viewModel.insertNews(it)
             showSnack("Saved")
         }

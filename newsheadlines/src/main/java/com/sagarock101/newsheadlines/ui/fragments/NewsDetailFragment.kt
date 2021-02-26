@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.net.Uri
+import android.provider.Settings
 import android.view.View
 import androidx.core.widget.ImageViewCompat
 import androidx.lifecycle.Observer
@@ -24,6 +25,9 @@ import com.sagarock101.newsheadlines.databinding.FragmentNewsDetailBinding
 import com.sagarock101.newsheadlines.viewmodel.NewsViewModel
 import com.sagarock101.stylekit.binding.setTransparentStatusBar
 import com.sagarock101.widget.MyAppWidgetProvider
+import java.lang.Exception
+import java.sql.Timestamp
+import java.text.SimpleDateFormat
 import javax.inject.Inject
 
 class NewsDetailFragment :
@@ -42,7 +46,6 @@ class NewsDetailFragment :
     private var isSaved = false
 
     private var snackBarDismissListener: Snackbar.Callback? = null
-
 
     override fun initView(view: View) {
         setHasOptionsMenu(true)
@@ -132,7 +135,13 @@ class NewsDetailFragment :
     }
 
     private fun saveArticle() {
+
         args.article?.let {
+            try {
+                it.publishedAt = Utils.getCurrentTimeStamp()
+            } catch (e: Exception) {
+                Utils.showToast(requireContext(), "${e.message}")
+            }
             viewModel.insertNews(it)
             showSnack("Saved")
         }

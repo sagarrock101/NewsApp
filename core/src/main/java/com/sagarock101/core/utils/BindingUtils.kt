@@ -12,16 +12,16 @@ object BindingUtils {
         var timeElapsedInSeconds =
             (System.currentTimeMillis() - utcTimeString) / 1000
         return if (timeElapsedInSeconds < 60) {
-            "less than 1m"
+            "less than 1 m"
         } else if (timeElapsedInSeconds < 3600) {
             timeElapsedInSeconds = timeElapsedInSeconds / 60
-            timeElapsedInSeconds.toString() + "m"
+            timeElapsedInSeconds.toString() + " m"
         } else if (timeElapsedInSeconds < 86400) {
             timeElapsedInSeconds = timeElapsedInSeconds / 3600
-            timeElapsedInSeconds.toString() + "h"
+            timeElapsedInSeconds.toString() + " h"
         } else {
             timeElapsedInSeconds = timeElapsedInSeconds / 86400
-            timeElapsedInSeconds.toString() + "d"
+            timeElapsedInSeconds.toString() + " d"
         }
     }
 

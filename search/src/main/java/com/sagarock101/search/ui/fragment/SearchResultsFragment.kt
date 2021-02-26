@@ -24,6 +24,7 @@ import com.sagarock101.core.utils.Utils
 import com.sagarock101.core.view.BaseViewModelFragment
 import com.sagarock101.search.R
 import com.sagarock101.search.databinding.FragmentSearchBinding
+import com.sagarock101.search.interfaces.OnSpeechRecognitionPermissionGrantedListener
 import com.sagarock101.search.model.Articles
 import com.sagarock101.search.model.Results
 import com.sagarock101.search.ui.activity.SearchActivity
@@ -38,7 +39,7 @@ import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, SearchViewModel>(),
-    View.OnClickListener {
+    View.OnClickListener, OnSpeechRecognitionPermissionGrantedListener {
 
     private var listener: TextWatcher? = null
     private lateinit var speechRecognitionListener: RecognitionListener
@@ -50,11 +51,11 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
 
     override fun getLayout() = R.layout.fragment_search
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         searchListAdapter = SearchResultsAdapter()
         speechRecognizer = SpeechRecognizer.createSpeechRecognizer(requireContext())
-
     }
 
     override fun isNetworkActive(isActive: Boolean) {
@@ -258,5 +259,13 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
         super.onPause()
         speechRecognizer?.stopListening()
         binding.etSearch.removeTextChangedListener(listener)
+    }
+
+    override fun startSpeechRecognition() {
+        speechRecognizer?.startListening(getRecognizerIntent())
+    }
+
+    override fun stopSpeechRecognition() {
+        speechRecognizer?.stopListening()
     }
 }
