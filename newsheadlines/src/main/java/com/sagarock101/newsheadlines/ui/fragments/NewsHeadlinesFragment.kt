@@ -79,6 +79,7 @@ class NewsHeadlinesFragment :
                     binding.shimmer.stopShimmer()
                     binding.shimmer.visibility = View.GONE
                     binding.rvNews.visibility = View.VISIBLE
+                    binding.indicator.visibility = View.VISIBLE
                     adapter?.apply {
                         setItems(it.data?.articles as MutableList<Articles>)
                     }
@@ -177,6 +178,7 @@ class NewsHeadlinesFragment :
             visibility = View.VISIBLE
             startShimmer()
             binding.rvNews.visibility = View.GONE
+            binding.indicator.visibility = View.GONE
         }
         handler?.postDelayed({
             viewModel.getNewsHeadLines(category)

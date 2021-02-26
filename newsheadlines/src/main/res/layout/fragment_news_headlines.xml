@@ -36,69 +36,69 @@
                     style="@style/MyChip"
                     android:layout_width="@dimen/_60sdp"
                     android:layout_height="@dimen/_45sdp"
+                    android:text="@string/all"
                     android:textColor="?attr/textColor"
-                    app:chipBackgroundColor="@drawable/bg_chip_selector"
-                    android:text="@string/all" />
+                    app:chipBackgroundColor="@drawable/bg_chip_selector" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_business"
                     style="@style/MyChip"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_45sdp"
-                    app:chipIcon="@drawable/ic_suitcase"
+                    android:text="@string/business"
                     android:textColor="?attr/textColor"
                     app:chipBackgroundColor="@drawable/bg_chip_selector"
-                    android:text="@string/business" />
+                    app:chipIcon="@drawable/ic_suitcase" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_sports"
                     style="@style/MyChip"
-                    app:chipIcon="@drawable/ic_running"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_45sdp"
+                    android:text="@string/sports"
                     android:textColor="?attr/textColor"
                     app:chipBackgroundColor="@drawable/bg_chip_selector"
-                    android:text="@string/sports" />
+                    app:chipIcon="@drawable/ic_running" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_health"
                     style="@style/MyChip"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_45sdp"
-                    app:chipIcon="@drawable/ic_health"
+                    android:text="@string/health"
                     android:textColor="?attr/textColor"
                     app:chipBackgroundColor="@drawable/bg_chip_selector"
-                    android:text="@string/health" />
+                    app:chipIcon="@drawable/ic_health" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_entertainment"
                     style="@style/MyChip"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_45sdp"
+                    android:text="@string/entertainment"
                     android:textColor="?attr/textColor"
-                    app:chipIcon="@drawable/ic_theater"
                     app:chipBackgroundColor="@drawable/bg_chip_selector"
-                    android:text="@string/entertainment" />
+                    app:chipIcon="@drawable/ic_theater" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_technology"
                     style="@style/MyChip"
-                    app:chipIcon="@drawable/ic_technology"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_45sdp"
+                    android:text="@string/technology"
                     android:textColor="?attr/textColor"
                     app:chipBackgroundColor="@drawable/bg_chip_selector"
-                    android:text="@string/technology" />
+                    app:chipIcon="@drawable/ic_technology" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_science"
                     style="@style/MyChip"
                     android:layout_width="@dimen/_80sdp"
                     android:layout_height="@dimen/_45sdp"
-                    app:chipIcon="@drawable/ic_atom"
+                    android:text="@string/science"
                     android:textColor="?attr/textColor"
                     app:chipBackgroundColor="@drawable/bg_chip_selector"
-                    android:text="@string/science" />
+                    app:chipIcon="@drawable/ic_atom" />
 
             </com.google.android.material.chip.ChipGroup>
         </HorizontalScrollView>
@@ -114,17 +114,51 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="@dimen/card_vertical_constraint_bias">
 
-            <LinearLayout
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:scrollbars="none">
 
-                <include layout="@layout/shimmer_layout_news_card" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                <include layout="@layout/shimmer_layout_news_card" />
+                    <include layout="@layout/shimmer_layout_news_card" />
 
-            </LinearLayout>
+                    <include layout="@layout/shimmer_layout_news_card" />
 
+                    <include layout="@layout/shimmer_layout_news_card" />
+
+                    <include layout="@layout/shimmer_layout_news_card" />
+
+                    <include layout="@layout/shimmer_layout_news_card" />
+
+                    <include layout="@layout/shimmer_layout_news_card" />
+
+                    <include layout="@layout/shimmer_layout_news_card" />
+
+                    <include layout="@layout/shimmer_layout_news_card" />
+
+                    <include layout="@layout/shimmer_layout_news_card" />
+
+                    <include layout="@layout/shimmer_layout_news_card" />
+
+                    <include layout="@layout/shimmer_layout_news_card" />
+
+                    <include layout="@layout/shimmer_layout_news_card" />
+
+                    <include layout="@layout/shimmer_layout_news_card" />
+
+                    <include layout="@layout/shimmer_layout_news_card" />
+
+                    <include layout="@layout/shimmer_layout_news_card" />
+
+                    <include layout="@layout/shimmer_layout_news_card" />
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
         </com.facebook.shimmer.ShimmerFrameLayout>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -158,14 +192,13 @@
 
         <include
             android:id="@+id/layout_no_network"
+            layout="@layout/layout_no_network"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            layout="@layout/layout_no_network"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

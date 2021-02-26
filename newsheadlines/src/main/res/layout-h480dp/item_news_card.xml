@@ -26,7 +26,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_news_card"
             android:layout_width="@dimen/_210sdp"
-            android:layout_height="@dimen/_350sdp"
+            android:layout_height="@dimen/_300sdp"
            >
 
 
