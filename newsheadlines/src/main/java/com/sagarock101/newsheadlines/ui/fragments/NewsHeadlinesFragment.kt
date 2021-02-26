@@ -27,6 +27,9 @@ import com.sagarock101.newsheadlines.databinding.FragmentNewsHeadlinesBinding
 import com.sagarock101.newsheadlines.ui.adapter.TopHeadlinesAdapter
 import com.sagarock101.newsheadlines.viewmodel.NewsViewModel
 import com.sagarock101.stylekit.binding.changeStatusBarBasedOnTheme
+import timber.log.Timber
+import java.lang.Exception
+import java.sql.Timestamp
 import javax.inject.Inject
 
 class NewsHeadlinesFragment :
@@ -189,7 +192,7 @@ class NewsHeadlinesFragment :
     }
 
     override fun isNetworkActive(isActive: Boolean) {
-        if(!isActive)
+        if (!isActive)
             showNoWifiMsg()
         else hideNoWifiMsg()
     }
@@ -209,7 +212,11 @@ class NewsHeadlinesFragment :
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putInt(AppConstants.SELECTED_CHIP_KEY, binding.chipGroup.checkedChipId)
+        try {
+            outState.putInt(AppConstants.SELECTED_CHIP_KEY, binding.chipGroup.checkedChipId)
+        } catch (e: Exception) {
+            Timber.e("${e.message}")
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -223,8 +230,9 @@ class NewsHeadlinesFragment :
     }
 
     override fun onClick(v: View?) {
-        when(v) {
-            binding.layoutNoNetwork.btnRetry -> {}
+        when (v) {
+            binding.layoutNoNetwork.btnRetry -> {
+            }
         }
     }
 
