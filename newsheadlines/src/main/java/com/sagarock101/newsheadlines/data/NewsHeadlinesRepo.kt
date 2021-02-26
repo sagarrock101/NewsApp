@@ -46,7 +46,6 @@ class NewsHeadlinesRepo @Inject constructor(
                 } catch (e: Exception) {
                     null
                 }
-
                 sectionResponse = try {
                     guardianNewsSections.await()
                 } catch (e: Exception) {

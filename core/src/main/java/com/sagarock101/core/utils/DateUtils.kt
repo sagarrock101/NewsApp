@@ -1,6 +1,7 @@
 package com.sagarock101.core.utils
 
-import timber.log.Timber
+import java.sql.Timestamp
+import java.text.DateFormat
 import java.util.*
 
 object DateUtils {
@@ -25,6 +26,21 @@ object DateUtils {
 //            hour = "hour"
 //        else hour = "hours"
         return "Published on " + dateSplit[2] + "/" + dateSplit[1] + "/" + dateSplit[0] + " at " + newTime + ":" + split[1].split(":")[1] + " " + midOrEve
+    }
+
+    fun getCurrentTimeStamp(): Timestamp? {
+        val formattedString = getFormattedDateString()
+        val dateFormat =
+            java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+        val parsedDate = dateFormat.parse(formattedString)
+        return Timestamp(parsedDate.time)
+    }
+
+    fun getFormattedDateString(): String {
+        var yourString = Calendar.getInstance().time
+        val format: DateFormat = java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+        format.setTimeZone(TimeZone.getDefault())
+        return format.format(yourString)
     }
 }
 

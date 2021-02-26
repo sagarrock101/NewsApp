@@ -30,6 +30,7 @@
                 android:layout_height="@dimen/_50sdp"
                 android:layout_margin="@dimen/_10sdp"
                 android:src="@drawable/ary_news"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -45,9 +46,10 @@
                 android:textStyle="bold"
                 android:textColor="?attr/textColor"
                 android:textSize="@dimen/_14ssp"
+                android:layout_marginTop="@dimen/_16sdp"
                 app:layout_constraintEnd_toStartOf="@id/iv_right_arrow"
-                app:layout_constraintStart_toEndOf="@id/iv_source"
-                app:layout_constraintTop_toTopOf="@id/iv_source" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_source_source"

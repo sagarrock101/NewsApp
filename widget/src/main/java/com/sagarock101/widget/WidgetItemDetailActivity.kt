@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.snackbar.Snackbar
 import com.sagarock101.common.AppConstants
+import com.sagarock101.core.utils.DateUtils
 import com.sagarock101.core.utils.PreferenceHelper
 import com.sagarock101.core.utils.Utils
 import com.sagarock101.core.utils.Utils.setOnSingleClickListener
@@ -130,7 +131,7 @@ class WidgetItemDetailActivity : DaggerAppCompatActivity(), View.OnClickListener
     private fun saveArticle() {
         articles?.let {
             try {
-                it.publishedAt = Utils.getCurrentTimeStamp()
+                it.publishedAt = DateUtils.getCurrentTimeStamp()
             } catch (e: Exception) {
                 Utils.showToast(this, "${e.message}")
             }

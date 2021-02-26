@@ -64,18 +64,5 @@ object Utils {
         appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, collectionId)
     }
 
-    fun getCurrentTimeStamp(): Timestamp? {
-        val formattedString = getFormattedDateString()
-        val dateFormat =
-            java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-        val parsedDate = dateFormat.parse(formattedString)
-        return Timestamp(parsedDate.time)
-    }
 
-    fun getFormattedDateString(): String {
-        var yourString = Calendar.getInstance().time
-        val format: DateFormat = java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-        format.setTimeZone(TimeZone.getDefault())
-        return format.format(yourString)
-    }
 }
