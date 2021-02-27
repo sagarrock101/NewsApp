@@ -1,9 +1,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    >
 
     <data>
-
+        <variable
+            name="newsHeadLines"
+            type="com.sagarock101.database.model.NewsHeadLines" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -195,6 +199,7 @@
             layout="@layout/layout_no_network"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            bind:listSize ="@{newsHeadLines.totalResults}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -5,6 +5,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import androidx.core.view.ViewCompat
+import androidx.core.view.children
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.FragmentNavigator
@@ -47,6 +48,7 @@ class NewsHeadlinesFragment :
 
     override fun getLayout() = R.layout.fragment_news_headlines
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = injectViewModel(viewModelFactory)
@@ -67,7 +69,6 @@ class NewsHeadlinesFragment :
         changeStatusBarBasedOnTheme()
         setAdapterToRecyclerView()
         attachSnapTov()
-        binding.layoutNoNetwork.btnRetry.setOnClickListener(this)
         binding.chipGroup.setOnCheckedChangeListener(this)
         viewModel.newsHeadLinesLD.observe(viewLifecycleOwner, Observer {
             when (it.status) {
@@ -83,6 +84,7 @@ class NewsHeadlinesFragment :
                     adapter?.apply {
                         setItems(it.data?.articles as MutableList<Articles>)
                     }
+                    binding.layoutNoNetwork.svNoNetwork.visibility = View.GONE
                 }
                 DataWrapper.Status.ERROR -> {
                     binding.shimmer.stopShimmer()
@@ -234,6 +236,21 @@ class NewsHeadlinesFragment :
     override fun onClick(v: View?) {
         when (v) {
             binding.layoutNoNetwork.btnRetry -> {
+                callApiIfAnyOfChipSelected()
+                binding.layoutNoNetwork.svNoNetwork.visibility = View.GONE
+            }
+        }
+    }
+
+    private fun callApiIfAnyOfChipSelected() {
+        val chips = binding.chipGroup
+        for(chipIndex in 0 until chips.childCount) {
+            val chip = chips.getChildAt(chipIndex) as? Chip
+            if(chip?.isPressed!!)
+                chip.callApiIfChipIsPressed(chip.text.toString())
+            else {
+                binding.chipAll.isPressed = true
+                binding.chipAll.callApiIfChipIsPressed("")
             }
         }
     }

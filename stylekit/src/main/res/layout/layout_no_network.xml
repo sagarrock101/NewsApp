@@ -2,14 +2,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="listSize"
+            type="Integer" />
+        <import type="android.view.View"/>
     </data>
     <ScrollView
         android:id="@+id/sv_no_network"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        android:visibility="gone"
+        android:visibility="@{listSize > 0 ? View.GONE :  View.VISIBLE }"
         >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_no_internet"
@@ -52,6 +55,7 @@
                 android:text="@string/retry"
                 android:textSize="@dimen/_12ssp"
                 android:textAllCaps="false"
+                android:visibility="visible"
                 app:layout_constraintTop_toBottomOf="@id/tv_no_internet"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
