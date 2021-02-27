@@ -202,6 +202,12 @@ class NewsHeadlinesFragment :
     }
 
     private fun hideNoWifiMsg() {
+//        callApiForOnlyAllChipSelected()
+        if (binding.chipAll.isChecked) {
+            if(adapter?.listItems?.size!! <= 0)
+                viewModel.getNewsHeadLines()
+        }
+
         binding.layoutNoNetwork.svNoNetwork.visibility = View.GONE
     }
 
@@ -236,22 +242,26 @@ class NewsHeadlinesFragment :
     override fun onClick(v: View?) {
         when (v) {
             binding.layoutNoNetwork.btnRetry -> {
-                callApiIfAnyOfChipSelected()
-                binding.layoutNoNetwork.svNoNetwork.visibility = View.GONE
+                callApiForOnlyAllChipSelected()
             }
         }
     }
 
     private fun callApiIfAnyOfChipSelected() {
         val chips = binding.chipGroup
-        for(chipIndex in 0 until chips.childCount) {
+        for (chipIndex in 0 until chips.childCount) {
             val chip = chips.getChildAt(chipIndex) as? Chip
-            if(chip?.isPressed!!)
+            if (chip?.isPressed!!)
                 chip.callApiIfChipIsPressed(chip.text.toString())
-            else {
-                binding.chipAll.isPressed = true
-                binding.chipAll.callApiIfChipIsPressed("")
-            }
+        }
+    }
+
+    private fun callApiForOnlyAllChipSelected() {
+        val chips = binding.chipGroup
+        val chip = chips.getChildAt(0) as? Chip
+        if (chip?.isChecked!!) {
+            chip?.isPressed = true
+            chip.callApiIfChipIsPressed()
         }
     }
 
