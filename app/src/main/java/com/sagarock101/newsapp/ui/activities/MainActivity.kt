@@ -228,13 +228,13 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
     }
 
     override fun isNetworkActive(isActive: Boolean) {
-        if(!isActive) {
+        if (!isActive) {
             binding.fabSearch.visibility = View.GONE
             isNetworkActive = false
-        }
-        else {
+        } else {
             isNetworkActive = true
-            binding.fabSearch.enterFabReveal()
+            if (navController.currentDestination?.id == R.id.newsHeadlinesFragment)
+                binding.fabSearch.enterFabReveal()
         }
     }
 

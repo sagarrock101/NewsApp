@@ -31,8 +31,19 @@ class SourcesFragment : BaseViewModelFragment<FragmentSourcesBinding, SourceView
     }
 
     override fun isNetworkActive(isActive: Boolean) {
-
+        if (!isActive)
+            showNoWifiMsg()
+        else hideNoWifiMsg()
     }
+
+    private fun hideNoWifiMsg() {
+        binding.layoutNoNetwork.svNoNetwork.visibility = View.GONE
+    }
+
+    private fun showNoWifiMsg() {
+        binding.layoutNoNetwork.svNoNetwork.visibility = View.VISIBLE
+    }
+
 
     override fun initView(view: View) {
         viewModel = injectViewModel(viewModelFactory)
@@ -46,6 +57,7 @@ class SourcesFragment : BaseViewModelFragment<FragmentSourcesBinding, SourceView
                         adapter.setItems(it.sources as MutableList<Source>)
                     }
                     binding.rvSources.adapter = adapter
+                    binding.sources = it.data
                 }
                 DataWrapper.Status.ERROR -> {
                     it.message?.let { it1 -> showToast(it1) }
