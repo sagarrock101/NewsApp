@@ -89,7 +89,7 @@ class NewsHeadlinesFragment :
                 DataWrapper.Status.ERROR -> {
                     binding.shimmer.stopShimmer()
                     binding.shimmer.visibility = View.GONE
-                    it.message?.let { it1 -> Utils.showToast(requireContext(), it1) }
+//                    it.message?.let { it1 -> Utils.showToast(requireContext(), it1) }
                 }
             }
         })

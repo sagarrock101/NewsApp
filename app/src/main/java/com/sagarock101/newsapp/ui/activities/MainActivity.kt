@@ -2,6 +2,7 @@ package com.sagarock101.newsapp.ui.activities
 
 import android.animation.Animator
 import android.animation.ObjectAnimator
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -15,7 +16,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sagarock101.FragmentDialogTheme
 import com.sagarock101.common.AppConstants
@@ -27,7 +27,6 @@ import com.sagarock101.newsapp.R
 import com.sagarock101.newsapp.databinding.ActivityMainBinding
 import com.sagarock101.search.ui.activity.SearchActivity
 import com.sagarock101.stylekit.binding.changeStatusBarBasedOnTheme
-import com.sagarock101.widget.showFab
 import javax.inject.Inject
 
 const val BTM_NAV_ANIM_DURATION = 300L
@@ -35,6 +34,8 @@ const val BTM_NAV_ANIM_DURATION = 300L
 class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
     BottomNavigationView.OnNavigationItemReselectedListener,
     FragmentDialogTheme.Companion.OnDialogThemeBtnListener, View.OnClickListener {
+    private var isOnBackPressingStarted = false
+
     //TODO: need to add the network change UI for all frags
     private var themeSelected: Int? = null
     private var themeDialogFragment = FragmentDialogTheme()
@@ -50,7 +51,7 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
 
     private val LIGHT_THEME = com.sagarock101.stylekit.R.style.LightTheme
     private val DARK_THEME = com.sagarock101.stylekit.R.style.DarkTheme
-
+    private val navHashSet = HashSet<Int>()
 
     @Inject
     lateinit var preferenceHelper: PreferenceHelper
@@ -69,7 +70,28 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
         binding.fabSearch.setOnClickListener(this)
         setSupportActionBar(binding.customAppBar.toolbar)
         supportActionBar?.title = getString(R.string.empty)
-        binding.btmNav.setupWithNavController(navController)
+//        binding.btmNav.setupWithNavController(navController)
+        binding.btmNav.setOnNavigationItemReselectedListener {
+
+        }
+        binding.btmNav.setOnNavigationItemSelectedListener { item ->
+            isOnBackPressingStarted = false
+            when (item.itemId) {
+                R.id.navigation_news_headlines -> {
+                    findNavController(R.id.nav_main_fragment).navigate(R.id.navigation_news_headlines)
+                }
+
+                R.id.navigation_saved -> {
+                    findNavController(R.id.nav_main_fragment).navigate(R.id.navigation_saved)
+                }
+
+                R.id.navigation_sources -> {
+                    findNavController(R.id.nav_main_fragment).navigate(R.id.navigation_sources)
+                }
+            }
+
+            false
+        }
         createDialog()
     }
 
@@ -87,11 +109,21 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
         themeSelected?.let { themeDialogFragment.setThemeToBeChecked(it) }
     }
 
+    @SuppressLint("RestrictedApi")
     override fun onDestinationChanged(
         controller: NavController,
         destination: NavDestination,
         arguments: Bundle?
     ) {
+        if (isOnBackPressingStarted) {
+           if(navHashSet.contains(destination.id)) {
+               updateMenuOnBackPress(destination.parent!!.id)
+               navController.popBackStack(destination.id, true)
+               if(navController.backStack.size == 0)
+                   return
+               return
+           }
+        }
         when (destination.id) {
             R.id.newsDetailFragment -> {
                 hideBtmNavBar()
@@ -104,6 +136,8 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
                 hideViewOrShowViews(View.VISIBLE)
                 if ((binding.root as ViewGroup).contains(binding.fabSearch) && isNetworkActive)
                     binding.fabSearch.enterFabReveal()
+//                updateMenuOnBackPress(R.id.navigation_news_headlines)
+                updateMenuOnBackPress(destination.parent!!.id)
             }
 
             R.id.newsDetailFragment2 -> {
@@ -116,9 +150,13 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
                 showBtnNavBar()
                 binding.customAppBar.clAppBar.visibility = View.VISIBLE
                 binding.fabSearch.exitFabReveal()
+//                updateMenuOnBackPress(R.id.navigation_saved)
+                updateMenuOnBackPress(destination.parent!!.id)
             }
             R.id.sourcesFragment -> {
                 binding.fabSearch.exitFabReveal()
+//                updateMenuOnBackPress(R.id.navigation_sources)
+                updateMenuOnBackPress(destination.parent!!.id)
             }
             R.id.splashFragment -> {
                 binding.fabSearch.visibility = View.INVISIBLE
@@ -228,11 +266,10 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
     }
 
     override fun isNetworkActive(isActive: Boolean) {
-        if(!isActive) {
+        if (!isActive) {
             binding.fabSearch.visibility = View.GONE
             isNetworkActive = false
-        }
-        else {
+        } else {
             isNetworkActive = true
             binding.fabSearch.enterFabReveal()
         }
@@ -274,7 +311,20 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
         if (themeDialogFragment?.isAdded!!) {
             themeDialogFragment?.dismiss()
         }
+        isOnBackPressingStarted = true
+        if (!navHashSet.contains(navController.currentDestination?.id)) {
+            navHashSet.add(navController.currentDestination!!.id)
+        }
         super.onBackPressed()
+    }
+
+    private fun updateMenuOnBackPress(destinationId: Int) {
+        val menu = binding.btmNav.menu
+        for (menuItemIndex in 0 until menu.size()) {
+            val item = menu.getItem(menuItemIndex)
+            if (destinationId == item.itemId)
+                item.isChecked = true
+        }
     }
 
     private fun hideViewOrShowViews(visibility: Int) {

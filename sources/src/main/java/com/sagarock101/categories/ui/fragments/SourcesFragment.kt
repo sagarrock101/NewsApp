@@ -48,7 +48,7 @@ class SourcesFragment : BaseViewModelFragment<FragmentSourcesBinding, SourceView
                     binding.rvSources.adapter = adapter
                 }
                 DataWrapper.Status.ERROR -> {
-                    it.message?.let { it1 -> showToast(it1) }
+//                    it.message?.let { it1 -> showToast(it1) }
                 }
             }
         })
