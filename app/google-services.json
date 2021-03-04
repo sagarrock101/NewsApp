@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "194385905564",
+    "project_id": "newsincards-dd72b",
+    "storage_bucket": "newsincards-dd72b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:194385905564:android:9adcfb4237a22bf5576a59",
+        "android_client_info": {
+          "package_name": "com.sagarock101.newsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "194385905564-rjbasngprc8q1u6naf43rd57rbvidqhf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcga1mwvbCHRick8fMgrbX_kD_wpVOi2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "194385905564-rjbasngprc8q1u6naf43rd57rbvidqhf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
