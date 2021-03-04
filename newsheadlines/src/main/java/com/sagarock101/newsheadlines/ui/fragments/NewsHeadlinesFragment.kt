@@ -38,7 +38,7 @@ class NewsHeadlinesFragment :
     OnSnapPositionChangeListener, ChipGroup.OnCheckedChangeListener, View.OnClickListener {
 
     private var prevCheckedId: Int? = null
-
+    
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
@@ -101,6 +101,11 @@ class NewsHeadlinesFragment :
         adapter?.apply {
             this.viewModel = this@NewsHeadlinesFragment.viewModel
         }?.onItemClick = { imageView, textView, data ->
+            adapter?.listItems?.indexOf(data)?.let {
+                handler?.postDelayed({
+                    binding.rvNews.scrollToPosition(it)
+                }, 1)
+            }
             val directions =
                 NewsHeadlinesFragmentDirections.actionNewsHeadlinesFragmentToNewsDetailFragment(data)
             extras = FragmentNavigatorExtras(
@@ -113,6 +118,7 @@ class NewsHeadlinesFragment :
                 extras ?: FragmentNavigatorExtras()
             )
         }
+
     }
 
     private fun attachSnapTov() {
