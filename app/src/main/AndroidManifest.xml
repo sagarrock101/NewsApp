@@ -27,10 +27,10 @@
             android:name="com.sagarock101.search.ui.activity.SearchActivity"
             android:screenOrientation="portrait" />
 
-        <activity android:name="com.sagarock101.widget.WidgetItemDetailActivity"
-            android:screenOrientation="portrait"
+        <activity
+            android:name="com.sagarock101.widget.WidgetItemDetailActivity"
             android:excludeFromRecents="true"
-            />
+            android:screenOrientation="portrait" />
 
         <service
             android:name="com.sagarock101.widget.service.StackWidgetService"

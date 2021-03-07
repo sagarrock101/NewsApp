@@ -11,6 +11,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.sagarock101.core.utils.BindingUtils
+import com.sagarock101.core.utils.DateUtils
 import com.sagarock101.database.NewsDatabaseRepo
 import com.sagarock101.database.model.Articles
 import timber.log.Timber
@@ -97,7 +98,7 @@ class StackRemoteViewsFactory(
                 )
             )}"
         )
-        return name + " | " + appendSavedOnWithTimeLeftcount(BindingUtils.getElapsedTime(publishedAt?.time!!)) + " ago"
+        return name + " | " + DateUtils.parseDate(publishedAt?.toString())
 
     }
 

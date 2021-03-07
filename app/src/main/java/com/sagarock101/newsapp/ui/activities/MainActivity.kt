@@ -61,9 +61,9 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        changeStatusBarBasedOnTheme()
         setupSharedPreferences()
         setupTheme()
+        changeStatusBarBasedOnTheme()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.btmNav.setOnNavigationItemReselectedListener(this)
         binding.fabSearch.setOnClickListener(this)
@@ -78,8 +78,7 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
     }
 
     private fun setupSharedPreferences() {
-        themeSelected =
-            preferenceHelper.getStringToPreferences(AppConstants.UI_THEME_KEY, LIGHT_THEME)
+        themeSelected = preferenceHelper.getStringToPreferences(AppConstants.UI_THEME_KEY, LIGHT_THEME)
     }
 
     private fun createDialog() {

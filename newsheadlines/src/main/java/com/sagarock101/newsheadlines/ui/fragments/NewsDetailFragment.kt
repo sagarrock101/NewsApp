@@ -138,11 +138,11 @@ class NewsDetailFragment :
     private fun saveArticle() {
 
         args.article?.let {
-            try {
-                it.publishedAt = DateUtils.getCurrentTimeStamp()
-            } catch (e: Exception) {
-                Utils.showToast(requireContext(), "${e.message}")
-            }
+//            try {
+//                it.publishedAt = DateUtils.getCurrentTimeStamp()
+//            } catch (e: Exception) {
+//                Utils.showToast(requireContext(), "${e.message}")
+//            }
             viewModel.insertNews(it)
             showSnack("Saved")
         }
