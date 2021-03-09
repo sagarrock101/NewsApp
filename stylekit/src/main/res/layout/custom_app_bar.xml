@@ -31,7 +31,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:text="@string/app_name"
-                    android:fontFamily="@font/permanent_marker_regular"
+                    android:fontFamily="@font/karla_bold"
+                    style="@style/TextAppearance.AppCompat.Headline"
+                    android:textStyle="bold"
                     android:textColor="?attr/textColor"
                     android:textSize="@dimen/_16ssp" />
             </androidx.appcompat.widget.Toolbar>
