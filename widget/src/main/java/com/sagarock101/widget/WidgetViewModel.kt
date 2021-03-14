@@ -8,7 +8,7 @@ import com.sagarock101.database.model.Articles
 import kotlinx.coroutines.Dispatchers.Main
 import javax.inject.Inject
 
-class WidgetViewModel @Inject constructor(): CoroutineViewModel(Main) {
+class WidgetViewModel @Inject constructor() : CoroutineViewModel(Main) {
 
     @Inject
     lateinit var newsDatabaseRepo: NewsDatabaseRepo
@@ -21,7 +21,7 @@ class WidgetViewModel @Inject constructor(): CoroutineViewModel(Main) {
     }
 
     fun checkIfSaved(articles: Articles) {
-        articles.title?.let { checkIfNewsExists(it) }
+        articles.title.let { checkIfNewsExists(it) }
     }
 
     fun deleteNews(articles: Articles) = launch {
@@ -29,7 +29,7 @@ class WidgetViewModel @Inject constructor(): CoroutineViewModel(Main) {
         checkIfSaved(articles)
     }
 
-    fun insertNews(articles: Articles) = launch{
+    fun insertNews(articles: Articles) = launch {
         newsDatabaseRepo.insertNews(articles)
         checkIfSaved(articles)
     }

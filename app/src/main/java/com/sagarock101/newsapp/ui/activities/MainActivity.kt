@@ -17,6 +17,7 @@ import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.sagarock101.AboutDialogFragment
 import com.sagarock101.FragmentDialogTheme
 import com.sagarock101.common.AppConstants
 import com.sagarock101.core.utils.MyAnimationUtils.enterFabReveal
@@ -27,7 +28,6 @@ import com.sagarock101.newsapp.R
 import com.sagarock101.newsapp.databinding.ActivityMainBinding
 import com.sagarock101.search.ui.activity.SearchActivity
 import com.sagarock101.stylekit.binding.changeStatusBarBasedOnTheme
-import com.sagarock101.widget.showFab
 import javax.inject.Inject
 
 const val BTM_NAV_ANIM_DURATION = 300L
@@ -38,6 +38,7 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
 
     private var themeSelected: Int? = null
     private var themeDialogFragment = FragmentDialogTheme()
+    private var aboutDialogFragment = AboutDialogFragment()
     lateinit var binding: ActivityMainBinding
     private var isNetworkActive = true
 
@@ -82,7 +83,7 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
     }
 
     private fun createDialog() {
-        themeDialogFragment?.setListener(this)
+        themeDialogFragment.setListener(this)
         themeSelected?.let { themeDialogFragment.setThemeToBeChecked(it) }
     }
 
@@ -99,7 +100,7 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
             }
 
             R.id.newsHeadlinesFragment -> {
-                showBtnNavBar()
+                showBtmNavBar()
                 hideViewOrShowViews(View.VISIBLE)
                 if ((binding.root as ViewGroup).contains(binding.fabSearch) && isNetworkActive)
                     binding.fabSearch.enterFabReveal()
@@ -112,7 +113,7 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
             }
 
             R.id.savedFragment -> {
-                showBtnNavBar()
+                showBtmNavBar()
                 binding.customAppBar.clAppBar.visibility = View.VISIBLE
                 binding.fabSearch.exitFabReveal()
             }
@@ -125,7 +126,7 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
         }
     }
 
-    private fun showBtnNavBar() {
+    private fun showBtmNavBar() {
         if (binding.btmNav.visibility == View.VISIBLE)
             return
 
@@ -212,7 +213,7 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
-        inflater.inflate(R.menu.menu_change_theme, menu)
+        inflater.inflate(R.menu.menu_main, menu)
         return true
     }
 
@@ -222,8 +223,16 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
                 showDialog()
                 return true
             }
+            R.id.nav_about -> {
+                showAboutDialog()
+                return true
+            }
         }
         return false
+    }
+
+    private fun showAboutDialog() {
+        aboutDialogFragment.show(supportFragmentManager, "About")
     }
 
     override fun isNetworkActive(isActive: Boolean) {
@@ -244,7 +253,7 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
     }
 
     private fun showDialog() {
-        themeDialogFragment?.show(supportFragmentManager, "")
+        themeDialogFragment.show(supportFragmentManager, "")
     }
 
     override fun onDialogThemeBtnClick(themeName: String) {

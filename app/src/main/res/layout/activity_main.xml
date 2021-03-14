@@ -19,8 +19,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             />
 
-
-
         <fragment
             android:id="@+id/nav_main_fragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
@@ -59,8 +57,6 @@
             android:layout_marginBottom="@dimen/_6sdp"
             android:layout_marginEnd="@dimen/_4sdp"
             />
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
