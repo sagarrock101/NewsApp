@@ -86,7 +86,7 @@ class SearchDetailFragment :
             }
 
             override fun onShown(sb: Snackbar?) {
-                sb?.view?.height?.toFloat()?.let { binding.llFab.translationY = -it }
+//                sb?.view?.height?.toFloat()?.let { binding.llFab.translationY = -it }
             }
         }
     }
@@ -172,9 +172,13 @@ class SearchDetailFragment :
     }
 
     private fun showSnack(actionName: String) {
-        Snackbar.make(binding.colParent, actionName, Snackbar.LENGTH_SHORT)
-            .addCallback(snackBarDismissListener)
+        val sb = Snackbar.make(binding.colParent, actionName, Snackbar.LENGTH_SHORT)
+        val snackbarView = sb.view
+        sb.addCallback(snackBarDismissListener)
             .show()
+        snackbarView.height.toFloat().let {
+            binding.llFab.animate().translationY(-120f)
+        }
     }
 
     private fun deleteArticle() {

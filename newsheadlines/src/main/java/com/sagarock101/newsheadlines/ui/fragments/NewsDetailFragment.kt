@@ -4,6 +4,8 @@ import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.net.Uri
+import android.os.Handler
+import android.os.Looper
 import android.provider.Settings
 import android.view.View
 import androidx.core.widget.ImageViewCompat
@@ -14,6 +16,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.transition.Transition
 import androidx.transition.TransitionInflater
 import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.core.utils.DateUtils
@@ -30,6 +33,7 @@ import java.lang.Exception
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import javax.inject.Inject
+import kotlin.coroutines.coroutineContext
 
 class NewsDetailFragment :
     BaseViewModelFragment<FragmentNewsDetailBinding, NewsViewModel>(),
@@ -69,7 +73,6 @@ class NewsDetailFragment :
             }
 
             override fun onShown(sb: Snackbar?) {
-                sb?.view?.height?.toFloat()?.let { binding.llFab.translationY = -it }
             }
         }
     }
@@ -155,9 +158,13 @@ class NewsDetailFragment :
     }
 
     private fun showSnack(actionName: String) {
-        Snackbar.make(binding.colParent, actionName, Snackbar.LENGTH_SHORT)
-            .addCallback(snackBarDismissListener)
+        val sb = Snackbar.make(binding.colParent, actionName, Snackbar.LENGTH_SHORT)
+        val snackbarView = sb.view
+        sb.addCallback(snackBarDismissListener)
             .show()
+        snackbarView.height.toFloat().let {
+            binding.llFab.animate().translationY(-120f)
+        }
     }
 
     private fun deleteArticle() {

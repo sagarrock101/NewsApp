@@ -203,9 +203,13 @@ class WidgetItemDetailActivity : DaggerAppCompatActivity(), View.OnClickListener
     }
 
     private fun showSnack(actionName: String) {
-        Snackbar.make(binding.fabAdd, actionName, Snackbar.LENGTH_SHORT)
-            .addCallback(snackBarDismissListener)
+        val sb = Snackbar.make(binding.colParent, actionName, Snackbar.LENGTH_SHORT)
+        val snackbarView = sb.view
+        sb.addCallback(snackBarDismissListener)
             .show()
+        snackbarView.height.toFloat().let {
+            binding.llFab.animate().translationY(-120f)
+        }
     }
 
 }

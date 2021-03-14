@@ -202,6 +202,7 @@
                 android:src="@drawable/ic_baseline_add_24"
                 android:tint="@color/white"
                 app:fabSize="normal"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
                 app:backgroundTint="?attr/btmIconAndTextColor"
                 app:rippleColor="@color/white" />
         </LinearLayout>
