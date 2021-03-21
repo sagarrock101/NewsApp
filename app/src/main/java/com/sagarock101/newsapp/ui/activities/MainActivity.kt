@@ -4,14 +4,14 @@ import android.animation.Animator
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.view.GravityCompat
 import androidx.core.view.contains
 import androidx.databinding.DataBindingUtil
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
@@ -36,6 +36,7 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
     BottomNavigationView.OnNavigationItemReselectedListener,
     FragmentDialogTheme.Companion.OnDialogThemeBtnListener, View.OnClickListener {
 
+    private lateinit var drawer: DrawerLayout
     private var themeSelected: Int? = null
     private var themeDialogFragment = FragmentDialogTheme()
     private var aboutDialogFragment = AboutDialogFragment()
@@ -72,6 +73,20 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
         supportActionBar?.title = getString(R.string.empty)
         binding.btmNav.setupWithNavController(navController)
         createDialog()
+        setupDrawer()
+    }
+
+    private fun setupDrawer() {
+        drawer = binding.drawerLayout
+        val actionBarDrawerToggle = ActionBarDrawerToggle(
+            this,
+            drawer,
+            binding.customAppBar.toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
+        )
+        drawer.addDrawerListener(actionBarDrawerToggle)
+        actionBarDrawerToggle.syncState()
     }
 
     private fun setupTheme() {
@@ -79,7 +94,8 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
     }
 
     private fun setupSharedPreferences() {
-        themeSelected = preferenceHelper.getStringToPreferences(AppConstants.UI_THEME_KEY, LIGHT_THEME)
+        themeSelected =
+            preferenceHelper.getStringToPreferences(AppConstants.UI_THEME_KEY, LIGHT_THEME)
     }
 
     private fun createDialog() {
@@ -236,11 +252,10 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
     }
 
     override fun isNetworkActive(isActive: Boolean) {
-        if(!isActive) {
+        if (!isActive) {
             binding.fabSearch.visibility = View.GONE
             isNetworkActive = false
-        }
-        else {
+        } else {
             isNetworkActive = true
             binding.fabSearch.enterFabReveal()
         }
@@ -282,7 +297,11 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
         if (themeDialogFragment?.isAdded!!) {
             themeDialogFragment?.dismiss()
         }
-        super.onBackPressed()
+
+        if (drawer.isDrawerOpen(GravityCompat.START))
+            drawer.closeDrawer(GravityCompat.START)
+        else
+            super.onBackPressed()
     }
 
     private fun hideViewOrShowViews(visibility: Int) {
