@@ -37,18 +37,18 @@ class AboutDialogFragment : DialogFragment(), View.OnClickListener {
     }
 
     override fun onResume() {
-        val window = dialog!!.window
-        window?.setBackgroundDrawableResource(
-            R.drawable.bg_semi_transparent_layer
-        )
-        val size = Point()
-        val display = window?.windowManager?.defaultDisplay
-        display?.getSize(size)
-        val width = (size.x * 0.9).toInt()
-        val height = (size.y * 0.9).toInt()
-
-        window?.setLayout(width, height)
-        window?.setGravity(Gravity.CENTER)
+//        val window = dialog!!.window
+//        window?.setBackgroundDrawableResource(
+//            R.drawable.bg_semi_transparent_layer
+//        )
+//        val size = Point()
+//        val display = window?.windowManager?.defaultDisplay
+//        display?.getSize(size)
+//        val width = (size.x * 0.9).toInt()
+//        val height = (size.y * 0.9).toInt()
+//
+//        window?.setLayout(width, height)
+//        window?.setGravity(Gravity.CENTER)
         super.onResume()
     }
 
