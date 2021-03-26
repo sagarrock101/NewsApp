@@ -5,7 +5,10 @@ import android.content.ComponentName
 import android.content.Context
 import android.icu.text.SimpleDateFormat
 import android.os.Build
+import android.text.SpannableString
 import android.text.format.DateUtils
+import android.text.style.ForegroundColorSpan
+import android.text.style.RelativeSizeSpan
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -62,6 +65,18 @@ object Utils {
         )
         val appWidgetIds = appWidgetManager.getAppWidgetIds(thisAppWidget)
         appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, collectionId)
+    }
+
+    fun getSpannable(context: Context, strToChange: String, size: Float, color: Int, start: Int, end: Int)
+            : SpannableString {
+        var spannableString = SpannableString(strToChange)
+        if (size != 0f)
+            spannableString.setSpan(RelativeSizeSpan(size), start, end, 0)
+//        spannableString.setSpan(
+//            ForegroundColorSpan(context.resources.getColor(color)),
+//            start, end, 0
+//        )
+        return spannableString
     }
 
 

@@ -15,7 +15,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.Main
 import javax.inject.Inject
 
-class NewsViewModel @Inject constructor() : CoroutineViewModel(Main) {
+class   NewsViewModel @Inject constructor() : CoroutineViewModel(Main) {
 
     @Inject
     lateinit var newsHeadlinesRepo: NewsHeadlinesRepo

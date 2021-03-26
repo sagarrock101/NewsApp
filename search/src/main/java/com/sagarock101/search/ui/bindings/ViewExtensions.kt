@@ -20,6 +20,7 @@ import com.sagarock101.core.adapter.BaseAdapter
 import com.sagarock101.core.data.DataWrapper
 import com.sagarock101.core.utils.BindingUtils
 import com.sagarock101.core.utils.DateUtils
+import com.sagarock101.core.utils.Utils
 import com.sagarock101.search.R
 import com.sagarock101.search.model.Articles
 import com.sagarock101.search.model.Results
@@ -181,5 +182,13 @@ fun TextView.getFormattedDate(unFormattedDate: Timestamp) {
 @BindingAdapter("app:bindSource", "app:publishedAt")
 fun TextView.bindSourceAndTime(source: String, publishedAt: Timestamp) {
     text = BindingUtils.getSourceAndTime(source, publishedAt)
+}
+
+@BindingAdapter("app:textLikeNewsPaper")
+fun TextView.bindTextLikeNewsText(desc: String?) {
+    text = desc?.let {
+        Utils.getSpannable(this.context,
+            it, 2f, com.sagarock101.widget.R.color.black, 0, 1)
+    }
 }
 

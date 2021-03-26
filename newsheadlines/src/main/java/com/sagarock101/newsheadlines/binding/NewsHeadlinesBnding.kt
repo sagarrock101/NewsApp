@@ -3,6 +3,7 @@ package com.sagarock101.newsheadlines.binding
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.graphics.drawable.Drawable
+import android.util.AttributeSet
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -19,8 +20,10 @@ import com.bumptech.glide.request.target.Target
 import com.sagarock101.core.adapter.BaseAdapter
 import com.sagarock101.core.utils.BindingUtils
 import com.sagarock101.core.utils.DateUtils
+import com.sagarock101.core.utils.Utils
 import com.sagarock101.database.model.Source
 import com.sagarock101.newsheadlines.R
+import com.sagarock101.stylekit.binding.getColorFromAttr
 import java.sql.Timestamp
 //TODO: need to make common bindings, extensions for both search, headlines and saved
 
@@ -142,4 +145,12 @@ fun TextView.bindSourceAndTime(source: String, publishedAt: Timestamp) {
 @BindingAdapter("app:formatDate")
 fun TextView.getFormattedDate(unFormattedDate: Timestamp) {
     text = DateUtils.parseDate(unFormattedDate.toString())
+}
+
+@BindingAdapter("app:textLikeNewsPaper")
+fun TextView.bindTextLikeNewsText(desc: String?) {
+    text = desc?.let {
+        Utils.getSpannable(this.context,
+            it, 2f, R.color.black, 0, 1)
+    }
 }

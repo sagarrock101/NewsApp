@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import android.view.ViewAnimationUtils
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -14,6 +15,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
+import com.sagarock101.core.utils.Utils
 import kotlin.math.max
 
 @BindingAdapter("app:imgSrc")
@@ -130,4 +132,12 @@ fun View.rotateFab(rotate: Boolean): Boolean {
         })
         .rotation(if (rotate) 135f else 0f)
     return rotate
+}
+
+@BindingAdapter("app:textLikeNewsPaper")
+fun TextView.bindTextLikeNewsText(desc: String?) {
+    text = desc?.let {
+        Utils.getSpannable(this.context,
+            it, 2f, R.color.black, 0, 1)
+    }
 }
