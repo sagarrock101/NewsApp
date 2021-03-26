@@ -233,8 +233,7 @@ class SearchDetailFragment :
 
     override fun onTransitionEnd(transition: Transition) {
         with(binding) {
-            tvContent.visibility = View.VISIBLE
-            tvDesc.visibility = View.VISIBLE
+            binding.cvContent.visibility = View.VISIBLE
             btnReadFullStory.visibility = View.VISIBLE
         }
 
