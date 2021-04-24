@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.view.View.VISIBLE
 import androidx.activity.OnBackPressedCallback
 import androidx.core.widget.ImageViewCompat
 import androidx.lifecycle.Observer
@@ -217,11 +218,11 @@ class SearchDetailFragment :
         if (isFabRotated) {
             binding.fabShare.showFab()
             binding.fabSave.showFab()
-            binding.fabAdd.visibility = View.VISIBLE
+            binding.fabAdd.visibility = VISIBLE
         } else {
             binding.fabShare.hideFab()
             binding.fabSave.hideFab()
-            binding.fabAdd.visibility = View.VISIBLE
+            binding.fabAdd.visibility = VISIBLE
         }
     }
 
@@ -233,8 +234,9 @@ class SearchDetailFragment :
 
     override fun onTransitionEnd(transition: Transition) {
         with(binding) {
-            binding.cvContent.visibility = View.VISIBLE
-            btnReadFullStory.visibility = View.VISIBLE
+            cvContent.visibility = VISIBLE
+            btnReadFullStory.visibility = VISIBLE
+            tvPublishedDate.visibility = VISIBLE
         }
 
     }
@@ -253,10 +255,10 @@ class SearchDetailFragment :
 
     override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
         if (verticalOffset == -binding.appBar.totalScrollRange) {
-            binding.fabAdd.visibility = View.VISIBLE
-            binding.fabShare.visibility = View.VISIBLE
-            binding.fabSave.visibility = View.VISIBLE
-            binding.ivGradient.visibility = View.VISIBLE
+            binding.fabAdd.visibility = VISIBLE
+            binding.fabShare.visibility = VISIBLE
+            binding.fabSave.visibility = VISIBLE
+            binding.ivGradient.visibility = VISIBLE
         } else {
             binding.fabAdd.visibility = View.GONE
             binding.fabShare.visibility = View.GONE
