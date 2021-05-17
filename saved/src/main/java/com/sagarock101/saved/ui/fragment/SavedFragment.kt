@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import androidx.appcompat.view.ActionMode
 import androidx.core.view.ViewCompat
 import androidx.lifecycle.Observer
@@ -80,10 +82,14 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
     private fun setSavedNewsObserver() {
         viewModel.getAllSavedNews().observe(viewLifecycleOwner, Observer { savedArticles ->
             savedArticles?.let {
-                listOfSavedArticles = it
-                adapter.setItems(it as MutableList<Articles>)
-                setupSelectorTracker()
-//                setupActionMode()
+                if(it.isNotEmpty()) {
+                    listOfSavedArticles = it
+                    adapter.setItems(it as MutableList<Articles>)
+                    setupSelectorTracker()
+                } else {
+                    binding.rvSavedNews.visibility = GONE
+                    binding.layoutNoNews.clLayoutNoNews.visibility = VISIBLE
+                }
             }
         })
     }
