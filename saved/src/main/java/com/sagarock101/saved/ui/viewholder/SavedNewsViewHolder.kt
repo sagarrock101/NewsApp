@@ -1,5 +1,6 @@
 package com.sagarock101.saved.ui.viewholder
 
+import android.view.HapticFeedbackConstants
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.ViewGroup
@@ -48,7 +49,6 @@ class SavedNewsViewHolder(private val binding: ItemSavedBinding)
             ): BaseViewHolder<Articles> {
             val layoutInflater = LayoutInflater.from(parent.context)
             val binding = ItemSavedBinding.inflate(layoutInflater, parent, false)
-
             return SavedNewsViewHolder(binding).apply {
                 this.onItemClick = onItemClick
                 this.viewModel = viewModel

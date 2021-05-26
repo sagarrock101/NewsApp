@@ -1,6 +1,9 @@
 package com.sagarock101.saved.ui.fragment
 
+import android.content.Context
 import android.os.Bundle
+import android.os.Vibrator
+import android.view.HapticFeedbackConstants
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -40,6 +43,7 @@ import javax.inject.Inject
 
 class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>() {
 
+    private lateinit var vibrator: Vibrator
     private var items: Selection<Articles>? = null
     private var itemTouchHelper: ItemTouchHelper? = null
 
@@ -69,6 +73,7 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         adapter = SavedNewsAdapter()
+        vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
     }
 
     override fun initView(view: View) {
@@ -188,6 +193,9 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
         selectionTracker?.addObserver(object : SelectionTracker.SelectionObserver<Articles>() {
             override fun onSelectionChanged() {
                 super.onSelectionChanged()
+                vibrator.let {
+                    it.vibrate(50)
+                }
                 items = selectionTracker?.selection!!
                 updateMenuTitle(items?.size())
                 if (selectionTracker?.hasSelection()!!) {
