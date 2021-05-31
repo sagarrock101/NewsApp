@@ -10,13 +10,13 @@ import androidx.core.view.ViewCompat
 import androidx.recyclerview.selection.ItemDetailsLookup
 import com.sagarock101.core.viewholder.BaseViewHolder
 import com.sagarock101.database.model.Articles
-import com.sagarock101.newsheadlines.viewmodel.NewsViewModel
 import com.sagarock101.saved.databinding.ItemSavedBinding
+import com.sagarock101.saved.viewmodel.SavedNewsViewModel
 
 class SavedNewsViewHolder(private val binding: ItemSavedBinding)
     : BaseViewHolder<Articles>(binding) {
     var onItemClick: ((ImageView, TextView, Articles) -> Unit)? = null
-    var viewModel: NewsViewModel? = null
+    var viewModel: SavedNewsViewModel? = null
     var item: Articles? = null
     override fun bind(item: Articles) {
         binding.article = item
@@ -45,7 +45,7 @@ class SavedNewsViewHolder(private val binding: ItemSavedBinding)
         fun from(
             parent: ViewGroup,
             onItemClick: ((ImageView, TextView, Articles) -> Unit)? = null,
-            viewModel: NewsViewModel? = null
+            viewModel: SavedNewsViewModel? = null
             ): BaseViewHolder<Articles> {
             val layoutInflater = LayoutInflater.from(parent.context)
             val binding = ItemSavedBinding.inflate(layoutInflater, parent, false)

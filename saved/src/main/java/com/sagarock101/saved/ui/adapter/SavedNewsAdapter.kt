@@ -8,16 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sagarock101.core.adapter.BaseAdapter
 import com.sagarock101.core.viewholder.BaseViewHolder
 import com.sagarock101.database.model.Articles
-import com.sagarock101.newsheadlines.viewmodel.NewsViewModel
 import com.sagarock101.saved.R
 import com.sagarock101.saved.ui.viewholder.SavedNewsViewHolder
+import com.sagarock101.saved.viewmodel.SavedNewsViewModel
 
 
 class SavedNewsAdapter() :
     BaseAdapter<Articles>() {
 
     var onItemClick: ((ImageView, TextView, Articles) -> Unit)? = null
-    var viewModel: NewsViewModel? = null
+    var viewModel: SavedNewsViewModel? = null
     var tracker: SelectionTracker<Articles>? = null
 
     override fun getLayoutId(position: Int, obj: Articles) = R.layout.item_saved

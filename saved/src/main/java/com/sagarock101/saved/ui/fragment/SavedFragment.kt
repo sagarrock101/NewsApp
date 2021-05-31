@@ -3,7 +3,6 @@ package com.sagarock101.saved.ui.fragment
 import android.content.Context
 import android.os.Bundle
 import android.os.Vibrator
-import android.view.HapticFeedbackConstants
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -29,19 +28,19 @@ import com.sagarock101.core.utils.UiActionClassWithItemHelper
 import com.sagarock101.core.utils.Utils
 import com.sagarock101.core.view.BaseViewModelFragment
 import com.sagarock101.database.model.Articles
-import com.sagarock101.newsheadlines.viewmodel.NewsViewModel
 import com.sagarock101.saved.R
 import com.sagarock101.saved.databinding.FragmentSavedBinding
 import com.sagarock101.saved.ui.adapter.SavedNewsAdapter
 import com.sagarock101.saved.ui.itemSelection.MyItemDetailsLookup
 import com.sagarock101.saved.ui.itemSelection.MyItemKeyProvider
+import com.sagarock101.saved.viewmodel.SavedNewsViewModel
 import com.sagarock101.stylekit.binding.changeStatusBarBasedOnTheme
 import com.sagarock101.widget.MyAppWidgetProvider
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
 
-class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>() {
+class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, SavedNewsViewModel>() {
 
     private lateinit var vibrator: Vibrator
     private var items: Selection<Articles>? = null
@@ -151,7 +150,7 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, NewsViewModel>
             viewModel = this@SavedFragment.viewModel
         }.onItemClick = { imageView, textView, data ->
             val directions =
-                SavedFragmentDirections.actionSavedFragmentToNewsDetailFragment2(data)
+                SavedFragmentDirections.actionSavedFragmentToSavedNewsDetailFragment(data)
             extras = FragmentNavigatorExtras(
                 imageView to ViewCompat.getTransitionName(imageView)!!,
                 textView to ViewCompat.getTransitionName(textView)!!

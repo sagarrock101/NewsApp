@@ -106,7 +106,7 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
                     binding.fabSearch.enterFabReveal()
             }
 
-            R.id.newsDetailFragment2 -> {
+            R.id.savedNewsDetailFragment -> {
                 hideBtmNavBar()
                 hideViewOrShowViews(View.GONE)
                 binding.fabSearch.exitFabReveal()

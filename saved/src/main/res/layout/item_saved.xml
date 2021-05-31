@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.sagarock101.newsheadlines.viewmodel.NewsViewModel" />
+            type="com.sagarock101.saved.viewmodel.SavedNewsViewModel" />
 
         <variable
             name="article"

@@ -1,4 +1,4 @@
-package com.sagarock101.newsheadlines.ui.fragments
+package com.sagarock101.saved.ui.fragment
 
 import android.content.Intent
 import android.content.res.ColorStateList
@@ -18,24 +18,24 @@ import com.sagarock101.core.di.injectViewModel
 import com.sagarock101.core.utils.Utils
 import com.sagarock101.core.utils.Utils.setOnSingleClickListener
 import com.sagarock101.core.view.BaseViewModelFragment
-import com.sagarock101.newsheadlines.R
-import com.sagarock101.newsheadlines.binding.*
-import com.sagarock101.newsheadlines.databinding.FragmentNewsDetailBinding
-import com.sagarock101.newsheadlines.viewmodel.NewsViewModel
+import com.sagarock101.saved.R
+import com.sagarock101.saved.binding.*
+import com.sagarock101.saved.databinding.FragmentSavedNewsDetailBinding
+import com.sagarock101.saved.viewmodel.SavedNewsViewModel
 import com.sagarock101.stylekit.binding.setTransparentStatusBar
 import com.sagarock101.widget.MyAppWidgetProvider
 import javax.inject.Inject
 
-class NewsDetailFragment :
-    BaseViewModelFragment<FragmentNewsDetailBinding, NewsViewModel>(),
+class SavedNewsDetailFragment :
+    BaseViewModelFragment<FragmentSavedNewsDetailBinding, SavedNewsViewModel>(),
     View.OnClickListener, Transition.TransitionListener, AppBarLayout.OnOffsetChangedListener {
     //TODO: need to make ll to extend fab and have ll fab behavior so it can go up when snack is shown currently handling it using translation
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private val args: NewsDetailFragmentArgs by navArgs()
+    private val args: SavedNewsDetailFragmentArgs by navArgs()
 
-    override fun getLayout() = R.layout.fragment_news_detail
+    override fun getLayout() = R.layout.fragment_saved_news_detail
 
     private var isFabRotated = false
 
@@ -49,7 +49,7 @@ class NewsDetailFragment :
         sharedElementEnterTransition = TransitionInflater.from(context)
             .inflateTransition(R.transition.new_shared_element_transition)
         (sharedElementEnterTransition as? Transition)?.addListener(this)
-        if (args.article?.urlToImage != null)
+        if (args.articles?.urlToImage != null)
             postponeEnterTransition()
         viewModel = injectViewModel(viewModelFactory)
         startEnterTransitionAfterLoadingImage()
@@ -98,12 +98,12 @@ class NewsDetailFragment :
     }
 
     private fun startEnterTransitionAfterLoadingImage() {
-        binding.article = args.article
-        binding.tvTitle.transitionName = args?.article?.title ?: ""
+        binding.article = args.articles
+        binding.tvTitle.transitionName = args?.articles?.title ?: ""
         binding.ivNewsImg.apply {
-            transitionName = args?.article?.urlToImage ?: ""
-            args.article?.urlToImage?.let {
-                startTransitionAfterImageLoad(args?.article?.urlToImage ?: "") {
+            transitionName = args?.articles?.urlToImage ?: ""
+            args.articles?.urlToImage?.let {
+                startTransitionAfterImageLoad(args?.articles?.urlToImage ?: "") {
                     startPostponedEnterTransition()
                 }
             } ?: kotlin.run {
@@ -131,7 +131,7 @@ class NewsDetailFragment :
 
     private fun saveArticle() {
 
-        args.article?.let {
+        args.articles?.let {
 //            try {
 //                it.publishedAt = DateUtils.getCurrentTimeStamp()
 //            } catch (e: Exception) {
@@ -159,7 +159,7 @@ class NewsDetailFragment :
     }
 
     private fun deleteArticle() {
-        args.article?.let {
+        args.articles?.let {
             viewModel.deleteNews(it)
             showSnack("Removed")
         }
@@ -175,8 +175,8 @@ class NewsDetailFragment :
         val sharingIntent = Intent(Intent.ACTION_SEND)
         sharingIntent.apply {
             type = "text/plain"
-            putExtra(Intent.EXTRA_SUBJECT, args?.article?.title)
-            putExtra(Intent.EXTRA_TEXT, args.article?.url)
+            putExtra(Intent.EXTRA_SUBJECT, args?.articles?.title)
+            putExtra(Intent.EXTRA_TEXT, args.articles?.url)
             startActivity(Intent.createChooser(sharingIntent, getString(R.string.share_using)))
         }
     }
@@ -195,7 +195,7 @@ class NewsDetailFragment :
     }
 
     private fun showAppChooserDialog() {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(args.article?.url))
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(args.articles?.url))
         startActivity(intent)
     }
 

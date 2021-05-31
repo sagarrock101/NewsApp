@@ -11,6 +11,8 @@ import com.sagarock101.newsapp.ui.activities.MainActivity
 import com.sagarock101.newsheadlines.di.FragmentBuildersModule
 import com.sagarock101.newsheadlines.di.NewsHeadlinesModule
 import com.sagarock101.newsheadlines.di.NewsViewModelModule
+import com.sagarock101.saved.di.SavedFragmentsBuildersModule
+import com.sagarock101.saved.di.SavedNewsViewModelModule
 import com.sagarock101.search.di.SearchBuildersModule
 import com.sagarock101.search.di.SearchModule
 import com.sagarock101.search.di.SearchViewModelModule
@@ -41,7 +43,9 @@ import javax.inject.Singleton
         SourceViewModelModule::class,
         ServiceBuildersModule::class,
         WidgetViewModelModule::class,
-        WidgetBuildersModule::class
+        WidgetBuildersModule::class,
+        SavedNewsViewModelModule::class,
+        SavedFragmentsBuildersModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<MyApplication> {

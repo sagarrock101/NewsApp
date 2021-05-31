@@ -32,7 +32,9 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            buildConfigField "String", "BASE_URL", "\"https://newsapi.org/v2/\""
+            buildConfigField "String", "GUARDIAN_BASE_URL" , "\"https://content.guardianapis.com/\""
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
