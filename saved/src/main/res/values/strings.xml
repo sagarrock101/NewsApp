@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="removed">Removed</string>
+    <string name="undo">Undo</string>
+    <string name="delete">Delete</string>
+    <string name="select">Select</string>
+</resources>

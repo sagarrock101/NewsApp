@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NewsInCards</string>
+    <string name="home">Home</string>
+    <string name="sources">Sources</string>
+    <string name="newsHeadlines">Headlines</string>
+    <string name="saved">Saved</string>
+    <string name="change_theme">Change Theme</string>
+</resources>

@@ -1,0 +1,143 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.sagarock101.search.ui.viewmodel.SearchViewModel" />
+
+        <import type="android.view.View" />
+        <import type="com.sagarock101.core.data.DataWrapper"/>
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/view_as_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/btmBgColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_height="70dp" />
+        //TODO : need to fix search ripple effect
+
+        <ImageView
+            android:id="@+id/iv_search_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/rounded_mic_bg"
+            android:clickable="true"
+            android:padding="@dimen/_4sdp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_marginEnd="@dimen/_2sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/view_as_toolbar"
+            app:layout_constraintBottom_toBottomOf="@id/view_as_toolbar"
+            android:focusable="true" />
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="?attr/btmIconAndTextColor"
+            android:cursorVisible="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColor="?attr/btmIconAndTextColor"
+            android:textCursorDrawable="@null"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_close"
+            app:layout_constraintEnd_toStartOf="@id/iv_search_icon"
+            app:layout_constraintStart_toEndOf="@id/iv_close"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_listening"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:textColor="?attr/btmIconAndTextColor"
+            android:visibility="gone"
+            android:textSize="16sp"
+            android:gravity="left"
+            android:textAppearance="?attr/textAppearanceCaption"
+            app:layout_constraintTop_toTopOf="@id/et_search"
+            app:layout_constraintEnd_toEndOf="@id/et_search"
+            app:layout_constraintStart_toStartOf="@id/et_search"
+            app:layout_constraintBottom_toBottomOf="@id/et_search"
+            />
+
+        <ImageView
+            android:id="@+id/iv_close"
+            style="@style/ripple_glow_with_theme_color_control"
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="@dimen/_36sdp"
+            android:src="@drawable/ic_baseline_close_24"
+            app:layout_constraintBottom_toBottomOf="@id/view_as_toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_no_results_for_query"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_results_for_this_query"
+            app:layout_constraintVertical_bias="0.1"
+            android:textColor="?attr/textColor"
+            app:showTextWhenResultsAreEmpty="@{vm.searchResultsLiveData.status}"
+            app:setItems="@{vm.searchResultsLiveData.data.response.results}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_as_toolbar" />
+
+        <TextView
+            android:id="@+id/tv_you_can_search_for_news_using_phrases"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            app:layout_constraintVertical_bias="0.1"
+            android:textColor="?attr/textColor"
+            android:text="@string/you_can_search_for_news_using_phrases"
+            app:layout_constraintTop_toBottomOf="@id/view_as_toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_search_results"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:showViewBasedOnListSize="@{vm.searchResultsLiveData.data.response.results}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_as_toolbar"
+            tools:listitem="@layout/item_search_result" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="?attr/btmIconAndTextColor"
+            app:showProgressBasedOnStatus="@{vm.searchResultsLiveData.status}"
+            app:layout_constraintTop_toBottomOf="@id/view_as_toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

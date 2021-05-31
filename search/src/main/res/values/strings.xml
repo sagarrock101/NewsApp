@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="no_results_for_this_query">No Results for this query</string>
+    <string name="you_can_search_for_news_using_phrases">You can search for news using phrases</string>
+</resources>
