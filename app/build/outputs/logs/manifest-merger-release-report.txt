@@ -1,0 +1,661 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:2:1-50:12
+INJECTED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:2:1-50:12
+INJECTED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:2:1-50:12
+INJECTED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:2:1-50:12
+MERGED from [:newsheadlines] C:\Users\Embibe\AndroidStudioProjects\NewsApp\newsheadlines\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:saved] C:\Users\Embibe\AndroidStudioProjects\NewsApp\saved\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-13:12
+MERGED from [:sources] C:\Users\Embibe\AndroidStudioProjects\NewsApp\sources\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:search] C:\Users\Embibe\AndroidStudioProjects\NewsApp\search\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:widget] C:\Users\Embibe\AndroidStudioProjects\NewsApp\widget\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:stylekit] C:\Users\Embibe\AndroidStudioProjects\NewsApp\stylekit\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:database] C:\Users\Embibe\AndroidStudioProjects\NewsApp\database\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:core] C:\Users\Embibe\AndroidStudioProjects\NewsApp\core\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-13:12
+MERGED from [:common] C:\Users\Embibe\AndroidStudioProjects\NewsApp\common\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.multidex:multidex:2.0.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\23ac361f8ec96dc6579e5ea5854e6870\multidex-2.0.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.databinding:databinding-adapters:4.1.3] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\575e0ebd4408612f4bae70ecfda05507\databinding-adapters-4.1.3\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.databinding:databinding-runtime:4.1.3] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\b59e6c10073a844e0eb348a0f378e642\databinding-runtime-4.1.3\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-dynamic-features-fragment:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\4dd8684054ee71970a0aa39ee8c9a15b\jetified-navigation-dynamic-features-fragment-2.3.2\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\ec7699c2d7f75513d1811519e4fba0ab\navigation-fragment-ktx-2.3.2\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment-ktx:1.2.4] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\ac32767c90e5a71b94285bc2337e7e0a\jetified-fragment-ktx-1.2.4\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-ui-ktx:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\f8d6f1357c6f4a160fab58af2358dcdd\navigation-ui-ktx-2.3.2\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-dynamic-features-runtime:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\19379752b38abe5bb5c1a8cc024d0b12\jetified-navigation-dynamic-features-runtime-2.3.2\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\728c12692a2c3f350cd769fb5fe462b6\navigation-runtime-ktx-2.3.2\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d7fabd68d89f814f8d8522d64f45c37a\navigation-common-ktx-2.3.2\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity-ktx:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\f64d16a298d96b3388ca6c8f1a60f2b8\jetified-activity-ktx-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core-ktx:1.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\f3399b55c70b1b3a703b8b9bae19e1ea\jetified-core-ktx-1.3.2\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.stetho:stetho-okhttp3:1.5.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\6814cd8989374684b22c352c606f1a66\jetified-stetho-okhttp3-1.5.1\AndroidManifest.xml:2:1-13:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\1cae746d066261247b422c0eb611f63e\jetified-lifecycle-viewmodel-ktx-2.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\6b9b3972249393dc030e58ab7861b36b\jetified-lifecycle-runtime-ktx-2.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\b6742dcaea0b8774b2e9840da017d1bc\jetified-lifecycle-livedata-ktx-2.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.room:room-ktx:2.2.6] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\1ed16ecf151893304fc3b379bf41febe\jetified-room-ktx-2.2.6\AndroidManifest.xml:17:1-24:12
+MERGED from [com.airbnb.android:lottie:3.6.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d65688723197047fedfed4e0e73ae3fb\jetified-lottie-3.6.0\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\aaf113796da7f05776defb4d402e0206\jetified-lifecycle-livedata-core-ktx-2.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.firebase:firebase-analytics-ktx:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2081ed2c7ad21c05cc085d79678a85fc\jetified-firebase-analytics-ktx-18.0.2\AndroidManifest.xml:2:1-17:12
+MERGED from [com.google.firebase:firebase-common-ktx:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\37d800a752b1fb8ae9f46f581fe79690\jetified-firebase-common-ktx-19.5.0\AndroidManifest.xml:2:1-21:12
+MERGED from [com.google.dagger:dagger-android-support:2.30.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\fba326da14d23583f19dac5b8c5705a0\jetified-dagger-android-support-2.30.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-ui:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\024eeb7614d36d9e3818cb755d0baadb\navigation-ui-2.3.2\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\e8f8ca123d86a3f16421ae821166102d\material-1.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2d6ea1a4fd31994f174b8e33f2bb6147\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\6df872d46face07bd03fc54ad7c5dc6c\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.dagger:dagger-android:2.30.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\bc1e70e461ca0b5692b7f199bb21c02f\jetified-dagger-android-2.30.1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-analytics:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\59c1f753538858292fb0fb364a1ff783\jetified-firebase-analytics-18.0.2\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\953082c7f095e04e8432765e14ee07f8\jetified-play-services-measurement-api-18.0.2\AndroidManifest.xml:17:1-36:12
+MERGED from [com.google.firebase:firebase-installations:16.3.5] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\b9b67b820f895ffb18deb4d0ddc86baf\jetified-firebase-installations-16.3.5\AndroidManifest.xml:2:1-24:12
+MERGED from [com.google.firebase:firebase-common:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\973040de78ae741bf15dfa8597e49fee\jetified-firebase-common-19.5.0\AndroidManifest.xml:15:1-49:12
+MERGED from [com.facebook.stetho:stetho:1.5.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d66699f84dcc4ea5ea7c19b193f457d4\jetified-stetho-1.5.1\AndroidManifest.xml:2:1-13:12
+MERGED from [com.jakewharton.timber:timber:4.7.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\ba5867454a746bbd2f1906ee5fc371b5\jetified-timber-4.7.1\AndroidManifest.xml:2:1-9:12
+MERGED from [com.intuit.sdp:sdp-android:1.0.6] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d0ef680b4404d950c41cb687d104c50c\jetified-sdp-android-1.0.6\AndroidManifest.xml:2:1-11:12
+MERGED from [com.intuit.ssp:ssp-android:1.0.6] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\e73c27656b0ccb4e8a31fecb3cf25222\jetified-ssp-android-1.0.6\AndroidManifest.xml:2:1-11:12
+MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\07cac4386f098fb81b754081ccb7683f\jetified-glide-4.11.0\AndroidManifest.xml:2:1-12:12
+MERGED from [com.facebook.shimmer:shimmer:0.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65b15fd4aca941a5f240bfca0f93c507\jetified-shimmer-0.5.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.recyclerview:recyclerview-selection:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\23a6e11459a84c38213dfac3c450f881\recyclerview-selection-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [ru.tinkoff.scrollingpagerindicator:scrollingpagerindicator:1.2.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\1b4d62a6b5c5e8db2c968b6bd5e70d82\jetified-scrollingpagerindicator-1.2.1\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.databinding:viewbinding:4.1.3] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\7c5b0679bbac2561bc4f2b663debfa1b\jetified-viewbinding-4.1.3\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\c49f452ead4c32c60c23c92589f52c42\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d2dd750684b9cec43aa9eab8312cdf64\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-fragment:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\b55c9564192dd364299409167986b570\navigation-fragment-2.3.2\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:17:1-46:12
+MERGED from [com.google.android.gms:play-services-measurement-sdk:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\dfdd6011286aaced1650cbb98eee12cf\jetified-play-services-measurement-sdk-18.0.2\AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.firebase:firebase-installations-interop:16.0.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\07b8b0bbde93027aa85127d41c5df222\jetified-firebase-installations-interop-16.0.1\AndroidManifest.xml:15:1-23:12
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\13d36d6da7ce757b189a3cf0c9f87e08\jetified-play-services-tasks-17.0.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d3194d3a6bdb66bd981ce642d9211308\jetified-play-services-measurement-impl-18.0.2\AndroidManifest.xml:17:1-31:12
+MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\e20c7a26cc425b0ec66a2a20546e7b32\jetified-play-services-ads-identifier-17.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2675e2827b1e3844dbdff3c5558f1c4e\jetified-play-services-measurement-sdk-api-18.0.2\AndroidManifest.xml:17:1-27:12
+MERGED from [com.google.android.gms:play-services-measurement-base:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\180f09172349828b2b0516d28a4048d5\jetified-play-services-measurement-base-18.0.2\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\12b12bfb7a6a9809aa1542ab0f70a5d9\jetified-play-services-stats-17.0.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\a5fc2f25a0ef629181e912d3c55e2a56\jetified-firebase-measurement-connector-18.0.0\AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\5da372b6e91f4622e43e312fc19f320d\jetified-play-services-basement-17.0.0\AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.fragment:fragment:1.2.5] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\c83b1ed82121119f503b4f1004f16c0a\fragment-1.2.5\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\fb66e836cfd714acd5eba7156c43f598\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d98f9b851c6cb2ef9bcdf2f9bebc8ade\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\9757c3e7263708ff2d74a2e00ddcf539\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\3a9bf8651aeaa559481f97f284d96d6a\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d5c3e00596ecb03c6b905cd4c86e9b7e\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\7655594dc43a838ec09135bf0f222255\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\19b300462276a757d54cd7dab1b8e6a4\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\32ef74863b704b8fa5b3b749f6086da0\navigation-runtime-2.3.2\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\9c5b0375c43a221b772e719be814bd66\jetified-activity-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\5dca9506dc87fd428353c22ac90f0c43\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\43dcad513124b165f64aaf53acfd7709\drawerlayout-1.1.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\9afda8d009def3b0386bea4e05b44d7f\customview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\62e2cc5b55063280dc2577e0c30c7c02\transition-1.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-common:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\f49cd191bd37877229744bb83032e313\navigation-common-2.3.2\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2324d9f87b82070f8dccc4f89cdd7b4d\core-1.3.2\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\5d2d6721d99aafcdd0ef78fca59672ac\lifecycle-runtime-2.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\84aa6926f5f409bd077e1b501caf3a16\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2b36bc9ed28cb4d808b31b3a01dcdc11\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\111ec1a1d1d37ec02724b50553840703\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\6d0be0d5d8e6f50bdd35ac7572a39e37\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\c6f36f23417a2c5bbad30c41f90d6d6a\lifecycle-viewmodel-2.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\bc39436ae8931c4e50500bdd720f62c5\jetified-gifdecoder-4.11.0\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\33c09b449f232773f4db897eaab1140c\exifinterface-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\140f7b3fe57da4ecdbe02ca956874453\room-runtime-2.2.6\AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.sqlite:sqlite-framework:2.0.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\9afcef7ad0937400c6368598a344e7a2\sqlite-framework-2.0.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.sqlite:sqlite:2.0.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\bc80edf718699fb0580bdcd6ea2dd32c\sqlite-2.0.1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-components:16.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\5e1028b0106c8d8f7bce9e97c1cda0b0\jetified-firebase-components-16.1.0\AndroidManifest.xml:15:1-23:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\21f75970238be19262031700bfa60927\lifecycle-livedata-2.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\77c4f2c81b585847353927b161f0093c\lifecycle-livedata-core-2.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\892cf70361595f029918f8bf1184de36\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\237d4b205fa0ba4b020840c231826a08\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\1ff7359e928932f2349736295b1b4493\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2f930efec8bc4b4b4ef8e7ad8faf7f62\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\69d63f1476d1b6259ea43dc85cafaa31\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\eacca76b5d5e3194be52f4b0e8746219\print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.dagger:dagger-lint-aar:2.30.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\1c361cf23a5aad41406162a04a7fa2ee\jetified-dagger-lint-aar-2.30.1\AndroidManifest.xml:16:1-19:12
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\15fb7c5df1af2e07540691624e3a8e35\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:2:1-19:12
+INJECTED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:2:1-50:12
+INJECTED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:2:1-50:12
+INJECTED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:2:1-50:12
+	package
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:3:5-38
+		INJECTED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:2:1-50:12
+		INJECTED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:2:1-50:12
+		INJECTED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:5:5-79
+MERGED from [:core] C:\Users\Embibe\AndroidStudioProjects\NewsApp\core\build\intermediates\library_manifest\release\AndroidManifest.xml:11:5-79
+MERGED from [:core] C:\Users\Embibe\AndroidStudioProjects\NewsApp\core\build\intermediates\library_manifest\release\AndroidManifest.xml:11:5-79
+MERGED from [com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\953082c7f095e04e8432765e14ee07f8\jetified-play-services-measurement-api-18.0.2\AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\953082c7f095e04e8432765e14ee07f8\jetified-play-services-measurement-api-18.0.2\AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-installations:16.3.5] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\b9b67b820f895ffb18deb4d0ddc86baf\jetified-firebase-installations-16.3.5\AndroidManifest.xml:10:5-79
+MERGED from [com.google.firebase:firebase-installations:16.3.5] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\b9b67b820f895ffb18deb4d0ddc86baf\jetified-firebase-installations-16.3.5\AndroidManifest.xml:10:5-79
+MERGED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d3194d3a6bdb66bd981ce642d9211308\jetified-play-services-measurement-impl-18.0.2\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d3194d3a6bdb66bd981ce642d9211308\jetified-play-services-measurement-impl-18.0.2\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2675e2827b1e3844dbdff3c5558f1c4e\jetified-play-services-measurement-sdk-api-18.0.2\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2675e2827b1e3844dbdff3c5558f1c4e\jetified-play-services-measurement-sdk-api-18.0.2\AndroidManifest.xml:24:5-79
+	android:name
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:5:22-76
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:6:5-67
+MERGED from [com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\953082c7f095e04e8432765e14ee07f8\jetified-play-services-measurement-api-18.0.2\AndroidManifest.xml:22:5-67
+MERGED from [com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\953082c7f095e04e8432765e14ee07f8\jetified-play-services-measurement-api-18.0.2\AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-installations:16.3.5] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\b9b67b820f895ffb18deb4d0ddc86baf\jetified-firebase-installations-16.3.5\AndroidManifest.xml:11:5-67
+MERGED from [com.google.firebase:firebase-installations:16.3.5] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\b9b67b820f895ffb18deb4d0ddc86baf\jetified-firebase-installations-16.3.5\AndroidManifest.xml:11:5-67
+MERGED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d3194d3a6bdb66bd981ce642d9211308\jetified-play-services-measurement-impl-18.0.2\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d3194d3a6bdb66bd981ce642d9211308\jetified-play-services-measurement-impl-18.0.2\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2675e2827b1e3844dbdff3c5558f1c4e\jetified-play-services-measurement-sdk-api-18.0.2\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2675e2827b1e3844dbdff3c5558f1c4e\jetified-play-services-measurement-sdk-api-18.0.2\AndroidManifest.xml:23:5-67
+	android:name
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:6:22-64
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:7:5-71
+	android:name
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:7:22-68
+uses-permission#android.permission.VIBRATE
+ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:8:5-66
+MERGED from [:saved] C:\Users\Embibe\AndroidStudioProjects\NewsApp\saved\build\intermediates\library_manifest\release\AndroidManifest.xml:11:5-66
+MERGED from [:saved] C:\Users\Embibe\AndroidStudioProjects\NewsApp\saved\build\intermediates\library_manifest\release\AndroidManifest.xml:11:5-66
+	android:name
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:8:22-63
+application
+ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:11:5-48:19
+MERGED from [com.facebook.stetho:stetho-okhttp3:1.5.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\6814cd8989374684b22c352c606f1a66\jetified-stetho-okhttp3-1.5.1\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.stetho:stetho-okhttp3:1.5.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\6814cd8989374684b22c352c606f1a66\jetified-stetho-okhttp3-1.5.1\AndroidManifest.xml:11:5-20
+MERGED from [com.airbnb.android:lottie:3.6.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d65688723197047fedfed4e0e73ae3fb\jetified-lottie-3.6.0\AndroidManifest.xml:9:5-20
+MERGED from [com.airbnb.android:lottie:3.6.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d65688723197047fedfed4e0e73ae3fb\jetified-lottie-3.6.0\AndroidManifest.xml:9:5-20
+MERGED from [com.google.firebase:firebase-analytics-ktx:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2081ed2c7ad21c05cc085d79678a85fc\jetified-firebase-analytics-ktx-18.0.2\AndroidManifest.xml:7:5-15:19
+MERGED from [com.google.firebase:firebase-analytics-ktx:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2081ed2c7ad21c05cc085d79678a85fc\jetified-firebase-analytics-ktx-18.0.2\AndroidManifest.xml:7:5-15:19
+MERGED from [com.google.firebase:firebase-common-ktx:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\37d800a752b1fb8ae9f46f581fe79690\jetified-firebase-common-ktx-19.5.0\AndroidManifest.xml:11:5-19:19
+MERGED from [com.google.firebase:firebase-common-ktx:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\37d800a752b1fb8ae9f46f581fe79690\jetified-firebase-common-ktx-19.5.0\AndroidManifest.xml:11:5-19:19
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\e8f8ca123d86a3f16421ae821166102d\material-1.3.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\e8f8ca123d86a3f16421ae821166102d\material-1.3.0\AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2d6ea1a4fd31994f174b8e33f2bb6147\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2d6ea1a4fd31994f174b8e33f2bb6147\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
+MERGED from [com.google.firebase:firebase-analytics:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\59c1f753538858292fb0fb364a1ff783\jetified-firebase-analytics-18.0.2\AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-analytics:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\59c1f753538858292fb0fb364a1ff783\jetified-firebase-analytics-18.0.2\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\953082c7f095e04e8432765e14ee07f8\jetified-play-services-measurement-api-18.0.2\AndroidManifest.xml:26:5-34:19
+MERGED from [com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\953082c7f095e04e8432765e14ee07f8\jetified-play-services-measurement-api-18.0.2\AndroidManifest.xml:26:5-34:19
+MERGED from [com.google.firebase:firebase-installations:16.3.5] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\b9b67b820f895ffb18deb4d0ddc86baf\jetified-firebase-installations-16.3.5\AndroidManifest.xml:14:5-22:19
+MERGED from [com.google.firebase:firebase-installations:16.3.5] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\b9b67b820f895ffb18deb4d0ddc86baf\jetified-firebase-installations-16.3.5\AndroidManifest.xml:14:5-22:19
+MERGED from [com.google.firebase:firebase-common:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\973040de78ae741bf15dfa8597e49fee\jetified-firebase-common-19.5.0\AndroidManifest.xml:25:5-47:19
+MERGED from [com.google.firebase:firebase-common:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\973040de78ae741bf15dfa8597e49fee\jetified-firebase-common-19.5.0\AndroidManifest.xml:25:5-47:19
+MERGED from [com.facebook.stetho:stetho:1.5.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d66699f84dcc4ea5ea7c19b193f457d4\jetified-stetho-1.5.1\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.stetho:stetho:1.5.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d66699f84dcc4ea5ea7c19b193f457d4\jetified-stetho-1.5.1\AndroidManifest.xml:11:5-20
+MERGED from [com.jakewharton.timber:timber:4.7.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\ba5867454a746bbd2f1906ee5fc371b5\jetified-timber-4.7.1\AndroidManifest.xml:7:5-20
+MERGED from [com.jakewharton.timber:timber:4.7.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\ba5867454a746bbd2f1906ee5fc371b5\jetified-timber-4.7.1\AndroidManifest.xml:7:5-20
+MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\07cac4386f098fb81b754081ccb7683f\jetified-glide-4.11.0\AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\07cac4386f098fb81b754081ccb7683f\jetified-glide-4.11.0\AndroidManifest.xml:10:5-20
+MERGED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:28:5-44:19
+MERGED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:28:5-44:19
+MERGED from [com.google.android.gms:play-services-measurement-sdk:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\dfdd6011286aaced1650cbb98eee12cf\jetified-play-services-measurement-sdk-18.0.2\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-measurement-sdk:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\dfdd6011286aaced1650cbb98eee12cf\jetified-play-services-measurement-sdk-18.0.2\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\13d36d6da7ce757b189a3cf0c9f87e08\jetified-play-services-tasks-17.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\13d36d6da7ce757b189a3cf0c9f87e08\jetified-play-services-tasks-17.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d3194d3a6bdb66bd981ce642d9211308\jetified-play-services-measurement-impl-18.0.2\AndroidManifest.xml:28:5-29:19
+MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d3194d3a6bdb66bd981ce642d9211308\jetified-play-services-measurement-impl-18.0.2\AndroidManifest.xml:28:5-29:19
+MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\e20c7a26cc425b0ec66a2a20546e7b32\jetified-play-services-ads-identifier-17.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\e20c7a26cc425b0ec66a2a20546e7b32\jetified-play-services-ads-identifier-17.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\180f09172349828b2b0516d28a4048d5\jetified-play-services-measurement-base-18.0.2\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\180f09172349828b2b0516d28a4048d5\jetified-play-services-measurement-base-18.0.2\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\12b12bfb7a6a9809aa1542ab0f70a5d9\jetified-play-services-stats-17.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\12b12bfb7a6a9809aa1542ab0f70a5d9\jetified-play-services-stats-17.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\a5fc2f25a0ef629181e912d3c55e2a56\jetified-firebase-measurement-connector-18.0.0\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\a5fc2f25a0ef629181e912d3c55e2a56\jetified-firebase-measurement-connector-18.0.0\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\5da372b6e91f4622e43e312fc19f320d\jetified-play-services-basement-17.0.0\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\5da372b6e91f4622e43e312fc19f320d\jetified-play-services-basement-17.0.0\AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.core:core:1.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2324d9f87b82070f8dccc4f89cdd7b4d\core-1.3.2\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2324d9f87b82070f8dccc4f89cdd7b4d\core-1.3.2\AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\84aa6926f5f409bd077e1b501caf3a16\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\84aa6926f5f409bd077e1b501caf3a16\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\bc39436ae8931c4e50500bdd720f62c5\jetified-gifdecoder-4.11.0\AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\bc39436ae8931c4e50500bdd720f62c5\jetified-gifdecoder-4.11.0\AndroidManifest.xml:9:5-20
+MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\140f7b3fe57da4ecdbe02ca956874453\room-runtime-2.2.6\AndroidManifest.xml:24:5-29:19
+MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\140f7b3fe57da4ecdbe02ca956874453\room-runtime-2.2.6\AndroidManifest.xml:24:5-29:19
+MERGED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:10:3-17:17
+MERGED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:10:3-17:17
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2324d9f87b82070f8dccc4f89cdd7b4d\core-1.3.2\AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:17:9-35
+	android:label
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:15:9-41
+	android:roundIcon
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:16:9-54
+	android:icon
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:14:9-43
+	android:allowBackup
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:13:9-35
+	android:theme
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:18:9-44
+	android:name
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:12:9-38
+activity#com.sagarock101.newsapp.ui.activities.MainActivity
+ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:19:9-26:20
+	android:screenOrientation
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:21:13-49
+	android:name
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:20:13-55
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:22:13-25:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:23:17-69
+	android:name
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:23:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:24:17-77
+	android:name
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:24:27-74
+activity#com.sagarock101.search.ui.activity.SearchActivity
+ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:27:9-29:52
+	android:screenOrientation
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:29:13-49
+	android:name
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:28:13-77
+activity#com.sagarock101.widget.WidgetItemDetailActivity
+ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:31:9-34:52
+	android:screenOrientation
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:34:13-49
+	android:excludeFromRecents
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:33:13-46
+	android:name
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:32:13-75
+service#com.sagarock101.widget.service.StackWidgetService
+ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:36:9-38:72
+	android:permission
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:38:13-69
+	android:name
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:37:13-77
+receiver#com.sagarock101.widget.MyAppWidgetProvider
+ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:40:9-47:20
+	android:name
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:40:19-76
+intent-filter#action:name:android.appwidget.action.APPWIDGET_UPDATE
+ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:41:13-43:29
+action#android.appwidget.action.APPWIDGET_UPDATE
+ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:42:17-84
+	android:name
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:42:25-81
+meta-data#android.appwidget.provider
+ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:44:13-46:61
+	android:resource
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:46:17-58
+	android:name
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml:45:17-58
+uses-sdk
+INJECTED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml
+MERGED from [:newsheadlines] C:\Users\Embibe\AndroidStudioProjects\NewsApp\newsheadlines\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:newsheadlines] C:\Users\Embibe\AndroidStudioProjects\NewsApp\newsheadlines\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:saved] C:\Users\Embibe\AndroidStudioProjects\NewsApp\saved\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:saved] C:\Users\Embibe\AndroidStudioProjects\NewsApp\saved\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:sources] C:\Users\Embibe\AndroidStudioProjects\NewsApp\sources\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:sources] C:\Users\Embibe\AndroidStudioProjects\NewsApp\sources\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:search] C:\Users\Embibe\AndroidStudioProjects\NewsApp\search\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:search] C:\Users\Embibe\AndroidStudioProjects\NewsApp\search\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:widget] C:\Users\Embibe\AndroidStudioProjects\NewsApp\widget\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:widget] C:\Users\Embibe\AndroidStudioProjects\NewsApp\widget\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:stylekit] C:\Users\Embibe\AndroidStudioProjects\NewsApp\stylekit\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:stylekit] C:\Users\Embibe\AndroidStudioProjects\NewsApp\stylekit\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:database] C:\Users\Embibe\AndroidStudioProjects\NewsApp\database\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:database] C:\Users\Embibe\AndroidStudioProjects\NewsApp\database\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:core] C:\Users\Embibe\AndroidStudioProjects\NewsApp\core\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:core] C:\Users\Embibe\AndroidStudioProjects\NewsApp\core\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:common] C:\Users\Embibe\AndroidStudioProjects\NewsApp\common\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:common] C:\Users\Embibe\AndroidStudioProjects\NewsApp\common\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.multidex:multidex:2.0.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\23ac361f8ec96dc6579e5ea5854e6870\multidex-2.0.1\AndroidManifest.xml:20:5-43
+MERGED from [androidx.multidex:multidex:2.0.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\23ac361f8ec96dc6579e5ea5854e6870\multidex-2.0.1\AndroidManifest.xml:20:5-43
+MERGED from [androidx.databinding:databinding-adapters:4.1.3] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\575e0ebd4408612f4bae70ecfda05507\databinding-adapters-4.1.3\AndroidManifest.xml:22:5-44
+MERGED from [androidx.databinding:databinding-adapters:4.1.3] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\575e0ebd4408612f4bae70ecfda05507\databinding-adapters-4.1.3\AndroidManifest.xml:22:5-44
+MERGED from [androidx.databinding:databinding-runtime:4.1.3] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\b59e6c10073a844e0eb348a0f378e642\databinding-runtime-4.1.3\AndroidManifest.xml:22:5-44
+MERGED from [androidx.databinding:databinding-runtime:4.1.3] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\b59e6c10073a844e0eb348a0f378e642\databinding-runtime-4.1.3\AndroidManifest.xml:22:5-44
+MERGED from [androidx.navigation:navigation-dynamic-features-fragment:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\4dd8684054ee71970a0aa39ee8c9a15b\jetified-navigation-dynamic-features-fragment-2.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-dynamic-features-fragment:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\4dd8684054ee71970a0aa39ee8c9a15b\jetified-navigation-dynamic-features-fragment-2.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\ec7699c2d7f75513d1811519e4fba0ab\navigation-fragment-ktx-2.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\ec7699c2d7f75513d1811519e4fba0ab\navigation-fragment-ktx-2.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.2.4] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\ac32767c90e5a71b94285bc2337e7e0a\jetified-fragment-ktx-1.2.4\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.2.4] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\ac32767c90e5a71b94285bc2337e7e0a\jetified-fragment-ktx-1.2.4\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui-ktx:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\f8d6f1357c6f4a160fab58af2358dcdd\navigation-ui-ktx-2.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui-ktx:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\f8d6f1357c6f4a160fab58af2358dcdd\navigation-ui-ktx-2.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-dynamic-features-runtime:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\19379752b38abe5bb5c1a8cc024d0b12\jetified-navigation-dynamic-features-runtime-2.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-dynamic-features-runtime:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\19379752b38abe5bb5c1a8cc024d0b12\jetified-navigation-dynamic-features-runtime-2.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\728c12692a2c3f350cd769fb5fe462b6\navigation-runtime-ktx-2.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\728c12692a2c3f350cd769fb5fe462b6\navigation-runtime-ktx-2.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common-ktx:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d7fabd68d89f814f8d8522d64f45c37a\navigation-common-ktx-2.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common-ktx:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d7fabd68d89f814f8d8522d64f45c37a\navigation-common-ktx-2.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\f64d16a298d96b3388ca6c8f1a60f2b8\jetified-activity-ktx-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\f64d16a298d96b3388ca6c8f1a60f2b8\jetified-activity-ktx-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core-ktx:1.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\f3399b55c70b1b3a703b8b9bae19e1ea\jetified-core-ktx-1.3.2\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.core:core-ktx:1.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\f3399b55c70b1b3a703b8b9bae19e1ea\jetified-core-ktx-1.3.2\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.stetho:stetho-okhttp3:1.5.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\6814cd8989374684b22c352c606f1a66\jetified-stetho-okhttp3-1.5.1\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.stetho:stetho-okhttp3:1.5.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\6814cd8989374684b22c352c606f1a66\jetified-stetho-okhttp3-1.5.1\AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\1cae746d066261247b422c0eb611f63e\jetified-lifecycle-viewmodel-ktx-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\1cae746d066261247b422c0eb611f63e\jetified-lifecycle-viewmodel-ktx-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\6b9b3972249393dc030e58ab7861b36b\jetified-lifecycle-runtime-ktx-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\6b9b3972249393dc030e58ab7861b36b\jetified-lifecycle-runtime-ktx-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\b6742dcaea0b8774b2e9840da017d1bc\jetified-lifecycle-livedata-ktx-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\b6742dcaea0b8774b2e9840da017d1bc\jetified-lifecycle-livedata-ktx-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.room:room-ktx:2.2.6] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\1ed16ecf151893304fc3b379bf41febe\jetified-room-ktx-2.2.6\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.room:room-ktx:2.2.6] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\1ed16ecf151893304fc3b379bf41febe\jetified-room-ktx-2.2.6\AndroidManifest.xml:20:5-22:41
+MERGED from [com.airbnb.android:lottie:3.6.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d65688723197047fedfed4e0e73ae3fb\jetified-lottie-3.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.airbnb.android:lottie:3.6.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d65688723197047fedfed4e0e73ae3fb\jetified-lottie-3.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\aaf113796da7f05776defb4d402e0206\jetified-lifecycle-livedata-core-ktx-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\aaf113796da7f05776defb4d402e0206\jetified-lifecycle-livedata-core-ktx-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-analytics-ktx:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2081ed2c7ad21c05cc085d79678a85fc\jetified-firebase-analytics-ktx-18.0.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-analytics-ktx:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2081ed2c7ad21c05cc085d79678a85fc\jetified-firebase-analytics-ktx-18.0.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common-ktx:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\37d800a752b1fb8ae9f46f581fe79690\jetified-firebase-common-ktx-19.5.0\AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.firebase:firebase-common-ktx:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\37d800a752b1fb8ae9f46f581fe79690\jetified-firebase-common-ktx-19.5.0\AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.dagger:dagger-android-support:2.30.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\fba326da14d23583f19dac5b8c5705a0\jetified-dagger-android-support-2.30.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.dagger:dagger-android-support:2.30.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\fba326da14d23583f19dac5b8c5705a0\jetified-dagger-android-support-2.30.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-ui:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\024eeb7614d36d9e3818cb755d0baadb\navigation-ui-2.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\024eeb7614d36d9e3818cb755d0baadb\navigation-ui-2.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\e8f8ca123d86a3f16421ae821166102d\material-1.3.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\e8f8ca123d86a3f16421ae821166102d\material-1.3.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2d6ea1a4fd31994f174b8e33f2bb6147\constraintlayout-2.0.4\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2d6ea1a4fd31994f174b8e33f2bb6147\constraintlayout-2.0.4\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\6df872d46face07bd03fc54ad7c5dc6c\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\6df872d46face07bd03fc54ad7c5dc6c\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.dagger:dagger-android:2.30.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\bc1e70e461ca0b5692b7f199bb21c02f\jetified-dagger-android-2.30.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.dagger:dagger-android:2.30.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\bc1e70e461ca0b5692b7f199bb21c02f\jetified-dagger-android-2.30.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\59c1f753538858292fb0fb364a1ff783\jetified-firebase-analytics-18.0.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-analytics:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\59c1f753538858292fb0fb364a1ff783\jetified-firebase-analytics-18.0.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\953082c7f095e04e8432765e14ee07f8\jetified-play-services-measurement-api-18.0.2\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\953082c7f095e04e8432765e14ee07f8\jetified-play-services-measurement-api-18.0.2\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-installations:16.3.5] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\b9b67b820f895ffb18deb4d0ddc86baf\jetified-firebase-installations-16.3.5\AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.firebase:firebase-installations:16.3.5] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\b9b67b820f895ffb18deb4d0ddc86baf\jetified-firebase-installations-16.3.5\AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.firebase:firebase-common:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\973040de78ae741bf15dfa8597e49fee\jetified-firebase-common-19.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-common:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\973040de78ae741bf15dfa8597e49fee\jetified-firebase-common-19.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.facebook.stetho:stetho:1.5.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d66699f84dcc4ea5ea7c19b193f457d4\jetified-stetho-1.5.1\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.stetho:stetho:1.5.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d66699f84dcc4ea5ea7c19b193f457d4\jetified-stetho-1.5.1\AndroidManifest.xml:7:5-9:41
+MERGED from [com.jakewharton.timber:timber:4.7.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\ba5867454a746bbd2f1906ee5fc371b5\jetified-timber-4.7.1\AndroidManifest.xml:5:5-43
+MERGED from [com.jakewharton.timber:timber:4.7.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\ba5867454a746bbd2f1906ee5fc371b5\jetified-timber-4.7.1\AndroidManifest.xml:5:5-43
+MERGED from [com.intuit.sdp:sdp-android:1.0.6] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d0ef680b4404d950c41cb687d104c50c\jetified-sdp-android-1.0.6\AndroidManifest.xml:7:5-9:41
+MERGED from [com.intuit.sdp:sdp-android:1.0.6] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d0ef680b4404d950c41cb687d104c50c\jetified-sdp-android-1.0.6\AndroidManifest.xml:7:5-9:41
+MERGED from [com.intuit.ssp:ssp-android:1.0.6] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\e73c27656b0ccb4e8a31fecb3cf25222\jetified-ssp-android-1.0.6\AndroidManifest.xml:7:5-9:41
+MERGED from [com.intuit.ssp:ssp-android:1.0.6] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\e73c27656b0ccb4e8a31fecb3cf25222\jetified-ssp-android-1.0.6\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\07cac4386f098fb81b754081ccb7683f\jetified-glide-4.11.0\AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\07cac4386f098fb81b754081ccb7683f\jetified-glide-4.11.0\AndroidManifest.xml:6:5-8:41
+MERGED from [com.facebook.shimmer:shimmer:0.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65b15fd4aca941a5f240bfca0f93c507\jetified-shimmer-0.5.0\AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.shimmer:shimmer:0.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65b15fd4aca941a5f240bfca0f93c507\jetified-shimmer-0.5.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.recyclerview:recyclerview-selection:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\23a6e11459a84c38213dfac3c450f881\recyclerview-selection-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview-selection:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\23a6e11459a84c38213dfac3c450f881\recyclerview-selection-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [ru.tinkoff.scrollingpagerindicator:scrollingpagerindicator:1.2.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\1b4d62a6b5c5e8db2c968b6bd5e70d82\jetified-scrollingpagerindicator-1.2.1\AndroidManifest.xml:5:5-7:41
+MERGED from [ru.tinkoff.scrollingpagerindicator:scrollingpagerindicator:1.2.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\1b4d62a6b5c5e8db2c968b6bd5e70d82\jetified-scrollingpagerindicator-1.2.1\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.databinding:viewbinding:4.1.3] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\7c5b0679bbac2561bc4f2b663debfa1b\jetified-viewbinding-4.1.3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.databinding:viewbinding:4.1.3] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\7c5b0679bbac2561bc4f2b663debfa1b\jetified-viewbinding-4.1.3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\c49f452ead4c32c60c23c92589f52c42\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\c49f452ead4c32c60c23c92589f52c42\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d2dd750684b9cec43aa9eab8312cdf64\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d2dd750684b9cec43aa9eab8312cdf64\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\b55c9564192dd364299409167986b570\navigation-fragment-2.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\b55c9564192dd364299409167986b570\navigation-fragment-2.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\dfdd6011286aaced1650cbb98eee12cf\jetified-play-services-measurement-sdk-18.0.2\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\dfdd6011286aaced1650cbb98eee12cf\jetified-play-services-measurement-sdk-18.0.2\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-installations-interop:16.0.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\07b8b0bbde93027aa85127d41c5df222\jetified-firebase-installations-interop-16.0.1\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-installations-interop:16.0.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\07b8b0bbde93027aa85127d41c5df222\jetified-firebase-installations-interop-16.0.1\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\13d36d6da7ce757b189a3cf0c9f87e08\jetified-play-services-tasks-17.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\13d36d6da7ce757b189a3cf0c9f87e08\jetified-play-services-tasks-17.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d3194d3a6bdb66bd981ce642d9211308\jetified-play-services-measurement-impl-18.0.2\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d3194d3a6bdb66bd981ce642d9211308\jetified-play-services-measurement-impl-18.0.2\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\e20c7a26cc425b0ec66a2a20546e7b32\jetified-play-services-ads-identifier-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\e20c7a26cc425b0ec66a2a20546e7b32\jetified-play-services-ads-identifier-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2675e2827b1e3844dbdff3c5558f1c4e\jetified-play-services-measurement-sdk-api-18.0.2\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2675e2827b1e3844dbdff3c5558f1c4e\jetified-play-services-measurement-sdk-api-18.0.2\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\180f09172349828b2b0516d28a4048d5\jetified-play-services-measurement-base-18.0.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\180f09172349828b2b0516d28a4048d5\jetified-play-services-measurement-base-18.0.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\12b12bfb7a6a9809aa1542ab0f70a5d9\jetified-play-services-stats-17.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\12b12bfb7a6a9809aa1542ab0f70a5d9\jetified-play-services-stats-17.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\a5fc2f25a0ef629181e912d3c55e2a56\jetified-firebase-measurement-connector-18.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\a5fc2f25a0ef629181e912d3c55e2a56\jetified-firebase-measurement-connector-18.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\5da372b6e91f4622e43e312fc19f320d\jetified-play-services-basement-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\5da372b6e91f4622e43e312fc19f320d\jetified-play-services-basement-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.2.5] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\c83b1ed82121119f503b4f1004f16c0a\fragment-1.2.5\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.5] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\c83b1ed82121119f503b4f1004f16c0a\fragment-1.2.5\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\fb66e836cfd714acd5eba7156c43f598\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\fb66e836cfd714acd5eba7156c43f598\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d98f9b851c6cb2ef9bcdf2f9bebc8ade\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d98f9b851c6cb2ef9bcdf2f9bebc8ade\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\9757c3e7263708ff2d74a2e00ddcf539\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\9757c3e7263708ff2d74a2e00ddcf539\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\3a9bf8651aeaa559481f97f284d96d6a\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\3a9bf8651aeaa559481f97f284d96d6a\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d5c3e00596ecb03c6b905cd4c86e9b7e\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d5c3e00596ecb03c6b905cd4c86e9b7e\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\7655594dc43a838ec09135bf0f222255\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\7655594dc43a838ec09135bf0f222255\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\19b300462276a757d54cd7dab1b8e6a4\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\19b300462276a757d54cd7dab1b8e6a4\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\32ef74863b704b8fa5b3b749f6086da0\navigation-runtime-2.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\32ef74863b704b8fa5b3b749f6086da0\navigation-runtime-2.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\9c5b0375c43a221b772e719be814bd66\jetified-activity-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\9c5b0375c43a221b772e719be814bd66\jetified-activity-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\5dca9506dc87fd428353c22ac90f0c43\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\5dca9506dc87fd428353c22ac90f0c43\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\43dcad513124b165f64aaf53acfd7709\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\43dcad513124b165f64aaf53acfd7709\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\9afda8d009def3b0386bea4e05b44d7f\customview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\9afda8d009def3b0386bea4e05b44d7f\customview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\62e2cc5b55063280dc2577e0c30c7c02\transition-1.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\62e2cc5b55063280dc2577e0c30c7c02\transition-1.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\f49cd191bd37877229744bb83032e313\navigation-common-2.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common:2.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\f49cd191bd37877229744bb83032e313\navigation-common-2.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2324d9f87b82070f8dccc4f89cdd7b4d\core-1.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2324d9f87b82070f8dccc4f89cdd7b4d\core-1.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\5d2d6721d99aafcdd0ef78fca59672ac\lifecycle-runtime-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\5d2d6721d99aafcdd0ef78fca59672ac\lifecycle-runtime-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\84aa6926f5f409bd077e1b501caf3a16\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\84aa6926f5f409bd077e1b501caf3a16\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2b36bc9ed28cb4d808b31b3a01dcdc11\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2b36bc9ed28cb4d808b31b3a01dcdc11\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\111ec1a1d1d37ec02724b50553840703\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\111ec1a1d1d37ec02724b50553840703\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\6d0be0d5d8e6f50bdd35ac7572a39e37\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\6d0be0d5d8e6f50bdd35ac7572a39e37\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\c6f36f23417a2c5bbad30c41f90d6d6a\lifecycle-viewmodel-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\c6f36f23417a2c5bbad30c41f90d6d6a\lifecycle-viewmodel-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\bc39436ae8931c4e50500bdd720f62c5\jetified-gifdecoder-4.11.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\bc39436ae8931c4e50500bdd720f62c5\jetified-gifdecoder-4.11.0\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\33c09b449f232773f4db897eaab1140c\exifinterface-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\33c09b449f232773f4db897eaab1140c\exifinterface-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\140f7b3fe57da4ecdbe02ca956874453\room-runtime-2.2.6\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\140f7b3fe57da4ecdbe02ca956874453\room-runtime-2.2.6\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite-framework:2.0.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\9afcef7ad0937400c6368598a344e7a2\sqlite-framework-2.0.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-framework:2.0.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\9afcef7ad0937400c6368598a344e7a2\sqlite-framework-2.0.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite:2.0.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\bc80edf718699fb0580bdcd6ea2dd32c\sqlite-2.0.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite:2.0.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\bc80edf718699fb0580bdcd6ea2dd32c\sqlite-2.0.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-components:16.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\5e1028b0106c8d8f7bce9e97c1cda0b0\jetified-firebase-components-16.1.0\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-components:16.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\5e1028b0106c8d8f7bce9e97c1cda0b0\jetified-firebase-components-16.1.0\AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\21f75970238be19262031700bfa60927\lifecycle-livedata-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\21f75970238be19262031700bfa60927\lifecycle-livedata-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\77c4f2c81b585847353927b161f0093c\lifecycle-livedata-core-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\77c4f2c81b585847353927b161f0093c\lifecycle-livedata-core-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\892cf70361595f029918f8bf1184de36\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\892cf70361595f029918f8bf1184de36\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\237d4b205fa0ba4b020840c231826a08\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\237d4b205fa0ba4b020840c231826a08\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\1ff7359e928932f2349736295b1b4493\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\1ff7359e928932f2349736295b1b4493\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2f930efec8bc4b4b4ef8e7ad8faf7f62\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2f930efec8bc4b4b4ef8e7ad8faf7f62\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\69d63f1476d1b6259ea43dc85cafaa31\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\69d63f1476d1b6259ea43dc85cafaa31\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\eacca76b5d5e3194be52f4b0e8746219\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\eacca76b5d5e3194be52f4b0e8746219\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.dagger:dagger-lint-aar:2.30.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\1c361cf23a5aad41406162a04a7fa2ee\jetified-dagger-lint-aar-2.30.1\AndroidManifest.xml:18:3-42
+MERGED from [com.google.dagger:dagger-lint-aar:2.30.1] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\1c361cf23a5aad41406162a04a7fa2ee\jetified-dagger-lint-aar-2.30.1\AndroidManifest.xml:18:3-42
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\15fb7c5df1af2e07540691624e3a8e35\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\15fb7c5df1af2e07540691624e3a8e35\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:4:3-70
+MERGED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:4:3-70
+INJECTED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\AndroidManifest.xml
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from [com.google.firebase:firebase-analytics-ktx:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2081ed2c7ad21c05cc085d79678a85fc\jetified-firebase-analytics-ktx-18.0.2\AndroidManifest.xml:8:9-14:19
+MERGED from [com.google.firebase:firebase-common-ktx:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\37d800a752b1fb8ae9f46f581fe79690\jetified-firebase-common-ktx-19.5.0\AndroidManifest.xml:12:9-18:19
+MERGED from [com.google.firebase:firebase-common-ktx:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\37d800a752b1fb8ae9f46f581fe79690\jetified-firebase-common-ktx-19.5.0\AndroidManifest.xml:12:9-18:19
+MERGED from [com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\953082c7f095e04e8432765e14ee07f8\jetified-play-services-measurement-api-18.0.2\AndroidManifest.xml:27:9-33:19
+MERGED from [com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\953082c7f095e04e8432765e14ee07f8\jetified-play-services-measurement-api-18.0.2\AndroidManifest.xml:27:9-33:19
+MERGED from [com.google.firebase:firebase-installations:16.3.5] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\b9b67b820f895ffb18deb4d0ddc86baf\jetified-firebase-installations-16.3.5\AndroidManifest.xml:15:9-21:19
+MERGED from [com.google.firebase:firebase-installations:16.3.5] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\b9b67b820f895ffb18deb4d0ddc86baf\jetified-firebase-installations-16.3.5\AndroidManifest.xml:15:9-21:19
+MERGED from [com.google.firebase:firebase-common:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\973040de78ae741bf15dfa8597e49fee\jetified-firebase-common-19.5.0\AndroidManifest.xml:33:9-46:19
+MERGED from [com.google.firebase:firebase-common:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\973040de78ae741bf15dfa8597e49fee\jetified-firebase-common-19.5.0\AndroidManifest.xml:33:9-46:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics-ktx:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2081ed2c7ad21c05cc085d79678a85fc\jetified-firebase-analytics-ktx-18.0.2\AndroidManifest.xml:10:13-37
+	tools:targetApi
+		ADDED from [com.google.firebase:firebase-common:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\973040de78ae741bf15dfa8597e49fee\jetified-firebase-common-19.5.0\AndroidManifest.xml:37:13-32
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\973040de78ae741bf15dfa8597e49fee\jetified-firebase-common-19.5.0\AndroidManifest.xml:35:13-43
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics-ktx:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2081ed2c7ad21c05cc085d79678a85fc\jetified-firebase-analytics-ktx-18.0.2\AndroidManifest.xml:9:13-84
+meta-data#com.google.firebase.components:com.google.firebase.analytics.ktx.FirebaseAnalyticsKtxRegistrar
+ADDED from [com.google.firebase:firebase-analytics-ktx:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2081ed2c7ad21c05cc085d79678a85fc\jetified-firebase-analytics-ktx-18.0.2\AndroidManifest.xml:11:13-13:85
+	android:value
+		ADDED from [com.google.firebase:firebase-analytics-ktx:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2081ed2c7ad21c05cc085d79678a85fc\jetified-firebase-analytics-ktx-18.0.2\AndroidManifest.xml:13:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics-ktx:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2081ed2c7ad21c05cc085d79678a85fc\jetified-firebase-analytics-ktx-18.0.2\AndroidManifest.xml:12:17-126
+meta-data#com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar
+ADDED from [com.google.firebase:firebase-common-ktx:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\37d800a752b1fb8ae9f46f581fe79690\jetified-firebase-common-ktx-19.5.0\AndroidManifest.xml:15:13-17:85
+	android:value
+		ADDED from [com.google.firebase:firebase-common-ktx:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\37d800a752b1fb8ae9f46f581fe79690\jetified-firebase-common-ktx-19.5.0\AndroidManifest.xml:17:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-common-ktx:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\37d800a752b1fb8ae9f46f581fe79690\jetified-firebase-common-ktx-19.5.0\AndroidManifest.xml:16:17-113
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\953082c7f095e04e8432765e14ee07f8\jetified-play-services-measurement-api-18.0.2\AndroidManifest.xml:24:5-68
+MERGED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d3194d3a6bdb66bd981ce642d9211308\jetified-play-services-measurement-impl-18.0.2\AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d3194d3a6bdb66bd981ce642d9211308\jetified-play-services-measurement-impl-18.0.2\AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2675e2827b1e3844dbdff3c5558f1c4e\jetified-play-services-measurement-sdk-api-18.0.2\AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\2675e2827b1e3844dbdff3c5558f1c4e\jetified-play-services-measurement-sdk-api-18.0.2\AndroidManifest.xml:25:5-68
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\953082c7f095e04e8432765e14ee07f8\jetified-play-services-measurement-api-18.0.2\AndroidManifest.xml:24:22-65
+meta-data#com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar
+ADDED from [com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\953082c7f095e04e8432765e14ee07f8\jetified-play-services-measurement-api-18.0.2\AndroidManifest.xml:30:13-32:85
+	android:value
+		ADDED from [com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\953082c7f095e04e8432765e14ee07f8\jetified-play-services-measurement-api-18.0.2\AndroidManifest.xml:32:17-82
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement-api:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\953082c7f095e04e8432765e14ee07f8\jetified-play-services-measurement-api-18.0.2\AndroidManifest.xml:31:17-139
+meta-data#com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar
+ADDED from [com.google.firebase:firebase-installations:16.3.5] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\b9b67b820f895ffb18deb4d0ddc86baf\jetified-firebase-installations-16.3.5\AndroidManifest.xml:18:13-20:85
+	android:value
+		ADDED from [com.google.firebase:firebase-installations:16.3.5] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\b9b67b820f895ffb18deb4d0ddc86baf\jetified-firebase-installations-16.3.5\AndroidManifest.xml:20:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-installations:16.3.5] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\b9b67b820f895ffb18deb4d0ddc86baf\jetified-firebase-installations-16.3.5\AndroidManifest.xml:19:17-127
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\973040de78ae741bf15dfa8597e49fee\jetified-firebase-common-19.5.0\AndroidManifest.xml:26:9-31:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\973040de78ae741bf15dfa8597e49fee\jetified-firebase-common-19.5.0\AndroidManifest.xml:28:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\973040de78ae741bf15dfa8597e49fee\jetified-firebase-common-19.5.0\AndroidManifest.xml:30:13-37
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\973040de78ae741bf15dfa8597e49fee\jetified-firebase-common-19.5.0\AndroidManifest.xml:29:13-43
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\973040de78ae741bf15dfa8597e49fee\jetified-firebase-common-19.5.0\AndroidManifest.xml:31:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\973040de78ae741bf15dfa8597e49fee\jetified-firebase-common-19.5.0\AndroidManifest.xml:27:13-77
+meta-data#com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar
+ADDED from [com.google.firebase:firebase-common:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\973040de78ae741bf15dfa8597e49fee\jetified-firebase-common-19.5.0\AndroidManifest.xml:43:13-45:85
+	android:value
+		ADDED from [com.google.firebase:firebase-common:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\973040de78ae741bf15dfa8597e49fee\jetified-firebase-common-19.5.0\AndroidManifest.xml:45:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-common:19.5.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\973040de78ae741bf15dfa8597e49fee\jetified-firebase-common-19.5.0\AndroidManifest.xml:44:17-121
+uses-permission#com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
+ADDED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:26:5-110
+MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d3194d3a6bdb66bd981ce642d9211308\jetified-play-services-measurement-impl-18.0.2\AndroidManifest.xml:26:5-110
+MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\d3194d3a6bdb66bd981ce642d9211308\jetified-play-services-measurement-impl-18.0.2\AndroidManifest.xml:26:5-110
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:26:22-107
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:29:9-33:20
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:31:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:30:13-85
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:35:9-38:40
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:38:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:36:13-84
+service#com.google.android.gms.measurement.AppMeasurementJobService
+ADDED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:39:9-43:72
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:41:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:42:13-37
+	android:permission
+		ADDED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:43:13-69
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:18.0.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\65f40cd67e7f7544faf921f472a063fb\jetified-play-services-measurement-18.0.2\AndroidManifest.xml:40:13-87
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\5da372b6e91f4622e43e312fc19f320d\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\5da372b6e91f4622e43e312fc19f320d\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\5da372b6e91f4622e43e312fc19f320d\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+service#androidx.room.MultiInstanceInvalidationService
+ADDED from [androidx.room:room-runtime:2.2.6] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\140f7b3fe57da4ecdbe02ca956874453\room-runtime-2.2.6\AndroidManifest.xml:25:9-28:40
+	android:exported
+		ADDED from [androidx.room:room-runtime:2.2.6] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\140f7b3fe57da4ecdbe02ca956874453\room-runtime-2.2.6\AndroidManifest.xml:28:13-37
+	android:directBootAware
+		ADDED from [androidx.room:room-runtime:2.2.6] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\140f7b3fe57da4ecdbe02ca956874453\room-runtime-2.2.6\AndroidManifest.xml:27:13-43
+	android:name
+		ADDED from [androidx.room:room-runtime:2.2.6] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\140f7b3fe57da4ecdbe02ca956874453\room-runtime-2.2.6\AndroidManifest.xml:26:13-74
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:8:3-74
+	android:name
+		ADDED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:8:20-72
+activity#com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity
+ADDED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:12:5-271
+	android:process
+		ADDED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:12:152-203
+	android:enabled
+		ADDED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:12:103-126
+	android:stateNotNeeded
+		ADDED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:12:240-269
+	android:launchMode
+		ADDED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:12:204-239
+	android:exported
+		ADDED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:12:127-151
+	android:name
+		ADDED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:12:15-102
+activity#com.google.android.play.core.common.PlayCoreDialogWrapperActivity
+ADDED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:13:5-226
+	android:enabled
+		ADDED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:13:96-119
+	android:stateNotNeeded
+		ADDED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:13:145-174
+	android:exported
+		ADDED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:13:120-144
+	android:theme
+		ADDED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:13:175-224
+	android:name
+		ADDED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:13:15-95
+service#com.google.android.play.core.assetpacks.AssetPackExtractionService
+ADDED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:16:5-145
+	android:enabled
+		ADDED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:16:96-119
+	android:exported
+		ADDED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:16:120-143
+	android:name
+		ADDED from [com.google.android.play:core:1.7.2] C:\Users\Embibe\.gradle\caches\transforms-2\files-2.1\8b4782048e2daf062fbee5a84e621a23\jetified-core-1.7.2\AndroidManifest.xml:16:14-95

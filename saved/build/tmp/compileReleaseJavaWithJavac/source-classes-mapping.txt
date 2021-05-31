@@ -1,0 +1,50 @@
+com/sagarock101/saved/viewmodel/SavedNewsViewModel_Factory.java
+ com.sagarock101.saved.viewmodel.SavedNewsViewModel_Factory
+com/sagarock101/saved/ui/fragment/SavedNewsDetailFragment_MembersInjector.java
+ com.sagarock101.saved.ui.fragment.SavedNewsDetailFragment_MembersInjector
+com/sagarock101/saved/ui/fragment/SavedFragment_MembersInjector.java
+ com.sagarock101.saved.ui.fragment.SavedFragment_MembersInjector
+com/sagarock101/saved/BuildConfig.java
+ com.sagarock101.saved.BuildConfig
+com/sagarock101/common/BR.java
+ com.sagarock101.common.BR
+com/sagarock101/saved/viewmodel/SavedNewsViewModel_MembersInjector.java
+ com.sagarock101.saved.viewmodel.SavedNewsViewModel_MembersInjector
+androidx/databinding/library/baseAdapters/BR.java
+ androidx.databinding.library.baseAdapters.BR
+com/sagarock101/widget/BR.java
+ com.sagarock101.widget.BR
+com/sagarock101/saved/databinding/FragmentSavedBinding.java
+ com.sagarock101.saved.databinding.FragmentSavedBinding
+com/sagarock101/saved/databinding/FragmentSavedNewsDetailBinding.java
+ com.sagarock101.saved.databinding.FragmentSavedNewsDetailBinding
+com/sagarock101/saved/databinding/FragmentSavedBindingImpl.java
+ com.sagarock101.saved.databinding.FragmentSavedBindingImpl
+com/sagarock101/core/BR.java
+ com.sagarock101.core.BR
+com/sagarock101/stylekit/BR.java
+ com.sagarock101.stylekit.BR
+com/sagarock101/saved/databinding/ItemSavedBindingImpl.java
+ com.sagarock101.saved.databinding.ItemSavedBindingImpl
+com/sagarock101/saved/DataBindingTriggerClass.java
+ com.sagarock101.saved.DataBindingTriggerClass
+com/sagarock101/saved/DataBinderMapperImpl.java
+ com.sagarock101.saved.DataBinderMapperImpl
+ com.sagarock101.saved.DataBinderMapperImpl$InnerBrLookup
+ com.sagarock101.saved.DataBinderMapperImpl$InnerLayoutIdLookup
+com/sagarock101/saved/di/SavedFragmentsBuildersModule_ContributeSavedFragment.java
+ com.sagarock101.saved.di.SavedFragmentsBuildersModule_ContributeSavedFragment
+ com.sagarock101.saved.di.SavedFragmentsBuildersModule_ContributeSavedFragment$SavedFragmentSubcomponent
+ com.sagarock101.saved.di.SavedFragmentsBuildersModule_ContributeSavedFragment$SavedFragmentSubcomponent$Factory
+com/sagarock101/saved/di/SavedFragmentsBuildersModule_ContributeSavedNewsDetailFragment.java
+ com.sagarock101.saved.di.SavedFragmentsBuildersModule_ContributeSavedNewsDetailFragment
+ com.sagarock101.saved.di.SavedFragmentsBuildersModule_ContributeSavedNewsDetailFragment$SavedNewsDetailFragmentSubcomponent
+ com.sagarock101.saved.di.SavedFragmentsBuildersModule_ContributeSavedNewsDetailFragment$SavedNewsDetailFragmentSubcomponent$Factory
+com/sagarock101/saved/BR.java
+ com.sagarock101.saved.BR
+com/sagarock101/saved/databinding/ItemSavedBinding.java
+ com.sagarock101.saved.databinding.ItemSavedBinding
+com/sagarock101/saved/databinding/FragmentSavedNewsDetailBindingImpl.java
+ com.sagarock101.saved.databinding.FragmentSavedNewsDetailBindingImpl
+androidx/databinding/DataBindingComponent.java
+ androidx.databinding.DataBindingComponent

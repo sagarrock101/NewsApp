@@ -1,0 +1,40 @@
+com/sagarock101/core/view/BaseViewModelActivity_MembersInjector.java
+ com.sagarock101.core.view.BaseViewModelActivity_MembersInjector
+com/sagarock101/core/DataBindingTriggerClass.java
+ com.sagarock101.core.DataBindingTriggerClass
+com/sagarock101/core/di/CoreDataModule_ProvideGsonConverterFactoryFactory.java
+ com.sagarock101.core.di.CoreDataModule_ProvideGsonConverterFactoryFactory
+com/sagarock101/core/di/ViewModelFactory_Factory.java
+ com.sagarock101.core.di.ViewModelFactory_Factory
+com/sagarock101/core/di/CoreDataModule_ProvideRetrofitFactory.java
+ com.sagarock101.core.di.CoreDataModule_ProvideRetrofitFactory
+com/sagarock101/common/BR.java
+ com.sagarock101.common.BR
+com/sagarock101/core/di/CoreDataModule_ProvideTheGuardianApiInterceptorFactory.java
+ com.sagarock101.core.di.CoreDataModule_ProvideTheGuardianApiInterceptorFactory
+androidx/databinding/library/baseAdapters/BR.java
+ androidx.databinding.library.baseAdapters.BR
+com/sagarock101/core/BR.java
+ com.sagarock101.core.BR
+com/sagarock101/core/di/CoreDataModule_ProvideApiInterceptorFactory.java
+ com.sagarock101.core.di.CoreDataModule_ProvideApiInterceptorFactory
+com/sagarock101/core/utils/CirclePagerIndicatorDecoration.java
+ com.sagarock101.core.utils.CirclePagerIndicatorDecoration
+com/sagarock101/core/DataBinderMapperImpl.java
+ com.sagarock101.core.DataBinderMapperImpl
+ com.sagarock101.core.DataBinderMapperImpl$InnerBrLookup
+ com.sagarock101.core.DataBinderMapperImpl$InnerLayoutIdLookup
+com/sagarock101/core/di/CoreDataModule_ProvideOkhttpClientFactory.java
+ com.sagarock101.core.di.CoreDataModule_ProvideOkhttpClientFactory
+com/sagarock101/core/di/CoreDataModule_ProvidePreferenceHelperFactory.java
+ com.sagarock101.core.di.CoreDataModule_ProvidePreferenceHelperFactory
+com/sagarock101/core/BuildConfig.java
+ com.sagarock101.core.BuildConfig
+com/sagarock101/core/di/CoreDataModule_ProvideOkHttpClientForGuardianApiFactory.java
+ com.sagarock101.core.di.CoreDataModule_ProvideOkHttpClientForGuardianApiFactory
+androidx/databinding/DataBindingComponent.java
+ androidx.databinding.DataBindingComponent
+com/sagarock101/core/di/CoreDataModule_ProvideGsonFactory.java
+ com.sagarock101.core.di.CoreDataModule_ProvideGsonFactory
+com/sagarock101/core/di/CoreDataModule_ProvideRetrofitForGuardianApiFactory.java
+ com.sagarock101.core.di.CoreDataModule_ProvideRetrofitForGuardianApiFactory

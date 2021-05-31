@@ -1,0 +1,105 @@
+
+                                                        
+
+    
+
+           
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         android:tag="layout/fragment_dialog_theme_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <ImageView
+            android:id="@+id/iv_foreground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black_dull"
+            android:alpha="0.5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <ImageView
+            android:id="@+id/iv_holder"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_130sdp"
+            android:layout_margin="@dimen/_8sdp"
+            android:background="@drawable/white_bg_rounded"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/tv_choose_theme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/choose_theme"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="?attr/textColor"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/rg_themes"
+            app:layout_constraintEnd_toEndOf="@id/iv_holder"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/iv_holder"
+            app:layout_constraintTop_toTopOf="@id/iv_holder"
+            app:layout_constraintVertical_bias="0.45" />
+
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_margin="@dimen/_4sdp"
+            android:background="?attr/btmIconAndTextColor"
+            app:layout_constraintBottom_toTopOf="@+id/rg_themes"
+            app:layout_constraintEnd_toEndOf="@id/iv_holder"
+            app:layout_constraintStart_toStartOf="@id/iv_holder"
+            app:layout_constraintTop_toBottomOf="@id/tv_choose_theme"
+            app:layout_constraintVertical_bias="0.52" />
+
+        <RadioGroup
+            android:id="@+id/rg_themes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_holder"
+            app:layout_constraintEnd_toEndOf="@id/iv_holder"
+            app:layout_constraintStart_toStartOf="@id/iv_holder"
+            app:layout_constraintTop_toTopOf="@id/iv_holder"
+            app:layout_constraintVertical_bias="0.74">
+
+            <RadioButton
+                android:id="@+id/rb_light_theme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:buttonTint="?attr/btmIconAndTextColor"
+                android:text="@string/light_theme"
+                android:textAlignment="textStart"
+                android:textColor="?attr/textColor"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/rb_dartk_theme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:buttonTint="?attr/btmIconAndTextColor"
+                android:text="@string/dark_theme"
+                android:textAlignment="textStart"
+                android:textColor="?attr/textColor"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+         

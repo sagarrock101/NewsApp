@@ -1,0 +1,6 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color colorDarkPrimary
+id base_progress_bar
+layout activity_base

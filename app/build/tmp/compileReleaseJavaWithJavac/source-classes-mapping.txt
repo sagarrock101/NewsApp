@@ -1,0 +1,101 @@
+com/sagarock101/newsapp/databinding/FragmentBtmNavBindingImpl.java
+ com.sagarock101.newsapp.databinding.FragmentBtmNavBindingImpl
+com/sagarock101/newsapp/BR.java
+ com.sagarock101.newsapp.BR
+androidx/databinding/DataBinderMapperImpl.java
+ androidx.databinding.DataBinderMapperImpl
+com/sagarock101/newsheadlines/BR.java
+ com.sagarock101.newsheadlines.BR
+com/sagarock101/common/BR.java
+ com.sagarock101.common.BR
+com/sagarock101/newsapp/MyApplication_MembersInjector.java
+ com.sagarock101.newsapp.MyApplication_MembersInjector
+androidx/databinding/library/baseAdapters/BR.java
+ androidx.databinding.library.baseAdapters.BR
+com/sagarock101/newsapp/DataBinderMapperImpl.java
+ com.sagarock101.newsapp.DataBinderMapperImpl
+ com.sagarock101.newsapp.DataBinderMapperImpl$InnerBrLookup
+ com.sagarock101.newsapp.DataBinderMapperImpl$InnerLayoutIdLookup
+com/sagarock101/newsapp/DataBindingTriggerClass.java
+ com.sagarock101.newsapp.DataBindingTriggerClass
+com/sagarock101/core/BR.java
+ com.sagarock101.core.BR
+com/sagarock101/newsapp/databinding/FragmentBtmNavBinding.java
+ com.sagarock101.newsapp.databinding.FragmentBtmNavBinding
+com/sagarock101/newsapp/di/DaggerBaseComponent.java
+ com.sagarock101.newsapp.di.DaggerBaseComponent
+ com.sagarock101.newsapp.di.DaggerBaseComponent$1
+ com.sagarock101.newsapp.di.DaggerBaseComponent$Builder
+com/sagarock101/newsapp/ui/activities/MainActivity_MembersInjector.java
+ com.sagarock101.newsapp.ui.activities.MainActivity_MembersInjector
+com/sagarock101/saved/BR.java
+ com.sagarock101.saved.BR
+com/sagarock101/newsapp/databinding/FragmentSplashBinding.java
+ com.sagarock101.newsapp.databinding.FragmentSplashBinding
+com/sagarock101/search/BR.java
+ com.sagarock101.search.BR
+com/sagarock101/newsapp/databinding/FragmentSplashBindingImpl.java
+ com.sagarock101.newsapp.databinding.FragmentSplashBindingImpl
+com/sagarock101/newsapp/di/ActivityBuildersModule_ContributeMainActivity.java
+ com.sagarock101.newsapp.di.ActivityBuildersModule_ContributeMainActivity
+ com.sagarock101.newsapp.di.ActivityBuildersModule_ContributeMainActivity$MainActivitySubcomponent
+ com.sagarock101.newsapp.di.ActivityBuildersModule_ContributeMainActivity$MainActivitySubcomponent$Factory
+com/sagarock101/widget/BR.java
+ com.sagarock101.widget.BR
+com/sagarock101/newsapp/di/FragmentBuildersModule_ContributeSplashFragment.java
+ com.sagarock101.newsapp.di.FragmentBuildersModule_ContributeSplashFragment
+ com.sagarock101.newsapp.di.FragmentBuildersModule_ContributeSplashFragment$SplashFragmentSubcomponent
+ com.sagarock101.newsapp.di.FragmentBuildersModule_ContributeSplashFragment$SplashFragmentSubcomponent$Factory
+com/sagarock101/newsapp/BuildConfig.java
+ com.sagarock101.newsapp.BuildConfig
+com/sagarock101/newsapp/databinding/ActivityMainBindingImpl.java
+ com.sagarock101.newsapp.databinding.ActivityMainBindingImpl
+com/sagarock101/stylekit/BR.java
+ com.sagarock101.stylekit.BR
+com/sagarock101/categories/BR.java
+ com.sagarock101.categories.BR
+com/sagarock101/newsapp/databinding/ActivityMainBinding.java
+ com.sagarock101.newsapp.databinding.ActivityMainBinding
+com/sagarock101/newsapp/di/DaggerApplicationComponent.java
+ com.sagarock101.newsapp.di.DaggerApplicationComponent
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$1
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$2
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$3
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$4
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$5
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$6
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$Builder
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$MainActivitySubcomponentFactory
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$MainActivitySubcomponentImpl
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$MainActivitySubcomponentImpl$1
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$MainActivitySubcomponentImpl$2
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$MainActivitySubcomponentImpl$3
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$MainActivitySubcomponentImpl$4
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$MainActivitySubcomponentImpl$NewsDetailFragmentSubcomponentFactory
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$MainActivitySubcomponentImpl$NewsDetailFragmentSubcomponentImpl
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$MainActivitySubcomponentImpl$NewsHeadlinesFragmentSubcomponentFactory
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$MainActivitySubcomponentImpl$NewsHeadlinesFragmentSubcomponentImpl
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$MainActivitySubcomponentImpl$SourcesFragmentSubcomponentFactory
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$MainActivitySubcomponentImpl$SourcesFragmentSubcomponentImpl
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$MainActivitySubcomponentImpl$SplashFragmentSubcomponentFactory
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$MainActivitySubcomponentImpl$SplashFragmentSubcomponentImpl
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$SavedFragmentSubcomponentFactory
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$SavedFragmentSubcomponentImpl
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$SavedNewsDetailFragmentSubcomponentFactory
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$SavedNewsDetailFragmentSubcomponentImpl
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$SearchActivitySubcomponentFactory
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$SearchActivitySubcomponentImpl
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$SearchActivitySubcomponentImpl$1
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$SearchActivitySubcomponentImpl$2
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$SearchActivitySubcomponentImpl$SearchDetailFragmentSubcomponentFactory
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$SearchActivitySubcomponentImpl$SearchDetailFragmentSubcomponentImpl
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$SearchActivitySubcomponentImpl$SearchResultsFragmentSubcomponentFactory
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$SearchActivitySubcomponentImpl$SearchResultsFragmentSubcomponentImpl
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$StackWidgetServiceSubcomponentFactory
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$StackWidgetServiceSubcomponentImpl
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$WidgetItemDetailActivitySubcomponentFactory
+ com.sagarock101.newsapp.di.DaggerApplicationComponent$WidgetItemDetailActivitySubcomponentImpl
+androidx/databinding/DataBindingComponent.java
+ androidx.databinding.DataBindingComponent
+com/sagarock101/newsapp/ui/fragments/SplashFragment_MembersInjector.java
+ com.sagarock101.newsapp.ui.fragments.SplashFragment_MembersInjector

@@ -1,0 +1,21 @@
+com/sagarock101/database/di/DatabaseModule_ProvideNewsDatabaseFactory.java
+ com.sagarock101.database.di.DatabaseModule_ProvideNewsDatabaseFactory
+com/sagarock101/database/NewsDatabase_Impl.java
+ com.sagarock101.database.NewsDatabase_Impl
+ com.sagarock101.database.NewsDatabase_Impl$1
+com/sagarock101/database/NewsDao_Impl.java
+ com.sagarock101.database.NewsDao_Impl
+ com.sagarock101.database.NewsDao_Impl$1
+ com.sagarock101.database.NewsDao_Impl$2
+ com.sagarock101.database.NewsDao_Impl$3
+ com.sagarock101.database.NewsDao_Impl$4
+ com.sagarock101.database.NewsDao_Impl$5
+ com.sagarock101.database.NewsDao_Impl$6
+com/sagarock101/database/NewsDatabaseRepo_Factory.java
+ com.sagarock101.database.NewsDatabaseRepo_Factory
+com/sagarock101/database/BuildConfig.java
+ com.sagarock101.database.BuildConfig
+com/sagarock101/database/di/DatabaseModule_ProvideDaoFactory.java
+ com.sagarock101.database.di.DatabaseModule_ProvideDaoFactory
+com/sagarock101/database/di/DatabaseModule_ProvideNewsDatabaseRepoFactory.java
+ com.sagarock101.database.di.DatabaseModule_ProvideNewsDatabaseRepoFactory

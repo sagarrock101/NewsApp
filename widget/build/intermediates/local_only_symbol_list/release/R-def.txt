@@ -1,0 +1,22 @@
+R_DEF: Internal format may change without notice
+local
+id app_bar
+id btn_read_full_story
+id cl_container
+id col_parent
+id collapsing_toolbar
+id cv_content
+id fabAdd
+id fabSave
+id fabShare
+id iv_back
+id iv_gradient
+id iv_news_img
+id ll_fab
+id nsv_container
+id toolbar
+id tv_content
+id tv_desc
+id tv_title
+layout activity_widget_item_detail
+xml widget_stack_info

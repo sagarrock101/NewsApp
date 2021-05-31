@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="all">all</string>
+    <string name="business">business</string>
+    <string name="check">check</string>
+    <string name="empty">""</string>
+    <string name="entertainment">entertainment</string>
+    <string name="health">health</string>
+    <string name="hello_i_am_news">Hello I am News Hello I am News Hello I am News</string>
+    <string name="img_url">imgUrl</string>
+    <string name="india">in</string>
+    <string name="newsapp">NewsInCards</string>
+    <string name="read_full_story">Read full story</string>
+    <string name="save">Save</string>
+    <string name="science">science</string>
+    <string name="share">Share</string>
+    <string name="share_using">Share using</string>
+    <string name="sports">Sports</string>
+    <string name="swipe_left_to_read_the_full_article">Swipe left to read the full article</string>
+    <string name="technology">technology</string>
+    <string name="title">title</string>
+</resources>

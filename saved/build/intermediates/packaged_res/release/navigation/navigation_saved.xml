@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_saved"
+    app:startDestination="@id/savedFragment">
+
+    <fragment
+        android:id="@+id/savedFragment"
+        android:name="com.sagarock101.saved.ui.fragment.SavedFragment"
+        android:label="SavedFragment" >
+        <action
+            android:id="@+id/action_savedFragment_to_savedNewsDetailFragment"
+            app:destination="@id/savedNewsDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedNewsDetailFragment"
+        android:name="com.sagarock101.saved.ui.fragment.SavedNewsDetailFragment"
+        android:label="SavedNewsDetailFragment" >
+        <argument
+            android:name="articles"
+            app:argType="com.sagarock101.database.model.Articles"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+</navigation>

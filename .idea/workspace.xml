@@ -1,0 +1,1205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config>
+        <device id="pixel_3" />
+      </config>
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand />
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b1834818-5629-4931-9d59-7b1d4f50e0bf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[VirtualDevicePath@C:\Users\Embibe\.android\avd\Pixel_3a_API_30_x86.avd]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="NewsApp" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="NewsApp" type="f1a62948:ProjectNode" />
+                <item name="saved" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="NewsApp" type="f1a62948:ProjectNode" />
+                <item name="saved" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="layoutResourceFile_vertical" />
+        <option value="Class" />
+        <option value="navigationResourceFile" />
+        <option value="valueResourceFile" />
+        <option value="Kotlin File" />
+        <option value="Kotlin Interface" />
+        <option value="Kotlin Object" />
+        <option value="JUnit3 Test Class" />
+        <option value="JUnit4 Test Class" />
+        <option value="resourceFile" />
+        <option value="layoutResourceFile" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="KEY_STORE_PATH" value="C:\Users\Embibe\Documents\myNewsAppKeystore\myNewsAppKeystore.jks" />
+    <option name="KEY_ALIAS" value="key0" />
+    <option name="REMEMBER_PASSWORDS" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1kxm7Q8SkmW1bts6di0ssCvxEFe" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="BundleExportedModule" value="NewsApp.app" />
+    <property name="DEBUGGABLE_DEVICE" value="samsung-sm_a305f-RZ8M40G649R" />
+    <property name="DEBUGGABLE_PROCESS" value="com.sagarock101.newsapp" />
+    <property name="DEBUGGER_ID" value="Auto" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="VirtualDevicePath@C:\Users\Embibe\.android\avd\Pixel_3a_API_30_x86.avd" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-05-17T07:37:05.778342100Z" />
+    <property name="ExportApk.ApkPath" value="C:\Users\Embibe\AndroidStudioProjects\NewsApp\app" />
+    <property name="ExportApk.BuildVariants" value="release" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="ResourceManagerPrefKey.ResourceType" value="DRAWABLE" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHOW_ALL_PROCESSES" value="false" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="android-custom-viewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/androidx.coordinatorlayout/coordinatorlayout/1.1.0/a15529ac349d76a872ae5ef42b84c320c456cd7f/coordinatorlayout-1.1.0-sources.jar!/androidx/coordinatorlayout/widget/CoordinatorLayout.java_SELECTED" value="CoordinatorLayout" />
+    <property name="android-custom-viewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED" value="RecyclerView" />
+    <property name="android-custom-viewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/androidx.viewpager2/viewpager2/1.0.0/3c3569044e6969f1ee5c3aa03b08e6717a2d782f/viewpager2-1.0.0-sources.jar!/androidx/viewpager2/widget/ViewPager2.java_SELECTED" value="ViewPager2" />
+    <property name="android-custom-viewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/com.facebook.shimmer/shimmer/0.5.0/c72bd010f27bca0db2557c0e37c54f35333a4690/shimmer-0.5.0-sources.jar!/com/facebook/shimmer/ShimmerFrameLayout.java_SELECTED" value="ShimmerFrameLayout" />
+    <property name="android-custom-viewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.2.1/37d55d5141066b3d118d24232fa7025b65eb3a74/material-1.2.1-sources.jar!/com/google/android/material/appbar/AppBarLayout.java_SELECTED" value="AppBarLayout" />
+    <property name="android-custom-viewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.2.1/37d55d5141066b3d118d24232fa7025b65eb3a74/material-1.2.1-sources.jar!/com/google/android/material/appbar/CollapsingToolbarLayout.java_SELECTED" value="CollapsingToolbarLayout" />
+    <property name="android-custom-viewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.2.1/37d55d5141066b3d118d24232fa7025b65eb3a74/material-1.2.1-sources.jar!/com/google/android/material/bottomnavigation/BottomNavigationView.java_SELECTED" value="BottomNavigationView" />
+    <property name="android-custom-viewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.2.1/37d55d5141066b3d118d24232fa7025b65eb3a74/material-1.2.1-sources.jar!/com/google/android/material/chip/Chip.java_SELECTED" value="Chip" />
+    <property name="android-custom-viewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.2.1/37d55d5141066b3d118d24232fa7025b65eb3a74/material-1.2.1-sources.jar!/com/google/android/material/chip/ChipGroup.java_SELECTED" value="ChipGroup" />
+    <property name="android-custom-viewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.2.1/37d55d5141066b3d118d24232fa7025b65eb3a74/material-1.2.1-sources.jar!/com/google/android/material/floatingactionbutton/ExtendedFloatingActionButton.java_SELECTED" value="ExtendedFloatingActionButton" />
+    <property name="android-custom-viewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.2.1/37d55d5141066b3d118d24232fa7025b65eb3a74/material-1.2.1-sources.jar!/com/google/android/material/floatingactionbutton/FloatingActionButton.java_SELECTED" value="FloatingActionButton" />
+    <property name="android-custom-viewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.3.0/b42a5159ef2c670d26ce08246ec5aaf8f92e5a42/material-1.3.0-sources.jar!/com/google/android/material/bottomnavigation/BottomNavigationView.java_SELECTED" value="BottomNavigationView" />
+    <property name="android-custom-viewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.3.0/b42a5159ef2c670d26ce08246ec5aaf8f92e5a42/material-1.3.0-sources.jar!/com/google/android/material/floatingactionbutton/FloatingActionButton.java_SELECTED" value="FloatingActionButton" />
+    <property name="android-custom-viewC:/Users/Embibe/AppData/Local/Android/Sdk/sources/android-30/android/view/View.java_SELECTED" value="View" />
+    <property name="android-custom-viewC:/Users/Embibe/AppData/Local/Android/Sdk/sources/android-30/android/view/ViewGroup.java_SELECTED" value="ViewGroup" />
+    <property name="android-custom-viewC:/Users/Embibe/AppData/Local/Android/Sdk/sources/android-30/android/widget/CompoundButton.java_SELECTED" value="CompoundButton" />
+    <property name="android-custom-viewC:/Users/Embibe/AppData/Local/Android/Sdk/sources/android-30/android/widget/ImageView.java_SELECTED" value="ImageView" />
+    <property name="android-custom-viewC:/Users/Embibe/AppData/Local/Android/Sdk/sources/android-30/android/widget/StackView.java_SELECTED" value="StackView" />
+    <property name="android-custom-viewC:/Users/Embibe/AppData/Local/Android/Sdk/sources/android-30/android/widget/TextView.java_SELECTED" value="TextView" />
+    <property name="android-custom-viewC:/Users/Embibe/AppData/Local/Android/Sdk/sources/android-30/android/widget/Toolbar.java_SELECTED" value="Toolbar" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="junit.framework.TestCase" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/newsheadlines/src/androidTest/java/com/sagarock101/newsheadlines" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/myNewsAppKeystore" />
+    <property name="multi-representation-previewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/androidx.coordinatorlayout/coordinatorlayout/1.1.0/a15529ac349d76a872ae5ef42b84c320c456cd7f/coordinatorlayout-1.1.0-sources.jar!/androidx/coordinatorlayout/widget/CoordinatorLayout.java_selected" value="Custom views" />
+    <property name="multi-representation-previewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_selected" value="Custom views" />
+    <property name="multi-representation-previewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/androidx.viewpager2/viewpager2/1.0.0/3c3569044e6969f1ee5c3aa03b08e6717a2d782f/viewpager2-1.0.0-sources.jar!/androidx/viewpager2/widget/ViewPager2.java_selected" value="Custom views" />
+    <property name="multi-representation-previewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/com.facebook.shimmer/shimmer/0.5.0/c72bd010f27bca0db2557c0e37c54f35333a4690/shimmer-0.5.0-sources.jar!/com/facebook/shimmer/ShimmerFrameLayout.java_selected" value="Custom views" />
+    <property name="multi-representation-previewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.2.1/37d55d5141066b3d118d24232fa7025b65eb3a74/material-1.2.1-sources.jar!/com/google/android/material/appbar/AppBarLayout.java_selected" value="Custom views" />
+    <property name="multi-representation-previewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.2.1/37d55d5141066b3d118d24232fa7025b65eb3a74/material-1.2.1-sources.jar!/com/google/android/material/appbar/CollapsingToolbarLayout.java_selected" value="Custom views" />
+    <property name="multi-representation-previewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.2.1/37d55d5141066b3d118d24232fa7025b65eb3a74/material-1.2.1-sources.jar!/com/google/android/material/bottomnavigation/BottomNavigationView.java_selected" value="Custom views" />
+    <property name="multi-representation-previewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.2.1/37d55d5141066b3d118d24232fa7025b65eb3a74/material-1.2.1-sources.jar!/com/google/android/material/chip/Chip.java_selected" value="Custom views" />
+    <property name="multi-representation-previewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.2.1/37d55d5141066b3d118d24232fa7025b65eb3a74/material-1.2.1-sources.jar!/com/google/android/material/chip/ChipGroup.java_selected" value="Custom views" />
+    <property name="multi-representation-previewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.2.1/37d55d5141066b3d118d24232fa7025b65eb3a74/material-1.2.1-sources.jar!/com/google/android/material/floatingactionbutton/ExtendedFloatingActionButton.java_selected" value="Custom views" />
+    <property name="multi-representation-previewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.2.1/37d55d5141066b3d118d24232fa7025b65eb3a74/material-1.2.1-sources.jar!/com/google/android/material/floatingactionbutton/FloatingActionButton.java_selected" value="Custom views" />
+    <property name="multi-representation-previewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.3.0/b42a5159ef2c670d26ce08246ec5aaf8f92e5a42/material-1.3.0-sources.jar!/com/google/android/material/bottomnavigation/BottomNavigationView.java_selected" value="Custom views" />
+    <property name="multi-representation-previewC:/Users/Embibe/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.3.0/b42a5159ef2c670d26ce08246ec5aaf8f92e5a42/material-1.3.0-sources.jar!/com/google/android/material/floatingactionbutton/FloatingActionButton.java_selected" value="Custom views" />
+    <property name="multi-representation-previewC:/Users/Embibe/AppData/Local/Android/Sdk/sources/android-30/android/view/View.java_selected" value="Custom views" />
+    <property name="multi-representation-previewC:/Users/Embibe/AppData/Local/Android/Sdk/sources/android-30/android/view/ViewGroup.java_selected" value="Custom views" />
+    <property name="multi-representation-previewC:/Users/Embibe/AppData/Local/Android/Sdk/sources/android-30/android/widget/CompoundButton.java_selected" value="Custom views" />
+    <property name="multi-representation-previewC:/Users/Embibe/AppData/Local/Android/Sdk/sources/android-30/android/widget/ImageView.java_selected" value="Custom views" />
+    <property name="multi-representation-previewC:/Users/Embibe/AppData/Local/Android/Sdk/sources/android-30/android/widget/StackView.java_selected" value="Custom views" />
+    <property name="multi-representation-previewC:/Users/Embibe/AppData/Local/Android/Sdk/sources/android-30/android/widget/TextView.java_selected" value="Custom views" />
+    <property name="multi-representation-previewC:/Users/Embibe/AppData/Local/Android/Sdk/sources/android-30/android/widget/Toolbar.java_selected" value="Custom views" />
+    <property name="project.structure.last.edited" value="Dependencies" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.updates" />
+  </component>
+  <component name="PsdUISettings">
+    <option name="MODULE_TAB" value="Signing Configs" />
+    <option name="LAST_EDITED_SIGNING_CONFIG" value="debug" />
+    <option name="LAST_EDITED_BUILD_TYPE" value="release" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.sagarock101.stylekit" />
+      <recent name="com.sagarock101.database.converters" />
+      <recent name="com.sagarock101.search.ui.fragment" />
+      <recent name="com.sagarock101.search.ui.activity" />
+      <recent name="com.sagarock101.categories.ui.fragments" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.sagarock101.newsheadlines.ui.fragments" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.sagarock101.saved.di" />
+      <recent name="com.sagarock101.saved.viewmodel" />
+      <recent name="com.sagarock101.saved.ui.fragment" />
+      <recent name="com.sagarock101" />
+      <recent name="com.sagarock101.newsheadlines.data" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+      <recent name="junit.framework.TestCase" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.sagarock101.search.ui" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\res\menu" />
+      <recent name="C:\Users\Embibe\AndroidStudioProjects\NewsApp\stylekit\src\main\res\layout" />
+      <recent name="C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\res\drawable-v24" />
+      <recent name="C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\res\mipmap-xxhdpi" />
+      <recent name="C:\Users\Embibe\AndroidStudioProjects\NewsApp\newsheadlines\src\main\res\layout-h500dp" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Embibe\AndroidStudioProjects\NewsApp\stylekit\src\main\res\drawable" />
+      <recent name="C:\Users\Embibe\AndroidStudioProjects\NewsApp\stylekit\src\main\res\font" />
+      <recent name="C:\Users\Embibe\AndroidStudioProjects\NewsApp\app" />
+      <recent name="C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\res\drawable" />
+      <recent name="C:\Users\Embibe\AndroidStudioProjects\NewsApp\app\src\main\res\mipmap-hdpi" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Android App.app">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.sagarock101.newsheadlines in NewsApp.newsheadlines" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NewsApp.newsheadlines" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sagarock101.newsheadlines.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sagarock101.newsheadlines" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="NewsApp.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="widget" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="NewsApp.widget" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="recyclerViewTest()" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
+      <module name="NewsApp.newsheadlines" />
+      <option name="TESTING_TYPE" value="3" />
+      <option name="METHOD_NAME" value="recyclerViewTest" />
+      <option name="CLASS_NAME" value="com.sagarock101.newsheadlines.NewsHeadlinesTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="INCLUDE_GRADLE_EXTRA_OPTIONS" value="true" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Android JUnit.com.sagarock101.newsheadlines in NewsApp.newsheadlines" />
+        <item itemvalue="Android Instrumented Tests.recyclerViewTest()" />
+        <item itemvalue="Android JUnit.com.sagarock101.newsheadlines in NewsApp.newsheadlines" />
+        <item itemvalue="Android Instrumented Tests.recyclerViewTest()" />
+        <item itemvalue="Android JUnit.com.sagarock101.newsheadlines in NewsApp.newsheadlines" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b1834818-5629-4931-9d59-7b1d4f50e0bf" name="Default Changelist" comment="" />
+      <created>1606650448798</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606650448798</updated>
+    </task>
+    <task id="LOCAL-00104" summary="ChangedProgressBar colors based on theme changed">
+      <created>1613153948736</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1613153948736</updated>
+    </task>
+    <task id="LOCAL-00105" summary="saving articles from search but need to limit the description text if its too long | need to fix menu based on theme changes">
+      <created>1613242094337</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1613242094337</updated>
+    </task>
+    <task id="LOCAL-00106" summary="Added widget for saved items to read later but the widget is not appearing as stack :/">
+      <created>1613816587264</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1613816587264</updated>
+    </task>
+    <task id="LOCAL-00107" summary="Yes now widget_item.xml its appearing as proper stack view">
+      <created>1613817345208</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1613817345208</updated>
+    </task>
+    <task id="LOCAL-00108" summary="navigating from widget to detail activity_widget_item_detail.xml">
+      <created>1613835227436</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1613835227436</updated>
+    </task>
+    <task id="LOCAL-00109" summary="The deleted articles are reflected int widget but need to move MyAppWidgetProvider.kt to some module where everyone can access it">
+      <created>1613847331004</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1613847331005</updated>
+    </task>
+    <task id="LOCAL-00110" summary="The deleted articles are reflected in the from NewsDetailFragment.kt">
+      <created>1613848439522</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1613848439522</updated>
+    </task>
+    <task id="LOCAL-00111" summary="The deleted articles are reflected in the from SearchDetailFragment.kt">
+      <created>1613848801765</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1613848801765</updated>
+    </task>
+    <task id="LOCAL-00112" summary="Removing WidgetActivityDetail out of recents">
+      <created>1613877213879</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1613877213879</updated>
+    </task>
+    <task id="LOCAL-00113" summary="storing published date as timestamp instead of string , and In detail screens when its scrolled the gradient with up button properly aligned added">
+      <created>1613904559667</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1613904559667</updated>
+    </task>
+    <task id="LOCAL-00114" summary="Added source text and view alpha">
+      <created>1613906185250</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1613906185250</updated>
+    </task>
+    <task id="LOCAL-00115" summary="Added NetworkChangeReceiver.kt and layout_no_network.xml if there is no internet this ui is shown">
+      <created>1613924600863</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1613924600863</updated>
+    </task>
+    <task id="LOCAL-00116" summary="need to check the add logic for search fab to be hidden when activity opens | added visibilty gone for tvPublished at">
+      <created>1613924872077</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1613924872077</updated>
+    </task>
+    <task id="LOCAL-00117" summary="menu height is somehow increased need to reduce it theme changes is now applicable to menu">
+      <created>1613927934246</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1613927934246</updated>
+    </task>
+    <task id="LOCAL-00118" summary="Changed theme from material to app theme">
+      <created>1614011652178</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1614011652179</updated>
+    </task>
+    <task id="LOCAL-00119" summary="Parallel Api calls in NewsHeadlinesRepo.kt merged both newsApi call and Guardian Api call">
+      <created>1614099990767</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1614099990767</updated>
+    </task>
+    <task id="LOCAL-00120" summary="Parallel Api calls in NewsHeadlinesRepo.kt merged both newsApi call and Guardian Api call for all the chip selection except for &quot;all&quot; chip category since no data for this category in Guardian Api">
+      <created>1614101481283</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1614101481284</updated>
+    </task>
+    <task id="LOCAL-00121" summary="programmatically making the fab go up when snack is shown">
+      <created>1614191036014</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1614191036015</updated>
+    </task>
+    <task id="LOCAL-00122" summary="programmatically making the fab go up when snack is shown for NewsDetailFragment.kt, SearchDetailFragment.kt">
+      <created>1614191569635</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1614191569636</updated>
+    </task>
+    <task id="LOCAL-00123" summary="Date remainder added to WidgetItemDetailActivity.kt, NewsDetailFragment.kt and SearchDetailFragment.kt | Speech recognition will start when user clicks on allow permission">
+      <created>1614337621964</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1614337621964</updated>
+    </task>
+    <task id="LOCAL-00124" summary="removed source img">
+      <created>1614341138626</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1614341138627</updated>
+    </task>
+    <task id="LOCAL-00125" summary="binding crash fix when theme is changed">
+      <created>1614341827704</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1614341827704</updated>
+    </task>
+    <task id="LOCAL-00126" summary="Added alternate resour files for NewsHeadlinesFragment.kt module">
+      <created>1614344522642</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1614344522642</updated>
+    </task>
+    <task id="LOCAL-00127" summary="Added app icon need to check with ppi res">
+      <created>1614363159069</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1614363159069</updated>
+    </task>
+    <task id="LOCAL-00128" summary="Added app icon to white bg">
+      <created>1614404786454</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1614404786455</updated>
+    </task>
+    <task id="LOCAL-00129" summary="Network checker added with no wifi message for NewsHeadlinesFragment.kt">
+      <created>1614420105777</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1614420105778</updated>
+    </task>
+    <task id="LOCAL-00130" summary="Network checker added with no wifi message for NewsHeadlinesFragment.kt">
+      <created>1614422788007</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1614422788007</updated>
+    </task>
+    <task id="LOCAL-00131" summary="finally internet connection checker handled for cases">
+      <created>1614429713241</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1614429713241</updated>
+    </task>
+    <task id="LOCAL-00132" summary="centered no wifi to center">
+      <created>1614443294073</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1614443294073</updated>
+    </task>
+    <task id="LOCAL-00133" summary="first time stack is maintained like youtube when onBackPressed">
+      <created>1614518438847</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1614518438847</updated>
+    </task>
+    <task id="LOCAL-00134" summary="added crashlytics">
+      <created>1614879705834</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1614879705834</updated>
+    </task>
+    <task id="LOCAL-00135" summary="scroll to visible position when newheadlines card is clicked">
+      <created>1614881837378</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1614881837378</updated>
+    </task>
+    <task id="LOCAL-00136" summary="Commented out the save date remainter from widget now showing only published at date">
+      <created>1615130152686</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1615130152686</updated>
+    </task>
+    <task id="LOCAL-00137" summary="added new font">
+      <created>1615259647634</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1615259647635</updated>
+    </task>
+    <task id="LOCAL-00138" summary="parent ll fab will float when snack bar shows">
+      <created>1615716269523</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1615716269523</updated>
+    </task>
+    <task id="LOCAL-00139" summary="Added AboutDialogFragment.kt">
+      <created>1615732444337</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1615732444337</updated>
+    </task>
+    <task id="LOCAL-00140" summary="Added AboutDialogFragment.kt">
+      <created>1615732702074</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1615732702074</updated>
+    </task>
+    <task id="LOCAL-00141" summary="Ok -&gt; OK">
+      <created>1615732770735</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1615732770735</updated>
+    </task>
+    <task id="LOCAL-00142" summary="item_search_result.xml texts alignment change">
+      <created>1615914700414</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1615914700416</updated>
+    </task>
+    <task id="LOCAL-00143" summary="Added drawer for now there is no select functionality">
+      <created>1616320599181</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1616320599182</updated>
+    </task>
+    <task id="LOCAL-00144" summary="fixed fragment_about_dialog.xml, fragment_dialog_theme.xml">
+      <created>1616694597504</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1616694597504</updated>
+    </task>
+    <task id="LOCAL-00145" summary="added card view to detail screens n for desc and content texts">
+      <created>1616756509107</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1616756509108</updated>
+    </task>
+    <task id="LOCAL-00146" summary="hiding cardview and showing when data is set after anim transition ends">
+      <created>1616757057695</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1616757057695</updated>
+    </task>
+    <task id="LOCAL-00147" summary="added back normal app icon">
+      <created>1616777615783</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1616777615784</updated>
+    </task>
+    <task id="LOCAL-00148" summary="added scroll view to fragment_about_dialog.xml">
+      <created>1616779075791</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1616779075791</updated>
+    </task>
+    <task id="LOCAL-00149" summary="moved bottom indicator to left as per dribble design">
+      <created>1619261020833</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1619261020834</updated>
+    </task>
+    <task id="LOCAL-00150" summary="Added all caught up text">
+      <created>1621239308107</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1621239308108</updated>
+    </task>
+    <task id="LOCAL-00151" summary="Added vibration for long press on saved news">
+      <created>1622052510749</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1622052510749</updated>
+    </task>
+    <task id="LOCAL-00152" summary="Fixed classes.dex gradle merge error and now Saved module is independent and news-headlines independent">
+      <created>1622470413089</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1622470413089</updated>
+    </task>
+    <option name="localTasksCounter" value="153" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:C:/Users/Embibe/AndroidStudioProjects/NewsApp/stylekit/src/main/res/values" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added alternate resour files for NewsHeadlinesFragment.kt module" />
+    <MESSAGE value="Added app icon need to check with ppi res" />
+    <MESSAGE value="Added app icon to white bg" />
+    <MESSAGE value="Network checker added with no wifi message for NewsHeadlinesFragment.kt" />
+    <MESSAGE value="finally internet connection checker handled for cases" />
+    <MESSAGE value="centered no wifi to center" />
+    <MESSAGE value="first time stack is maintained like youtube when onBackPressed" />
+    <MESSAGE value="added crashlytics" />
+    <MESSAGE value="scroll to visible position when newheadlines card is clicked" />
+    <MESSAGE value="Commented out the save date remainter from widget now showing only published at date" />
+    <MESSAGE value="added new font" />
+    <MESSAGE value="parent ll fab will float when snack bar shows" />
+    <MESSAGE value="Added AboutDialogFragment.kt" />
+    <MESSAGE value="Ok -&gt; OK" />
+    <MESSAGE value="item_search_result.xml texts alignment change" />
+    <MESSAGE value="Added drawer for now there is no select functionality" />
+    <MESSAGE value="fixed fragment_about_dialog.xml, fragment_dialog_theme.xml" />
+    <MESSAGE value="added card view to detail screens n for desc and content texts" />
+    <MESSAGE value="hiding cardview and showing when data is set after anim transition ends" />
+    <MESSAGE value="added back normal app icon" />
+    <MESSAGE value="added scroll view to fragment_about_dialog.xml" />
+    <MESSAGE value="moved bottom indicator to left as per dribble design" />
+    <MESSAGE value="Added all caught up text" />
+    <MESSAGE value="Added vibration for long press on saved news" />
+    <MESSAGE value="Fixed classes.dex gradle merge error and now Saved module is independent and news-headlines independent" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed classes.dex gradle merge error and now Saved module is independent and news-headlines independent" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="317" y="178" key="#PSD" timestamp="1622468349932">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="317" y="178" key="#PSD/62.0.1474.864@62.0.1474.864" timestamp="1622468349932" />
+    <state x="591" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1615732139950">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="591" y="148" key="#com.intellij.ide.util.MemberChooser/62.0.1474.864@62.0.1474.864" timestamp="1615732139950" />
+    <state x="529" y="222" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1622468038397">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="529" y="222" key="#com.intellij.ide.util.TreeClassChooserDialog/62.0.1474.864@62.0.1474.864" timestamp="1622468038397" />
+    <state x="480" y="168" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1620227387766">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="480" y="168" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/62.0.1474.864@62.0.1474.864" timestamp="1620227387766" />
+    <state x="530" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1615728798541">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="530" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/62.0.1474.864@62.0.1474.864" timestamp="1615728798541" />
+    <state x="535" y="211" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1613920294950">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="535" y="211" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/62.0.1474.864@62.0.1474.864" timestamp="1613920294950" />
+    <state x="102" y="69" key="#xdebugger.evaluate" timestamp="1614507902247">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="102" y="69" key="#xdebugger.evaluate/62.0.1474.864@62.0.1474.864" timestamp="1614507902247" />
+    <state x="547" y="267" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1616315561736">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="547" y="267" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/62.0.1474.864@62.0.1474.864" timestamp="1616315561736" />
+    <state x="155" y="93" width="1288" height="678" key="AVDManager" timestamp="1620576222734">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="155" y="93" width="1288" height="678" key="AVDManager/62.0.1474.864@62.0.1474.864" timestamp="1620576222734" />
+    <state x="380" y="187" key="AndroidCreateResourceDirectoryDialog" timestamp="1614357982811">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="380" y="187" key="AndroidCreateResourceDirectoryDialog/62.0.1474.864@62.0.1474.864" timestamp="1614357982811" />
+    <state x="380" y="187" key="AndroidCreateResourceFileDialog" timestamp="1622467874529">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="380" y="187" key="AndroidCreateResourceFileDialog/62.0.1474.864@62.0.1474.864" timestamp="1622467874529" />
+    <state x="635" y="205" key="AndroidCreateXmlResourceDialog" timestamp="1621238201460">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="635" y="205" key="AndroidCreateXmlResourceDialog/62.0.1474.864@62.0.1474.864" timestamp="1621238201460" />
+    <state x="596" y="179" key="AndroidProcessChooserDialog" timestamp="1622051607567">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="596" y="179" key="AndroidProcessChooserDialog/62.0.1474.864@62.0.1474.864" timestamp="1622051607567" />
+    <state x="243" y="0" key="CommitChangelistDialog2" timestamp="1622470412265">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="243" y="0" key="CommitChangelistDialog2/62.0.1474.864@62.0.1474.864" timestamp="1622470412265" />
+    <state width="607" height="466" key="DebuggerActiveHint" timestamp="1615126667957">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="607" height="466" key="DebuggerActiveHint/62.0.1474.864@62.0.1474.864" timestamp="1615126667957" />
+    <state x="203" y="69" width="1179" height="719" key="DiffContextDialog" timestamp="1622467820620">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="203" y="69" width="1179" height="719" key="DiffContextDialog/62.0.1474.864@62.0.1474.864" timestamp="1622467820620" />
+    <state x="580" y="187" key="FileChooserDialogImpl" timestamp="1622393535475">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="580" y="187" key="FileChooserDialogImpl/62.0.1474.864@62.0.1474.864" timestamp="1622393535475" />
+    <state x="307" y="328" key="GitRewordDialog" timestamp="1614011692927">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="307" y="328" key="GitRewordDialog/62.0.1474.864@62.0.1474.864" timestamp="1614011692927" />
+    <state width="1431" height="487" key="GridCell.Tab.0.bottom" timestamp="1622469942641">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="487" key="GridCell.Tab.0.bottom/62.0.1474.864@62.0.1474.864" timestamp="1622469942641" />
+    <state width="1431" height="487" key="GridCell.Tab.0.center" timestamp="1622469942641">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="487" key="GridCell.Tab.0.center/62.0.1474.864@62.0.1474.864" timestamp="1622469942641" />
+    <state width="1431" height="487" key="GridCell.Tab.0.left" timestamp="1622469942641">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="487" key="GridCell.Tab.0.left/62.0.1474.864@62.0.1474.864" timestamp="1622469942641" />
+    <state width="1431" height="487" key="GridCell.Tab.0.right" timestamp="1622469942641">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="487" key="GridCell.Tab.0.right/62.0.1474.864@62.0.1474.864" timestamp="1622469942641" />
+    <state width="1431" height="162" key="GridCell.Tab.1.bottom" timestamp="1622098934432">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="162" key="GridCell.Tab.1.bottom/62.0.1474.864@62.0.1474.864" timestamp="1622098934432" />
+    <state width="1431" height="162" key="GridCell.Tab.1.center" timestamp="1622098934431">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="162" key="GridCell.Tab.1.center/62.0.1474.864@62.0.1474.864" timestamp="1622098934431" />
+    <state width="1431" height="162" key="GridCell.Tab.1.left" timestamp="1622098934431">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="162" key="GridCell.Tab.1.left/62.0.1474.864@62.0.1474.864" timestamp="1622098934431" />
+    <state width="1431" height="162" key="GridCell.Tab.1.right" timestamp="1622098934431">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="162" key="GridCell.Tab.1.right/62.0.1474.864@62.0.1474.864" timestamp="1622098934431" />
+    <state x="470" y="135" key="RollbackChangesDialog" timestamp="1616773574653">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="470" y="135" key="RollbackChangesDialog/62.0.1474.864@62.0.1474.864" timestamp="1616773574653" />
+    <state x="308" y="77" key="SettingsEditor" timestamp="1615702088816">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="308" y="77" key="SettingsEditor/62.0.1474.864@62.0.1474.864" timestamp="1615702088816" />
+    <state width="254" height="198" key="ShowFilterAction_Filter_Popup" timestamp="1622394538891">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="254" height="198" key="ShowFilterAction_Filter_Popup/62.0.1474.864@62.0.1474.864" timestamp="1622394538891" />
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1622470417911">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2/62.0.1474.864@62.0.1474.864" timestamp="1622470417911" />
+    <state width="744" height="439" key="XDebugger.FullValuePopup" timestamp="1614507831729">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="744" height="439" key="XDebugger.FullValuePopup/62.0.1474.864@62.0.1474.864" timestamp="1614507831729" />
+    <state x="615" y="210" key="chooseDestDirectoryDialog" timestamp="1615311315273">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="615" y="210" key="chooseDestDirectoryDialog/62.0.1474.864@62.0.1474.864" timestamp="1615311315273" />
+    <state x="609" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1619260987555">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="609" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/62.0.1474.864@62.0.1474.864" timestamp="1619260987555" />
+    <state x="348" y="161" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1614451012239">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="348" y="161" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/62.0.1474.864@62.0.1474.864" timestamp="1614451012239" />
+    <state x="506" y="165" width="772" height="534" key="find.popup" timestamp="1622040331925">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="506" y="165" width="772" height="534" key="find.popup/62.0.1474.864@62.0.1474.864" timestamp="1622040331925" />
+    <state x="555" y="145" key="git4idea.branch.GitSmartOperationDialog" timestamp="1615716309912">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="555" y="145" key="git4idea.branch.GitSmartOperationDialog/62.0.1474.864@62.0.1474.864" timestamp="1615716309912" />
+    <state x="517" y="221" key="git4idea.merge.GitPullDialog" timestamp="1616777101203">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="517" y="221" key="git4idea.merge.GitPullDialog/62.0.1474.864@62.0.1474.864" timestamp="1616777101203" />
+    <state x="578" y="331" key="git4idea.ui.GitStashDialog" timestamp="1615708633678">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="578" y="331" key="git4idea.ui.GitStashDialog/62.0.1474.864@62.0.1474.864" timestamp="1615708633678" />
+    <state x="504" y="279" key="git4idea.ui.GitUnstashDialog" timestamp="1614408411358">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="504" y="279" key="git4idea.ui.GitUnstashDialog/62.0.1474.864@62.0.1474.864" timestamp="1614408411358" />
+    <state x="535" y="116" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog" timestamp="1615311315328">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="535" y="116" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog/62.0.1474.864@62.0.1474.864" timestamp="1615311315328" />
+    <state x="536" y="78" key="psd.add.module.dependency.panel.dimension" timestamp="1614104075755">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="536" y="78" key="psd.add.module.dependency.panel.dimension/62.0.1474.864@62.0.1474.864" timestamp="1614104075755" />
+    <state x="642" y="204" key="refactoring.ChangeSignatureDialog" timestamp="1614511214898">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="642" y="204" key="refactoring.ChangeSignatureDialog/62.0.1474.864@62.0.1474.864" timestamp="1614511214898" />
+    <state x="458" y="197" width="672" height="677" key="run.anything.popup" timestamp="1619260534370">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="458" y="197" width="672" height="677" key="run.anything.popup/62.0.1474.864@62.0.1474.864" timestamp="1619260534370" />
+    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1622473705886">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup/62.0.1474.864@62.0.1474.864" timestamp="1622473705886" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/newsheadlines/src/main/java/com/sagarock101/newsheadlines/di/NewsHeadlinesModule.kt</url>
+          <line>17</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/newsheadlines/src/main/java/com/sagarock101/newsheadlines/fragments/NewsHeadlinesFragment.kt</url>
+          <line>84</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/newsheadlines/src/main/java/com/sagarock101/newsheadlines/fragments/NewsHeadlinesFragment.kt</url>
+          <line>87</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/newsheadlines/src/main/java/com/sagarock101/newsheadlines/fragments/NewsDetailFragment.kt</url>
+          <line>25</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/saved/src/main/java/com/sagarock101/saved/ui/fragment/SavedFragment.kt</url>
+          <line>49</line>
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/sources/src/main/java/com/sagarock101/categories/ui/fragments/SourcesFragment.kt</url>
+          <line>38</line>
+          <option name="timeStamp" value="126" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/sources/src/main/java/com/sagarock101/categories/ui/fragments/SourcesFragment.kt</url>
+          <line>45</line>
+          <option name="timeStamp" value="127" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/sources/src/main/java/com/sagarock101/categories/ui/fragments/SourcesFragment.kt</url>
+          <line>39</line>
+          <option name="timeStamp" value="128" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/sources/src/main/java/com/sagarock101/categories/ui/fragments/SourcesFragment.kt</url>
+          <line>41</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="129" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/sources/src/main/java/com/sagarock101/categories/ui/fragments/SourcesFragment.kt</url>
+          <line>50</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="130" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/sources/src/main/java/com/sagarock101/categories/ui/adapter/SourcesAdapter.kt</url>
+          <line>54</line>
+          <option name="timeStamp" value="131" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/sources/src/main/java/com/sagarock101/categories/ui/adapter/SourcesAdapter.kt</url>
+          <line>74</line>
+          <option name="timeStamp" value="136" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/sources/src/main/java/com/sagarock101/categories/ui/adapter/SourcesAdapter.kt</url>
+          <line>75</line>
+          <option name="timeStamp" value="137" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/sources/src/main/java/com/sagarock101/categories/ui/adapter/SourcesAdapter.kt</url>
+          <line>63</line>
+          <option name="timeStamp" value="142" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/saved/src/main/java/com/sagarock101/saved/ui/itemSelection/ActionModeController.kt</url>
+          <line>21</line>
+          <option name="timeStamp" value="145" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/saved/src/main/java/com/sagarock101/saved/ui/fragment/SavedFragment.kt</url>
+          <line>100</line>
+          <option name="timeStamp" value="149" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/saved/src/main/java/com/sagarock101/saved/ui/fragment/SavedFragment.kt</url>
+          <line>108</line>
+          <option name="timeStamp" value="151" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/saved/src/main/java/com/sagarock101/saved/ui/fragment/SavedFragment.kt</url>
+          <line>109</line>
+          <option name="timeStamp" value="162" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/saved/src/main/java/com/sagarock101/saved/ui/fragment/SavedFragment.kt</url>
+          <line>158</line>
+          <option name="timeStamp" value="163" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/newsheadlines/src/main/java/com/sagarock101/newsheadlines/ui/fragments/NewsHeadlinesFragment.kt</url>
+          <line>251</line>
+          <option name="timeStamp" value="189" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/newsheadlines/src/main/java/com/sagarock101/newsheadlines/ui/fragments/NewsHeadlinesFragment.kt</url>
+          <line>250</line>
+          <option name="timeStamp" value="191" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/newsheadlines/src/main/java/com/sagarock101/newsheadlines/ui/fragments/NewsHeadlinesFragment.kt</url>
+          <line>257</line>
+          <option name="timeStamp" value="197" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/newsheadlines/src/main/java/com/sagarock101/newsheadlines/ui/fragments/NewsHeadlinesFragment.kt</url>
+          <line>211</line>
+          <option name="timeStamp" value="204" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/saved/src/main/java/com/sagarock101/saved/ui/fragment/SavedFragment.kt</url>
+          <line>94</line>
+          <option name="timeStamp" value="251" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/saved/src/main/java/com/sagarock101/saved/ui/fragment/SavedFragment.kt</url>
+          <line>93</line>
+          <option name="timeStamp" value="252" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/saved/src/main/java/com/sagarock101/saved/ui/fragment/SavedFragment.kt</url>
+          <line>197</line>
+          <option name="timeStamp" value="255" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/saved/src/main/java/com/sagarock101/saved/ui/adapter/SavedNewsAdapter.kt</url>
+          <line>29</line>
+          <option name="timeStamp" value="256" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-runtime/2.3.2/335d4f8d67d8696cac1fffd831eea34fa45e5f84/navigation-runtime-2.3.2-sources.jar!/androidx/navigation/NavController.java</url>
+          <line>1374</line>
+          <option name="timeStamp" value="217" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-runtime/2.3.2/335d4f8d67d8696cac1fffd831eea34fa45e5f84/navigation-runtime-2.3.2-sources.jar!/androidx/navigation/NavController.java</url>
+          <line>1372</line>
+          <option name="timeStamp" value="218" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-runtime/2.3.2/335d4f8d67d8696cac1fffd831eea34fa45e5f84/navigation-runtime-2.3.2-sources.jar!/androidx/navigation/NavController.java</url>
+          <line>1369</line>
+          <option name="timeStamp" value="219" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-runtime/2.3.2/335d4f8d67d8696cac1fffd831eea34fa45e5f84/navigation-runtime-2.3.2-sources.jar!/androidx/navigation/NavController.java</url>
+          <line>230</line>
+          <option name="timeStamp" value="223" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-runtime/2.3.2/335d4f8d67d8696cac1fffd831eea34fa45e5f84/navigation-runtime-2.3.2-sources.jar!/androidx/navigation/NavController.java</url>
+          <line>231</line>
+          <option name="timeStamp" value="224" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-runtime/2.3.2/335d4f8d67d8696cac1fffd831eea34fa45e5f84/navigation-runtime-2.3.2-sources.jar!/androidx/navigation/NavController.java</url>
+          <line>235</line>
+          <option name="timeStamp" value="225" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-runtime/2.3.2/335d4f8d67d8696cac1fffd831eea34fa45e5f84/navigation-runtime-2.3.2-sources.jar!/androidx/navigation/NavController.java</url>
+          <line>625</line>
+          <option name="timeStamp" value="234" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-runtime/2.3.2/335d4f8d67d8696cac1fffd831eea34fa45e5f84/navigation-runtime-2.3.2-sources.jar!/androidx/navigation/NavController.java</url>
+          <line>118</line>
+          <option name="timeStamp" value="250" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
