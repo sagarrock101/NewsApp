@@ -1,0 +1,11 @@
+include ':widget'
+include ':search'
+include ':database'
+include ':sources'
+include ':saved'
+include ':core'
+include ':common'
+include ':stylekit'
+include ':newsheadlines'
+include ':app'
+rootProject.name = "NewsApp"

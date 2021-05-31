@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_news_headlines"
+        android:icon="@drawable/ic_newspaper__1_"
+        android:title="@string/newsHeadlines"
+        />
+
+    <item
+        android:id="@+id/navigation_sources"
+        android:icon="@drawable/ic_baseline_rss_feed_24"
+        android:title="@string/sources"
+        />
+
+    <item
+        android:id="@+id/navigation_saved"
+        android:icon="@drawable/ic_down_arrow"
+        android:title="@string/saved"
+        />
+</menu>
