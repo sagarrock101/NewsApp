@@ -1,0 +1,48 @@
+com/sagarock101/categories/data/SourceRepo_Factory.java
+ com.sagarock101.categories.data.SourceRepo_Factory
+com/sagarock101/categories/di/SourceDataModule_ProvideSourceRemoteSourceFactory.java
+ com.sagarock101.categories.di.SourceDataModule_ProvideSourceRemoteSourceFactory
+com/sagarock101/common/BR.java
+ com.sagarock101.common.BR
+com/sagarock101/categories/DataBindingTriggerClass.java
+ com.sagarock101.categories.DataBindingTriggerClass
+androidx/databinding/library/baseAdapters/BR.java
+ androidx.databinding.library.baseAdapters.BR
+com/sagarock101/categories/di/SourceDataModule_ProvideSourceRepoFactory.java
+ com.sagarock101.categories.di.SourceDataModule_ProvideSourceRepoFactory
+com/sagarock101/categories/BuildConfig.java
+ com.sagarock101.categories.BuildConfig
+com/sagarock101/categories/viewmodel/SourceViewModel_MembersInjector.java
+ com.sagarock101.categories.viewmodel.SourceViewModel_MembersInjector
+com/sagarock101/categories/data/remoteSource/SourceRemoteSource_Factory.java
+ com.sagarock101.categories.data.remoteSource.SourceRemoteSource_Factory
+com/sagarock101/categories/di/SourceDataModule_ProvideSourceServiceFactory.java
+ com.sagarock101.categories.di.SourceDataModule_ProvideSourceServiceFactory
+androidx/databinding/DataBindingComponent.java
+ androidx.databinding.DataBindingComponent
+com/sagarock101/core/BR.java
+ com.sagarock101.core.BR
+com/sagarock101/stylekit/BR.java
+ com.sagarock101.stylekit.BR
+com/sagarock101/categories/BR.java
+ com.sagarock101.categories.BR
+com/sagarock101/categories/viewmodel/SourceViewModel_Factory.java
+ com.sagarock101.categories.viewmodel.SourceViewModel_Factory
+com/sagarock101/categories/ui/fragments/SourcesFragment_MembersInjector.java
+ com.sagarock101.categories.ui.fragments.SourcesFragment_MembersInjector
+com/sagarock101/categories/di/SourcesFragmentBuildersModule_ContributeSourceFragment.java
+ com.sagarock101.categories.di.SourcesFragmentBuildersModule_ContributeSourceFragment
+ com.sagarock101.categories.di.SourcesFragmentBuildersModule_ContributeSourceFragment$SourcesFragmentSubcomponent
+ com.sagarock101.categories.di.SourcesFragmentBuildersModule_ContributeSourceFragment$SourcesFragmentSubcomponent$Factory
+com/sagarock101/categories/databinding/FragmentSourcesBindingImpl.java
+ com.sagarock101.categories.databinding.FragmentSourcesBindingImpl
+com/sagarock101/categories/databinding/FragmentSourcesBinding.java
+ com.sagarock101.categories.databinding.FragmentSourcesBinding
+com/sagarock101/categories/databinding/ItemSourcesBinding.java
+ com.sagarock101.categories.databinding.ItemSourcesBinding
+com/sagarock101/categories/databinding/ItemSourcesBindingImpl.java
+ com.sagarock101.categories.databinding.ItemSourcesBindingImpl
+com/sagarock101/categories/DataBinderMapperImpl.java
+ com.sagarock101.categories.DataBinderMapperImpl
+ com.sagarock101.categories.DataBinderMapperImpl$InnerBrLookup
+ com.sagarock101.categories.DataBinderMapperImpl$InnerLayoutIdLookup

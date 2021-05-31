@@ -1,0 +1,11 @@
+[
+  {
+    "name": "nav_main_root",
+    "navigationXmlIds": [
+      "navigation_news_headlines",
+      "navigation_saved",
+      "navigation_sources"
+    ],
+    "deepLinks": []
+  }
+]

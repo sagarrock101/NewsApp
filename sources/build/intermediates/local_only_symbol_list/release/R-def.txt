@@ -1,0 +1,17 @@
+R_DEF: Internal format may change without notice
+local
+id btn_open_in_browser
+id cl_container
+id cv_parent
+id iv_right_arrow
+id iv_source
+id navigation_sources
+id rv_sources
+id sourcesFragment
+id tv_source_desc
+id tv_source_source
+id tv_source_title
+layout fragment_sources
+layout item_sources
+navigation navigation_sources
+string check_out_in_browser

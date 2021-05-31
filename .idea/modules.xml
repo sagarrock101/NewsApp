@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/NewsApp.iml" filepath="$PROJECT_DIR$/.idea/modules/NewsApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NewsApp.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NewsApp.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/NewsApp.common.iml" filepath="$PROJECT_DIR$/.idea/modules/common/NewsApp.common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/NewsApp.core.iml" filepath="$PROJECT_DIR$/.idea/modules/core/NewsApp.core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/database/NewsApp.database.iml" filepath="$PROJECT_DIR$/.idea/modules/database/NewsApp.database.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/NewsHeadlines/NewsApp.newsheadlines.iml" filepath="$PROJECT_DIR$/.idea/modules/NewsHeadlines/NewsApp.newsheadlines.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/saved/NewsApp.saved.iml" filepath="$PROJECT_DIR$/.idea/modules/saved/NewsApp.saved.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/search/NewsApp.search.iml" filepath="$PROJECT_DIR$/.idea/modules/search/NewsApp.search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/categories/NewsApp.sources.iml" filepath="$PROJECT_DIR$/.idea/modules/categories/NewsApp.sources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/stylekit/NewsApp.stylekit.iml" filepath="$PROJECT_DIR$/.idea/modules/stylekit/NewsApp.stylekit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/widget/NewsApp.widget.iml" filepath="$PROJECT_DIR$/.idea/modules/widget/NewsApp.widget.iml" />
+    </modules>
+  </component>
+</project>

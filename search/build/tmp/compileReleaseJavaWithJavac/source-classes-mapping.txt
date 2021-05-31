@@ -1,0 +1,72 @@
+com/sagarock101/search/ui/fragment/SearchDetailFragment_MembersInjector.java
+ com.sagarock101.search.ui.fragment.SearchDetailFragment_MembersInjector
+com/sagarock101/search/databinding/FragmentSearchItemDetailBinding.java
+ com.sagarock101.search.databinding.FragmentSearchItemDetailBinding
+com/sagarock101/search/di/SearchFragmentBuildersModule_ContributeSearchResultDetailFragment.java
+ com.sagarock101.search.di.SearchFragmentBuildersModule_ContributeSearchResultDetailFragment
+ com.sagarock101.search.di.SearchFragmentBuildersModule_ContributeSearchResultDetailFragment$SearchDetailFragmentSubcomponent
+ com.sagarock101.search.di.SearchFragmentBuildersModule_ContributeSearchResultDetailFragment$SearchDetailFragmentSubcomponent$Factory
+com/sagarock101/search/ui/viewmodel/SearchViewModel_Factory.java
+ com.sagarock101.search.ui.viewmodel.SearchViewModel_Factory
+com/sagarock101/search/ui/fragment/SearchResultsFragment_MembersInjector.java
+ com.sagarock101.search.ui.fragment.SearchResultsFragment_MembersInjector
+com/sagarock101/search/databinding/FragmentDialogSearchBindingImpl.java
+ com.sagarock101.search.databinding.FragmentDialogSearchBindingImpl
+com/sagarock101/search/DataBindingTriggerClass.java
+ com.sagarock101.search.DataBindingTriggerClass
+com/sagarock101/common/BR.java
+ com.sagarock101.common.BR
+androidx/databinding/library/baseAdapters/BR.java
+ androidx.databinding.library.baseAdapters.BR
+com/sagarock101/search/BuildConfig.java
+ com.sagarock101.search.BuildConfig
+com/sagarock101/search/di/SearchModule_ProvideSearchRepoFactory.java
+ com.sagarock101.search.di.SearchModule_ProvideSearchRepoFactory
+com/sagarock101/core/BR.java
+ com.sagarock101.core.BR
+com/sagarock101/search/di/SearchBuildersModule_ContributeSearchActivity.java
+ com.sagarock101.search.di.SearchBuildersModule_ContributeSearchActivity
+ com.sagarock101.search.di.SearchBuildersModule_ContributeSearchActivity$SearchActivitySubcomponent
+ com.sagarock101.search.di.SearchBuildersModule_ContributeSearchActivity$SearchActivitySubcomponent$Factory
+com/sagarock101/search/databinding/ActivitySearchBinding.java
+ com.sagarock101.search.databinding.ActivitySearchBinding
+com/sagarock101/search/databinding/ItemSearchResultBindingImpl.java
+ com.sagarock101.search.databinding.ItemSearchResultBindingImpl
+com/sagarock101/search/DataBinderMapperImpl.java
+ com.sagarock101.search.DataBinderMapperImpl
+ com.sagarock101.search.DataBinderMapperImpl$InnerBrLookup
+ com.sagarock101.search.DataBinderMapperImpl$InnerLayoutIdLookup
+com/sagarock101/search/BR.java
+ com.sagarock101.search.BR
+com/sagarock101/search/databinding/ActivitySearchBindingImpl.java
+ com.sagarock101.search.databinding.ActivitySearchBindingImpl
+com/sagarock101/search/databinding/ItemSearchResultBinding.java
+ com.sagarock101.search.databinding.ItemSearchResultBinding
+com/sagarock101/search/di/SearchFragmentBuildersModule_ContributeSearchResultsFragment.java
+ com.sagarock101.search.di.SearchFragmentBuildersModule_ContributeSearchResultsFragment
+ com.sagarock101.search.di.SearchFragmentBuildersModule_ContributeSearchResultsFragment$SearchResultsFragmentSubcomponent
+ com.sagarock101.search.di.SearchFragmentBuildersModule_ContributeSearchResultsFragment$SearchResultsFragmentSubcomponent$Factory
+com/sagarock101/search/databinding/FragmentDialogSearchBinding.java
+ com.sagarock101.search.databinding.FragmentDialogSearchBinding
+com/sagarock101/search/data/remote/SearchRemoteSource_Factory.java
+ com.sagarock101.search.data.remote.SearchRemoteSource_Factory
+com/sagarock101/widget/BR.java
+ com.sagarock101.widget.BR
+com/sagarock101/search/databinding/FragmentSearchBindingImpl.java
+ com.sagarock101.search.databinding.FragmentSearchBindingImpl
+com/sagarock101/search/databinding/FragmentSearchItemDetailBindingImpl.java
+ com.sagarock101.search.databinding.FragmentSearchItemDetailBindingImpl
+com/sagarock101/search/di/SearchModule_ProvideSearchDataSourceFactory.java
+ com.sagarock101.search.di.SearchModule_ProvideSearchDataSourceFactory
+com/sagarock101/stylekit/BR.java
+ com.sagarock101.stylekit.BR
+com/sagarock101/search/data/remote/SearchRepo_Factory.java
+ com.sagarock101.search.data.remote.SearchRepo_Factory
+androidx/databinding/DataBindingComponent.java
+ androidx.databinding.DataBindingComponent
+com/sagarock101/search/databinding/FragmentSearchBinding.java
+ com.sagarock101.search.databinding.FragmentSearchBinding
+com/sagarock101/search/di/SearchModule_ProvideSearchServiceFactory.java
+ com.sagarock101.search.di.SearchModule_ProvideSearchServiceFactory
+com/sagarock101/search/ui/viewmodel/SearchViewModel_MembersInjector.java
+ com.sagarock101.search.ui.viewmodel.SearchViewModel_MembersInjector

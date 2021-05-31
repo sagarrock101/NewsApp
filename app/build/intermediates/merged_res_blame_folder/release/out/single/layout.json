@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\Users\\Embibe\\AndroidStudioProjects\\NewsApp\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\fragment_btm_nav.xml",
+        "source": "C:\\Users\\Embibe\\AndroidStudioProjects\\NewsApp\\app\\src\\main\\res\\layout\\fragment_btm_nav.xml"
+    },
+    {
+        "merged": "C:\\Users\\Embibe\\AndroidStudioProjects\\NewsApp\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Embibe\\AndroidStudioProjects\\NewsApp\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Embibe\\AndroidStudioProjects\\NewsApp\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\fragment_splash.xml",
+        "source": "C:\\Users\\Embibe\\AndroidStudioProjects\\NewsApp\\app\\src\\main\\res\\layout\\fragment_splash.xml"
+    }
+]

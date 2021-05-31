@@ -1,0 +1,40 @@
+androidx/databinding/library/baseAdapters/BR.java
+ androidx.databinding.library.baseAdapters.BR
+androidx/databinding/DataBindingComponent.java
+ androidx.databinding.DataBindingComponent
+com/sagarock101/stylekit/BR.java
+ com.sagarock101.stylekit.BR
+com/sagarock101/stylekit/BuildConfig.java
+ com.sagarock101.stylekit.BuildConfig
+com/sagarock101/stylekit/DataBindingTriggerClass.java
+ com.sagarock101.stylekit.DataBindingTriggerClass
+com/sagarock101/common/BR.java
+ com.sagarock101.common.BR
+com/sagarock101/stylekit/databinding/CustomAppBarBindingImpl.java
+ com.sagarock101.stylekit.databinding.CustomAppBarBindingImpl
+com/sagarock101/stylekit/DataBinderMapperImpl.java
+ com.sagarock101.stylekit.DataBinderMapperImpl
+ com.sagarock101.stylekit.DataBinderMapperImpl$InnerBrLookup
+ com.sagarock101.stylekit.DataBinderMapperImpl$InnerLayoutIdLookup
+com/sagarock101/stylekit/databinding/WidgetNewsLayoutBindingImpl.java
+ com.sagarock101.stylekit.databinding.WidgetNewsLayoutBindingImpl
+com/sagarock101/stylekit/databinding/FragmentDialogThemeBinding.java
+ com.sagarock101.stylekit.databinding.FragmentDialogThemeBinding
+com/sagarock101/stylekit/databinding/LayoutNoNetworkBinding.java
+ com.sagarock101.stylekit.databinding.LayoutNoNetworkBinding
+com/sagarock101/stylekit/databinding/FragmentDialogThemeBindingImpl.java
+ com.sagarock101.stylekit.databinding.FragmentDialogThemeBindingImpl
+com/sagarock101/stylekit/databinding/FragmentAboutDialogBindingImpl.java
+ com.sagarock101.stylekit.databinding.FragmentAboutDialogBindingImpl
+com/sagarock101/stylekit/databinding/LayoutNoSavedItemBindingImpl.java
+ com.sagarock101.stylekit.databinding.LayoutNoSavedItemBindingImpl
+com/sagarock101/stylekit/databinding/CustomAppBarBinding.java
+ com.sagarock101.stylekit.databinding.CustomAppBarBinding
+com/sagarock101/stylekit/databinding/LayoutNoNetworkBindingImpl.java
+ com.sagarock101.stylekit.databinding.LayoutNoNetworkBindingImpl
+com/sagarock101/stylekit/databinding/FragmentAboutDialogBinding.java
+ com.sagarock101.stylekit.databinding.FragmentAboutDialogBinding
+com/sagarock101/stylekit/databinding/WidgetNewsLayoutBinding.java
+ com.sagarock101.stylekit.databinding.WidgetNewsLayoutBinding
+com/sagarock101/stylekit/databinding/LayoutNoSavedItemBinding.java
+ com.sagarock101.stylekit.databinding.LayoutNoSavedItemBinding

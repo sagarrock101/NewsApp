@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_news_headlines"
+    app:startDestination="@id/newsHeadlinesFragment">
+
+    <fragment
+        android:id="@+id/newsHeadlinesFragment"
+        android:name="com.sagarock101.newsheadlines.ui.fragments.NewsHeadlinesFragment"
+        android:label="NewsHeadlinesFragment" >
+        <action
+            android:id="@+id/action_newsHeadlinesFragment_to_newsDetailFragment"
+            app:destination="@id/newsDetailFragment"
+     />
+    </fragment>
+    <fragment
+        android:id="@+id/newsDetailFragment"
+        android:name="com.sagarock101.newsheadlines.ui.fragments.NewsDetailFragment"
+        android:label="NewsDetailFragment" >
+        <argument
+            android:name="article"
+            app:argType="com.sagarock101.database.model.Articles"
+            app:nullable="true" />
+    </fragment>
+</navigation>

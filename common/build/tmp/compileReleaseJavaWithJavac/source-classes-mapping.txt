@@ -1,0 +1,14 @@
+com/sagarock101/common/DataBinderMapperImpl.java
+ com.sagarock101.common.DataBinderMapperImpl
+ com.sagarock101.common.DataBinderMapperImpl$InnerBrLookup
+ com.sagarock101.common.DataBinderMapperImpl$InnerLayoutIdLookup
+com/sagarock101/common/BuildConfig.java
+ com.sagarock101.common.BuildConfig
+com/sagarock101/common/BR.java
+ com.sagarock101.common.BR
+androidx/databinding/library/baseAdapters/BR.java
+ androidx.databinding.library.baseAdapters.BR
+androidx/databinding/DataBindingComponent.java
+ androidx.databinding.DataBindingComponent
+com/sagarock101/common/DataBindingTriggerClass.java
+ com.sagarock101.common.DataBindingTriggerClass

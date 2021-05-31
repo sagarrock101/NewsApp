@@ -1,0 +1,40 @@
+com/sagarock101/widget/WidgetViewModel_Factory.java
+ com.sagarock101.widget.WidgetViewModel_Factory
+com/sagarock101/widget/DataBindingTriggerClass.java
+ com.sagarock101.widget.DataBindingTriggerClass
+androidx/databinding/DataBindingComponent.java
+ androidx.databinding.DataBindingComponent
+com/sagarock101/common/BR.java
+ com.sagarock101.common.BR
+com/sagarock101/stylekit/BR.java
+ com.sagarock101.stylekit.BR
+androidx/databinding/library/baseAdapters/BR.java
+ androidx.databinding.library.baseAdapters.BR
+com/sagarock101/core/BR.java
+ com.sagarock101.core.BR
+com/sagarock101/widget/BR.java
+ com.sagarock101.widget.BR
+com/sagarock101/widget/WidgetViewModel_MembersInjector.java
+ com.sagarock101.widget.WidgetViewModel_MembersInjector
+com/sagarock101/widget/BuildConfig.java
+ com.sagarock101.widget.BuildConfig
+com/sagarock101/widget/databinding/ActivityWidgetItemDetailBinding.java
+ com.sagarock101.widget.databinding.ActivityWidgetItemDetailBinding
+com/sagarock101/widget/di/WidgetBuildersModule_ContributeWidgetItemDetailActivity.java
+ com.sagarock101.widget.di.WidgetBuildersModule_ContributeWidgetItemDetailActivity
+ com.sagarock101.widget.di.WidgetBuildersModule_ContributeWidgetItemDetailActivity$WidgetItemDetailActivitySubcomponent
+ com.sagarock101.widget.di.WidgetBuildersModule_ContributeWidgetItemDetailActivity$WidgetItemDetailActivitySubcomponent$Factory
+com/sagarock101/widget/di/WidgetServiceModule_ProvideStackWidgetServiceFactory.java
+ com.sagarock101.widget.di.WidgetServiceModule_ProvideStackWidgetServiceFactory
+com/sagarock101/widget/di/ServiceBuildersModule_ContributeStackWidgetService.java
+ com.sagarock101.widget.di.ServiceBuildersModule_ContributeStackWidgetService
+ com.sagarock101.widget.di.ServiceBuildersModule_ContributeStackWidgetService$StackWidgetServiceSubcomponent
+ com.sagarock101.widget.di.ServiceBuildersModule_ContributeStackWidgetService$StackWidgetServiceSubcomponent$Factory
+com/sagarock101/widget/WidgetItemDetailActivity_MembersInjector.java
+ com.sagarock101.widget.WidgetItemDetailActivity_MembersInjector
+com/sagarock101/widget/databinding/ActivityWidgetItemDetailBindingImpl.java
+ com.sagarock101.widget.databinding.ActivityWidgetItemDetailBindingImpl
+com/sagarock101/widget/DataBinderMapperImpl.java
+ com.sagarock101.widget.DataBinderMapperImpl
+ com.sagarock101.widget.DataBinderMapperImpl$InnerBrLookup
+ com.sagarock101.widget.DataBinderMapperImpl$InnerLayoutIdLookup
