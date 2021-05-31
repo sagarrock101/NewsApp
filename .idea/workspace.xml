@@ -15,13 +15,22 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="BranchesTreeState">
-    <expand />
-    <select />
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1834818-5629-4931-9d59-7b1d4f50e0bf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-    </list>
+    <list default="true" id="b1834818-5629-4931-9d59-7b1d4f50e0bf" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -421,13 +430,6 @@
       <option name="presentableId" value="Default" />
       <updated>1606650448798</updated>
     </task>
-    <task id="LOCAL-00104" summary="ChangedProgressBar colors based on theme changed">
-      <created>1613153948736</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
-      <option name="project" value="LOCAL" />
-      <updated>1613153948736</updated>
-    </task>
     <task id="LOCAL-00105" summary="saving articles from search but need to limit the description text if its too long | need to fix menu based on theme changes">
       <created>1613242094337</created>
       <option name="number" value="00105" />
@@ -764,7 +766,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622470413089</updated>
     </task>
-    <option name="localTasksCounter" value="153" />
+    <task id="LOCAL-00153" summary="added gitignore">
+      <created>1622474645357</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1622474645357</updated>
+    </task>
+    <option name="localTasksCounter" value="154" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -797,7 +806,19 @@
         </entry>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -810,7 +831,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added alternate resour files for NewsHeadlinesFragment.kt module" />
     <MESSAGE value="Added app icon need to check with ppi res" />
     <MESSAGE value="Added app icon to white bg" />
     <MESSAGE value="Network checker added with no wifi message for NewsHeadlinesFragment.kt" />
@@ -835,7 +855,8 @@
     <MESSAGE value="Added all caught up text" />
     <MESSAGE value="Added vibration for long press on saved news" />
     <MESSAGE value="Fixed classes.dex gradle merge error and now Saved module is independent and news-headlines independent" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed classes.dex gradle merge error and now Saved module is independent and news-headlines independent" />
+    <MESSAGE value="added gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="added gitignore" />
   </component>
   <component name="WindowStateProjectService">
     <state x="317" y="178" key="#PSD" timestamp="1622468349932">
@@ -890,18 +911,18 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="596" y="179" key="AndroidProcessChooserDialog/62.0.1474.864@62.0.1474.864" timestamp="1622051607567" />
-    <state x="243" y="0" key="CommitChangelistDialog2" timestamp="1622470412265">
+    <state x="142" y="0" key="CommitChangelistDialog2" timestamp="1622474644561">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="243" y="0" key="CommitChangelistDialog2/62.0.1474.864@62.0.1474.864" timestamp="1622470412265" />
+    <state x="142" y="0" key="CommitChangelistDialog2/62.0.1474.864@62.0.1474.864" timestamp="1622474644561" />
     <state width="607" height="466" key="DebuggerActiveHint" timestamp="1615126667957">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state width="607" height="466" key="DebuggerActiveHint/62.0.1474.864@62.0.1474.864" timestamp="1615126667957" />
-    <state x="203" y="69" width="1179" height="719" key="DiffContextDialog" timestamp="1622467820620">
+    <state x="203" y="69" width="1179" height="719" key="DiffContextDialog" timestamp="1622474693303">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="203" y="69" width="1179" height="719" key="DiffContextDialog/62.0.1474.864@62.0.1474.864" timestamp="1622467820620" />
+    <state x="203" y="69" width="1179" height="719" key="DiffContextDialog/62.0.1474.864@62.0.1474.864" timestamp="1622474693303" />
     <state x="580" y="187" key="FileChooserDialogImpl" timestamp="1622393535475">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
@@ -954,10 +975,10 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state width="254" height="198" key="ShowFilterAction_Filter_Popup/62.0.1474.864@62.0.1474.864" timestamp="1622394538891" />
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1622470417911">
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1622474650683">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2/62.0.1474.864@62.0.1474.864" timestamp="1622470417911" />
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2/62.0.1474.864@62.0.1474.864" timestamp="1622474650683" />
     <state width="744" height="439" key="XDebugger.FullValuePopup" timestamp="1614507831729">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
@@ -1010,10 +1031,10 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="458" y="197" width="672" height="677" key="run.anything.popup/62.0.1474.864@62.0.1474.864" timestamp="1619260534370" />
-    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1622474371738">
+    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1622474604281">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup/62.0.1474.864@62.0.1474.864" timestamp="1622474371738" />
+    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup/62.0.1474.864@62.0.1474.864" timestamp="1622474604281" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
