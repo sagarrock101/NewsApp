@@ -9,6 +9,7 @@ import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
+import leakcanary.LeakCanary
 import javax.inject.Inject
 
 class MyApplication: DaggerApplication(), HasAndroidInjector {
@@ -20,7 +21,9 @@ class MyApplication: DaggerApplication(), HasAndroidInjector {
 
     override fun onCreate() {
         super.onCreate()
-        Stetho.initializeWithDefaults(this)
+        if(BuildConfig.DEBUG) {
+            Stetho.initializeWithDefaults(this)
+        }
         AppInjector.init(this)
     }
 

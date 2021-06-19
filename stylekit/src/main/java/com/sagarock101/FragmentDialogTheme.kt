@@ -65,11 +65,16 @@ class FragmentDialogTheme: DialogFragment(), RadioGroup.OnCheckedChangeListener 
             }
     }
 
-    fun setListener(listener: OnDialogThemeBtnListener) {
+    fun setListener(listener: OnDialogThemeBtnListener?) {
         this.listener = listener
     }
 
     fun setThemeToBeChecked(themeRes: Int) {
         checkedThemeRes = themeRes
+    }
+
+    override fun onDestroyView() {
+        binding.rgThemes.setOnCheckedChangeListener(null)
+        super.onDestroyView()
     }
 }

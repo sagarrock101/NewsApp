@@ -5,7 +5,6 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import androidx.core.view.ViewCompat
-import androidx.core.view.children
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.FragmentNavigator
@@ -30,13 +29,14 @@ import com.sagarock101.newsheadlines.viewmodel.NewsViewModel
 import com.sagarock101.stylekit.binding.changeStatusBarBasedOnTheme
 import timber.log.Timber
 import java.lang.Exception
-import java.sql.Timestamp
 import javax.inject.Inject
 
 class NewsHeadlinesFragment :
     BaseViewModelFragment<FragmentNewsHeadlinesBinding, NewsViewModel>(), Injectable,
     OnSnapPositionChangeListener, ChipGroup.OnCheckedChangeListener, View.OnClickListener {
 
+    private lateinit var snapHelper: SnapHelper
+    private var snapOnScrollListener: SnapOnScrollListener? = null
     private var prevCheckedId: Int? = null
     
     @Inject
@@ -52,23 +52,25 @@ class NewsHeadlinesFragment :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = injectViewModel(viewModelFactory)
+        snapHelper = SnapHelper()
     }
 
-    override fun onResume() {
-        super.onResume()
-        binding.shimmer.startShimmer()
-    }
 
     override fun onPause() {
-        super.onPause()
+        showToast("onPause()")
         binding.shimmer.stopShimmer()
+        snapHelper.attachToRecyclerView(null)
+        snapOnScrollListener = null
+        super.onPause()
     }
 
     override fun initView(view: View) {
+        showToast("initView()")
         handler = Handler(Looper.getMainLooper())
         changeStatusBarBasedOnTheme()
         setAdapterToRecyclerView()
-        attachSnapTov()
+        setUpSnapToRv()
+        postponeRvTransition()
         binding.chipGroup.setOnCheckedChangeListener(this)
         viewModel.newsHeadLinesLD.observe(viewLifecycleOwner, Observer {
             when (it.status) {
@@ -93,6 +95,19 @@ class NewsHeadlinesFragment :
                 }
             }
         })
+    }
+
+    private fun setUpSnapToRv() {
+        if(snapOnScrollListener == null) {
+            snapHelper.attachToRecyclerView(binding.rvNews)
+            snapOnScrollListener = SnapOnScrollListener(snapHelper, this)
+            binding.shimmer.startShimmer()
+            binding.rvNews.apply {
+                snapOnScrollListener?.let {
+                    addOnScrollListener(it)
+                }
+            }
+        }
     }
 
     private fun setAdapterToRecyclerView() {
@@ -121,13 +136,9 @@ class NewsHeadlinesFragment :
 
     }
 
-    private fun attachSnapTov() {
-        val snapHelper = SnapHelper()
-        snapHelper.attachToRecyclerView(binding.rvNews)
-        val snapOnScrollListener = SnapOnScrollListener(snapHelper, this)
+    private fun postponeRvTransition() {
         binding.rvNews.apply {
             adapter = this@NewsHeadlinesFragment.adapter
-            addOnScrollListener(snapOnScrollListener)
             postponeEnterTransition()
             viewTreeObserver
                 .addOnPreDrawListener {
@@ -197,7 +208,9 @@ class NewsHeadlinesFragment :
     override fun onDestroyView() {
         handler = null
         binding.chipGroup.setOnCheckedChangeListener(null)
+        snapHelper.clear()
         viewModel.lastSelectedChipId = binding.chipGroup.checkedChipId
+
         super.onDestroyView()
     }
 
