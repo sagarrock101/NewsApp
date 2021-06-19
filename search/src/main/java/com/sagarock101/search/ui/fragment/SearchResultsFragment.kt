@@ -55,7 +55,6 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         searchListAdapter = SearchResultsAdapter()
-        speechRecognizer = SpeechRecognizer.createSpeechRecognizer(requireContext())
     }
 
     override fun isNetworkActive(isActive: Boolean) {
@@ -64,7 +63,9 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
 
     override fun onResume() {
         super.onResume()
+        speechRecognizer = SpeechRecognizer.createSpeechRecognizer(requireContext())
         binding.etSearch.addTextChangedListener(listener)
+        setUpSpeechRecognition()
     }
 
     @FlowPreview
@@ -115,7 +116,6 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
             })
         }
         setListItemClickListner()
-        setUpSpeechRecognition()
     }
 
     private fun setListItemClickListner() {
@@ -259,6 +259,7 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
         super.onPause()
         speechRecognizer?.stopListening()
         binding.etSearch.removeTextChangedListener(listener)
+        speechRecognizer = null
     }
 
     override fun startSpeechRecognition() {

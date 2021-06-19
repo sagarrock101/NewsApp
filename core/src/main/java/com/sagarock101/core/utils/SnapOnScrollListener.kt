@@ -18,7 +18,7 @@ class SnapOnScrollListener(
         val snapPosition = snapHelper.getSnapPosition(recyclerView)
         val snapPositionChanged = this.snapPosition != snapPosition
         if(snapPositionChanged) {
-            onSnapPositionChangeListener?.onSnapPositionChange(snapPosition, this.snapPosition)
+            onSnapPositionChangeListener.onSnapPositionChange(snapPosition, this.snapPosition)
             this.snapPosition = snapPosition
         }
     }
@@ -33,4 +33,5 @@ class SnapOnScrollListener(
         val snapView = findSnapView(layoutManager) ?: return RecyclerView.NO_POSITION
         return layoutManager.getPosition(snapView)
     }
+
 }

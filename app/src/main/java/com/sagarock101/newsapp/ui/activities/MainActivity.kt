@@ -37,8 +37,8 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
     FragmentDialogTheme.Companion.OnDialogThemeBtnListener, View.OnClickListener {
 
     private var themeSelected: Int? = null
-    private var themeDialogFragment = FragmentDialogTheme()
-    private var aboutDialogFragment = AboutDialogFragment()
+    private var themeDialogFragment: FragmentDialogTheme? = null
+    private var aboutDialogFragment: AboutDialogFragment? = null
     lateinit var binding: ActivityMainBinding
     private var isNetworkActive = true
 
@@ -62,12 +62,12 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        themeDialogFragment = FragmentDialogTheme()
+        aboutDialogFragment = AboutDialogFragment()
         setupSharedPreferences()
         setupTheme()
         changeStatusBarBasedOnTheme()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.btmNav.setOnNavigationItemReselectedListener(this)
-        binding.fabSearch.setOnClickListener(this)
         setSupportActionBar(binding.customAppBar.toolbar)
         supportActionBar?.title = getString(R.string.empty)
         binding.btmNav.setupWithNavController(navController)
@@ -83,8 +83,7 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
     }
 
     private fun createDialog() {
-        themeDialogFragment.setListener(this)
-        themeSelected?.let { themeDialogFragment.setThemeToBeChecked(it) }
+        themeSelected?.let { themeDialogFragment?.setThemeToBeChecked(it) }
     }
 
     override fun onDestinationChanged(
@@ -195,7 +194,10 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
 
     override fun onResume() {
         super.onResume()
+        themeDialogFragment?.setListener(this)
         navController.addOnDestinationChangedListener(this)
+        binding.btmNav.setOnNavigationItemReselectedListener(this)
+        binding.fabSearch.setOnClickListener(this)
     }
 
 
@@ -204,6 +206,9 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
             preferenceHelper.saveToPreferences(AppConstants.UI_THEME_KEY, it)
         }
         navController.removeOnDestinationChangedListener(this)
+        binding.btmNav.setOnNavigationItemReselectedListener(null)
+        binding.fabSearch.setOnClickListener(null)
+        themeDialogFragment?.setListener(null)
         super.onPause()
     }
 
@@ -232,7 +237,7 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
     }
 
     private fun showAboutDialog() {
-        aboutDialogFragment.show(supportFragmentManager, "About")
+        aboutDialogFragment?.show(supportFragmentManager, "About")
     }
 
     override fun isNetworkActive(isActive: Boolean) {
@@ -253,7 +258,7 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
     }
 
     private fun showDialog() {
-        themeDialogFragment.show(supportFragmentManager, "")
+        themeDialogFragment?.show(supportFragmentManager, "")
     }
 
     override fun onDialogThemeBtnClick(themeName: String) {
@@ -283,6 +288,12 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
             themeDialogFragment?.dismiss()
         }
         super.onBackPressed()
+    }
+
+    override fun onDestroy() {
+        aboutDialogFragment = null
+        themeDialogFragment = null
+        super.onDestroy()
     }
 
     private fun hideViewOrShowViews(visibility: Int) {

@@ -92,4 +92,9 @@ class SnapHelper : LinearSnapHelper() {
         }
         return mHorizontalHelper
     }
+
+    fun clear() {
+        mVerticalHelper = null
+        mHorizontalHelper = null
+    }
 }
