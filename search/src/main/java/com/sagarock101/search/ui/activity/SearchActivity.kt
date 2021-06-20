@@ -1,12 +1,8 @@
 package com.sagarock101.search.ui.activity
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Bundle
-import android.provider.Settings
-import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -14,9 +10,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import com.sagarock101.common.AppConstants
 import com.sagarock101.core.utils.MyAnimationUtils.startRevealOnGlobalLayoutChangeForActivity
 import com.sagarock101.core.utils.MyAnimationUtils.unRevealActivity
@@ -27,8 +21,6 @@ import com.sagarock101.search.databinding.ActivitySearchBinding
 import com.sagarock101.search.interfaces.OnSpeechRecognitionPermissionGrantedListener
 import com.sagarock101.search.ui.fragment.SearchResultsFragment
 import com.sagarock101.stylekit.binding.getColorFromAttr
-import dagger.android.support.DaggerAppCompatActivity
-import java.util.jar.Manifest
 import kotlin.properties.Delegates
 
 const val REQUEST_PERMISSION_CODE = 101
@@ -160,13 +152,19 @@ class SearchActivity : BaseActivity(), NavController.OnDestinationChangedListene
     }
 
     override fun onPause() {
+        navController.removeOnDestinationChangedListener(this)
         super.onPause()
-        navController.addOnDestinationChangedListener(this)
     }
 
     override fun onResume() {
         super.onResume()
         navController.addOnDestinationChangedListener(this)
+    }
+
+    override fun onDestroy() {
+        onSpeechRecognitionPermissionGrantedListener = null
+        themeSelected = null
+        super.onDestroy()
     }
 
     override fun shouldUseDataBinding() = true

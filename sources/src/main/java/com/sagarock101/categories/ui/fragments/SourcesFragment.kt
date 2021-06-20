@@ -54,4 +54,9 @@ class SourcesFragment : BaseViewModelFragment<FragmentSourcesBinding, SourceView
         })
     }
 
+    override fun onDestroyView() {
+        binding.rvSources.layoutManager = null
+        super.onDestroyView()
+    }
+
 }
