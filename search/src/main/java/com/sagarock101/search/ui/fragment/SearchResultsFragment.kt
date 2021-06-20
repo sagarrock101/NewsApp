@@ -11,6 +11,7 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
 import androidx.annotation.CheckResult
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
@@ -41,8 +42,9 @@ import javax.inject.Inject
 class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, SearchViewModel>(),
     View.OnClickListener, OnSpeechRecognitionPermissionGrantedListener {
 
+    private var countDownTimer: CountDownTimer? = null
     private var listener: TextWatcher? = null
-    private lateinit var speechRecognitionListener: RecognitionListener
+    private var speechRecognitionListener: RecognitionListener? = null
     private var speechRecognizer: SpeechRecognizer? = null
     lateinit var searchListAdapter: SearchResultsAdapter
 
@@ -55,6 +57,7 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         searchListAdapter = SearchResultsAdapter()
+        speechRecognizer = SpeechRecognizer.createSpeechRecognizer(requireContext())
     }
 
     override fun isNetworkActive(isActive: Boolean) {
@@ -63,7 +66,6 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
 
     override fun onResume() {
         super.onResume()
-        speechRecognizer = SpeechRecognizer.createSpeechRecognizer(requireContext())
         binding.etSearch.addTextChangedListener(listener)
         setUpSpeechRecognition()
     }
@@ -173,7 +175,7 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
                     results?.get(SpeechRecognizer.RESULTS_RECOGNITION) as? ArrayList<String>
                 binding.etSearch.setText(speechList?.get(0))
                 binding.etSearch.setSelection(binding.etSearch.text.toString().length)
-//                speechRecognizer?.stopListening()
+                speechRecognizer?.stopListening()
             }
         }
         speechRecognizer?.setRecognitionListener(speechRecognitionListener)
@@ -185,10 +187,11 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
     }
 
     private fun startAnimateListeningText() {
-        val countDownTimer = object : CountDownTimer(2000, 200) {
+        countDownTimer = object : CountDownTimer(2000, 200) {
             override fun onFinish() {
                 binding.tvListening.visibility = View.GONE
                 speechRecognizer?.stopListening()
+                countDownTimer?.cancel()
             }
 
             override fun onTick(millisUntilFinished: Long) {
@@ -206,7 +209,7 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
             }
         }
 
-        countDownTimer.start()
+        countDownTimer?.start()
     }
 
     override fun onClick(v: View?) {
@@ -256,10 +259,9 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
     }
 
     override fun onPause() {
-        super.onPause()
         speechRecognizer?.stopListening()
         binding.etSearch.removeTextChangedListener(listener)
-        speechRecognizer = null
+        super.onPause()
     }
 
     override fun startSpeechRecognition() {
@@ -269,4 +271,20 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
     override fun stopSpeechRecognition() {
         speechRecognizer?.stopListening()
     }
+
+    override fun onDestroyView() {
+        searchListAdapter.onItemClick = null
+        binding.rvSearchResults.layoutManager = null
+        binding.rvSearchResults.adapter = null
+        super.onDestroyView()
+    }
+
+    override fun onDestroy() {
+        listener = null
+        speechRecognizer = null
+        speechRecognitionListener = null
+        countDownTimer = null
+        super.onDestroy()
+    }
+
 }

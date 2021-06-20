@@ -49,7 +49,7 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, SavedNewsViewM
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    lateinit var adapter: SavedNewsAdapter
+    private var adapter: SavedNewsAdapter? = null
 
     private var currentSwipedItem: Articles? = null
 
@@ -71,7 +71,6 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, SavedNewsViewM
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        adapter = SavedNewsAdapter()
         vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
     }
 
@@ -84,14 +83,14 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, SavedNewsViewM
     }
 
     private fun setSavedNewsObserver() {
-        viewModel.getAllSavedNews().observe(viewLifecycleOwner, Observer { savedArticles ->
+        viewModel.getAllSavedNews().observe(this, Observer { savedArticles ->
             savedArticles?.let {
                 if(it.isNotEmpty()) {
                     listOfSavedArticles = it
-                    adapter.setItems(it as MutableList<Articles>)
+                    adapter?.setItems(it as MutableList<Articles>)
                     setupSelectorTracker()
                 } else {
-                    binding.rvSavedNews.visibility = GONE
+                    binding?.rvSavedNews?.visibility = GONE
                     binding.layoutNoNews.clLayoutNoNews.visibility = VISIBLE
                 }
             }
@@ -138,7 +137,7 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, SavedNewsViewM
     private fun actionModeDeletePressed() {
         items?.let {
             listOfItemsToBeDeleted.addAll(it)
-            adapter.removeItems(listOfItemsToBeDeleted)
+            adapter?.removeItems(listOfItemsToBeDeleted)
             viewModel.deleteListOfNews(listOfItemsToBeDeleted)
             Utils.refreshWidget(requireContext(), MyAppWidgetProvider::class.java.name, com.sagarock101.widget.R.id.stack_view)
         }
@@ -146,9 +145,10 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, SavedNewsViewM
 
     private fun setupRvWithAdapter() {
         var extras: FragmentNavigator.Extras?
+        adapter = SavedNewsAdapter()
         adapter.apply {
             viewModel = this@SavedFragment.viewModel
-        }.onItemClick = { imageView, textView, data ->
+        }?.onItemClick = { imageView, textView, data ->
             val directions =
                 SavedFragmentDirections.actionSavedFragmentToSavedNewsDetailFragment(data)
             extras = FragmentNavigatorExtras(
@@ -179,42 +179,44 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, SavedNewsViewM
     }
 
     private fun setupSelectorTracker() {
-        selectionTracker = SelectionTracker.Builder<Articles>(
-            "mySelection",
-            binding.rvSavedNews,
-            MyItemKeyProvider(listOfSavedArticles!!),
-            MyItemDetailsLookup(binding.rvSavedNews),
-            StorageStrategy.createParcelableStorage(Articles::class.java)
-        ).withSelectionPredicate(
-            SelectionPredicates.createSelectAnything()
-        ).build()
-        adapter.tracker = selectionTracker
-        selectionTracker?.addObserver(object : SelectionTracker.SelectionObserver<Articles>() {
-            override fun onSelectionChanged() {
-                super.onSelectionChanged()
-                vibrator.let {
-                    it.vibrate(50)
+        if(selectionTracker == null) {
+            selectionTracker = SelectionTracker.Builder<Articles>(
+                "mySelection",
+                binding.rvSavedNews,
+                MyItemKeyProvider(listOfSavedArticles!!),
+                MyItemDetailsLookup(binding.rvSavedNews),
+                StorageStrategy.createParcelableStorage(Articles::class.java)
+            ).withSelectionPredicate(
+                SelectionPredicates.createSelectAnything()
+            ).build()
+            adapter?.tracker = selectionTracker
+            selectionTracker?.addObserver(object : SelectionTracker.SelectionObserver<Articles>() {
+                override fun onSelectionChanged() {
+                    super.onSelectionChanged()
+                    vibrator.let {
+                        it.vibrate(50)
+                    }
+                    items = selectionTracker?.selection!!
+                    updateMenuTitle(items?.size())
+                    if (selectionTracker?.hasSelection()!!) {
+                        setupActionMode()
+                        removeItemTouchHelperFromRecyclerView()
+                    } else {
+                        actionMode?.finish()
+                        attachItemTouchHelperToRecyclerView()
+                    }
                 }
-                items = selectionTracker?.selection!!
-                updateMenuTitle(items?.size())
-                if (selectionTracker?.hasSelection()!!) {
-                    setupActionMode()
-                    removeItemTouchHelperFromRecyclerView()
-                } else {
-                    actionMode?.finish()
-                    attachItemTouchHelperToRecyclerView()
-                }
-            }
-        })
+            })
+        }
     }
 
     private fun setUpItemTouchHelper() {
         val uiActionClassWithItemTouchHelper =
             object : UiActionClassWithItemHelper(requireContext()) {
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                    currentSwipedItem = adapter.getSavedNewsAt(viewHolder.adapterPosition)
+                    currentSwipedItem = adapter?.getSavedNewsAt(viewHolder.adapterPosition)
                     currentSwipedPosition = viewHolder.adapterPosition
-                    adapter.removeItem(viewHolder.adapterPosition)
+                    adapter?.removeItem(viewHolder.adapterPosition)
                     Snackbar.make(binding.root, getString(R.string.removed), Snackbar.LENGTH_SHORT)
                         .addCallback(object : Snackbar.Callback() {
                             override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
@@ -225,7 +227,7 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, SavedNewsViewM
                             }
                         })
                         .setAction(getString(R.string.undo)) {
-                            adapter.restoreItem(
+                            adapter?.restoreItem(
                                 currentSwipedItem,
                                 currentSwipedPosition
                             )
@@ -246,8 +248,17 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, SavedNewsViewM
     }
 
     override fun onDestroyView() {
-        super.onDestroyView()
         actionMode?.finish()
+        removeItemTouchHelperFromRecyclerView()
+        binding.rvSavedNews.layoutManager = null
+        adapter?.onItemClick = null
+        adapter = null
+        super.onDestroyView()
+    }
+
+    override fun onDestroy() {
+        selectionTracker = null
+        super.onDestroy()
     }
 
     override fun isNetworkActive(isActive: Boolean) {
@@ -259,5 +270,6 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, SavedNewsViewM
             it.title = "Selection $selectedSize"
         }
     }
+
 
 }

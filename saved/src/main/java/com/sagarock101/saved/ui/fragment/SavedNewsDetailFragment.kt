@@ -54,7 +54,7 @@ class SavedNewsDetailFragment :
         viewModel = injectViewModel(viewModelFactory)
         startEnterTransitionAfterLoadingImage()
         hideChildFabs()
-        binding.appBar.addOnOffsetChangedListener(this)
+        binding?.appBar?.addOnOffsetChangedListener(this)
         setClickListener()
         setSaveObserver()
         snackBarDismissListener = object : Snackbar.Callback() {

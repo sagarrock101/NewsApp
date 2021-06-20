@@ -55,9 +55,12 @@ class NewsHeadlinesFragment :
         snapHelper = SnapHelper()
     }
 
+    override fun onResume() {
+        super.onResume()
+        setUpSnapToRv()
+    }
 
     override fun onPause() {
-        showToast("onPause()")
         binding.shimmer.stopShimmer()
         snapHelper.attachToRecyclerView(null)
         snapOnScrollListener = null
@@ -65,7 +68,6 @@ class NewsHeadlinesFragment :
     }
 
     override fun initView(view: View) {
-        showToast("initView()")
         handler = Handler(Looper.getMainLooper())
         changeStatusBarBasedOnTheme()
         setAdapterToRecyclerView()
@@ -109,6 +111,7 @@ class NewsHeadlinesFragment :
             }
         }
     }
+
 
     private fun setAdapterToRecyclerView() {
         adapter = TopHeadlinesAdapter()
@@ -210,7 +213,8 @@ class NewsHeadlinesFragment :
         binding.chipGroup.setOnCheckedChangeListener(null)
         snapHelper.clear()
         viewModel.lastSelectedChipId = binding.chipGroup.checkedChipId
-
+        binding.rvNews.layoutManager = null
+        adapter = null
         super.onDestroyView()
     }
 
