@@ -99,9 +99,9 @@ object MyAnimationUtils {
         viewTreeObserver.addOnGlobalLayoutListener(object :
             ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {
+                startColorAnimation(startColor, endColor)
                 revealActivity(revealX, revealY)
                 viewTreeObserver.removeOnGlobalLayoutListener(this)
-                startColorAnimation(startColor, endColor)
             }
         })
     }
