@@ -1,13 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.room:room-ktx:2.2.6@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2ccee4f5ff015c7a640d51f5a806f50b/jetified-room-ktx-2.2.6/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f3000dd259835f0244926b7fb3c2f173/jetified-room-ktx-2.2.6/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/51aae226cae3fecc175d111a2a37fd44/jetified-room-ktx-2.2.6/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/eba8095b689b2c3ef6d0ac81c818e658/jetified-room-ktx-2.2.6/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1ed16ecf151893304fc3b379bf41febe/jetified-room-ktx-2.2.6/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1ed16ecf151893304fc3b379bf41febe/jetified-room-ktx-2.2.6/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1ed16ecf151893304fc3b379bf41febe/jetified-room-ktx-2.2.6/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9fbf88e1f448570fe6430dba05218fe6/jetified-room-ktx-2.2.6/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b8a32912b2ed9a77221ecd50068b8d55/jetified-room-ktx-2.2.6/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/600d7e21aa4b2637f30d590c7c2877be/jetified-room-ktx-2.2.6/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/600d7e21aa4b2637f30d590c7c2877be/jetified-room-ktx-2.2.6/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/600d7e21aa4b2637f30d590c7c2877be/jetified-room-ktx-2.2.6/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

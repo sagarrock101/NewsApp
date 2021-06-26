@@ -1,13 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.jakewharton.timber:timber:4.7.1@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e13134b3e0abaaf114e009ef00dfecbc/jetified-timber-4.7.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e89cfb5d48a1fc1f0709287e3c90cec6/jetified-timber-4.7.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2746980a22a517f3adb03fd82cacd0ff/jetified-timber-4.7.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a9eff3374aa6b99431ff424301e19018/jetified-timber-4.7.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ba5867454a746bbd2f1906ee5fc371b5/jetified-timber-4.7.1/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ba5867454a746bbd2f1906ee5fc371b5/jetified-timber-4.7.1/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ba5867454a746bbd2f1906ee5fc371b5/jetified-timber-4.7.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cb493a92d35f3676d78819427dc4ba60/jetified-timber-4.7.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/44a8e1995f5b31efa44ec298a0decf8d/jetified-timber-4.7.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e13930b81e50ec7bcf93bbade8a28e81/jetified-timber-4.7.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e13930b81e50ec7bcf93bbade8a28e81/jetified-timber-4.7.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e13930b81e50ec7bcf93bbade8a28e81/jetified-timber-4.7.1/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jakewharton.timber/timber/4.7.1/746f28c804e92fe2b0dd553616c78b1c3693ba16/timber-4.7.1-javadoc.jar!/" />
