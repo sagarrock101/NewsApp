@@ -214,7 +214,8 @@ class NewsHeadlinesFragment :
         snapHelper.clear()
         viewModel.lastSelectedChipId = binding.chipGroup.checkedChipId
         binding.rvNews.layoutManager = null
-        adapter = null
+        binding.rvNews.adapter = null
+        adapter?.onItemClick = null
         super.onDestroyView()
     }
 

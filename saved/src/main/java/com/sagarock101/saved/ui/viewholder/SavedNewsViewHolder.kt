@@ -15,7 +15,7 @@ import com.sagarock101.saved.viewmodel.SavedNewsViewModel
 
 class SavedNewsViewHolder(private val binding: ItemSavedBinding)
     : BaseViewHolder<Articles>(binding) {
-    var onItemClick: ((ImageView, TextView, Articles) -> Unit)? = null
+    var onItemClick: ((ImageView, TextView, TextView,  Articles) -> Unit)? = null
     var viewModel: SavedNewsViewModel? = null
     var item: Articles? = null
     override fun bind(item: Articles) {
@@ -24,8 +24,9 @@ class SavedNewsViewHolder(private val binding: ItemSavedBinding)
         binding.viewModel = viewModel
         ViewCompat.setTransitionName(binding.ivNewsImg, item.urlToImage ?: "")
         ViewCompat.setTransitionName(binding.tvTitle, item.title)
+        ViewCompat.setTransitionName(binding.tvNewsSource, item.source?.name + " " + item.publishedAt)
         itemView.setOnClickListener {
-            onItemClick?.invoke(binding.ivNewsImg, binding.tvTitle, item)
+            onItemClick?.invoke(binding.ivNewsImg, binding.tvTitle, binding.tvNewsSource, item)
             viewModel?.checkIfSaved(item)
         }
     }
@@ -44,7 +45,7 @@ class SavedNewsViewHolder(private val binding: ItemSavedBinding)
     companion object {
         fun from(
             parent: ViewGroup,
-            onItemClick: ((ImageView, TextView, Articles) -> Unit)? = null,
+            onItemClick: ((ImageView, TextView, TextView, Articles) -> Unit)? = null,
             viewModel: SavedNewsViewModel? = null
             ): BaseViewHolder<Articles> {
             val layoutInflater = LayoutInflater.from(parent.context)

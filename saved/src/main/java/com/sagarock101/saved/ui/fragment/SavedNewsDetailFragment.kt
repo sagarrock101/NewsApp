@@ -100,6 +100,7 @@ class SavedNewsDetailFragment :
     private fun startEnterTransitionAfterLoadingImage() {
         binding.article = args.articles
         binding.tvTitle.transitionName = args?.articles?.title ?: ""
+        binding.tvPublishedDate.transitionName = args?.articles?.source?.name + " " + args.articles?.publishedAt
         binding.ivNewsImg.apply {
             transitionName = args?.articles?.urlToImage ?: ""
             args.articles?.urlToImage?.let {

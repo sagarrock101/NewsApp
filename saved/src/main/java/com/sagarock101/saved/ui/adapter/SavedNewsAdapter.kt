@@ -16,7 +16,7 @@ import com.sagarock101.saved.viewmodel.SavedNewsViewModel
 class SavedNewsAdapter() :
     BaseAdapter<Articles>() {
 
-    var onItemClick: ((ImageView, TextView, Articles) -> Unit)? = null
+    var onItemClick: ((ImageView, TextView, TextView, Articles) -> Unit)? = null
     var viewModel: SavedNewsViewModel? = null
     var tracker: SelectionTracker<Articles>? = null
 
