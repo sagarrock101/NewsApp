@@ -292,7 +292,8 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
 
     override fun onDestroy() {
         aboutDialogFragment = null
-        themeDialogFragment?.dismiss()
+        if (themeDialogFragment?.isAdded == true)
+            themeDialogFragment?.dismiss()
         themeDialogFragment = null
         super.onDestroy()
     }
