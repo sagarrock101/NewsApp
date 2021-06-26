@@ -72,6 +72,7 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, SavedNewsViewM
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        adapter = SavedNewsAdapter()
     }
 
     override fun initView(view: View) {
@@ -145,15 +146,15 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, SavedNewsViewM
 
     private fun setupRvWithAdapter() {
         var extras: FragmentNavigator.Extras?
-        adapter = SavedNewsAdapter()
         adapter.apply {
             viewModel = this@SavedFragment.viewModel
-        }?.onItemClick = { imageView, textView, data ->
+        }?.onItemClick = { newsImgView, newsTitleTextView, newsSourceTextView, data ->
             val directions =
                 SavedFragmentDirections.actionSavedFragmentToSavedNewsDetailFragment(data)
             extras = FragmentNavigatorExtras(
-                imageView to ViewCompat.getTransitionName(imageView)!!,
-                textView to ViewCompat.getTransitionName(textView)!!
+                newsImgView to ViewCompat.getTransitionName(newsImgView)!!,
+                newsTitleTextView to ViewCompat.getTransitionName(newsTitleTextView)!!,
+                newsSourceTextView to ViewCompat.getTransitionName(newsSourceTextView)!!
             )
 
             if (!selectionTracker?.hasSelection()!!) {
@@ -251,8 +252,8 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, SavedNewsViewM
         actionMode?.finish()
         removeItemTouchHelperFromRecyclerView()
         binding.rvSavedNews.layoutManager = null
+        binding.rvSavedNews.adapter = null
         adapter?.onItemClick = null
-        adapter = null
         super.onDestroyView()
     }
 
