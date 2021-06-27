@@ -135,6 +135,8 @@
                             app:textLikeNewsPaper="@{article.description}"
                             android:textColor="?attr/textColor"
                             android:textSize="@dimen/_16ssp"
+                            android:maxLines="4"
+                            android:ellipsize="end"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -148,6 +150,8 @@
                             android:text="@{Utils.truncateExtra(article.content)}"
                             android:textColor="?attr/textColor"
                             android:textSize="@dimen/_16ssp"
+                            android:maxLines="12"
+                            android:ellipsize="end"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/tv_desc" />

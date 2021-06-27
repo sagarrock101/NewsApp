@@ -9,14 +9,13 @@ import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
-import leakcanary.LeakCanary
 import javax.inject.Inject
 
 class MyApplication: DaggerApplication(), HasAndroidInjector {
 
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
-//
+
     override fun androidInjector() = dispatchingAndroidInjector
 
     override fun onCreate() {

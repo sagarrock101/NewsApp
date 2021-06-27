@@ -124,6 +124,7 @@ class SearchDetailFragment :
     private fun startEnterTransitionAfterLoadingImage() {
         binding.result = args.searchedResult
         binding.tvTitle.transitionName = args?.searchedResult?.webTitle ?: ""
+        binding.tvPublishedDate.transitionName = args.searchedResult.sectionName + " " + args.searchedResult.webPublicationDate
         binding.ivNewsImg.apply {
             transitionName = args?.searchedResult?.fields?.thumbnail ?: ""
             args.searchedResult?.fields?.thumbnail.let {
@@ -156,11 +157,6 @@ class SearchDetailFragment :
     private fun saveArticle() {
         args.searchedResult?.let {
             articles?.let { it1 ->
-//                try {
-//                    it1.publishedAt = DateUtils.getCurrentTimeStamp()
-//                } catch (e: Exception) {
-//                    Utils.showToast(requireContext(), "${e.message}")
-//                }
                 viewModel.insertNews(it1)
             }
             showSnack("Saved")
