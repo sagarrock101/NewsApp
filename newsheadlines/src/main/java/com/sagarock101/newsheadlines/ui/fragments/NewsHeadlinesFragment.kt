@@ -216,6 +216,7 @@ class NewsHeadlinesFragment :
         binding.rvNews.layoutManager = null
         binding.rvNews.adapter = null
         adapter?.onItemClick = null
+        adapter = null
         super.onDestroyView()
     }
 
