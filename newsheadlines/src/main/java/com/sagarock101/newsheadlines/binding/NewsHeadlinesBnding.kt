@@ -36,6 +36,28 @@ fun setItems(listView: RecyclerView, items: List<Any>?) {
 
 @BindingAdapter("app:imgSrc")
 fun ImageView.setImage(url: String?) {
+    val listener = object : RequestListener<Drawable> {
+        override fun onLoadFailed(
+            e: GlideException?,
+            model: Any?,
+            target: Target<Drawable>?,
+            isFirstResource: Boolean
+        ): Boolean {
+            tag = R.drawable.ic_news
+            return false
+        }
+
+        override fun onResourceReady(
+            resource: Drawable?,
+            model: Any?,
+            target: Target<Drawable>?,
+            dataSource: DataSource?,
+            isFirstResource: Boolean
+        ): Boolean {
+            return false
+        }
+
+    }
     val requestOptions = RequestOptions()
     requestOptions.apply {
         transform(
@@ -43,16 +65,20 @@ fun ImageView.setImage(url: String?) {
         )
     }
     url?.let {
+        tag = R.drawable.ic_atom
         Glide.with(context).load(it)
+            .listener(listener)
             .apply(requestOptions.placeholder(R.drawable.ic_news))
             .dontAnimate()
             .into(this)
 
     } ?: kotlin.run {
+        tag = R.drawable.ic_news
         Glide.with(context).load(R.drawable.ic_news)
             .dontAnimate()
             .into(this)
     }
+
 }
 
 fun ImageView.startTransitionAfterImageLoad(url: String, onFinished: () -> Unit) {
