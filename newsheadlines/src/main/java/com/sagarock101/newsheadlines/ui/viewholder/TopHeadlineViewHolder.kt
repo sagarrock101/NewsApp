@@ -5,11 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.ViewCompat
 import com.sagarock101.core.utils.Utils.setOnSingleClickListener
 import com.sagarock101.core.viewholder.BaseViewHolder
 import com.sagarock101.newsheadlines.databinding.ItemNewsCardBinding
 import com.sagarock101.database.model.Articles
+import com.sagarock101.newsheadlines.R
 import com.sagarock101.newsheadlines.viewmodel.NewsViewModel
 
 class TopHeadlineViewHolder(val binding: ItemNewsCardBinding)
@@ -22,8 +25,10 @@ class TopHeadlineViewHolder(val binding: ItemNewsCardBinding)
         ViewCompat.setTransitionName(binding.ivNewsImg, item.urlToImage ?: "")
         ViewCompat.setTransitionName(binding.tvTitle, item.title)
         itemView.setOnSingleClickListener(View.OnClickListener {
+            if((binding.ivNewsImg.tag as Int) != R.drawable.ic_news) {
                 onItemClick?.invoke(binding.ivNewsImg, binding.tvTitle, item)
                 viewModel?.checkIfSaved(item)
+            }
         }, 2000)
     }
 
