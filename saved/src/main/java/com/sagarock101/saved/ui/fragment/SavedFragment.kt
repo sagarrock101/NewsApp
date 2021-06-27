@@ -147,7 +147,7 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, SavedNewsViewM
     private fun setupRvWithAdapter() {
         var extras: FragmentNavigator.Extras?
         adapter.apply {
-            viewModel = this@SavedFragment.viewModel
+            this?.viewModel = this@SavedFragment.viewModel
         }?.onItemClick = { newsImgView, newsTitleTextView, newsSourceTextView, data ->
             val directions =
                 SavedFragmentDirections.actionSavedFragmentToSavedNewsDetailFragment(data)
@@ -181,7 +181,7 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, SavedNewsViewM
 
     private fun setupSelectorTracker() {
         if(selectionTracker == null) {
-            selectionTracker = SelectionTracker.Builder<Articles>(
+             selectionTracker = SelectionTracker.Builder<Articles>(
                 "mySelection",
                 binding.rvSavedNews,
                 MyItemKeyProvider(listOfSavedArticles!!),
@@ -197,9 +197,11 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, SavedNewsViewM
                     vibrator.let {
                         it.vibrate(50)
                     }
-                    items = selectionTracker?.selection!!
+                    selectionTracker?.selection?.let {
+                        items = it
+                    }
                     updateMenuTitle(items?.size())
-                    if (selectionTracker?.hasSelection()!!) {
+                    if (selectionTracker?.hasSelection() == true) {
                         setupActionMode()
                         removeItemTouchHelperFromRecyclerView()
                     } else {
@@ -254,11 +256,12 @@ class SavedFragment : BaseViewModelFragment<FragmentSavedBinding, SavedNewsViewM
         binding.rvSavedNews.layoutManager = null
         binding.rvSavedNews.adapter = null
         adapter?.onItemClick = null
+        adapter?.viewModel = null
+        selectionTracker = null
         super.onDestroyView()
     }
 
     override fun onDestroy() {
-        selectionTracker = null
         super.onDestroy()
     }
 
