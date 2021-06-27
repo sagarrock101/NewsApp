@@ -15,7 +15,7 @@ import com.sagarock101.search.ui.viewholder.SearchResultsViewHolder
 class SearchResultsAdapter() :
     BaseAdapter<Results>() {
 
-    var onItemClick: ((ImageView, TextView, Results) -> Unit)? = null
+    var onItemClick: ((ImageView, TextView, TextView, Results) -> Unit)? = null
 
     override fun getLayoutId(position: Int, obj: Results) = R.layout.item_search_result
 

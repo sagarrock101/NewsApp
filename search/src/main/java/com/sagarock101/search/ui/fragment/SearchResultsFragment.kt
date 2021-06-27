@@ -122,14 +122,15 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
 
     private fun setListItemClickListner() {
         var extras: FragmentNavigator.Extras?
-        searchListAdapter.onItemClick = { imageView, textView, data ->
+        searchListAdapter.onItemClick = { newsImageView, newsDetailsTextview, newsPublicatoinDateTV, data ->
             val directions =
                 SearchResultsFragmentDirections.actionSearchResultsFragmentToSearchDetailFragment(
                     data
                 )
             extras = FragmentNavigatorExtras(
-                imageView to ViewCompat.getTransitionName(imageView)!!,
-                textView to ViewCompat.getTransitionName(textView)!!
+                newsImageView to ViewCompat.getTransitionName(newsImageView)!!,
+                newsDetailsTextview to ViewCompat.getTransitionName(newsDetailsTextview)!!,
+                newsPublicatoinDateTV to ViewCompat.getTransitionName(newsPublicatoinDateTV)!!
             )
 //            viewModel.lastSelectedChipId = binding.chipGroup.checkedChipId
             findNavController().navigate(

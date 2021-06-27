@@ -13,25 +13,23 @@ import com.sagarock101.search.model.SearchResults
 
 class SearchResultsViewHolder(private val binding: ItemSearchResultBinding)
     : BaseViewHolder<Results>(binding) {
-    var onItemClick: ((ImageView, TextView, Results) -> Unit)? = null
-//    var viewModel: NewsViewModel? = null
+    var onItemClick: ((ImageView, TextView, TextView, Results) -> Unit)? = null
     var item: Results? = null
     override fun bind(item: Results) {
         binding.searchResult = item
         this.item = item
-//        binding.viewModel = viewModel
         ViewCompat.setTransitionName(binding.ivNewsImg, item.fields.thumbnail ?: "")
         ViewCompat.setTransitionName(binding.tvTitle, item.webTitle)
+        ViewCompat.setTransitionName(binding.tvSource, item.sectionName + " " + item.webPublicationDate)
         itemView.setOnClickListener {
-            onItemClick?.invoke(binding.ivNewsImg, binding.tvTitle, item)
-//            viewModel?.checkIfSaved(item)
+            onItemClick?.invoke(binding.ivNewsImg, binding.tvTitle, binding.tvSource, item)
         }
     }
 
     companion object {
         fun from(
             parent: ViewGroup,
-            onItemClick: ((ImageView, TextView, Results) -> Unit)? = null
+            onItemClick: ((ImageView, TextView, TextView, Results) -> Unit)? = null
 //            ,
 //            viewModel: NewsViewModel? = null
             ): BaseViewHolder<Results> {
