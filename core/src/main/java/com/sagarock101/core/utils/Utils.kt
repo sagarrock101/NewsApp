@@ -72,10 +72,6 @@ object Utils {
         var spannableString = SpannableString(strToChange)
         if (size != 0f)
             spannableString.setSpan(RelativeSizeSpan(size), start, end, 0)
-//        spannableString.setSpan(
-//            ForegroundColorSpan(context.resources.getColor(color)),
-//            start, end, 0
-//        )
         return spannableString
     }
 

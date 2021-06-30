@@ -1,10 +1,12 @@
 package com.sagarock101.database.model
 
 import android.os.Parcelable
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 import java.sql.Timestamp
 
+@Keep
 @Parcelize
 data class Results (
 

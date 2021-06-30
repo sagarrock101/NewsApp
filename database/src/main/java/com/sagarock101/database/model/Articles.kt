@@ -1,6 +1,7 @@
 package com.sagarock101.database.model
 
 import android.os.Parcelable
+import androidx.annotation.Keep
 import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -20,6 +21,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
+@Keep
 @Entity
 @Parcelize
 data class Articles(

@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.View
+import android.view.View.GONE
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -175,6 +176,10 @@ fun TextView.getFormattedDate(unFormattedDate: Timestamp) {
 
 @BindingAdapter("app:textLikeNewsPaper")
 fun TextView.bindTextLikeNewsText(desc: String?) {
+    if(desc?.isEmpty() == true) {
+        visibility = GONE
+        return
+    }
     text = desc?.let {
         Utils.getSpannable(this.context,
             it, 2f, R.color.black, 0, 1)
