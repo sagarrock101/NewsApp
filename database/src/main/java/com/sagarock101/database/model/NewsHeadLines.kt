@@ -1,5 +1,6 @@
 package com.sagarock101.database.model
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 import com.sagarock101.database.model.Articles
 
@@ -14,7 +15,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
-
+@Keep
 data class NewsHeadLines (
 
 	@SerializedName("status") val status : String,

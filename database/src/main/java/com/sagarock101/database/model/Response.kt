@@ -1,7 +1,9 @@
 package com.sagarock101.database.model
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
+@Keep
 data class Response (
 
 	@SerializedName("status") val status : String,
