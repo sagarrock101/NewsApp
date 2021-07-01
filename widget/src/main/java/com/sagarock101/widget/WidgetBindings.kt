@@ -136,6 +136,10 @@ fun View.rotateFab(rotate: Boolean): Boolean {
 
 @BindingAdapter("app:textLikeNewsPaper")
 fun TextView.bindTextLikeNewsText(desc: String?) {
+    if(desc.isNullOrEmpty()) {
+        visibility = View.GONE
+        return
+    }
     text = desc?.let {
         Utils.getSpannable(this.context,
             it, 2f, R.color.black, 0, 1)

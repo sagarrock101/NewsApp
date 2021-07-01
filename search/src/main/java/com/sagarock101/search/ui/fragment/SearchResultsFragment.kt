@@ -77,7 +77,7 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
         viewModel = injectViewModel(viewModelFactory)
         with(binding) {
             ivClose.setOnClickListener(this@SearchResultsFragment)
-            ivSearchIcon.setOnClickListener(this@SearchResultsFragment)
+            ivSearchIconRipple.setOnClickListener(this@SearchResultsFragment)
             vm = viewModel
             lifecycleOwner = this@SearchResultsFragment
             etSearch.textChanges()
@@ -220,7 +220,7 @@ class SearchResultsFragment : BaseViewModelFragment<FragmentSearchBinding, Searc
                 binding.root.visibility = View.GONE
                 activity?.onBackPressed()
             }
-            binding.ivSearchIcon -> {
+            binding.ivSearchIconRipple -> {
                 speechRecognizer?.startListening(getRecognizerIntent())
             }
         }
