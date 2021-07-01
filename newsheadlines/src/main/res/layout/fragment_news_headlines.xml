@@ -97,7 +97,7 @@
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_science"
                     style="@style/MyChip"
-                    android:layout_width="@dimen/_80sdp"
+                    android:layout_width="@dimen/_100sdp"
                     android:layout_height="@dimen/_45sdp"
                     android:text="@string/science"
                     android:textColor="?attr/textColor"
