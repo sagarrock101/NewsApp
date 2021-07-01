@@ -29,7 +29,7 @@
         <ImageView
             android:id="@+id/iv_foreground"
             android:layout_width="0dp"
-            android:layout_height="@dimen/_500sdp"
+            android:layout_height="0dp"
             android:layout_margin="@dimen/_8sdp"
             android:background="@drawable/white_bg_rounded"
             app:layout_constraintTop_toTopOf="parent"
@@ -94,14 +94,32 @@
                     android:layout_height="wrap_content"
                     android:clickable="true"
                     android:focusable="true"
-                    android:gravity="center_horizontal"
+                    android:gravity="center"
                     android:linksClickable="true"
                     android:text="@string/about_desc"
                     android:textColor="?attr/textColor"
                     android:textSize="20sp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_about_heading" />
+
+                <TextView
+                    android:id="@+id/tv_news_publisher_contact"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="?attr/textColor"
+                    android:textSize="20sp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="left"
+                    android:linksClickable="true"
+                    android:text="@string/news_publisher_information"
+                    app:layout_constraintTop_toBottomOf="@id/tv_desc"
+                    app:layout_constraintStart_toStartOf="@id/tv_desc"
+                    app:layout_constraintEnd_toEndOf="@id/tv_desc"
+
+                    />
 
                 <Button
                     android:id="@+id/btn_ok"
@@ -110,7 +128,7 @@
                     android:layout_marginBottom="4dp"
                     android:text="@string/ok"
                     android:textAllCaps="false"
-                    app:layout_constraintTop_toBottomOf="@id/tv_desc"
+                    app:layout_constraintTop_toBottomOf="@id/tv_news_publisher_contact"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
