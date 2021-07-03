@@ -10,4 +10,11 @@
 9        android:targetSdkVersion="30" />
 9-->C:\Users\Embibe\AndroidStudioProjects\NewsApp\stylekit\src\main\AndroidManifest.xml
 10
-11</manifest>
+11    <application>
+11-->C:\Users\Embibe\AndroidStudioProjects\NewsApp\stylekit\src\main\AndroidManifest.xml:5:5-7:19
+12        <activity android:name="com.sagarock101.AboutActivity" />
+12-->C:\Users\Embibe\AndroidStudioProjects\NewsApp\stylekit\src\main\AndroidManifest.xml:6:9-66
+12-->C:\Users\Embibe\AndroidStudioProjects\NewsApp\stylekit\src\main\AndroidManifest.xml:6:19-63
+13    </application>
+14
+15</manifest>

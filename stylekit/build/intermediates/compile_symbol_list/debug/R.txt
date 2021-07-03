@@ -2532,6 +2532,7 @@ int drawable bg_circular_drawable_with_news 0x0
 int drawable bg_long_press_highlighter 0x0
 int drawable bg_menu_dark 0x0
 int drawable bg_menu_light 0x0
+int drawable bg_mic_ripple 0x0
 int drawable bg_semi_transparent_layer 0x0
 int drawable black_rounded_bg 0x0
 int drawable btm_nav_selector 0x0
@@ -2552,6 +2553,7 @@ int drawable design_snackbar_background 0x0
 int drawable ic_atom 0x0
 int drawable ic_baseline_add_24 0x0
 int drawable ic_baseline_arrow_back_24 0x0
+int drawable ic_baseline_arrow_back_with_theme_color_changes 0x0
 int drawable ic_baseline_arrow_forward_ios_24 0x0
 int drawable ic_baseline_bookmark_24 0x0
 int drawable ic_baseline_bookmark_24_black 0x0
@@ -2589,6 +2591,8 @@ int drawable ic_science 0x0
 int drawable ic_suitcase 0x0
 int drawable ic_technology 0x0
 int drawable ic_theater 0x0
+int drawable launcher_screen_dark 0x0
+int drawable launcher_screen_light 0x0
 int drawable material_cursor_drawable 0x0
 int drawable material_ic_calendar_black_24dp 0x0
 int drawable material_ic_clear_black_24dp 0x0
@@ -2762,6 +2766,7 @@ int id cos 0x0
 int id counterclockwise 0x0
 int id custom 0x0
 int id customPanel 0x0
+int id custom_app_bar 0x0
 int id cut 0x0
 int id dataBinding 0x0
 int id date_picker_actions 0x0
@@ -2833,7 +2838,7 @@ int id invisible 0x0
 int id inward 0x0
 int id italic 0x0
 int id item_touch_helper_previous_elevation 0x0
-int id iv_bg 0x0
+int id iv_back 0x0
 int id iv_foreground 0x0
 int id iv_holder 0x0
 int id iv_image 0x0
@@ -3061,9 +3066,9 @@ int id transition_position 0x0
 int id transition_scene_layoutid_cache 0x0
 int id transition_transform 0x0
 int id triangle 0x0
-int id tv_about_heading 0x0
 int id tv_choose_theme 0x0
 int id tv_desc 0x0
+int id tv_news_publisher_contact 0x0
 int id tv_news_title 0x0
 int id tv_no_internet 0x0
 int id tv_no_saved_item 0x0
@@ -3149,6 +3154,7 @@ int layout abc_search_dropdown_item_icons_2line 0x0
 int layout abc_search_view 0x0
 int layout abc_select_dialog_material 0x0
 int layout abc_tooltip 0x0
+int layout activity_about 0x0
 int layout custom_app_bar 0x0
 int layout custom_dialog 0x0
 int layout design_bottom_navigation_item 0x0
@@ -3169,7 +3175,6 @@ int layout design_text_input_password_icon 0x0
 int layout design_text_input_start_icon 0x0
 int layout dp_example 0x0
 int layout dynamic_feature_install_fragment 0x0
-int layout fragment_about_dialog 0x0
 int layout fragment_dialog_theme 0x0
 int layout layout_no_network 0x0
 int layout layout_no_saved_item 0x0
@@ -3380,6 +3385,7 @@ int string mtrl_picker_toggle_to_text_input_mode 0x0
 int string mtrl_picker_toggle_to_year_selection 0x0
 int string nav_app_bar_navigate_up_description 0x0
 int string nav_app_bar_open_drawer_description 0x0
+int string news_publisher_information 0x0
 int string newsapp 0x0
 int string no_internet_connection_found_n_check_your_internet_connection 0x0
 int string no_saved_item 0x0
@@ -3640,7 +3646,6 @@ int style CardView_Dark 0x0
 int style CardView_Light 0x0
 int style DarkTheme 0x0
 int style DarkThemeDialog 0x0
-int style DefaultTheme 0x0
 int style EmptyTheme 0x0
 int style LightTheme 0x0
 int style LightThemeDialog 0x0
@@ -4148,6 +4153,8 @@ int style Widget_MaterialComponents_Toolbar_PrimarySurface 0x0
 int style Widget_MaterialComponents_Toolbar_Surface 0x0
 int style Widget_MaterialComponents_Tooltip 0x0
 int style Widget_Support_CoordinatorLayout 0x0
+int style WindowSplashDark 0x0
+int style WindowSplashLight 0x0
 int style actionOverflowButtonStyle 0x0
 int style ripple_glow_with_padding_silver 0x0
 int style ripple_glow_with_padding_white 0x0

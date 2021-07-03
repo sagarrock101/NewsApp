@@ -8,4 +8,8 @@
         android:minSdkVersion="21"
         android:targetSdkVersion="30" />
 
+    <application>
+        <activity android:name="com.sagarock101.AboutActivity" />
+    </application>
+
 </manifest>

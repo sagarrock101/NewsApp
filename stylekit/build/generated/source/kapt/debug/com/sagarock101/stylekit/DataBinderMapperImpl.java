@@ -6,8 +6,8 @@ import android.view.View;
 import androidx.databinding.DataBinderMapper;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import com.sagarock101.stylekit.databinding.ActivityAboutBindingImpl;
 import com.sagarock101.stylekit.databinding.CustomAppBarBindingImpl;
-import com.sagarock101.stylekit.databinding.FragmentAboutDialogBindingImpl;
 import com.sagarock101.stylekit.databinding.FragmentDialogThemeBindingImpl;
 import com.sagarock101.stylekit.databinding.LayoutNoNetworkBindingImpl;
 import com.sagarock101.stylekit.databinding.LayoutNoSavedItemBindingImpl;
@@ -23,9 +23,9 @@ import java.util.HashMap;
 import java.util.List;
 
 public class DataBinderMapperImpl extends DataBinderMapper {
-  private static final int LAYOUT_CUSTOMAPPBAR = 1;
+  private static final int LAYOUT_ACTIVITYABOUT = 1;
 
-  private static final int LAYOUT_FRAGMENTABOUTDIALOG = 2;
+  private static final int LAYOUT_CUSTOMAPPBAR = 2;
 
   private static final int LAYOUT_FRAGMENTDIALOGTHEME = 3;
 
@@ -38,8 +38,8 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(6);
 
   static {
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.sagarock101.stylekit.R.layout.activity_about, LAYOUT_ACTIVITYABOUT);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.sagarock101.stylekit.R.layout.custom_app_bar, LAYOUT_CUSTOMAPPBAR);
-    INTERNAL_LAYOUT_ID_LOOKUP.put(com.sagarock101.stylekit.R.layout.fragment_about_dialog, LAYOUT_FRAGMENTABOUTDIALOG);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.sagarock101.stylekit.R.layout.fragment_dialog_theme, LAYOUT_FRAGMENTDIALOGTHEME);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.sagarock101.stylekit.R.layout.layout_no_network, LAYOUT_LAYOUTNONETWORK);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.sagarock101.stylekit.R.layout.layout_no_saved_item, LAYOUT_LAYOUTNOSAVEDITEM);
@@ -55,17 +55,17 @@ public class DataBinderMapperImpl extends DataBinderMapper {
         throw new RuntimeException("view must have a tag");
       }
       switch(localizedLayoutId) {
+        case  LAYOUT_ACTIVITYABOUT: {
+          if ("layout/activity_about_0".equals(tag)) {
+            return new ActivityAboutBindingImpl(component, view);
+          }
+          throw new IllegalArgumentException("The tag for activity_about is invalid. Received: " + tag);
+        }
         case  LAYOUT_CUSTOMAPPBAR: {
           if ("layout/custom_app_bar_0".equals(tag)) {
             return new CustomAppBarBindingImpl(component, view);
           }
           throw new IllegalArgumentException("The tag for custom_app_bar is invalid. Received: " + tag);
-        }
-        case  LAYOUT_FRAGMENTABOUTDIALOG: {
-          if ("layout/fragment_about_dialog_0".equals(tag)) {
-            return new FragmentAboutDialogBindingImpl(component, view);
-          }
-          throw new IllegalArgumentException("The tag for fragment_about_dialog is invalid. Received: " + tag);
         }
         case  LAYOUT_FRAGMENTDIALOGTHEME: {
           if ("layout/fragment_dialog_theme_0".equals(tag)) {
@@ -149,8 +149,8 @@ public class DataBinderMapperImpl extends DataBinderMapper {
     static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(6);
 
     static {
+      sKeys.put("layout/activity_about_0", com.sagarock101.stylekit.R.layout.activity_about);
       sKeys.put("layout/custom_app_bar_0", com.sagarock101.stylekit.R.layout.custom_app_bar);
-      sKeys.put("layout/fragment_about_dialog_0", com.sagarock101.stylekit.R.layout.fragment_about_dialog);
       sKeys.put("layout/fragment_dialog_theme_0", com.sagarock101.stylekit.R.layout.fragment_dialog_theme);
       sKeys.put("layout/layout_no_network_0", com.sagarock101.stylekit.R.layout.layout_no_network);
       sKeys.put("layout/layout_no_saved_item_0", com.sagarock101.stylekit.R.layout.layout_no_saved_item);

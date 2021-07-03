@@ -16,7 +16,8 @@ public class CustomAppBarBindingImpl extends CustomAppBarBinding  {
         sViewsWithIds = new android.util.SparseIntArray();
         sViewsWithIds.put(R.id.app_bar, 1);
         sViewsWithIds.put(R.id.toolbar, 2);
-        sViewsWithIds.put(R.id.toolbar_title, 3);
+        sViewsWithIds.put(R.id.iv_back, 3);
+        sViewsWithIds.put(R.id.toolbar_title, 4);
     }
     // views
     // variables
@@ -25,14 +26,15 @@ public class CustomAppBarBindingImpl extends CustomAppBarBinding  {
     // Inverse Binding Event Handlers
 
     public CustomAppBarBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 4, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 5, sIncludes, sViewsWithIds));
     }
     private CustomAppBarBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
             , (com.google.android.material.appbar.AppBarLayout) bindings[1]
             , (androidx.constraintlayout.widget.ConstraintLayout) bindings[0]
+            , (android.widget.ImageView) bindings[3]
             , (androidx.appcompat.widget.Toolbar) bindings[2]
-            , (android.widget.TextView) bindings[3]
+            , (android.widget.TextView) bindings[4]
             );
         this.clAppBar.setTag(null);
         setRootTag(root);

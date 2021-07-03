@@ -4,6 +4,7 @@ package com.sagarock101.stylekit.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,16 +25,21 @@ public abstract class CustomAppBarBinding extends ViewDataBinding {
   public final ConstraintLayout clAppBar;
 
   @NonNull
+  public final ImageView ivBack;
+
+  @NonNull
   public final Toolbar toolbar;
 
   @NonNull
   public final TextView toolbarTitle;
 
   protected CustomAppBarBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      AppBarLayout appBar, ConstraintLayout clAppBar, Toolbar toolbar, TextView toolbarTitle) {
+      AppBarLayout appBar, ConstraintLayout clAppBar, ImageView ivBack, Toolbar toolbar,
+      TextView toolbarTitle) {
     super(_bindingComponent, _root, _localFieldCount);
     this.appBar = appBar;
     this.clAppBar = clAppBar;
+    this.ivBack = ivBack;
     this.toolbar = toolbar;
     this.toolbarTitle = toolbarTitle;
   }

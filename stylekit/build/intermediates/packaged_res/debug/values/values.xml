@@ -24,7 +24,7 @@
     <color name="white_dull">#DADADA</color>
     <item format="float" name="card_vertical_constraint_bias" type="dimen">0.38</item>
     <string name="about">About</string>
-    <string name="about_desc">This is a Demo Application which is built with kotlin and Android Jetpack Components and has a multi modularized project structure \nThe data is fetched from The <a href="https://newsapi.org/">NewsApi</a> and <a href="https://open-platform.theguardian.com/documentation/">The Guardian</a> API \nlogo design by <a href="https://www.linkedin.com/in/sanjana-rao-n-30a27182/">Sanjana</a> and \nApp by<a href="https://www.linkedin.com/in/sagar-n-250b2119b/"> Sagar </a>\n\n This app has a widget to.</string>
+    <string name="about_desc">This is a Demo Application which is built with kotlin and Android Jetpack Components and has a multi modularized project structure \nThe News is fetched from The <a href="https://newsapi.org/">https://newsapi.org/</a> and <a href="https://open-platform.theguardian.com/documentation/">https://open-platform.theguardian.com</a> API \n This app has a widget to.\n</string>
     <string name="all">all</string>
     <string name="app_name">NewsInCards</string>
     <string name="business">business</string>
@@ -38,6 +38,7 @@
     <string name="img_url">imgUrl</string>
     <string name="india">in</string>
     <string name="light_theme">Light</string>
+    <string name="news_publisher_information"><b>Contact Information of the News Publishers</b> \n\n1.NewsApi email: <b>support@newsapi.org</b> \n\n2. Guardian News \n email: <b>enjoli.liston@theguardian.com </b></string>
     <string name="newsapp">NewsInCards</string>
     <string name="no_internet_connection_found_n_check_your_internet_connection">No Internet Connection found. \n Check your Internet Connection</string>
     <string name="no_saved_item">All caught up!</string>
@@ -91,7 +92,7 @@
         <item name="actionOverflowButtonStyle">@style/actionOverflowButtonStyle</item>
         <item name="android:windowDisablePreview">@drawable/ic_news</item>
         <item name="btmBgColor">@android:color/black</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowBackground">@drawable/ic_news_cards_rounded</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:itemBackground">@drawable/bg_menu_dark</item>
         <item name="android:textColor">@android:color/white</item>
@@ -102,10 +103,7 @@
         <item name="android:windowBackground">@android:color/black</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
-    <style name="DefaultTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-
-    </style>
-    <style name="LightTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="LightTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorDarkPrimary_Light</item>
@@ -120,9 +118,9 @@
         <item name="textColor">@android:color/black</item>
         <item name="bgColor">@color/white_dull</item>
         <item name="btmIconAndTextColor">@color/colorPrimary</item>
-        <item name="android:windowDisablePreview">@drawable/ic_news</item>
+        <item name="android:windowDisablePreview">true</item>
         <item name="btmBgColor">@color/white</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowBackground">@null</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:itemBackground">@drawable/bg_menu_dark</item>
@@ -156,27 +154,35 @@
         <item name="android:textSize">16sp</item>
     </style>
     <style name="Theme.NewsApp" parent="Theme.MaterialComponents.NoActionBar">
-        <!-- Primary brand color. -->
+        
         <item name="windowActionModeOverlay">true</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryVariant">@color/colorDarkPrimary_Light</item>
         <item name="colorOnPrimary">@color/purple</item>
-        <!-- Secondary brand color. -->
+        
         <item name="colorSecondary">@color/colorSecondary</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/purple</item>
-        <!-- Status bar color. -->
+        
         <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        
     </style>
     <style name="Theme.Transparent" parent="Theme.MaterialComponents.Light.NoActionBar">
-<!--        <item name="android:windowIsTranslucent">true</item>-->
-<!--        <item name="android:statusBarColor">@android:color/transparent</item>-->
-<!--        <item name="android:windowBackground">@android:color/transparent</item>-->
+        <!--        <item name="android:windowIsTranslucent">true</item>-->
+        <!--        <item name="android:statusBarColor">@android:color/transparent</item>-->
+        <!--        <item name="android:windowBackground">@android:color/transparent</item>-->
     </style>
     <style name="Widget.App.Snackbar" parent="Widget.MaterialComponents.Snackbar.FullWidth">
         <item name="animationMode">slide</item>
         <item name="android:layout_margin">12dp</item>
+    </style>
+    <style name="WindowSplashDark" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowBackground">@drawable/launcher_screen_dark</item>
+    </style>
+    <style name="WindowSplashLight" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowBackground">@drawable/launcher_screen_light</item>
     </style>
     <style name="actionOverflowButtonStyle" parent="@style/Widget.AppCompat.ActionButton.Overflow">
         <item name="android:tint">?attr/textColor</item>
@@ -196,7 +202,8 @@
     <style name="ripple_glow_with_theme_color_control">
         <item name="android:clickable">true</item>
         <item name="android:padding">10dp</item>
-        <item name="android:background">@drawable/ripple_bg_with_theme_primary_as_color_control</item>
+        <item name="android:background">@drawable/ripple_bg_with_theme_primary_as_color_control
+        </item>
         <item name="android:focusable">true</item>
     </style>
 </resources>

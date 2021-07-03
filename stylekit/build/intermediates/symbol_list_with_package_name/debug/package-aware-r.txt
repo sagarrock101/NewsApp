@@ -2533,6 +2533,7 @@ drawable bg_circular_drawable_with_news
 drawable bg_long_press_highlighter
 drawable bg_menu_dark
 drawable bg_menu_light
+drawable bg_mic_ripple
 drawable bg_semi_transparent_layer
 drawable black_rounded_bg
 drawable btm_nav_selector
@@ -2553,6 +2554,7 @@ drawable design_snackbar_background
 drawable ic_atom
 drawable ic_baseline_add_24
 drawable ic_baseline_arrow_back_24
+drawable ic_baseline_arrow_back_with_theme_color_changes
 drawable ic_baseline_arrow_forward_ios_24
 drawable ic_baseline_bookmark_24
 drawable ic_baseline_bookmark_24_black
@@ -2590,6 +2592,8 @@ drawable ic_science
 drawable ic_suitcase
 drawable ic_technology
 drawable ic_theater
+drawable launcher_screen_dark
+drawable launcher_screen_light
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
@@ -2763,6 +2767,7 @@ id cos
 id counterclockwise
 id custom
 id customPanel
+id custom_app_bar
 id cut
 id dataBinding
 id date_picker_actions
@@ -2834,7 +2839,7 @@ id invisible
 id inward
 id italic
 id item_touch_helper_previous_elevation
-id iv_bg
+id iv_back
 id iv_foreground
 id iv_holder
 id iv_image
@@ -3062,9 +3067,9 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
-id tv_about_heading
 id tv_choose_theme
 id tv_desc
+id tv_news_publisher_contact
 id tv_news_title
 id tv_no_internet
 id tv_no_saved_item
@@ -3150,6 +3155,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_about
 layout custom_app_bar
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -3170,7 +3176,6 @@ layout design_text_input_password_icon
 layout design_text_input_start_icon
 layout dp_example
 layout dynamic_feature_install_fragment
-layout fragment_about_dialog
 layout fragment_dialog_theme
 layout layout_no_network
 layout layout_no_saved_item
@@ -3381,6 +3386,7 @@ string mtrl_picker_toggle_to_text_input_mode
 string mtrl_picker_toggle_to_year_selection
 string nav_app_bar_navigate_up_description
 string nav_app_bar_open_drawer_description
+string news_publisher_information
 string newsapp
 string no_internet_connection_found_n_check_your_internet_connection
 string no_saved_item
@@ -3641,7 +3647,6 @@ style CardView_Dark
 style CardView_Light
 style DarkTheme
 style DarkThemeDialog
-style DefaultTheme
 style EmptyTheme
 style LightTheme
 style LightThemeDialog
@@ -4149,6 +4154,8 @@ style Widget_MaterialComponents_Toolbar_PrimarySurface
 style Widget_MaterialComponents_Toolbar_Surface
 style Widget_MaterialComponents_Tooltip
 style Widget_Support_CoordinatorLayout
+style WindowSplashDark
+style WindowSplashLight
 style actionOverflowButtonStyle
 style ripple_glow_with_padding_silver
 style ripple_glow_with_padding_white
