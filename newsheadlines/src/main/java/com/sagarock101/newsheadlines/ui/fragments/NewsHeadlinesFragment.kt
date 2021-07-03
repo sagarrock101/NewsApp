@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import android.view.ViewTreeObserver
 import androidx.core.view.ViewCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -37,8 +38,10 @@ class NewsHeadlinesFragment :
 
     private lateinit var snapHelper: SnapHelper
     private var snapOnScrollListener: SnapOnScrollListener? = null
+    private var preDrawListener: ViewTreeObserver.OnPreDrawListener? = null
+
     private var prevCheckedId: Int? = null
-    
+
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
@@ -100,7 +103,7 @@ class NewsHeadlinesFragment :
     }
 
     private fun setUpSnapToRv() {
-        if(snapOnScrollListener == null) {
+        if (snapOnScrollListener == null) {
             snapHelper.attachToRecyclerView(binding.rvNews)
             snapOnScrollListener = SnapOnScrollListener(snapHelper, this)
             binding.shimmer.startShimmer()
@@ -140,14 +143,15 @@ class NewsHeadlinesFragment :
     }
 
     private fun postponeRvTransition() {
+        preDrawListener = ViewTreeObserver.OnPreDrawListener {
+            startPostponedEnterTransition()
+            true
+        }
         binding.rvNews.apply {
             adapter = this@NewsHeadlinesFragment.adapter
             postponeEnterTransition()
             viewTreeObserver
-                .addOnPreDrawListener {
-                    startPostponedEnterTransition()
-                    true
-                }
+                .addOnPreDrawListener(preDrawListener)
         }
         binding.indicator.attachToRecyclerView(binding.rvNews)
 
@@ -217,6 +221,7 @@ class NewsHeadlinesFragment :
         binding.rvNews.adapter = null
         adapter?.onItemClick = null
         adapter = null
+        preDrawListener = null
         super.onDestroyView()
     }
 
@@ -229,7 +234,7 @@ class NewsHeadlinesFragment :
     private fun hideNoWifiMsg() {
 //        callApiForOnlyAllChipSelected()
         if (binding.chipAll.isChecked) {
-            if(adapter?.listItems?.size!! <= 0)
+            if (adapter?.listItems?.size!! <= 0)
                 viewModel.getNewsHeadLines()
         }
 

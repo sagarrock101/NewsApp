@@ -17,8 +17,7 @@ import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.sagarock101.AboutDialogFragment
-import com.sagarock101.FragmentDialogTheme
+import com.sagarock101.*
 import com.sagarock101.common.AppConstants
 import com.sagarock101.core.utils.MyAnimationUtils.enterFabReveal
 import com.sagarock101.core.utils.MyAnimationUtils.exitFabReveal
@@ -38,7 +37,6 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
 
     private var themeSelected: Int? = null
     private var themeDialogFragment: FragmentDialogTheme? = null
-    private var aboutDialogFragment: AboutDialogFragment? = null
     lateinit var binding: ActivityMainBinding
     private var isNetworkActive = true
 
@@ -49,8 +47,7 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
 
     private var themeName: Int? = null
 
-    private val LIGHT_THEME = com.sagarock101.stylekit.R.style.LightTheme
-    private val DARK_THEME = com.sagarock101.stylekit.R.style.DarkTheme
+
 
 
     @Inject
@@ -63,13 +60,13 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         themeDialogFragment = FragmentDialogTheme()
-        aboutDialogFragment = AboutDialogFragment()
         setupSharedPreferences()
         setupTheme()
         changeStatusBarBasedOnTheme()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         setSupportActionBar(binding.customAppBar.toolbar)
         supportActionBar?.title = getString(R.string.empty)
+        binding.customAppBar.ivBack.visibility = View.GONE
         binding.btmNav.setupWithNavController(navController)
         createDialog()
     }
@@ -237,7 +234,8 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
     }
 
     private fun showAboutDialog() {
-        aboutDialogFragment?.show(supportFragmentManager, "About")
+//        aboutDialogFragment?.show(supportFragmentManager, "About")
+        startActivity(Intent(this, AboutActivity::class.java))
     }
 
     override fun isNetworkActive(isActive: Boolean) {
@@ -291,7 +289,6 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener,
     }
 
     override fun onDestroy() {
-        aboutDialogFragment = null
         if (themeDialogFragment?.isAdded == true)
             themeDialogFragment?.dismiss()
         themeDialogFragment = null
