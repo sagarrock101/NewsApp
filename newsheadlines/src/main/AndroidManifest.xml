@@ -2,4 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sagarock101.newsheadlines">
 
+    <application>
+        <activity android:name=".ui.AboutActivity" />
+    </application>
 </manifest>

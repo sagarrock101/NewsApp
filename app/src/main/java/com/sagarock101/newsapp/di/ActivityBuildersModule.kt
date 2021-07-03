@@ -1,6 +1,7 @@
 package com.sagarock101.newsapp.di
 
 import com.sagarock101.categories.di.SourcesFragmentBuildersModule
+import com.sagarock101.newsapp.ui.activities.AboutActivity
 import com.sagarock101.newsapp.ui.activities.MainActivity
 import com.sagarock101.newsheadlines.di.FragmentBuildersModule
 import com.sagarock101.saved.di.SavedFragmentsBuildersModule
@@ -16,4 +17,6 @@ abstract class ActivityBuildersModule {
         SourcesFragmentBuildersModule::class])
     abstract fun contributeMainActivity(): MainActivity
 
+    @ContributesAndroidInjector
+    abstract fun contributeAboutActivity(): AboutActivity
 }

@@ -38,6 +38,7 @@
             android:name="com.sagarock101.widget.WidgetItemDetailActivity"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait" />
+        <activity android:name=".ui.activities.AboutActivity" />
 
         <service
             android:name="com.sagarock101.widget.service.StackWidgetService"
