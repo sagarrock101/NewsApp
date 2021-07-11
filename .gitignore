@@ -14,3 +14,16 @@
 .cxx
 local.properties
 /.idea/misc.xml
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+
+.navigation
+captures/
+output.json

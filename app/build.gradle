@@ -12,7 +12,7 @@ apply plugin: 'kotlin-kapt'
 android {
     signingConfigs {
         release {
-            storeFile file('C:\\Users\\Embibe\\Documents\\myNewsAppKeystore\\myNewsAppKeystore.jks')
+            storeFile file('/Users/sagarn/Downloads/myNewsAppKeystore/myNewsAppKeystore.jks')
             storePassword '123456'
             keyAlias 'key0'
             keyPassword '123456'
@@ -89,5 +89,6 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:$dagger_version"
 
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+
 
 }

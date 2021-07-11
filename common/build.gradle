@@ -105,4 +105,9 @@ dependencies {
 
     api "ru.tinkoff.scrollingpagerindicator:scrollingpagerindicator:$scrolling_page_indicator_version"
 
+    def work_version = "2.5.0"
+    api "android.arch.work:work-runtime-ktx:$work_version"
+
+    api  "androidx.work:work-runtime-ktx:$work_version"
+
 }

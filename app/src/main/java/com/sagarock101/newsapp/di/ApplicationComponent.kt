@@ -45,7 +45,8 @@ import javax.inject.Singleton
         WidgetViewModelModule::class,
         WidgetBuildersModule::class,
         SavedNewsViewModelModule::class,
-        SavedFragmentsBuildersModule::class
+        SavedFragmentsBuildersModule::class,
+    AppModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<MyApplication> {
