@@ -10,7 +10,7 @@ interface NewsHeadlinesService {
     @GET("top-headlines")
     suspend fun getTopHeadlines(
         @Query("country") country: String
-    ): Response<NewsHeadLines>
+    ): NewsHeadLines
 
     @GET("top-headlines")
     suspend fun getTopHeadlines(

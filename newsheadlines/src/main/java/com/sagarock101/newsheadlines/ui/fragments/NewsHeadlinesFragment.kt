@@ -222,6 +222,8 @@ class NewsHeadlinesFragment :
         adapter?.onItemClick = null
         adapter = null
         preDrawListener = null
+        viewModel.newsHeadLinesLD.removeObservers(this)
+        viewModel.getNewsHeadLines(null)
         super.onDestroyView()
     }
 
@@ -265,7 +267,8 @@ class NewsHeadlinesFragment :
         if ((prevCheckedId == null || prevCheckedId == binding.chipAll.id)
             && (viewModel.lastSelectedChipId == binding.chipAll.id || viewModel.lastSelectedChipId == -1)
         ) {
-            viewModel.getNewsHeadLines()
+//            if(activity.nav)
+//            viewModel.getNewsHeadLines()
         }
     }
 

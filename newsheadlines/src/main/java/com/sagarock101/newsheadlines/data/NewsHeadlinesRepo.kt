@@ -1,17 +1,18 @@
 package com.sagarock101.newsheadlines.data
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.liveData
 import com.sagarock101.core.data.DataWrapper
 import com.sagarock101.core.data.resultLiveData
 import com.sagarock101.database.model.*
 import com.sagarock101.newsheadlines.ApiQueryConstants
 import com.sagarock101.newsheadlines.data.remote.NewsHeadLinesRemoteSource
 import com.sagarock101.newsheadlines.data.remote.SectionRemoteSource
-import kotlinx.coroutines.async
-import kotlinx.coroutines.supervisorScope
-import java.lang.Exception
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlin.Exception
 
 @Singleton
 class NewsHeadlinesRepo @Inject constructor(
@@ -20,10 +21,19 @@ class NewsHeadlinesRepo @Inject constructor(
 ) {
 
     fun getNewsHeadlines(country: String): LiveData<DataWrapper<NewsHeadLines>> {
-        return resultLiveData {
-            remoteSource.getNewsHeadLines(country)
+        return liveData {
+            emit(DataWrapper.loading(null))
+            remoteSource.getNewsHeadLines(country).retry(3) {
+                delay(2000)
+                return@retry true
+            }.catch {
+                emit(DataWrapper.error(it.message.toString()))
+            }.collect {
+                emit(DataWrapper.success(it))
+            }
+            }
         }
-    }
+
 //TODO: need to move hardcoded strings elsewhere
     fun getNewsHeadlines(country: String, category: String): LiveData<DataWrapper<NewsHeadLines>> {
         return resultLiveData {
@@ -91,5 +101,9 @@ class NewsHeadlinesRepo @Inject constructor(
             )
         }
         return mergedList
+    }
+
+    suspend fun provideTopBreadkingNews() = withContext(Dispatchers.IO){
+         remoteSource.getNewsHeadLines("in", "")
     }
 }

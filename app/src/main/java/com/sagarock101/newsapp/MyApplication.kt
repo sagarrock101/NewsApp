@@ -1,7 +1,9 @@
 package com.sagarock101.newsapp
 
 import android.content.Context
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.multidex.MultiDex
 import androidx.work.Configuration
 import androidx.work.ExistingPeriodicWorkPolicy
@@ -43,7 +45,13 @@ class MyApplication: DaggerApplication(), HasAndroidInjector, Configuration.Prov
         }
         AppInjector.init(this)
         delayedInit()
+        if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O)
+            initNotificationChannel(this)
+    }
 
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun initNotificationChannel(myApplication: MyApplication) {
+        NotificationUtils.initializeChannel(myApplication)
     }
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication>? {
@@ -64,16 +72,17 @@ class MyApplication: DaggerApplication(), HasAndroidInjector, Configuration.Prov
     }
 
     private fun startWorker() {
+        val requestWorker = PeriodicWorkRequestBuilder<NewsRequestWorker>(1, TimeUnit.DAYS).build()
         WorkManager.getInstance(applicationContext).enqueueUniquePeriodicWork(
-            this.javaClass.simpleName,
-            ExistingPeriodicWorkPolicy.REPLACE,
-            PeriodicWorkRequestBuilder<NewsRequestWorker>(2, TimeUnit.MINUTES).build()
+            "newsWorker",
+            ExistingPeriodicWorkPolicy.KEEP,
+            requestWorker
         )
     }
 
     override fun getWorkManagerConfiguration(): Configuration {
         Timber.i("worker $workerFactory")
-            Log.i(this.javaClass.simpleName, "worker $workerFactory")
+        Log.i(this.javaClass.simpleName, "worker $workerFactory")
         return Configuration.Builder()
             .setMinimumLoggingLevel(android.util.Log.INFO)
             .setWorkerFactory(workerFactory)

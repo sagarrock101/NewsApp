@@ -44,7 +44,9 @@ class NewsViewModel @Inject constructor() : CoroutineViewModel(Main) {
         }
     }
 
-    fun getNewsHeadLines(type: String = "") {
+    fun getNewsHeadLines(type: String? = "") {
+        if(type == null)
+            return
         if (type.isEmpty()) {
             newsHeadLinesMLD.postValue(
                 ArticleRequest(
